@@ -35,6 +35,7 @@ venv.bak/
 out/
 devices/**/*.img
 devices/**/*.apk
+!devices/**/override/**
 *.log
 *.img
 *.bin
