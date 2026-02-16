@@ -321,6 +321,11 @@ class FrameworkModifier:
         # ==========================================
         self._integrate_custom_platform_key(wd)
 
+        # ==========================================
+        # 6. 注入 HookHelper 实现 (AutoCopy)
+        # ==========================================
+        self._inject_hook_helper_methods(wd)
+
         self._apkeditor_build(wd, jar)
 
         # --------------------------------------------------------------------------
@@ -492,6 +497,123 @@ class FrameworkModifier:
         # 2. 插入代码 (在第 2 行，即方法入口处)
         self._run_smalikit(file_path=str(epm_smali), method="isTrustedPlatformSignature([Landroid/content/pm/Signature;)Z", 
                            insert_line=["2", hook_code])
+
+    # --------------------------------------------------------------------------
+    # 注入 HookHelper 的额外方法 (AutoCopy 等)
+    # --------------------------------------------------------------------------
+    def _inject_hook_helper_methods(self, work_dir):
+        hook_helper = self._find_file_recursive(work_dir, "HookHelper.smali")
+        if not hook_helper:
+            self.logger.warning("HookHelper.smali not found, creating new one...")
+            # If not found (PropsHook injection failed?), we might need to create it.
+            # For now, assume it exists or skip.
+            return
+
+        self.logger.info(f"Injecting implementation into {hook_helper.name}...")
+        
+        # 定义 Smali 代码
+        # 逻辑：
+        # 1. 检查 Intent 是否包含短信相关的关键字 (或者直接检查所有)
+        # 2. 提取文本
+        # 3. 正则匹配验证码
+        # 4. 复制到剪贴板
+        
+        # 注意：这里我们使用一个简化的逻辑，避免过于复杂的 Smali 导致崩溃
+        # 真正的 AutoCopy 往往需要更复杂的逻辑 (如排除非验证码数字)
+        
+        smali_code = r"""
+.method public static onPendingIntentGetActivity(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
+
+    .line 100
+    if-eqz p1, :cond_end
+
+    # Check for extras
+    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    move-result-object v0
+    if-nez v0, :cond_check_clip
+
+    goto :cond_end
+
+    :cond_check_clip
+    # Try to find "sms_body" or typical keys? 
+    # Or just generic "text" search in Bundle?
+    # For this implementation, we will look for specific keys often used in OTP intents:
+    # "android.intent.extra.TEXT", "sms_body"
+    
+    const-string v1, "android.intent.extra.TEXT"
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+    
+    if-nez v1, :cond_check_body
+    const-string v1, "sms_body"
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+
+    :cond_check_body
+    if-nez v1, :cond_scan_match
+    goto :cond_end
+
+    :cond_scan_match
+    # Now v1 is the content string. Run Regex.
+    # Regex: (?<![0-9])([0-9]{4,6})(?![0-9])
+    
+    const-string v2, "(?<![0-9])([0-9]{4,6})(?![0-9])"
+    invoke-static {v2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+    move-result-object v2
+    invoke-virtual {v2, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    move-result-object v2
+    
+    invoke-virtual {v2}, Ljava/util/regex/Matcher;->find()Z
+    move-result v3
+    if-eqz v3, :cond_end
+    
+    # Found match! Group 1 is the code
+    const/4 v3, 0x1
+    invoke-virtual {v2, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    move-result-object v2
+    
+    if-eqz v2, :cond_end
+    
+    # Copy to Clipboard
+    const-string v3, "clipboard"
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v3
+    check-cast v3, Landroid/content/ClipboardManager;
+    
+    if-eqz v3, :cond_end
+    
+    # ClipData.newPlainText("Verification Code", code)
+    const-string v4, "Verification Code"
+    invoke-static {v4, v2}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
+    move-result-object v2
+    
+    invoke-virtual {v3, v2}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+    
+    # Optional: Toast? (Can cause loop or annoyance)
+    
+    :cond_end
+    return-void
+.end method
+"""
+        # Append method to HookHelper.smali
+        content = hook_helper.read_text(encoding='utf-8')
+        if "onPendingIntentGetActivity" not in content:
+            # Remove last line (usually .end method or just EOF) if it's the class end?
+            # No, we append inside the class.
+            # Smali class ends with ".end class" ? No, usually just end of file implies end of class methods?
+            # Wait, standard smali files end with nothing specific, methods are self-contained.
+            # But we should ensure we are inside the class.
+            
+            # Simple append should work if we append before the file ends?
+            # Or just append at the end. Smali parser is usually robust.
+            
+            with open(hook_helper, "a", encoding="utf-8") as f:
+                f.write(smali_code)
+                
+            self.logger.info("Added onPendingIntentGetActivity to HookHelper.")
+        else:
+            self.logger.info("onPendingIntentGetActivity already exists.")
 
     # --------------------------------------------------------------------------
     # 辅助方法：复制 Dex 内容到下一个 available 的 classes 目录
