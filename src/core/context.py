@@ -311,6 +311,11 @@ class PortingContext:
             self.is_ab_device = False
         
         self.logger.info(f"Is AB Device: {self.is_ab_device}")
+
+        # 6. Get Security Patch
+        self.security_patch = self.port.get_prop("ro.build.version.security_patch") or \
+                              self.stock.get_prop("ro.build.version.security_patch") or "Unknown"
+        self.logger.info(f"Security Patch: {self.security_patch}")
     
 
     def get_target_prop_file(self, part_name):

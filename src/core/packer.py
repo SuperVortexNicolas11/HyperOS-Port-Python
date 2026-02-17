@@ -457,11 +457,11 @@ class Repacker:
         # Compute MD5
         md5 = hashlib.md5(open(final_zip_path, 'rb').read()).hexdigest()[:10]
         # Rename to match update-binary expectation: Device_Version_Date_MD5_Type.zip
-        # update-binary uses `cut -d '_' -f 4` to get MD5
-        # So format should be: Part1_Part2_Part3_MD5_Part5.zip
-        # Let's map: Device_Hybrid_Version_MD5_Timestamp.zip
+        # update-binary uses `cut -d '_' -f 5` to get MD5
+        # So format should be: Part1_Part2_Part3_Part4_MD5_Part6.zip
+        # Mapping: Device_Hybrid_Version_SecurityPatch_MD5_Timestamp.zip
         
-        renamed_zip_name = f"{self.ctx.stock_rom_code}_Hybrid_{self.ctx.target_rom_version}_{md5}_{timestamp}.zip"
+        renamed_zip_name = f"{self.ctx.stock_rom_code}_Hybrid_{self.ctx.target_rom_version}_{self.ctx.security_patch}_{md5}_{timestamp}.zip"
         renamed_zip_path = self.out_dir / renamed_zip_name
         final_zip_path.rename(renamed_zip_path)
         
@@ -788,7 +788,7 @@ class Repacker:
             
             md5 = hashlib.md5(open(output_zip, 'rb').read()).hexdigest()[:10]
             
-            final_name = f"{self.ctx.stock_rom_code}-ota_full-{self.ctx.target_rom_version}-{timestamp}-{md5}-{self.ctx.port_android_version}.zip"
+            final_name = f"{self.ctx.stock_rom_code}-ota_full-{self.ctx.target_rom_version}-{self.ctx.security_patch}-{timestamp}-{md5}-{self.ctx.port_android_version}.zip"
             final_path = self.out_dir / final_name
             output_zip.rename(final_path)
             self.logger.info(f"Final OTA Package: {final_path}")

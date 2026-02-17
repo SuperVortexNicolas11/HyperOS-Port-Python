@@ -87,7 +87,8 @@ fi
 if [ "$AdbSideLoad" = "" ]; then
 	ui_print "- 正在校验MD5 - Verifying MD5 checksum."
 	ui_print " "
-	RealMd5=$(echo $ZIPNAME | cut -d '_' -f 4)
+	# MD5 is now the 5th field: Device_Hybrid_Version_Patch_MD5_Time.zip
+	RealMd5=$(echo $ZIPNAME | cut -d '_' -f 5)
 	ui_print " - ROM正确的MD5值为 - The correct MD5 value: $RealMd5"
 	ui_print " "
 	LocalMd5=$(md5sum $ZIPFILE | head -c10)
