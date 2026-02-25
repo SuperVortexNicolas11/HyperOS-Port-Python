@@ -72,6 +72,15 @@
             "type": "copy_local",
             "source": "devices/common/otacerts.zip",
             "target": "otacerts.zip"
+        },
+        {
+            "description": "Camera Sync",
+            "id": "camera_sync",
+            "type": "file",
+            "search_path": "product/priv-app",
+            "match_mode": "exact",
+            "ensure_exists": true,
+            "files": ["MiuiCamera"]
         }
     ]
 }

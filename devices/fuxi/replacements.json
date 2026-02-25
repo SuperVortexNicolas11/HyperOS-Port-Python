@@ -1,17 +1,6 @@
 {
     "replacements": [
         {
-            "id": "fuxi_camera_sync",
-            "description": "Fuxi Camera Apk Sync (Leica Support)",
-            "type": "file",
-            "search_path": "product/priv-app",
-            "match_mode": "exact",
-            "ensure_exists": true,
-            "files": [
-                "MiuiCamera"
-            ]
-        },
-        {
             "id": "fuxi_wild_boost",
             "description": "Fuxi Wild Boost Performance Patch",
             "type": "unzip_override",
