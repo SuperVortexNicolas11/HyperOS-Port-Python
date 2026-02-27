@@ -39,6 +39,7 @@ REPLACEMENTS_SCHEMA: Dict[str, Any] = {
                     "condition_port_android_version": {"type": "integer"},
                     "condition_base_android_version_lt": {"type": "integer"},
                     "condition_base_android_version_gte": {"type": "integer"},
+                    "condition_port_os_version_incremental_gte": {"type": "string"},
                     "condition_port_is_coloros": {"type": "boolean"},
                     "condition_port_is_coloros_global": {"type": "boolean"},
                     "condition_port_is_oos": {"type": "boolean"},

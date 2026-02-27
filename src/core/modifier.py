@@ -84,6 +84,8 @@ class SystemModifier:
         ctx.base_android_version = int(self.ctx.base_android_version)
         ctx.base_device_code = self.ctx.stock_rom_code
         
+        ctx.port_os_version_incremental = self.ctx.port.get_prop("ro.mi.os.version.incremental") or self.ctx.port.get_prop("ro.build.version.incremental", "")
+        
         # HyperOS specific
         ctx.is_port_eu_rom = getattr(self.ctx, "is_port_eu_rom", False)
         
@@ -117,7 +119,7 @@ class SystemModifier:
         
         self._fix_vndk_apex()
         self._fix_vintf_manifest()
-        self._fix_voice_trigger()
+        # self._fix_voice_trigger()
         
         # 7. Apply EU Localization (if enabled/bundle provided)
         if getattr(self.ctx, "is_port_eu_rom", False) and getattr(self.ctx, "eu_bundle", None):
@@ -787,10 +789,22 @@ class SystemModifier:
                 self.logger.error(f"Failed to copy VoiceTrigger: {e}")
                 return
 
-            # 3. Clean up Target Product (Remove Port's VoiceTrigger)
-            if target_product_vt.exists():
-                self.logger.info("Removing conflicting VoiceTrigger from product/app...")
-                shutil.rmtree(target_product_vt)
+            # 3. Clean up Target (Remove any conflicting VoiceTrigger in Port ROM)
+            # Use recursive search to find VoiceTrigger anywhere in product or system_ext
+            for part in ["product", "system_ext", "system"]:
+                part_dir = self.ctx.target_dir / part
+                if not part_dir.exists(): continue
+                
+                for conflict in part_dir.rglob("VoiceTrigger"):
+                    # Don't delete the one we just installed in system_ext/app
+                    if conflict == target_system_ext_vt:
+                        continue
+                        
+                    self.logger.info(f"Removing conflicting VoiceTrigger at {conflict.relative_to(self.ctx.target_dir)}")
+                    if conflict.is_dir():
+                        shutil.rmtree(conflict)
+                    else:
+                        conflict.unlink()
                 
         else:
             self.logger.warning("Stock VoiceTrigger not found in product/app. Skipping fix.")
@@ -1019,6 +1033,32 @@ class FrameworkModifier:
         # 6. 注入 HookHelper 实现 (AutoCopy)
         # ==========================================
         self._inject_hook_helper_methods(wd)
+
+        # [Patch] Fix Face ID / Voice Trigger for A16 (SoundTrigger$RecognitionConfig)
+        if int(self.ctx.port_android_version) >= 16:
+            st_config = self._find_file_recursive(wd, "SoundTrigger$RecognitionConfig.smali")
+            if st_config:
+                self.logger.info(f"Applying VoiceTrigger compatibility patch to {st_config.name}...")
+                content = st_config.read_text(encoding='utf-8', errors='ignore')
+                
+                # 1. Add field if missing
+                field_def = ".field public captureRequested:Z"
+                if field_def not in content:
+                    target_field = ".field private final blacklist mCaptureRequested:Z"
+                    if target_field in content:
+                        content = content.replace(target_field, f"{target_field}\n{field_def}")
+                        st_config.write_text(content, encoding='utf-8')
+                        self.logger.info("  -> Added field captureRequested")
+                
+                # 2. Add assignment in constructor
+                constructor_sig = "<init>(ZZ[Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionExtra;[BI)V"
+                old_iput = "iput-boolean p1, p0, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;->mCaptureRequested:Z"
+                
+                self._run_smalikit(
+                    file_path=str(st_config),
+                    method=constructor_sig,
+                    after_line=[old_iput, "iput-boolean p1, p0, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;->captureRequested:Z"]
+                )
 
         self._apkeditor_build(wd, jar)
 

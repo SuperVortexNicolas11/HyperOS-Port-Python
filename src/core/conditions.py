@@ -6,6 +6,7 @@ Implements a flexible, extensible condition evaluation system.
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
+from packaging.version import parse as parse_version
 
 
 class BuildContext:
@@ -21,6 +22,7 @@ class BuildContext:
         self.port_android_version: int = 0
         self.base_android_version: int = 0
         self.port_rom_version: str = ""
+        self.port_os_version_incremental: str = ""
         
         # Region and chipset info
         self.base_regionmark: str = ""
@@ -96,6 +98,20 @@ class SimpleConditionStrategy(ConditionStrategy):
         if cond_not_region is not None and ctx.base_regionmark == cond_not_region:
             return False
         
+        # Port OS Version Incremental Greater Than or Equal
+        cond_port_os_v_gte = rule.get("condition_port_os_version_incremental_gte")
+        if cond_port_os_v_gte is not None and ctx.port_os_version_incremental:
+            try:
+                # Remove common prefix like 'OS' for parsing if present
+                v1 = str(ctx.port_os_version_incremental).replace("OS", "", 1)
+                v2 = str(cond_port_os_v_gte).replace("OS", "", 1)
+                if parse_version(v1) < parse_version(v2):
+                    return False
+            except Exception:
+                # Fallback to string comparison
+                if str(ctx.port_os_version_incremental) < str(cond_port_os_v_gte):
+                    return False
+
         # Port ROM Version
         cond_port_rom_v = rule.get("condition_port_rom_version")
         if cond_port_rom_v is not None and cond_port_rom_v not in str(ctx.port_rom_version):
