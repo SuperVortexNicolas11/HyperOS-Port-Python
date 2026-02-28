@@ -7,6 +7,9 @@ class AssetDownloader:
     def __init__(self, repo="toraidl/HyperOS-Port-Python", tag="assets"):
         self.repo = repo
         self.tag = tag
+        # Use a mirror if you are in a region with poor GitHub connectivity
+        # Example: 'https://mirror.ghproxy.com/'
+        self.mirror_url = "" 
         self.base_url = f"https://github.com/{repo}/releases/download/{tag}"
         self.logger = logging.getLogger("Downloader")
 
@@ -43,37 +46,51 @@ class AssetDownloader:
             return True
 
         asset_name = self._get_asset_name(local_path)
-        url = f"{self.base_url}/{asset_name}"
         
-        self.logger.info(f"File missing: {local_path.name}, attempting to download from {url}...")
+        # Apply mirror if set
+        if self.mirror_url:
+            url = f"{self.mirror_url.rstrip('/')}/{self.base_url}/{asset_name}"
+        else:
+            url = f"{self.base_url}/{asset_name}"
         
-        try:
-            local_path.parent.mkdir(parents=True, exist_ok=True)
-            response = requests.get(url, stream=True, timeout=30)
-            
-            if response.status_code == 200:
-                total_size = int(response.headers.get('content-length', 0))
-                downloaded = 0
+        # Attempt standard download with a few retries
+        max_retries = 2
+        for attempt in range(max_retries + 1):
+            try:
+                self.logger.info(f"Downloading: {asset_name} (Attempt {attempt+1}/{max_retries+1})...")
+                local_path.parent.mkdir(parents=True, exist_ok=True)
                 
-                with open(local_path, 'wb') as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        if chunk:
-                            f.write(chunk)
-                            downloaded += len(chunk)
-                            # Simple progress log for large files
-                            if total_size > 1024 * 1024 and downloaded % (1024 * 1024 * 5) < 8192:
-                                self.logger.info(f"  Downloaded: {downloaded // (1024*1024)}MB / {total_size // (1024*1024)}MB")
+                # Use a common User-Agent
+                headers = {'User-Agent': 'Mozilla/5.0'}
+                response = requests.get(url, stream=True, timeout=60, headers=headers)
                 
-                self.logger.info(f"Successfully downloaded: {local_path.name}")
-                return True
-            elif response.status_code == 404:
-                self.logger.warning(f"Asset not found on GitHub: {asset_name}")
-            else:
-                self.logger.error(f"Failed to download (HTTP {response.status_code})")
+                if response.status_code == 200:
+                    total_size = int(response.headers.get('content-length', 0))
+                    downloaded = 0
+                    
+                    with open(local_path, 'wb') as f:
+                        for chunk in response.iter_content(chunk_size=8192):
+                            if chunk:
+                                f.write(chunk)
+                                downloaded += len(chunk)
+                                if total_size > 1024 * 1024 and downloaded % (1024 * 1024 * 5) < 8192:
+                                    self.logger.info(f"  Downloaded: {downloaded // (1024*1024)}MB / {total_size // (1024*1024)}MB")
+                    
+                    self.logger.info(f"Successfully downloaded: {local_path.name}")
+                    return True
+                elif response.status_code == 404:
+                    self.logger.warning(f"Asset not found on GitHub: {asset_name}")
+                    return False
+                else:
+                    self.logger.error(f"Failed to download (HTTP {response.status_code})")
+                    
+            except Exception as e:
+                self.logger.error(f"Error during download attempt {attempt+1}: {e}")
+                if local_path.exists():
+                    local_path.unlink()
                 
-        except Exception as e:
-            self.logger.error(f"Error during download: {e}")
-            if local_path.exists():
-                local_path.unlink() # Cleanup partial download
-                
+                if attempt == max_retries:
+                    if not self.mirror_url:
+                        self.logger.info("Tip: Try setting a mirror URL in AssetDownloader if network is unstable.")
+        
         return False
