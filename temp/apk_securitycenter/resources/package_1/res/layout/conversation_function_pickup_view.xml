@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<com.miui.gamebooster.beauty.conversation.view.PickupView android:orientation="vertical"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-  <include layout="@layout/conversation_second_titlebar" />
-  <androidx.recyclerview.widget.RecyclerView android:id="@id/pickup_list"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" />
-</com.miui.gamebooster.beauty.conversation.view.PickupView>

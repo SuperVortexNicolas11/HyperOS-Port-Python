@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<LinearLayout android:background="@android:color/transparent"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:importantForAccessibility="no" xmlns:android="http://schemas.android.com/apk/res/android">
-  <View android:layout_width="fill_parent"
-        android:layout_height="@dimen/applock_main_btn_corner" />
-</LinearLayout>

@@ -1,9 +1,0 @@
-signature,file,startline,startcol,endline,endcol,properties
-Landroid/companion/FeatureFlagsImpl;->associationDeviceIcon()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,8,5,8,25,
-Landroid/companion/FeatureFlagsImpl;->associationFailureCode()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,15,5,15,25,
-Landroid/companion/FeatureFlagsImpl;->associationTag()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,22,5,22,25,
-Landroid/companion/FeatureFlagsImpl;->devicePresence()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,29,5,29,25,
-Landroid/companion/FeatureFlagsImpl;->newAssociationBuilder()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,36,5,36,25,
-Landroid/companion/FeatureFlagsImpl;->ongoingPermSync()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,43,5,43,25,
-Landroid/companion/FeatureFlagsImpl;->permSyncUserConsent()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,50,5,50,25,
-Landroid/companion/FeatureFlagsImpl;->unpairAssociatedDevice()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/FeatureFlagsImpl.java,57,5,57,25,

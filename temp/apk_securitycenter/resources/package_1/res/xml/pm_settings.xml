@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-  <CheckBoxPreference android:title="@string/pc_install_manager"
-                      android:key="@string/preference_key_permcenter_install_intercept_enabled"
-                      android:summary="@string/monitor_requests_from_pc" />
-</PreferenceScreen>

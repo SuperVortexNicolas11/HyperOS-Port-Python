@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-  <dimen name="wifi_nearby_padding_start">72.0dp</dimen>
-  <dimen name="wifi_saved_preference_margin">43.0dp</dimen>
-  <dimen name="wifi_spinner_title_margin">72.0dp</dimen>
-</resources>

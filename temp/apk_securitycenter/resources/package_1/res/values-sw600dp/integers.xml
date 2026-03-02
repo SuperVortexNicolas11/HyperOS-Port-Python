@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-  <integer name="count_all_apps">7</integer>
-  <integer name="design_snackbar_text_max_lines">1</integer>
-  <integer name="gd_app_edit_quick_default_count">7</integer>
-  <integer name="gd_app_edit_rv_column_count">7</integer>
-</resources>

@@ -1,2 +1,0 @@
-signature,file,startline,startcol,endline,endcol,properties
-Lcom/android/settings/media_drm/Flags;->forceL3Enabled()Z,out/soong/.intermediates/packages/apps/MiuiSettingsAosp/aconfig/MediaDrmSettingsFlagsLib/android_common/javac/srcjars/com/android/settings/media_drm/Flags.java,11,5,11,25,

@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/pc_battery_detail_usage_percent_color" />
-  <corners android:radius="@dimen/pc_battery_statics_rank_progress_height" />
-</shape>

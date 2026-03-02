@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="@dimen/view_dimen_66"
-        android:width="@dimen/view_dimen_66"
-        android:viewportWidth="25.0"
-        android:viewportHeight="24.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$gameturbo_hdr_button__0"
-        android:pathData="M2.318,4V20H19.773L20.864,18.909L22.682,17.091V4H2.318ZM10.675,7.081L8.494,7.808V13.091V16.919L10.675,16.192V13.091H14.325V16.919L16.506,16.192V10.909V10.909V7.081L14.325,7.808V10.909H10.675V7.081Z"
-        android:fillType="evenOdd" />
-</vector>

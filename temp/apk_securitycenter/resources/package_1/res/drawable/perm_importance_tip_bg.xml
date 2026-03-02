@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <corners android:radius="@dimen/tips_radius" />
-  <solid android:color="@color/install_confirm_bg_blue_color" />
-</shape>

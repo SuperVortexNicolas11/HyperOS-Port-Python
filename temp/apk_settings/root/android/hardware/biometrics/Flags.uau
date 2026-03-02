@@ -1,9 +1,0 @@
-signature,file,startline,startcol,endline,endcol,properties
-Landroid/hardware/biometrics/Flags;->addKeyAgreementCryptoObject()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,25,5,25,25,
-Landroid/hardware/biometrics/Flags;->customBiometricPrompt()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,32,5,32,25,
-Landroid/hardware/biometrics/Flags;->effectiveUserBp()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,39,5,39,25,
-Landroid/hardware/biometrics/Flags;->getOpIdCryptoObject()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,46,5,46,25,
-Landroid/hardware/biometrics/Flags;->identityCheckApi()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,53,5,53,25,
-Landroid/hardware/biometrics/Flags;->mandatoryBiometrics()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,60,5,60,25,
-Landroid/hardware/biometrics/Flags;->privateSpaceBp()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,67,5,67,25,
-Landroid/hardware/biometrics/Flags;->screenOffUnlockUdfps()Z,out/soong/.intermediates/frameworks/base/android.hardware.biometrics.flags-aconfig-java/android_common/javac/srcjars/android/hardware/biometrics/Flags.java,74,5,74,25,

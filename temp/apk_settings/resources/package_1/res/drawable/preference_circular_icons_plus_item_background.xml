@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="oval" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
-  <size android:height="@dimen/zen_mode_circular_icon_diameter"
-        android:width="@dimen/zen_mode_circular_icon_diameter" />
-  <solid android:color="@android:color/primary_text_focused_holo_dark" />
-</shape>

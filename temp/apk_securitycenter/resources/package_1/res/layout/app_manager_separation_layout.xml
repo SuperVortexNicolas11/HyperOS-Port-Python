@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<View android:layout_gravity="center_vertical"
-      android:background="@color/app_manager_line_bg_color"
-      android:layout_width="fill_parent"
-      android:layout_height="@dimen/am_line_height"
-      android:layout_marginTop="@dimen/applock_unlock_dialog_smile_margin_top"
-      android:layout_marginBottom="@dimen/applock_unlock_dialog_smile_margin_top"
-      android:layout_marginStart="@dimen/am_main_page_margin_se"
-      android:layout_marginEnd="@dimen/am_main_page_margin_se" xmlns:android="http://schemas.android.com/apk/res/android" />

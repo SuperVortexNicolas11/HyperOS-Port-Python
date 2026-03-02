@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:state_selected="true"
-        android:color="@color/color_mix_match_tab_selected" />
-  <item android:state_enabled="false"
-        android:color="@color/color_mix_match_trusted_tab_normal" />
-  <item android:color="@color/color_mix_match_trusted_tab_normal" />
-</selector>

@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-  <CheckBoxPreference android:title="@string/privacy_input_mode"
-                      android:key="key_privacy_input_mode"
-                      android:summary="@string/privacy_input_mode_img_detail" />
-</PreferenceScreen>

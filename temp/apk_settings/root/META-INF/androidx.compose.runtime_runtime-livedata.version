@@ -1,1 +1,0 @@
-task ':compose:runtime:runtime-livedata:writeVersionFile' property 'version'

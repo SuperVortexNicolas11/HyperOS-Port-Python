@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen android:title="@string/widgets_on_lockscreen_title"
-                  android:key="widgets_on_lockscreen" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
-  <com.android.settingslib.miuisettings.preference.Preference android:title="@string/when_to_auto_show_hubmode_title"
-                        android:key="when_to_start"
-                        android:fragment="com.android.settings.communal.WhenToStartHubPicker"
-                        settings:controller="com.android.settings.communal.WhenToStartHubPreferenceController" />
-</PreferenceScreen>

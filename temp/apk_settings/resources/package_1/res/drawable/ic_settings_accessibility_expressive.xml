@@ -1,3 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<com.android.settings.widget.TintDrawable android:tint="@color/homepage_accessibility_foreground"
-                      android:drawable="@drawable/ic_settings_accessibility_filled" xmlns:android="http://schemas.android.com/apk/res/android" />

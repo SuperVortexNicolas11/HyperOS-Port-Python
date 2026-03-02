@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-  <dimen name="biometric_auth_pattern_view_size">348.0dp</dimen>
-  <dimen name="wifi_edit_card_margin">20.0dp</dimen>
-</resources>

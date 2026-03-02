@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<com.miui.packageInstaller.view.RoundImageView android:id="@id/pic"
-                      android:layout_width="fill_parent"
-                      android:layout_height="@dimen/dp_194"
-                      android:layout_marginStart="@dimen/dp_22"
-                      android:layout_marginEnd="@dimen/dp_22"
-                      app:round_corner="@dimen/dp_10" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

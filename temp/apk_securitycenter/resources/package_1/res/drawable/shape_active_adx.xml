@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <stroke android:width="@dimen/view_dimen_1"
-          android:color="@color/vtb_main_ad_x" />
-  <corners android:radius="@dimen/view_dimen_30" />
-</shape>

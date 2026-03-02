@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<LinearLayout android:gravity="center_vertical"
-              android:orientation="horizontal"
-              android:layout_width="fill_parent"
-              android:layout_height="@dimen/view_dimen_122" xmlns:android="http://schemas.android.com/apk/res/android">
-  <View android:background="@color/app_manager_line_bg_color"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/view_dimen_2" />
-</LinearLayout>

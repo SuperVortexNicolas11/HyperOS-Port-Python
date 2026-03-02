@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="14.0dp"
-        android:width="@dimen/battery_health_bg_width"
-        android:viewportWidth="146.0"
-        android:viewportHeight="14.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$ic_health_level_bg0__0"
-        android:pathData="M0,7C0,3.13 3.13,0 7,0H145.75V14H7C3.13,14 0,10.87 0,7Z" />
-</vector>

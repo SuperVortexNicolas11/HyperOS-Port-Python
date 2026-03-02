@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<androidx.appcompat.widget.AppCompatImageView android:gravity="center"
-                      android:layout_gravity="center|end"
-                      android:id="@id/arrow_right"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      app:srcCompat="@drawable/miuix_appcompat_intent_arrow_right" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

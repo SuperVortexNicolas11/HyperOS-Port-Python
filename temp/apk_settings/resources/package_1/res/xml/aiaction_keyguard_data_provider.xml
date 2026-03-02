@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<actions>
-  <action deploy-property="static"
-          execution="background"
-          sync-flag="0"
-          sync-timeout="1000"
-          type="urn:aiot-spec-v3:com.mi.phones:action:[com.android.settings/keyguard/jumpkeyguard]:0:1.0" />
-</actions>

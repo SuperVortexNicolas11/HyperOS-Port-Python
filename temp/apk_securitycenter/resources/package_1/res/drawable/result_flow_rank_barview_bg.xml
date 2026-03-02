@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/flow_rank_bar_bg" />
-  <corners android:topLeftRadius="@dimen/dp_4"
-           android:topRightRadius="@dimen/dp_4"
-           android:bottomLeftRadius="0.0dp"
-           android:bottomRightRadius="0.0dp" />
-</shape>

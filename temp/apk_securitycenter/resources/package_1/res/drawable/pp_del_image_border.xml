@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="#00000000" />
-  <stroke android:width="@dimen/pp_preference_big_image_bg_borders_width"
-          android:color="#1a000000" />
-  <corners android:radius="@dimen/pp_activity_del_img_intercept_img_item_radius" />
-</shape>

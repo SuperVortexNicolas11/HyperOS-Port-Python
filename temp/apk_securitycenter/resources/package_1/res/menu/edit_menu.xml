@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:icon="@drawable/pc_delete_icon"
-        android:id="@id/delete_all_menu"
-        android:title="@string/delete_all_sms"
-        android:showAsAction="ifRoom" />
-</menu>

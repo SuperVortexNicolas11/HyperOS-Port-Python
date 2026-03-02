@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary.Preference"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/icon_created_settings_preference" xmlns:android="http://schemas.android.com/apk/res/android" />

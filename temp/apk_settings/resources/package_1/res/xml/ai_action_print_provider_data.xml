@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<actions>
-  <action deploy-property="static"
-          execution="background"
-          sync-flag="1"
-          sync-timeout="1000"
-          type="urn:aiot-spec-v3:com.mi.phones:action:[com.android.settings/print/open_print_settings]:0:1.0" />
-</actions>

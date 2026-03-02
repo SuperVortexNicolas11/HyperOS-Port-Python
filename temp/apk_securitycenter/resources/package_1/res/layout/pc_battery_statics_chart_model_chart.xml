@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<com.miui.powercenter.batteryhistory.BatteryLevelChart android:id="@id/chart"
-                      android:focusable="false"
-                      android:clipChildren="false"
-                      android:clipToPadding="false"
-                      android:layout_width="fill_parent"
-                      android:layout_height="@dimen/pc_battery_statics_chart_height"
-                      android:importantForAccessibility="no" xmlns:android="http://schemas.android.com/apk/res/android" />

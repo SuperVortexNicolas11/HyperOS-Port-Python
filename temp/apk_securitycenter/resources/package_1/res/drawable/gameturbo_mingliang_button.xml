@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="@dimen/view_dimen_66"
-        android:width="@dimen/view_dimen_66"
-        android:viewportWidth="66.0"
-        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$gameturbo_mingliang_button__0"
-        android:pathData="M5,11V55H53L56,52L61,47V11H5ZM36,40H26L24,46H40L42,40V30H30V26H40L42,20H26L24,26V36H30H36V40Z"
-        android:fillType="evenOdd" />
-</vector>

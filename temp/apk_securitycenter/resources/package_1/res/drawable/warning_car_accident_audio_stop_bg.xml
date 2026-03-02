@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/car_accident_auto_call_float_bg" />
-  <corners android:radius="@dimen/dp_100" />
-</shape>

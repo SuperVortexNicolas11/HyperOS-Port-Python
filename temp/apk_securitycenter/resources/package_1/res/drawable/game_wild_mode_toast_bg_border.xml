@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <stroke android:width="@dimen/dp_1"
-          android:color="@color/game_toolbox_wild_mode_toast_theme_color" />
-  <size android:height="@dimen/game_toolbox_wild_mode_toast_height"
-        android:width="@dimen/game_toolbox_wild_mode_toast_width" />
-  <corners android:radius="@dimen/game_toolbox_wild_mode_toast_radius" />
-</shape>

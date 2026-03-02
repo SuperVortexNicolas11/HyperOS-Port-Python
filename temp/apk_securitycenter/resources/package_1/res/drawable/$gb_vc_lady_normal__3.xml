@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<gradient android:startColor="@color/gb_voice_change_icon_def_start"
-          android:endColor="@color/gb_voice_change_icon_def_end"
-          android:angle="0.0"
-          android:type="linear"
-          android:startX="33.0"
-          android:startY="4.0"
-          android:endX="33.0"
-          android:endY="59.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" />

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-  <corners android:radius="@dimen/ew_monitor_card_radius_18" />
-  <gradient android:startColor="#ff6438"
-            android:endColor="#ff8251"
-            android:angle="0.0" />
-</shape>

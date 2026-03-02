@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="@dimen/view_dimen_66"
-        android:width="@dimen/view_dimen_66"
-        android:viewportWidth="66.0"
-        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$gameturbo_xianyan_button__0"
-        android:pathData="M5,55V11H61V47L56,52L53,55H5ZM23,20H45V44L39,46V26H36V39L30,41V26H27V43L21,45V26L23,20Z"
-        android:fillType="evenOdd" />
-</vector>

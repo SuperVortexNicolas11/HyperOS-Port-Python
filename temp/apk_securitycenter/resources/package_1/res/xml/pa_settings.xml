@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-  <com.miui.permcenter.settings.model.NoCardNoClickEffectPreference app:layout="@layout/pa_settings_banner" />
-  <com.miui.permcenter.permissions.NoClickTextPreference android:title="@string/warningcenter_policeassist_open_title"
-                        android:summary="@string/warningcenter_policeassist_open_content" />
-  <miuix.preference.CommentPreference android:text="@string/warningcenter_policeassist_charge_tips"
-                        android:key="comment" />
-</androidx.preference.PreferenceScreen>

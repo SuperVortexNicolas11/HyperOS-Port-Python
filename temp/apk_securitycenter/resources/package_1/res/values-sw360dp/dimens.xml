@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-  <dimen name="bottom_btn_w">336.0dp</dimen>
-  <dimen name="storage_btn_with">@dimen/dp_336</dimen>
-  <dimen name="storage_column_shadow_w">128.0dp</dimen>
-  <dimen name="storage_list_ms">28.0dp</dimen>
-  <dimen name="storage_ui_w">@dimen/dp_121</dimen>
-</resources>

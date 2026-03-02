@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:state_selected="true"
-        android:color="@color/app_manager_size_compat_icon_pressed" />
-  <item android:state_selected="false"
-        android:color="@color/gb_gamemode_settings_item_indictor_color" />
-</selector>

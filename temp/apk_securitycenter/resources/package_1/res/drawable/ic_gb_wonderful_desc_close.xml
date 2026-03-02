@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="@dimen/dp_25"
-        android:width="@dimen/dp_25"
-        android:viewportWidth="25.0"
-        android:viewportHeight="25.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$ic_gb_wonderful_desc_close__0"
-        android:pathData="M12.418,10.298L6.248,4.127L4.194,6.181L10.365,12.351L4.07,18.646L6.123,20.699L12.418,14.404L18.567,20.553L20.62,18.5L14.471,12.351L20.496,6.327L18.442,4.273L12.418,10.298Z"
-        android:fillType="evenOdd" />
-</vector>

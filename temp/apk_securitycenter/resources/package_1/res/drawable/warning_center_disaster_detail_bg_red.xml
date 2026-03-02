@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-  <gradient android:startColor="@color/wc_disaster_card_red_1"
-            android:endColor="@color/wc_disaster_card_red_2"
-            android:angle="0.0"
-            android:type="linear" />
-</shape>

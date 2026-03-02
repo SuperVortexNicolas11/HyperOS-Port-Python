@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/lucky_item_setting_pressed" />
-  <stroke android:color="@color/lucky_item_setting_pressed" />
-  <corners android:topLeftRadius="@dimen/dp_0"
-           android:topRightRadius="@dimen/dp_0"
-           android:bottomLeftRadius="@dimen/na_list_card_radius"
-           android:bottomRightRadius="@dimen/na_list_card_radius" />
-</shape>

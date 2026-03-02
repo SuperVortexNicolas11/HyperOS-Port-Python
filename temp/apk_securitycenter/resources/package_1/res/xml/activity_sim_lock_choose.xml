@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-  <miuix.preference.TextPreference android:enabled="false"
-                        android:key="sim_0"
-                        app:isPreferenceVisible="false" />
-  <miuix.preference.TextPreference android:enabled="false"
-                        android:key="sim_1"
-                        app:isPreferenceVisible="false" />
-</PreferenceScreen>

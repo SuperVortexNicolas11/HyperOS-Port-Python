@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen android:title="@string/mouse_keys"
-                  android:key="mouse_key_main_page" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
-  <com.android.settingslib.widget.MainSwitchPreference android:title="@string/mouse_keys_main_title"
-                        android:key="mouse_keys_main_switch"
-                        settings:controller="com.android.settings.inputmethod.KeyboardAccessibilityMouseKeysController" />
-  <com.android.settingslib.widget.LayoutPreference android:layout="@layout/mouse_keys_image_list"
-                        android:key="mouse_keys_list" />
-</PreferenceScreen>

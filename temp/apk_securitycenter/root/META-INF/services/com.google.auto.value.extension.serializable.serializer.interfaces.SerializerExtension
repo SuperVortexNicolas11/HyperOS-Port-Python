@@ -1,3 +1,0 @@
-com.google.auto.value.extension.serializable.serializer.impl.ImmutableListSerializerExtension
-com.google.auto.value.extension.serializable.serializer.impl.ImmutableMapSerializerExtension
-com.google.auto.value.extension.serializable.serializer.impl.OptionalSerializerExtension

@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-  <item>
-    <shape>
-      <solid android:color="@color/sensitive_permission_item_bg" />
-      <corners android:radius="16.0dp" />
-    </shape>
-  </item>
-</layer-list>

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-  <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/wifi_protection_settings_title"
-                        android:key="wifi_protection_checkbox" />
-  <miuix.preference.CommentPreference android:layout="@layout/wifi_protection_settings_tip_preference_layout"
-                        android:key="wifi_protection_tip" />
-</PreferenceScreen>

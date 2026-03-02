@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-  <item>
-    <shape android:shape="rectangle">
-      <solid android:color="@color/miuix_recyclerview_card_item_press_fg_color_light" />
-      <corners android:radius="@dimen/miuix_preference_navigation_item_mask_radius" />
-    </shape>
-  </item>
-</layer-list>

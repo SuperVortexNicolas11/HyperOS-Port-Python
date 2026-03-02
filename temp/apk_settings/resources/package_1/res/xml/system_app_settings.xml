@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen android:key="sys_app" xmlns:android="http://schemas.android.com/apk/res/android">
-  <PreferenceCategory android:key="sys_app_initial_category" />
-</PreferenceScreen>

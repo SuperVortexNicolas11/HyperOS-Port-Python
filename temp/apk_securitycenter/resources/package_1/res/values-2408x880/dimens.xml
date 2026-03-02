@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-  <dimen name="network_no_sim_son_panel_padding">55.0dp</dimen>
-  <dimen name="network_no_sim_son_panel_size">143.0dp</dimen>
-</resources>

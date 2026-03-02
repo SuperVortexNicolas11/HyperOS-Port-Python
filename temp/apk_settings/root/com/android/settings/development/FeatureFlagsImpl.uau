@@ -1,2 +1,0 @@
-signature,file,startline,startcol,endline,endcol,properties
-Lcom/android/settings/development/FeatureFlagsImpl;->deprecateListActivity()Z,out/soong/.intermediates/packages/apps/MiuiSettingsAosp/aconfig/development_settings_flag_lib/android_common/javac/srcjars/com/android/settings/development/FeatureFlagsImpl.java,8,5,8,25,

@@ -1,2 +1,0 @@
-signature,file,startline,startcol,endline,endcol,properties
-Lcom/android/miuisettingslib/widget/selectorwithwidgetpreference/flags/Flags;->allowSetTitleMaxLines()Z,out/soong/.intermediates/packages/apps/MiuiSettingsLib/SelectorWithWidgetPreference/miuisettingslib_selectorwithwidgetpreference_flags_lib/android_common/javac/srcjars/com/android/miuisettingslib/widget/selectorwithwidgetpreference/flags/Flags.java,11,5,11,25,

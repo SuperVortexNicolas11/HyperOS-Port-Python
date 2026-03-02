@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:drawable="@drawable/keyboard_key_cap_pressed_bg" />
-  <item android:gravity="center"
-        android:drawable="@drawable/keyboard_caps_lock" />
-  <item android:gravity="center"
-        android:drawable="@drawable/keyboard_caps_lock_dot" />
-</layer-list>

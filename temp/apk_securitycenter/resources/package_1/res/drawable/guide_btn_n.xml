@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="51.0dp"
-        android:width="272.0dp"
-        android:viewportWidth="272.0"
-        android:viewportHeight="51.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$guide_btn_n__0"
-        android:pathData="M16,0.17L256,0.17A16,16 0,0 1,272 16.17L272,34.17A16,16 0,0 1,256 50.17L16,50.17A16,16 0,0 1,0 34.17L0,16.17A16,16 0,0 1,16 0.17z" />
-</vector>

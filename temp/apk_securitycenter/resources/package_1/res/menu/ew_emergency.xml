@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <group android:id="@id/miuix_action_end_menu_group">
-    <item android:id="@id/em_emergency_edit"
-          android:title="@string/ew_emergency_edit_text" />
-    <item android:id="@id/em_emergency_delete"
-          android:title="@string/ew_emergency_delete_title" />
-  </group>
-</menu>

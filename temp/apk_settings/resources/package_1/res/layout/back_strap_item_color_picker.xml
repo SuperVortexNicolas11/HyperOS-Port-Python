@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<FrameLayout android:layout_width="38.0dp"
-             android:layout_height="38.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
-  <com.android.settings.special.backstrap.ColorCircleView android:id="@id/color_circle"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent" />
-</FrameLayout>

@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen android:title="@string/aon_scanner_disclaimer_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" xmlns:miuisettings="http://schemas.android.com/apk/miuisettings">
-  <miuix.preference.CommentPreference android:enabled="false"
-                        android:layout="@layout/aon_scanner_disclaimer_layout"
-                        android:key="key_aon_scanner_disclaimer_description" />
-</PreferenceScreen>

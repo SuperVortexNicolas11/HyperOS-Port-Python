@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<vector android:height="@dimen/view_dimen_66"
-        android:width="@dimen/view_dimen_66"
-        android:viewportWidth="66.0"
-        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
-  <path android:fillColor="@drawable/$gameturbo_yuanse_button__0"
-        android:pathData="M5,55V11H61V47L56,52L53,55H5ZM24,26V46H30H40L42,40V20H26L24,26ZM36,26H30V40H36V26Z"
-        android:fillType="evenOdd" />
-</vector>

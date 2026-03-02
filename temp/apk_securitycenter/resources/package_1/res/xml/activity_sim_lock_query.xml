@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-  <com.miui.permcenter.permissions.NoClickTextPreference android:title="@string/sim_lock_query_pin"
-                        android:key="pin" />
-  <miuix.preference.TextPreference android:title="@string/sim_lock_query_new_pin"
-                        android:key="new_pin" />
-</PreferenceScreen>

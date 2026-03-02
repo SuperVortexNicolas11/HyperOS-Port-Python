@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/recommend_miuix_color" />
-  <corners android:topLeftRadius="16.0dp"
-           android:topRightRadius="16.0dp"
-           android:bottomLeftRadius="16.0dp"
-           android:bottomRightRadius="16.0dp" />
-</shape>

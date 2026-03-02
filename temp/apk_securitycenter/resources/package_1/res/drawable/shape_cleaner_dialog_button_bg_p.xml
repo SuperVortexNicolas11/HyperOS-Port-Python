@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/cleaner_shortcut_recall_dialog_button_bg_p" />
-  <corners android:radius="@dimen/dp_px_90" />
-</shape>

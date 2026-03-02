@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<PreferenceScreen android:title="@string/device_id_manager_title" xmlns:android="http://schemas.android.com/apk/res/android">
-  <com.miui.permcenter.permissions.PermTipsPreference android:title="@string/device_id_manager_tips"
-                        android:key="tips" />
-  <miuix.preference.TextPreference android:title="@string/device_id_reset"
-                        android:key="restore_oaid" />
-  <com.miui.idprovider.ui.legacy.OAIDExhibitPreference android:key="oaid_string" />
-</PreferenceScreen>

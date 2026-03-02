@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<inset android:insetLeft="4.0dp"
-       android:insetRight="4.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
-  <shape android:shape="rectangle">
-    <solid android:color="@color/locale_cardview_background_color" />
-    <corners android:radius="12.0dp" />
-  </shape>
-</inset>

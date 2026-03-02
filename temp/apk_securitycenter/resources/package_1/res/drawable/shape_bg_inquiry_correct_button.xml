@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/pc_main_button_color_pressed" />
-  <corners android:radius="@dimen/pc_battery_statics_change_menu_corners" />
-</shape>

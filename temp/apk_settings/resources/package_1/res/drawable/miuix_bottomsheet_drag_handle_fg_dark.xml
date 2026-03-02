@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<com.miui.support.drawable.CardStateDrawable app:activatedAlpha="0.0"
-                      app:height="3.0dp"
-                      app:hoveredAlpha="0.12"
-                      app:normalAlpha="0.0"
-                      app:pressedAlpha="0.14"
-                      app:tintColor="@color/miuix_color_white_solid_100"
-                      app:tintRadius="3.0dp"
-                      app:width="60.0dp" xmlns:app="http://schemas.android.com/apk/res-auto" />

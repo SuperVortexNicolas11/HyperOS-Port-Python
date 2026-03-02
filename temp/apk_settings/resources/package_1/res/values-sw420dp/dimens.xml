@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-  <dimen name="aon_gesture_animation_height">204.8dp</dimen>
-  <dimen name="aon_gesture_animation_width">284.8dp</dimen>
-  <dimen name="aon_gesture_framelayout_height">204.8dp</dimen>
-</resources>

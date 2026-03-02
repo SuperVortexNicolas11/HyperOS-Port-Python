@@ -1,6 +1,0 @@
-com.google.auto.value.extension.memoized.processor.MemoizedValidator
-com.google.auto.value.extension.toprettystring.processor.ToPrettyStringValidator
-com.google.auto.value.processor.AutoAnnotationProcessor
-com.google.auto.value.processor.AutoOneOfProcessor
-com.google.auto.value.processor.AutoValueBuilderProcessor
-com.google.auto.value.processor.AutoValueProcessor

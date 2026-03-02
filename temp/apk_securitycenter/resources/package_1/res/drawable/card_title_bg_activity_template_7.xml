@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-  <corners android:bottomLeftRadius="@dimen/card_bg_no_shadow_radius"
-           android:bottomRightRadius="@dimen/card_bg_no_shadow_radius" />
-  <solid android:color="@color/result_activity_title_color_template_7" />
-</shape>
