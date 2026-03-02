@@ -5,6 +5,8 @@ This package provides a modular approach to ROM modification:
 - FrameworkModifier: Framework-level smali patching
 - FirmwareModifier: Firmware modifications (vbmeta, KernelSU)
 - RomModifier: Overall coordination of modification phases
+- ApkModifier: APK-level modifications (installer, settings, etc.)
+- UnifiedModifier: Combines all modification types
 - Plugin system for extensible modifications
 """
 
@@ -16,6 +18,13 @@ from src.core.modifiers.framework_modifier import FrameworkModifier
 from src.core.modifiers.firmware_modifier import FirmwareModifier
 from src.core.modifiers.rom_modifier import RomModifier
 
+# Unified modifier (combines system + APK)
+from src.core.modifiers.unified_modifier import (
+    UnifiedModifier,
+    SystemModifier,  # Backward compatibility
+    ApkModifier,
+)
+
 # Plugin system
 from src.core.modifiers.plugin_system import (
     ModifierPlugin,
@@ -23,13 +32,25 @@ from src.core.modifiers.plugin_system import (
     ModifierRegistry,
 )
 
-# Built-in plugins
+# Built-in system plugins
 from src.core.modifiers.plugins import (
     WildBoostPlugin,
     EULocalizationPlugin,
     FeatureUnlockPlugin,
     VNDKFixPlugin,
     FileReplacementPlugin,
+)
+
+# APK plugins
+from src.core.modifiers.plugins.apk import (
+    ApkModifierPlugin,
+    ApkModifierRegistry,
+    InstallerModifier,
+    SecurityCenterModifier,
+    SettingsModifier,
+    JoyoseModifier,
+    PowerKeeperModifier,
+    DevicesOverlayModifier,
 )
 
 __all__ = [
@@ -40,14 +61,26 @@ __all__ = [
     'FrameworkModifier',
     'FirmwareModifier',
     'RomModifier',
+    # Unified modifier
+    'UnifiedModifier',
+    'ApkModifier',
     # Plugin system
     'ModifierPlugin',
     'PluginManager',
     'ModifierRegistry',
-    # Built-in plugins
+    # System plugins
     'WildBoostPlugin',
     'EULocalizationPlugin',
     'FeatureUnlockPlugin',
     'VNDKFixPlugin',
     'FileReplacementPlugin',
+    # APK plugins
+    'ApkModifierPlugin',
+    'ApkModifierRegistry',
+    'InstallerModifier',
+    'SecurityCenterModifier',
+    'SettingsModifier',
+    'JoyoseModifier',
+    'PowerKeeperModifier',
+    'DevicesOverlayModifier',
 ]
