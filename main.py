@@ -6,7 +6,7 @@ from pathlib import Path
 
 from src.core.apk_patcher import AppPatcher
 from src.core.props import PropertyModifier
-from src.core.modifier import FirmwareModifier, SystemModifier, FrameworkModifier, RomModifier
+from src.core.modifiers import FirmwareModifier, SystemModifier, FrameworkModifier, RomModifier
 from src.core.packer import Repacker
 from src.core.rom import RomPackage
 from src.core.context import PortingContext
