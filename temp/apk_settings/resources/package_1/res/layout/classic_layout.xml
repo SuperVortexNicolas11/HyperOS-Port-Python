@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.android.settings.view.ClassicClockView android:orientation="vertical"
+                      android:id="@id/classic_layout"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="10.0sp"
+            android:id="@id/text_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false" />
+  <TextView android:textSize="32.0sp"
+            android:id="@id/time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-3.5dp"
+            android:maxLines="1"
+            android:includeFontPadding="false" />
+</com.android.settings.view.ClassicClockView>

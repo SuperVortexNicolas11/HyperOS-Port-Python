@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <bool name="gb_performance_tips_marquee">true</bool>
+</resources>

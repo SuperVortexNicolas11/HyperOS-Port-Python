@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="-1.0px" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <View android:background="@drawable/app_detail_loading_bg"
+        android:layout_width="@dimen/dp_272"
+        android:layout_height="@dimen/dp_72.6"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_marginStart="@dimen/dp_22" />
+</LinearLayout>

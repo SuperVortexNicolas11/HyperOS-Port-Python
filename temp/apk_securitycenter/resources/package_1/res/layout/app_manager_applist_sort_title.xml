@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:gravity="center_vertical"
+             android:orientation="vertical"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:minHeight="@dimen/am_list_sort_title_height"
+             android:paddingStart="@dimen/am_main_item_padding_se"
+             android:paddingEnd="@dimen/am_main_item_padding_se" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:id="@id/am_sort"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <TextView android:textSize="@dimen/sp_14"
+              android:textStyle="bold"
+              android:textColor="@color/app_manager_sort_title_color"
+              android:layout_gravity="center_vertical"
+              android:id="@id/am_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:drawablePadding="@dimen/am_sort_drop_icon_margin_left"
+              android:drawableEnd="@drawable/am_sort_drop_icon"
+              android:textAlignment="viewStart" />
+  </LinearLayout>
+</FrameLayout>

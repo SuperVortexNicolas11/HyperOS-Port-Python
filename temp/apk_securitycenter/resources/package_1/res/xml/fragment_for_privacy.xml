@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.preference.PreferenceCategory android:title="@string/recent_app_behavior">
+    <com.miui.permcenter.privacycenter.ui.RecentBehaviorPreference android:key="recent_usage_pref" />
+  </miuix.preference.PreferenceCategory>
+  <com.miui.permcenter.utils.PlaceHolderPreference app:EmptyPreferenceHeight="@dimen/dp_12" />
+  <miuix.preference.TextPreference android:title="@string/see_all_app_behavior_record">
+    <intent android:targetPackage="com.miui.securitycenter"
+            android:targetClass="com.miui.permcenter.privacycenter.usage.PermissionUsageRecordActivity" />
+  </miuix.preference.TextPreference>
+  <miuix.preference.PreferenceCategory android:title="@string/activity_title_permissions_manager"
+                        android:key="permissions" />
+  <miuix.preference.PreferenceCategory android:title="@string/pp_privacy_protection_function"
+                        android:key="privacy_protection_category"
+                        app:isPreferenceVisible="false">
+    <miuix.preference.TextPreference android:title="@string/pp_app_warning_permission_tips"
+                          android:key="key_flares_settings"
+                          app:isPreferenceVisible="false">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:targetClass="com.miui.permcenter.settings.FlaresSettingsActivity" />
+    </miuix.preference.TextPreference>
+    <miuix.preference.TextPreference android:title="@string/pp_virtual_identity_manager"
+                          android:key="key_oadi_settings" />
+    <miuix.preference.TextPreference android:title="@string/card_main_private_space_title"
+                          android:key="key_second_space" />
+    <miuix.preference.TextPreference android:title="@string/pp_private_file_dir"
+                          android:key="key_security_dir" />
+    <miuix.preference.TextPreference android:title="@string/pp_hide_app"
+                          android:key="key_hide_app">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:targetClass="com.miui.privacyapps.ui.PrivacyAppsManageActivity" />
+    </miuix.preference.TextPreference>
+    <miuix.preference.TextPreference android:title="@string/privacy_input_mode"
+                          app:isPreferenceVisible="false"
+                          app:key="privacy_input_mode">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:action="miui.intent.action.PRIVACY_INPUT_MODE_ACTIVITY" />
+    </miuix.preference.TextPreference>
+    <miuix.preference.TextPreference android:title="@string/cetus_invisible_mode"
+                          app:isPreferenceVisible="false"
+                          app:key="privacy_invisible_mode">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:targetClass="com.miui.permcenter.settings.InvisibleModeActivity" />
+    </miuix.preference.TextPreference>
+    <miuix.preference.TextPreference android:title="@string/xiaomi_privacy_protection_measures"
+                          android:key="key_pm_setting_more_info_title" />
+    <miuix.preference.TextPreference android:title="@string/pp_more_privacy_func"
+                          android:key="key_more_privacy_func">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:targetClass="com.miui.permcenter.privacycenter.PrivacyMoreActivity" />
+    </miuix.preference.TextPreference>
+  </miuix.preference.PreferenceCategory>
+  <miuix.preference.PreferenceCategory android:key="privacy_protection_bottom_category"
+                        app:isPreferenceVisible="false">
+    <com.miui.permcenter.settings.model.PrivacyProtectionBottomPreference android:key="bottom_view" />
+  </miuix.preference.PreferenceCategory>
+  <com.miui.permcenter.settings.model.OneImagePreference android:selectable="false"
+                        android:key="privacy_image"
+                        app:layout="@layout/preference_bottom_logo_layout" />
+</PreferenceScreen>

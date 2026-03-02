@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/pc_handle_dialog_title_text_size"
+            android:textColor="@color/pc_handle_dialog_text_color"
+            android:gravity="center_horizontal"
+            android:id="@id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pc_wireless_handle_title" />
+  <ImageView android:id="@id/image_handle"
+             android:layout_width="@dimen/dp_185"
+             android:layout_height="@dimen/dp_90"
+             android:layout_marginTop="@dimen/dp_24"
+             android:contentDescription="@null" />
+  <ViewStub android:id="@id/camera_handle_battery_zh"
+            android:layout="@layout/layout_camera_handle_battery_zh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pc_handle_dialog_progress_margin_top"
+            android:layout_marginBottom="@dimen/pc_handle_dialog_progress_margin_bottom" />
+  <ViewStub android:id="@id/camera_handle_battery_other"
+            android:layout="@layout/layout_camera_handle_battery_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="44.0dp"
+            android:layout_marginTop="@dimen/pc_handle_dialog_progress_margin_top"
+            android:layout_marginRight="44.0dp"
+            android:layout_marginBottom="@dimen/pc_handle_dialog_progress_margin_bottom"
+            android:layout_marginHorizontal="44.0dp" />
+</LinearLayout>

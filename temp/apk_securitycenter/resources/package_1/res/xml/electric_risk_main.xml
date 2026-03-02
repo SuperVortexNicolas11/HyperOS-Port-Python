@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.permcenter.settings.model.OneImagePreference app:layout="@layout/electric_risk_logo_layout" />
+  <miuix.preference.TextPreference android:icon="@drawable/protect_phone_icon"
+                        android:text="@string/eletric_card_status_bg_content_enable"
+                        android:title="@string/eletric_card_key_1"
+                        android:key="protect_phone"
+                        android:summary="@string/eletric_card_summary_1">
+    <intent android:targetPackage="com.miui.securitycenter"
+            android:targetClass="com.miui.electricrisk.ElectricProtectPhoneActivity" />
+  </miuix.preference.TextPreference>
+  <miuix.preference.TextPreference android:icon="@drawable/protect_mms_icon"
+                        android:text="@string/eletric_card_status_bg_content_enable"
+                        android:title="@string/eletric_card_key_2"
+                        android:key="protect_mms"
+                        android:summary="@string/eletric_card_summary_2">
+    <intent android:targetPackage="com.miui.securitycenter"
+            android:targetClass="com.miui.electricrisk.ElectricProtectMmsActivity" />
+  </miuix.preference.TextPreference>
+  <miuix.preference.TextPreference android:icon="@drawable/protect_app_icon"
+                        android:text="@string/eletric_card_status_bg_content_enable"
+                        android:title="@string/eletric_card_key_3"
+                        android:key="protect_app"
+                        android:summary="@string/eletric_card_summary_3">
+    <intent android:targetPackage="com.miui.securitycenter"
+            android:targetClass="com.miui.electricrisk.ElectricProtectAppActivity" />
+  </miuix.preference.TextPreference>
+  <miuix.preference.TextPreference android:icon="@drawable/protect_web_icon"
+                        android:text="@string/eletric_card_status_bg_content_enable"
+                        android:title="@string/eletric_card_key_4"
+                        android:key="protect_web"
+                        android:summary="@string/eletric_card_summary_4" />
+  <miuix.preference.TextPreference android:icon="@drawable/protect_screen_icon"
+                        android:text="@string/eletric_card_status_bg_content_enable"
+                        android:title="@string/eletric_card_key_5"
+                        android:key="protect_screen_share"
+                        android:summary="@string/eletric_card_summary_5">
+    <intent android:targetPackage="com.miui.securitycenter"
+            android:targetClass="com.miui.electricrisk.ElectricProtectScreenActivity" />
+  </miuix.preference.TextPreference>
+</PreferenceScreen>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:padding="?android:attr/dialogPreferredPadding"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bluetooth_hearing_device_input_routing_dialog_summary"
+            android:textDirection="locale" />
+  <RadioGroup android:id="@id/input_routing_group"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="16.0dp"
+              android:checkedButton="@id/input_from_hearing_device">
+    <RadioButton android:id="@id/input_from_hearing_device"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:minHeight="?android:attr/listPreferredItemHeight"
+                 android:text="@string/bluetooth_hearing_device_input_routing_hearing_device_option" />
+    <RadioButton android:id="@id/input_from_builtin_mic"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:minHeight="?android:attr/listPreferredItemHeight"
+                 android:text="@string/bluetooth_hearing_device_input_routing_builtin_option" />
+  </RadioGroup>
+</LinearLayout>

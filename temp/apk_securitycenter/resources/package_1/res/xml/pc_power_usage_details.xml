@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.powercenter.legacypowerrank.PowerUsageDetailsTitlePreference android:enabled="false"
+                        android:key="preference_key_power_usage_details_title" />
+  <miuix.preference.PreferenceCategory android:title="@string/details_subtitle"
+                        android:key="category_key_power_usage_details" />
+  <miuix.preference.PreferenceCategory android:title="@string/packages_subtitle"
+                        android:key="category_key_power_usage_packages" />
+  <miuix.preference.PreferenceCategory android:title="@string/power_center_abnormal_consume_analysis"
+                        android:key="category_key_power_abnormal_analysis" />
+  <miuix.preference.PreferenceCategory android:title="@string/app_manager_permission_power_saving_title"
+                        android:key="single_choice_preference_group"
+                        app:isPreferenceVisible="false">
+    <miuix.preference.SingleChoicePreferenceCategory>
+      <miuix.preference.SingleChoicePreference android:persistent="false"
+                            android:value="radiobutton_no_restrict"
+                            android:title="@string/app_powerkeeper_no_restrict"
+                            android:key="radiobutton_no_restrict"
+                            android:summary="@string/app_powerkeeper_no_restrict_summary" />
+      <miuix.preference.SingleChoicePreference android:persistent="false"
+                            android:value="radiobutton_miui_auto"
+                            android:title="@string/app_powerkeeper_miui_auto"
+                            android:key="radiobutton_miui_auto"
+                            android:summary="@string/app_powerkeeper_miui_auto_summary" />
+      <miuix.preference.SingleChoicePreference android:persistent="false"
+                            android:value="radiobutton_restrict_running"
+                            android:title="@string/app_powerkeeper_restrict_bg"
+                            android:key="radiobutton_restrict_running" />
+      <miuix.preference.SingleChoicePreference android:persistent="false"
+                            android:value="radiobutton_restrict_bg"
+                            android:title="@string/app_powerkeeper_restrict_bg"
+                            android:key="radiobutton_restrict_bg" />
+    </miuix.preference.SingleChoicePreferenceCategory>
+  </miuix.preference.PreferenceCategory>
+  <miuix.preference.CommentPreference android:text="@string/app_powerkeeper_config_description"
+                        android:key="config_description"
+                        app:isPreferenceVisible="false" />
+  <com.miui.permcenter.settings.model.TitleOnlyPreference android:title="@string/abnormal_consume_disable_autostart"
+                        android:key="key_power_abnormal_autostart_title"
+                        app:layout="@layout/pm_model_title_only" />/&gt; </PreferenceScreen>

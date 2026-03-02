@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gb_vc_robot_normal__0"
+            android:pathData="M30,6L36,3V19L30,22V6Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gb_vc_robot_normal__1"
+            android:pathData="M7,15H59L59,27H63V41H59V59H7L7,41H3V27H7L7,15ZM26,33C26,35.2091 24.2091,37 22,37C19.7909,37 18,35.2091 18,33C18,30.7909 19.7909,29 22,29C24.2091,29 26,30.7909 26,33ZM44,37C46.2091,37 48,35.2091 48,33C48,30.7909 46.2091,29 44,29C41.7909,29 40,30.7909 40,33C40,35.2091 41.7909,37 44,37Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+  <item xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gb_vc_robot_normal__2"
+            android:pathData="M30,6L36,3V19L30,22V6Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gb_vc_robot_normal__3"
+            android:pathData="M7,15H59L59,27H63V41H59V59H7L7,41H3V27H7L7,15ZM26,33C26,35.2091 24.2091,37 22,37C19.7909,37 18,35.2091 18,33C18,30.7909 19.7909,29 22,29C24.2091,29 26,30.7909 26,33ZM44,37C46.2091,37 48,35.2091 48,33C48,30.7909 46.2091,29 44,29C41.7909,29 40,30.7909 40,33C40,35.2091 41.7909,37 44,37Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+</selector>

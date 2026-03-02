@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.permcenter.settings.model.OneImagePreference android:selectable="false"
+                        android:key="key_simlock_image"
+                        app:layout="@layout/simlock_start_display_image" />
+  <miuix.preference.TextPreference android:layout="@layout/simlock_normal_summary"
+                        app:cardEnable="false"
+                        app:clickable="false"
+                        app:touchAnimationEnable="false" />
+  <PreferenceCategory>
+    <com.miui.simlock.fragment.preference.IconTitleCheckBoxPreference android:title="@string/sim_lock_start_bind_device_title"
+                          android:key="key_simlock_bind"
+                          android:summary="@string/sim_lock_start_bind_device_summary" />
+    <com.miui.simlock.fragment.preference.IconTitleCheckBoxPreference android:title="@string/sim_lock_start_lock_title"
+                          android:key="key_simlock_set"
+                          android:summary="@string/sim_lock_start_lock_summary" />
+  </PreferenceCategory>
+  <PreferenceCategory android:key="key_simlock_query_category"
+                      app:isPreferenceVisible="false">
+    <Preference android:title="@string/sim_lock_start_query_pin"
+                android:key="key_simlock_query" />
+  </PreferenceCategory>
+</PreferenceScreen>

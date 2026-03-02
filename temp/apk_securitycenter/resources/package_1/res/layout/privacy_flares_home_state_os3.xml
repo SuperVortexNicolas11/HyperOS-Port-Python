@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:gravity="center_vertical"
+             android:paddingLeft="@dimen/dp_1"
+             android:paddingTop="@dimen/dp_2_94"
+             android:paddingRight="@dimen/dp_1"
+             android:paddingBottom="@dimen/dp_2_94"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center"
+                android:orientation="horizontal"
+                android:background="@drawable/flares_tip_home_background_os3"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_14_12">
+    <ImageView android:id="@id/flares_statusbar_camera"
+               android:visibility="gone"
+               android:layout_width="@dimen/dp_9_4"
+               android:layout_height="@dimen/dp_9_4"
+               android:src="@drawable/flares_tip_camera_os3" />
+    <ImageView android:id="@id/flares_statusbar_mic"
+               android:visibility="gone"
+               android:layout_width="@dimen/dp_9_4"
+               android:layout_height="@dimen/dp_9_4"
+               android:src="@drawable/flares_tip_mic_os3" />
+    <ImageView android:id="@id/flares_statusbar_location"
+               android:visibility="gone"
+               android:layout_width="@dimen/dp_9_4"
+               android:layout_height="@dimen/dp_9_4"
+               android:src="@drawable/flares_tip_location_os3" />
+    <ImageView android:id="@id/flares_statusbar_remote_screen"
+               android:visibility="gone"
+               android:layout_width="@dimen/dp_9_4"
+               android:layout_height="@dimen/dp_9_4"
+               android:src="@drawable/flares_tip_screen_os3" />
+  </LinearLayout>
+</FrameLayout>

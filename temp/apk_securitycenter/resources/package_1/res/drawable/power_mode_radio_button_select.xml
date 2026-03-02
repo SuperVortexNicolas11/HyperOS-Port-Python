@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/view_dimen_52"
+        android:width="@dimen/view_dimen_52"
+        android:viewportWidth="52.0"
+        android:viewportHeight="52.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="@color/pc_power_mode_radiobutton_selected"
+        android:pathData="M26,26m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0" />
+  <path android:fillColor="#ffffff"
+        android:pathData="M26,26m-11,0a11,11 0,1 1,22 0a11,11 0,1 1,-22 0" />
+</vector>

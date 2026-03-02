@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="25.0dp"
+            android:width="24.0dp"
+            android:viewportWidth="24.0"
+            android:viewportHeight="25.0">
+      <path android:fillColor="#d9d9d9"
+            android:pathData="M12,8.337m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__0"
+            android:pathData="M12,8.337m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__1"
+            android:pathData="M12,8.337m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__2"
+            android:pathData="M18.795,10.026C18.283,12.09 16.856,13.793 14.969,14.678C14.99,14.895 15,15.115 15,15.337C15,17.339 14.159,19.145 12.812,20.421C13.736,21.001 14.829,21.337 16,21.337C19.314,21.337 22,18.651 22,15.337C22,13.032 20.701,11.031 18.795,10.026Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"
+            android:fillType="evenOdd" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__3"
+            android:pathData="M18.795,10.026C18.283,12.09 16.856,13.793 14.969,14.678C14.99,14.895 15,15.115 15,15.337C15,17.339 14.159,19.145 12.812,20.421C13.736,21.001 14.829,21.337 16,21.337C19.314,21.337 22,18.651 22,15.337C22,13.032 20.701,11.031 18.795,10.026Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"
+            android:fillType="evenOdd" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__4"
+            android:pathData="M13.993,15.049C13.361,15.236 12.693,15.337 12,15.337C8.717,15.337 5.961,13.076 5.205,10.027C3.299,11.032 2,13.033 2,15.337C2,18.651 4.686,21.337 8,21.337C11.314,21.337 14,18.651 14,15.337C14,15.241 13.998,15.145 13.993,15.049Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+  <item xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="25.0dp"
+            android:width="24.0dp"
+            android:viewportWidth="24.0"
+            android:viewportHeight="25.0">
+      <path android:fillColor="#d9d9d9"
+            android:pathData="M12,8.5m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__5"
+            android:pathData="M12,8.5m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__6"
+            android:pathData="M18.795,10.189C18.284,12.253 16.856,13.956 14.969,14.841C14.99,15.058 15,15.278 15,15.5C15,17.502 14.16,19.308 12.812,20.584C13.736,21.164 14.829,21.5 16,21.5C19.314,21.5 22,18.814 22,15.5C22,13.196 20.701,11.194 18.795,10.189Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#d9d9d9"
+            android:pathData="M13.993,15.212C13.361,15.4 12.693,15.5 12,15.5C8.717,15.5 5.961,13.239 5.205,10.19C3.299,11.195 2,13.196 2,15.5C2,18.814 4.686,21.5 8,21.5C11.314,21.5 14,18.814 14,15.5C14,15.404 13.998,15.308 13.993,15.212Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#5d6070"
+            android:pathData="M13.993,15.212C13.361,15.4 12.693,15.5 12,15.5C8.717,15.5 5.961,13.239 5.205,10.19C3.299,11.195 2,13.196 2,15.5C2,18.814 4.686,21.5 8,21.5C11.314,21.5 14,18.814 14,15.5C14,15.404 13.998,15.308 13.993,15.212Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="@drawable/$gameturbo_filter_button__7"
+            android:pathData="M13.993,15.212C13.361,15.4 12.693,15.5 12,15.5C8.717,15.5 5.961,13.239 5.205,10.19C3.299,11.195 2,13.196 2,15.5C2,18.814 4.686,21.5 8,21.5C11.314,21.5 14,18.814 14,15.5C14,15.404 13.998,15.308 13.993,15.212Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+</selector>

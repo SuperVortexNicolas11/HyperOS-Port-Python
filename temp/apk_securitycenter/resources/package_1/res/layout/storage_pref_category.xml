@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.optimizecenter.storage.view.PreferenceCategoryView android:orientation="vertical"
+                      android:id="@id/ll_storage_volume"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:layout_width="fill_parent"
+               android:layout_height="@dimen/storage_external_item_line_panel_h"
+               android:paddingStart="@dimen/storage_external_item_group_ps_pe"
+               android:paddingEnd="@dimen/storage_external_item_group_ps_pe">
+    <View android:layout_gravity="center"
+          android:background="@color/storage_external_group_line"
+          android:layout_width="fill_parent"
+          android:layout_height="@dimen/storage_external_item_line_h" />
+  </FrameLayout>
+  <TextView android:textColor="@color/storage_external_group_title"
+            android:gravity="center|start"
+            android:id="@id/group_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/storage_external_item_group_h"
+            android:textAlignment="viewStart"
+            android:paddingStart="@dimen/storage_external_item_group_ps_pe"
+            android:paddingEnd="@dimen/storage_external_item_group_ps_pe" />
+</com.miui.optimizecenter.storage.view.PreferenceCategoryView>

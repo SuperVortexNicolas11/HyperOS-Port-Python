@@ -1,0 +1,9 @@
+signature,file,startline,startcol,endline,endcol,properties
+Landroid/companion/CustomFeatureFlags;->associationDeviceIcon()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,20,5,20,25,
+Landroid/companion/CustomFeatureFlags;->associationFailureCode()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,27,5,27,25,
+Landroid/companion/CustomFeatureFlags;->associationTag()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,34,5,34,25,
+Landroid/companion/CustomFeatureFlags;->devicePresence()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,41,5,41,25,
+Landroid/companion/CustomFeatureFlags;->newAssociationBuilder()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,48,5,48,25,
+Landroid/companion/CustomFeatureFlags;->ongoingPermSync()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,55,5,55,25,
+Landroid/companion/CustomFeatureFlags;->permSyncUserConsent()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,62,5,62,25,
+Landroid/companion/CustomFeatureFlags;->unpairAssociatedDevice()Z,out/soong/.intermediates/frameworks/base/android.companion.flags-aconfig-java/android_common/javac/srcjars/android/companion/CustomFeatureFlags.java,69,5,69,25,

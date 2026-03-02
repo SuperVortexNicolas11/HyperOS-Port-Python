@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:paddingBottom="@dimen/view_dimen_14"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/card_layout_auto_paste_list_view_margin_se"
+                android:paddingEnd="@dimen/card_layout_auto_paste_list_view_margin_se" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.common.customview.AutoScrollViewPager android:layout_gravity="center"
+                        android:id="@id/view_pager"
+                        android:clipChildren="false"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+  <com.miui.privacyapps.view.ViewPagerIndicator android:gravity="center_horizontal"
+                        android:id="@id/indicator"
+                        android:paddingBottom="@dimen/phone_manage_indicator_mrg_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true" />
+</RelativeLayout>

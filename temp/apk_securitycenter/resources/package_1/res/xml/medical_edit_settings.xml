@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.earthquakewarning.ui.EditTextPreference android:hint="@string/ew_emergency_name"
+                        android:key="name"
+                        android:imeOptions="actionNext" />
+  <PreferenceCategory>
+    <miuix.preference.TextPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/ew_emergency_birthday"
+                          android:key="birthday" />
+    <miuix.preference.DropDownPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/medical_sp_gender_title"
+                          android:key="gender" />
+    <miuix.preference.TextPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/medical_sp_height_title"
+                          android:key="height" />
+    <miuix.preference.TextPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/medical_sp_weight_title"
+                          android:key="weight" />
+    <miuix.preference.DropDownPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/medical_sp_blood_type_title"
+                          android:key="blood_type" />
+    <miuix.preference.DropDownPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/ew_emergency_organ_donation"
+                          android:key="organDonor" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <miuix.preference.TextPreference android:text="@string/medical_sp_text_not_add"
+                          android:visible="false"
+                          android:title="@string/sp_emergency_contact_title"
+                          android:key="emergency_contact" />
+  </PreferenceCategory>
+  <PreferenceCategory android:visible="false"
+                      android:key="female_category">
+    <miuix.preference.CheckBoxPreference android:title="@string/medical_sp_pregent_title"
+                          android:key="pregent"
+                          android:defaultValue="false" />
+    <miuix.preference.TextPreference android:text="@string/medical_sp_text_not_setting"
+                          android:title="@string/medical_sp_expectedDate_title"
+                          android:key="expectedDate"
+                          android:dependency="pregent" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/ew_emergency_allergy">
+    <com.miui.earthquakewarning.ui.EditTextPreference android:hint="@string/medical_sp_edit_hint_allergy"
+                          android:key="allergy"
+                          android:imeOptions="actionNext" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/medical_sp_category_title_medicine">
+    <com.miui.earthquakewarning.ui.EditTextPreference android:hint="@string/medical_sp_edit_hint_medicine"
+                          android:key="medicine"
+                          android:imeOptions="actionNext" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/ew_emergency_medical">
+    <com.miui.earthquakewarning.ui.EditTextPreference android:hint="@string/medical_sp_edit_hint_medical"
+                          android:key="medical"
+                          android:imeOptions="actionNext" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/medical_sp_category_title_address">
+    <com.miui.earthquakewarning.ui.EditTextPreference android:hint="@string/medical_sp_edit_hint_address"
+                          android:key="address"
+                          android:imeOptions="actionDone" />
+  </PreferenceCategory>
+  <miuix.preference.CommentPreference android:text="@string/ew_emergency_privacy" />
+</androidx.preference.PreferenceScreen>

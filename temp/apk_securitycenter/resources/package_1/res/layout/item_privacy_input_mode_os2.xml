@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:background="@color/transparent"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <Space android:layout_width="fill_parent"
+         android:layout_height="@dimen/miuix_preference_item_padding_top" />
+  <ImageView android:layout_gravity="center_horizontal"
+             android:id="@android:id/icon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+  <View android:background="?attr/dividerPreferenceSolidColor"
+        android:layout_width="fill_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginLeft="@dimen/miuix_theme_margin_horizontal_common"
+        android:layout_marginRight="@dimen/miuix_theme_margin_horizontal_common"
+        android:layout_marginHorizontal="@dimen/miuix_theme_margin_horizontal_common" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.PreferenceList"
+            android:ellipsize="end"
+            android:id="@android:id/title"
+            android:fadingEdge="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/miuix_theme_margin_horizontal_common"
+            android:layout_marginTop="@dimen/miuix_preference_item_padding_top"
+            android:layout_marginRight="@dimen/miuix_theme_margin_horizontal_common"
+            android:textAlignment="viewStart"
+            android:layout_marginHorizontal="@dimen/miuix_theme_margin_horizontal_common" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary.Preference"
+            android:id="@android:id/summary"
+            android:scrollbars="none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/miuix_theme_margin_horizontal_common"
+            android:layout_marginTop="@dimen/miuix_preference_summary_margin_top"
+            android:layout_marginRight="@dimen/miuix_theme_margin_horizontal_common"
+            android:textAlignment="viewStart"
+            android:layout_marginHorizontal="@dimen/miuix_theme_margin_horizontal_common" />
+  <Space android:layout_width="fill_parent"
+         android:layout_height="@dimen/miuix_preference_item_padding_top" />
+</LinearLayout>

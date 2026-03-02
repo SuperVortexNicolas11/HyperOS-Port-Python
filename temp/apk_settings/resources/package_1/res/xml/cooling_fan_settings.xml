@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <SwitchPreference android:persistent="false"
+                    android:title="@string/cooling_fan_enable"
+                    android:key="cooling_fan_enable"
+                    app:controller="com.android.settings.coolingfan.CoolingFanEnableController" />
+  <miuix.preference.CommentPreference android:text="@string/cooling_fan_summary"
+                        android:key="cooling_fan_summary"
+                        app:verticalMarginChoice="bottom_large" />
+  <PreferenceCategory android:key="cooling_fan_settings"
+                      android:dependency="cooling_fan_enable">
+    <miuix.preference.DropDownPreference android:title="@string/fan_mode"
+                          android:key="fan_mode"
+                          app:controller="com.android.settings.coolingfan.FanModeController"
+                          app:entries="@array/fan_mode_entries"
+                          app:entrySummaries="@array/fan_mode_summaries"
+                          app:entryValues="@array/fan_mode_values" />
+    <miuix.preference.DropDownPreference android:title="@string/fan_mode_range_title"
+                          android:key="fan_mode_range"
+                          app:controller="com.android.settings.coolingfan.FanModeRangeController"
+                          app:entries="@array/fan_mode_range_entries"
+                          app:entryValues="@array/fan_mode_range_values" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/fan_mode_usage_scenes"
+                      android:key="fan_mode_usage_scenes_category"
+                      app:controller="com.android.settings.coolingfan.FanModeUsageScenesController">
+    <com.android.settingslib.miuisettings.preference.SwitchPreference android:title="@string/activate_on_gaming"
+                          android:key="fan_mode_scene_gaming"
+                          app:controller="com.android.settings.coolingfan.FanSceneGameController" />
+    <com.android.settingslib.miuisettings.preference.SwitchPreference android:title="@string/activate_on_rapid_charge"
+                          android:key="fan_mode_scene_rapid_charge"
+                          app:controller="com.android.settings.coolingfan.FanSceneRapidChargeController" />
+    <com.android.settingslib.miuisettings.preference.SwitchPreference android:title="@string/activate_on_outdoor_navigating"
+                          android:key="fan_mode_scene_navigation"
+                          app:controller="com.android.settings.coolingfan.FanSceneOutdoorController" />
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+
+Name: AndroidManifest.xml
+SHA-256-Digest: U5qn7h6FMO5ORdNEfnyapxZuTy9B51/MqBrVm2DEWso=
+
+Name: res/anim/wallpaper_open_exit.xml
+SHA-256-Digest: KtcygPv4ZOe0278bitt9BlVKUTw3qqilSZthCBsYrlw=
+
+Name: res/drawable/ic_media_seamless.xml
+SHA-256-Digest: sOPkIhzWIotAip2cBhXun2aRdvJ9EL37EkfRskSivGA=
+
+Name: resources.arsc
+SHA-256-Digest: 0SFzs1TrFrEPEBfLY143yQDB6ryq/ToKVxgpwmoYFQ4=
+

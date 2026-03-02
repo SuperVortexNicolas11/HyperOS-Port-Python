@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="horizontal"
+                android:id="@id/header_bar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.ListView.Item.SingleLine">
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+              android:layout_gravity="bottom"
+              android:id="@id/power_consume_total"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="4.0dp" />
+  </LinearLayout>
+  <FrameLayout android:layout_width="fill_parent"
+               android:layout_height="fill_parent">
+    <ListView android:id="@android:id/list"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:drawSelectorOnTop="false"
+              style="@style/Widget.ListView" />
+    <ProgressBar android:layout_gravity="center"
+                 android:id="@id/progress"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:indeterminate="true"
+                 style="?android:attr/progressBarStyleLarge" />
+  </FrameLayout>
+</LinearLayout>

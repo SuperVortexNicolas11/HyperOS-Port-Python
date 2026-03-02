@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/double_tap_power_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settingslib.widget.IllustrationPreference android:key="gesture_double_tap_power_video"
+                        settings:controller="com.android.settings.gestures.DoubleTapPowerIllustrationPreferenceController"
+                        settings:lottie_rawRes="@drawable/quickly_open_camera"
+                        settings:searchable="false" />
+  <com.android.settingslib.widget.MainSwitchPreference android:title="@string/double_tap_power_enabled"
+                        android:key="gesture_double_tap_power_enabled_main_switch"
+                        settings:controller="com.android.settings.gestures.DoubleTapPowerMainSwitchPreferenceController"
+                        settings:keywords="@string/keywords_gesture" />
+  <PreferenceCategory android:title="@string/double_tap_power_target_action_category"
+                      android:key="gesture_double_tap_power_actions">
+    <com.android.settingslib.widget.SelectorWithWidgetPreference android:title="@string/double_tap_power_camera_action_title"
+                          android:key="gesture_double_power_tap_camera"
+                          settings:controller="com.android.settings.gestures.DoubleTapPowerForCameraPreferenceController" />
+    <com.android.settingslib.widget.SelectorWithWidgetPreference android:title="@string/double_tap_power_wallet_action_title"
+                          android:key="gesture_double_power_tap_wallet"
+                          settings:controller="com.android.settings.gestures.DoubleTapPowerForWalletPreferenceController" />
+  </PreferenceCategory>
+</PreferenceScreen>

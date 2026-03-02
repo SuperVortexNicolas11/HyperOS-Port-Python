@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:id="@id/reminder_tips_layout"
+              android:background="@color/transparent"
+              android:paddingTop="8.0dp"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:text="@string/click_to_set_personalized_reminder"
+            android:paddingStart="@dimen/miuix_preference_item_padding_start"
+            android:paddingEnd="0.0dp"
+            android:layout_marginStart="@dimen/miuix_preference_main_padding_start"
+            style="@style/NaSettingGroupTitle" />
+  <ImageView android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/na_reminder_tips" />
+</LinearLayout>

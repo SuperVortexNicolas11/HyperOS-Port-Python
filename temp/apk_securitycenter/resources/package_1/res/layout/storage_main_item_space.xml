@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.optimizecenter.storage.view.PreferenceItemSpaceView android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/storage_external_item_space_h"
+                      android:paddingStart="@dimen/storage_external_item_group_ps_pe"
+                      android:paddingEnd="@dimen/storage_external_item_group_ps_pe" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.optimizecenter.storage.view.DeepCleanChartView android:id="@id/dccv"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/storage_external_item_space_pie_h"
+                        android:layout_marginTop="@dimen/storage_external_item_space_pie_mt"
+                        android:layout_marginBottom="@dimen/storage_external_item_space_pie_mb" />
+  <TextView android:textSize="@dimen/storage_external_item_space_txt"
+            android:textColor="@color/storage_external_item_space"
+            android:gravity="center|start"
+            android:id="@id/storage_space"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart" />
+</com.miui.optimizecenter.storage.view.PreferenceItemSpaceView>

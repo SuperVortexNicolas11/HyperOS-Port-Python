@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="center_horizontal"
+                      android:orientation="vertical"
+                      android:id="@id/error_part"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent">
+    <include android:id="@id/no_phoneNum"
+             android:visibility="gone"
+             layout="@layout/bh_no_phone_num_inner" />
+    <include android:id="@id/lack_resources"
+             android:visibility="gone"
+             layout="@layout/bh_no_resource_inner" />
+    <include android:id="@id/no_network"
+             android:visibility="gone"
+             layout="@layout/bh_net_error_inner" />
+    <include android:id="@id/innormal_num"
+             android:visibility="gone"
+             layout="@layout/bh_innormal_number_inner" />
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

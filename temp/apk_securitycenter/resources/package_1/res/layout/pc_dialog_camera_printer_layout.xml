@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:layout_width="fill_parent"
+            android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <TextView android:textSize="@dimen/pc_handle_dialog_title_text_size"
+              android:textColor="@color/pc_handle_dialog_text_color"
+              android:gravity="center_horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/pc_camera_printer_title"
+              android:fontFamily="sans-serif-medium" />
+    <TextView android:textSize="@dimen/sp_16"
+              android:textColor="@color/pc_handle_dialog_summary_text_color"
+              android:gravity="center_horizontal"
+              android:id="@id/tv_battery_level"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dp_4"
+              android:text="@string/pc_camera_printer_dialog_battery_full"
+              android:fontFamily="sans-serif" />
+    <ImageView android:id="@id/iv_printer_kit"
+               android:layout_width="@dimen/dp_100"
+               android:layout_height="@dimen/dp_151"
+               android:layout_marginTop="@dimen/dp_24"
+               android:layout_marginBottom="@dimen/dp_16"
+               android:src="@drawable/pc_printer_kit_icon"
+               android:scaleType="fitCenter"
+               android:adjustViewBounds="true" />
+  </LinearLayout>
+</ScrollView>

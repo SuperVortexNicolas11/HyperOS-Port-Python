@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/enable_linux_terminal_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settings.widget.SettingsMainSwitchPreference android:title="@string/enable_linux_terminal_summary"
+                        android:key="enable_linux_terminal"
+                        settings:controller="com.android.settings.development.linuxterminal.EnableLinuxTerminalPreferenceController" />
+  <com.android.settingslib.widget.FooterPreference android:title="@string/disable_linux_terminal_disclaimer"
+                        android:selectable="false"
+                        android:key="disable_linux_terminal_footer"
+                        settings:searchable="false" />
+</PreferenceScreen>

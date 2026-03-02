@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:background="@drawable/card_bg_no_shadow_selector"
+              android:paddingTop="@dimen/micloud_space_card_padding_top"
+              android:paddingBottom="@dimen/result_func_item_padding_bottom"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:layout_gravity="center_vertical"
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/micloud_space_title_height"
+            android:paddingStart="@dimen/result_card_margin_left"
+            android:paddingEnd="@dimen/result_card_margin_left"
+            style="@style/ResultCardListTitleTextiViewStyle" />
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/micloud_storage_ring_margin_top"
+                android:minHeight="@dimen/micloud_storage_frame_height">
+    <FrameLayout android:layout_gravity="top"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content">
+      <com.miui.securityscan.ui.main.ColorfulRingView android:layout_gravity="center"
+                            android:id="@id/ring"
+                            android:layout_width="@dimen/micloud_storage_ring_diameter"
+                            android:layout_height="@dimen/micloud_storage_ring_diameter" />
+      <LinearLayout android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/StorageTextStyle"
+                  android:id="@id/tv_storage_percentage"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+        <TextView android:textAppearance="@style/StorageFullTextStyle"
+                  android:id="@id/tv_storage_full"
+                  android:visibility="gone"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:maxWidth="@dimen/micloud_space_full_max_width"
+                  android:text="@string/title_cloud_space_full"
+                  android:singleLine="true" />
+        <TextView android:textAppearance="@style/StorageSpaceStyle"
+                  android:id="@id/tv_storage_space"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+      </LinearLayout>
+      <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.Medium"
+                android:layout_gravity="bottom|center"
+                android:id="@id/tv_storage_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/micloud_storage_all_margin_bottom" />
+    </FrameLayout>
+    <LinearLayout android:gravity="bottom"
+                  android:layout_gravity="bottom"
+                  android:orientation="vertical"
+                  android:id="@id/ll_container"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/micloud_space_item_margin_top"
+                  android:paddingStart="@dimen/dp_16"
+                  android:paddingEnd="@dimen/dp_16" />
+  </LinearLayout>
+  <Button android:layout_gravity="end"
+          android:id="@id/tv_button"
+          android:layout_marginTop="@dimen/micloud_space_button_margin_top"
+          android:singleLine="true"
+          android:layout_marginEnd="@dimen/result_card_margin_left"
+          style="@style/ResultBlueButtonStyle" />
+</LinearLayout>

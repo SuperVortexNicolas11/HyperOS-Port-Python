@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="133.33dp"
+        android:width="133.33dp"
+        android:viewportWidth="400.0"
+        android:viewportHeight="400.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$scan_result_ball__0"
+        android:pathData="M200,200m-200,0a200,200 0,1 1,400 0a200,200 0,1 1,-400 0" />
+</vector>

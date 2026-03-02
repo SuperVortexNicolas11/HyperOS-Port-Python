@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" xmlns:miuisettings="http://schemas.android.com/apk/miuisettings">
+  <PreferenceCategory android:key="guide_muted_video_category">
+    <Preference android:layout="@layout/guide_muted_video" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.android.settings.view.NoCardStylePreference android:layout="@layout/guide_notice" />
+  </PreferenceCategory>
+  <PreferenceCategory android:key="switch_category">
+    <CheckBoxPreference android:key="switch" />
+  </PreferenceCategory>
+</PreferenceScreen>

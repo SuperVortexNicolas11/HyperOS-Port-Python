@@ -1,0 +1,3 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.preference.PreferenceScreen android:title="@string/title_satellite_supported_app_list_page"
+                      android:key="key_satellite_app_list" xmlns:android="http://schemas.android.com/apk/res/android" />

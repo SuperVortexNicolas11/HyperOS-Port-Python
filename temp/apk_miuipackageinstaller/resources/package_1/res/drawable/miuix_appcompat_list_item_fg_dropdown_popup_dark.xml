@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.popupwidget.widget.PressEffectDrawable app:hoveredAlpha="0.06"
+                      app:miuixDrawableTintColor="#ffffff"
+                      app:normalAlpha="0.0"
+                      app:pressedAlpha="0.15" xmlns:app="http://schemas.android.com/apk/res-auto" />

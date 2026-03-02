@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true"
+        android:color="@color/fbo_date_select_text" />
+  <item android:color="@color/fbo_date_unselect_text" />
+</selector>

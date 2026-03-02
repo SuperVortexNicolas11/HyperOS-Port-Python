@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge android:background="@color/app_manager_white" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="@dimen/view_dimen_300"
+                        app:scrollableView="@id/items">
+    <androidx.core.widget.NestedScrollView android:id="@id/items"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent">
+      <RelativeLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent">
+        <ImageView android:id="@id/iv_applogo"
+                   android:layout_width="@dimen/applock_logo_width"
+                   android:layout_height="@dimen/applock_logo_height"
+                   android:layout_marginTop="@dimen/applock_logo_top_margin"
+                   android:src="@drawable/applock_firstpage_icon"
+                   android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/textsize_pad_42"
+                  android:textColor="@color/applock_guide_text_color_pad"
+                  android:ellipsize="end"
+                  android:gravity="center"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/viewdimen_pad_20"
+                  android:text="@string/applock_guide_title"
+                  android:maxLines="3"
+                  android:layout_below="@id/iv_applogo"
+                  android:layout_centerHorizontal="true"
+                  android:fontFamily="mipro-medium"
+                  android:layout_marginStart="@dimen/view_dimen_120"
+                  android:layout_marginEnd="@dimen/view_dimen_120" />
+      </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+  </miuix.springback.view.SpringBackLayout>
+</merge>

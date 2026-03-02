@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/external_ram_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:key="key_external_ram_category" />
+  <miuix.preference.CommentPreference android:text="@string/external_ram_intro"
+                        android:key="key_external_ram_intro_text"
+                        android:order="1000" />
+</PreferenceScreen>

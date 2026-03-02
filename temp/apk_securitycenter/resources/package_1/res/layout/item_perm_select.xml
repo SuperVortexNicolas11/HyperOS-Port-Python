@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:id="@id/item_group"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:paddingStart="@dimen/miuix_appcompat_dialog_list_item_padding_start"
+              android:paddingEnd="@dimen/miuix_appcompat_dialog_list_item_padding_end" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:paddingEnd="@dimen/perm_selected_img_w">
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="fill_parent">
+      <TextView android:textSize="@dimen/perm_selected_title_size"
+                android:id="@id/item_title"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:fontFamily="miui-bold" />
+      <ImageView android:id="@id/item_tips"
+                 android:visibility="gone"
+                 android:layout_width="@dimen/permission_icon_size"
+                 android:layout_height="@dimen/permission_icon_size"
+                 android:src="@drawable/icon_action_ai_allow"
+                 android:layout_marginStart="@dimen/perm_selected_tips_left_margin" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/perm_selected_subtitle_size"
+              android:id="@id/item_subtitle"
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+  </LinearLayout>
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/item_selected"
+             android:background="@drawable/icon_perm_selected"
+             android:visibility="gone"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.androidbasewidget.widget.CheckedTextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.AlertDialogListItem.SingleChoice"
+                      android:gravity="center_vertical"
+                      android:id="@android:id/text1"
+                      android:background="@drawable/applock_miuix_appcompat_list_item_bg"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                      android:minHeight="@dimen/miuix_appcompat_list_preferred_item_height_small"
+                      android:paddingStart="0.0dp"
+                      android:paddingEnd="16.0dp" xmlns:android="http://schemas.android.com/apk/res/android" />

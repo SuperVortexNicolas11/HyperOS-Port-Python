@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:persistent="true" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settings.hyperosai.GeminiTopPreference />
+  <Preference android:title="@string/gemini_setting"
+              android:key="gemini_settings"
+              settings:showRightArrow="true" />
+</PreferenceScreen>

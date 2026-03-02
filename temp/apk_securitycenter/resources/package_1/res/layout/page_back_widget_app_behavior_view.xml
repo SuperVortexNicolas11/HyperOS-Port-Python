@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:background="@drawable/scan_widget_item_bg"
+                android:layout_width="@dimen/v_dimens_400"
+                android:layout_height="@dimen/v_dimens_400"
+                android:paddingStart="@dimen/v_dimens_36" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/icon"
+             android:layout_width="@dimen/v_dimens_54"
+             android:layout_height="@dimen/v_dimens_54"
+             android:layout_marginTop="@dimen/v_dimens_38"
+             android:src="@drawable/app_behavior_widget_icon"
+             android:layout_alignParentTop="true" />
+  <TextView android:textSize="@dimen/v_dimens_30"
+            android:textColor="@color/widget_guide_text_color_66"
+            android:id="@id/apps_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/v_dimens_16"
+            android:text="@string/widget_appbehavior_apps_title"
+            android:layout_below="@id/icon" />
+  <TextView android:textSize="@dimen/v_dimens_38"
+            android:textColor="@color/widget_guide_text_color_BF"
+            android:id="@id/perm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_behavior_perm_text"
+            android:layout_below="@id/apps_title"
+            android:fontFamily="mipro-demibold" />
+  <TextView android:textSize="@dimen/v_dimens_109"
+            android:textColor="@color/widget_guide_text_color_BF"
+            android:id="@id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/v_dimens_26"
+            android:text="@string/widget_appbehavior_apps_count"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="mitype-semibold" />
+  <TextView android:textSize="@dimen/v_dimens_30"
+            android:textStyle="bold"
+            android:textColor="@color/widget_guide_text_color_66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/v_dimens_42"
+            android:text="@string/widget_appbehavior_apps_count_unit"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/v_dimens_8"
+            android:layout_toEndOf="@id/count" />
+</RelativeLayout>

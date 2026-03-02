@@ -1,0 +1,14 @@
+.class public interface abstract Landroidx/slice/SliceItem$ActionHandler;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/slice/SliceItem;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "ActionHandler"
+.end annotation

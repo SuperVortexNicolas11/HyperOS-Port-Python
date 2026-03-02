@@ -27,15 +27,21 @@ class UnifiedModifier(BaseModifier):
     - APK-level: Individual APK patches (installer, settings, etc.)
     """
     
-    def __init__(self, context, enable_apk_mods: bool = True):
+    def __init__(self, context, enable_apk_mods: bool = True, 
+                 dry_run: bool = False, max_workers: int = 4):
         super().__init__(context, "UnifiedModifier")
         
         # System-level plugin manager
-        self.system_manager = PluginManager(context, self.logger)
+        self.system_manager = PluginManager(
+            context, self.logger, dry_run=dry_run, max_workers=max_workers
+        )
         
         # APK-level plugin manager
-        self.apk_manager = PluginManager(context, self.logger) if enable_apk_mods else None
+        self.apk_manager = PluginManager(
+            context, self.logger, dry_run=dry_run, max_workers=max_workers
+        ) if enable_apk_mods else None
         
+        self._dry_run = dry_run
         self._register_plugins()
     
     def _register_plugins(self):
@@ -193,9 +199,11 @@ class ApkModifier(BaseModifier):
     or as part of UnifiedModifier.
     """
     
-    def __init__(self, context):
+    def __init__(self, context, dry_run: bool = False, max_workers: int = 4):
         super().__init__(context, "ApkModifier")
-        self.plugin_manager = PluginManager(context, self.logger)
+        self.plugin_manager = PluginManager(
+            context, self.logger, dry_run=dry_run, max_workers=max_workers
+        )
         self._register_plugins()
     
     def _register_plugins(self):

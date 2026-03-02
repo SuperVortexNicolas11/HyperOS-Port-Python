@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:layout_width="fill_parent"
+            android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/privacy_protect_once_group"
+                android:paddingTop="@dimen/safe_sharing_this_time_share_margintop"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:paddingStart="@dimen/safe_sharing_padding_start_end"
+                android:paddingEnd="@dimen/safe_sharing_padding_start_end">
+    <TextView android:textSize="@dimen/safe_sharing_subtitle_textsize"
+              android:textStyle="bold"
+              android:textColor="@color/safe_sharing_subtitle_text_color"
+              android:id="@id/group_title"
+              android:focusableInTouchMode="true"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/once_settings_subtitle" />
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:id="@id/item_location"
+                  android:paddingTop="@dimen/safe_sharing_metadata_padding"
+                  android:paddingBottom="@dimen/safe_sharing_metadata_padding"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/safe_sharing_provicy_tip_margintop">
+      <LinearLayout android:orientation="vertical"
+                    android:layout_width="0.0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/safe_sharing_title_textsize"
+                  android:textStyle="bold"
+                  android:textColor="@color/tip_title"
+                  android:id="@id/item_location_title"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/once_settings_location_title" />
+        <TextView android:textSize="@dimen/safe_sharing_subtitle_textsize"
+                  android:textColor="@color/tip_subtitle"
+                  android:id="@id/item_location_subtitle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/safe_sharing_location_subtitle_margintop"
+                  android:text="@string/first_settings_default_location_subtitle" />
+      </LinearLayout>
+      <miuix.slidingwidget.widget.SlidingSwitch android:id="@id/item_location_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:importantForAccessibility="no" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:id="@id/item_camera"
+                  android:paddingTop="@dimen/safe_sharing_metadata_padding"
+                  android:paddingBottom="@dimen/safe_sharing_metadata_padding"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <LinearLayout android:orientation="vertical"
+                    android:layout_width="0.0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/safe_sharing_title_textsize"
+                  android:textStyle="bold"
+                  android:textColor="@color/tip_title"
+                  android:id="@id/item_camera_title"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/once_settings_camera_ttile" />
+        <TextView android:textSize="@dimen/safe_sharing_subtitle_textsize"
+                  android:textColor="@color/tip_subtitle"
+                  android:id="@id/item_camera_subtitle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/safe_sharing_metadata_subtitle_margintop"
+                  android:maxWidth="@dimen/safe_sharing_metadata_subtitle_maxwidth"
+                  android:text="@string/settings_image_camera_summary" />
+      </LinearLayout>
+      <miuix.slidingwidget.widget.SlidingSwitch android:id="@id/item_camera_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:importantForAccessibility="no" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/safe_sharing_privacy_icon_text_size"
+              android:textColor="@color/tip_title"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/privacy_icon"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/safe_sharing_provicy_icon_padding"
+              android:text="@string/text_security"
+              android:drawablePadding="@dimen/safe_sharing_privacy_icon_padding"
+              android:drawableStart="@drawable/icon_security_tip" />
+    <LinearLayout android:layout_gravity="center_horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/safe_sharing_provicy_tip_margintop">
+      <TextView android:textSize="@dimen/safe_sharing_provicy_tip_textsize"
+                android:textColor="@color/color_dialog_tip"
+                android:gravity="center"
+                android:focusableInTouchMode="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_tip" />
+    </LinearLayout>
+  </LinearLayout>
+</ScrollView>

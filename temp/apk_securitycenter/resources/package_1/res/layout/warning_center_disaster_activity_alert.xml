@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <View android:layout_width="fill_parent"
+        android:layout_height="@dimen/ew_alert_margin_top" />
+  <RelativeLayout android:id="@id/close_container"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:paddingStart="@dimen/ew_disaster_alert_padding_se"
+                  android:paddingEnd="@dimen/ew_disaster_alert_padding_se">
+    <TextView android:textSize="@dimen/wc_text_summary_text_size"
+              android:textColor="@color/ew_alert_white_color"
+              android:id="@id/warning_close"
+              android:background="@drawable/ew_alert_close_bg"
+              android:paddingLeft="@dimen/ew_alert_close_padding_left"
+              android:paddingTop="@dimen/ew_alert_close_padding_top"
+              android:paddingRight="@dimen/ew_alert_close_padding_left"
+              android:paddingBottom="@dimen/ew_alert_close_padding_top"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/warningcenter_mijia_alert_close"
+              android:singleLine="true"
+              android:layout_alignParentEnd="true" />
+  </RelativeLayout>
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollableView="@id/recycler_view">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/recycler_view"
+                          android:paddingBottom="@dimen/dp_16"
+                          android:scrollbars="none"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:overScrollMode="never"
+                          android:paddingStart="@dimen/ew_disaster_alert_padding_se"
+                          android:paddingEnd="@dimen/ew_disaster_alert_padding_se" />
+  </miuix.springback.view.SpringBackLayout>
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <plurals name="app_info_permission_count">
+    <item quantity="other">དབང་ཚད་ཚན་པ%1$s</item>
+  </plurals>
+  <plurals name="app_info_permission_count_">
+    <item quantity="other">རྣམ་གྲངས་%1$sཡི་དབང་ཚད་བེད་སྤྱོད།</item>
+  </plurals>
+  <plurals name="app_info_private_permission_count">
+    <item quantity="other">རྣམ་གྲངས་%1$sནི་གསང་བ་དང་འབྲེལ་ཡོད།</item>
+  </plurals>
+  <plurals name="comment_count">
+    <item quantity="other">%1$sདཔྱད་བརྗོད།</item>
+  </plurals>
+  <plurals name="input_text_count_limit_talkback_one">
+    <item quantity="other">ཡིག་འབྲུ་%1$dནང་འཇུག་བྱེད་ཟིན།</item>
+  </plurals>
+  <plurals name="input_text_count_limit_talkback_two">
+    <item quantity="other">མང་ཤོས་ཡིག་འབྲུ་%1$d</item>
+  </plurals>
+  <plurals name="miuix_appcompat_items_selected">
+    <item quantity="other">ཚན་པ%dབདམས་ཟིན།</item>
+  </plurals>
+  <plurals name="password_wrong_retry_msg">
+    <item quantity="other">སྒོ་ལྕགས་ཕྱེ་གྲངས་ཚད་ལས་བརྒལ་བས། སྐར་ཆ་%1$Sརྗེས་སུ་ཚོད་ལྟ་བྱོས།</item>
+  </plurals>
+  <plurals name="pure_mode_guard_day">
+    <item quantity="other">ཁྱེད་ལ་སྲུང་སྐྱོང་བྱས་ཏེ་ཉིན་%1$dའདས་ཟིན།</item>
+  </plurals>
+  <plurals name="settings_security_mode_enable_count">
+    <item quantity="other">མི་ &lt;font color=#0D84FF&gt;%1$s&lt;/font&gt; ཡིས་ཁ་ཕྱེ་ཟིན་འདུག</item>
+  </plurals>
+  <plurals name="settings_security_mode_protect_count">
+    <item quantity="other">བདེ་འཇགས་སྲུང་སྐྱོབ་ཀྱིས་ཁྱེད་ལ་ཉེན་ཁ་ཐེངས་ &lt;font color=#0D84FF&gt;%1$s&lt;/font&gt; བཀག་ཟིན།</item>
+  </plurals>
+  <plurals name="settings_security_mode_protect_days">
+    <item quantity="other">ཁྱེད་ལ་སྲུང་སྐྱོང་བྱས་ཏེ་ཉིན་ &lt;font color=#0D84FF&gt;%1$s&lt;/font&gt; འདས་ཟིན།</item>
+  </plurals>
+  <plurals name="settings_security_mode_title_on_msg">
+    <item quantity="other">ཁྱེད་ལ་སྲུང་སྐྱོང་བྱས་ཏེ་ཉིན་%1$sའདས་ཟིན།</item>
+  </plurals>
+</resources>

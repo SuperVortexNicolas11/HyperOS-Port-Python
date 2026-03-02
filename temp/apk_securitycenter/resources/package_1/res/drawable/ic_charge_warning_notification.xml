@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="66.0dp"
+        android:width="66.0dp"
+        android:viewportWidth="66.0"
+        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$ic_charge_warning_notification__0"
+        android:pathData="M16,0L50,0A16,16 0,0 1,66 16L66,50A16,16 0,0 1,50 66L16,66A16,16 0,0 1,0 50L0,16A16,16 0,0 1,16 0z" />
+  <path android:fillColor="#ffffff"
+        android:pathData="M26.3629,11C25.0223,11 23.9355,12.0868 23.9355,13.4274C23.9355,14.768 25.0223,15.8548 26.3629,15.8548H39.5403C40.8809,15.8548 41.9677,14.768 41.9677,13.4274C41.9677,12.0868 40.881,11 39.5403,11H26.3629ZM23,18.6293C19.6863,18.6293 17,21.3156 17,24.6293V48.0002C17,51.3139 19.6863,54.0002 23,54.0002H42.9032C46.2169,54.0002 48.9032,51.3139 48.9032,48.0002V24.6293C48.9032,21.3156 46.2169,18.6293 42.9032,18.6293H23Z"
+        android:fillType="evenOdd" />
+</vector>

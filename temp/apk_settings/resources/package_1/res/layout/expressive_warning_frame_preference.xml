@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="?android:attr/listPreferredItemHeightSmall" xmlns:android="http://schemas.android.com/apk/res/android">
+  <include android:id="@id/preference_frame"
+           layout="@layout/settingslib_expressive_preference" />
+  <LinearLayout android:id="@id/warning_chip_frame"
+                android:visibility="gone"
+                android:clickable="false"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8.0dp"
+                android:layout_marginBottom="@dimen/settingslib_expressive_space_small1">
+    <Space android:id="@id/warning_padding_placeholder"
+           android:layout_width="@dimen/settingslib_expressive_space_medium3"
+           android:layout_height="1.0px"
+           android:layout_marginEnd="@dimen/settingslib_expressive_space_extrasmall6" />
+    <include layout="@layout/power_anomaly_hints" />
+  </LinearLayout>
+</LinearLayout>

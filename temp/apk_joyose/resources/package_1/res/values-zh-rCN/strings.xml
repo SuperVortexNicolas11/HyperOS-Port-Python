@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <string name="end_title">对局已结束</string>
+  <string name="gamebox_filter_name_black_gold">黑金</string>
+  <string name="gamebox_filter_name_cyberpunk">赛博朋克</string>
+  <string name="gamebox_filter_name_golden_autumn">金秋</string>
+  <string name="gamebox_filter_name_klein_blue">克莱因蓝</string>
+  <string name="gamebox_filter_name_midnight_green">暗夜绿</string>
+  <string name="gamebox_filter_name_original">原图</string>
+  <string name="gamebox_filter_name_vintage_brown">复古棕</string>
+  <string name="gamebox_filter_name_warn_orange">暖橙</string>
+  <string name="gamebox_filter_name_wild_wind">旷野风</string>
+  <string name="not_resurge_title">距复活</string>
+  <string name="resurged_content">加油!</string>
+  <string name="resurged_title">已复活</string>
+</resources>

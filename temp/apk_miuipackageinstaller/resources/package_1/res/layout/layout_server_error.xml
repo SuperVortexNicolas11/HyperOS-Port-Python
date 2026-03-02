@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <View android:background="@drawable/ic_server_internal_error"
+        android:layout_width="@dimen/dp_57.1"
+        android:layout_height="@dimen/dp_61.82"
+        android:layout_marginTop="@dimen/dp_188" />
+  <TextView android:textSize="@dimen/sp_15"
+            android:textColor="@color/black_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="@string/miui_install_failed_reason" />
+  <Button android:textSize="@dimen/sp_15"
+          android:textColor="@color/black_60"
+          android:id="@id/retry"
+          android:background="@drawable/retry_button_bg"
+          android:visibility="gone"
+          android:layout_width="@dimen/dp_104.7"
+          android:layout_height="@dimen/dp_31"
+          android:layout_marginTop="@dimen/dp_22"
+          android:text="@string/net_work_error_retry" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+  <corners android:radius="@dimen/view_dimen_50" />
+  <solid android:color="#e5ffffff" />
+  <size android:width="@dimen/beauty_pannel_width" />
+  <stroke android:width="@dimen/view_dimen_1"
+          android:color="#1a000000" />
+  <padding android:top="@dimen/view_dimen_53"
+           android:bottom="@dimen/view_dimen_53" />
+</shape>

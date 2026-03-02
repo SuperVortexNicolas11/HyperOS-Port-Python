@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.android.settings.biometrics.fingerprint.UdfpsCheckEnrolledView android:id="@id/udfps_check_enrolled_view"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true">
+    <ImageView android:id="@id/udfps_fingerprint_sensor_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:contentDescription="@string/accessibility_fingerprint_label" />
+    <TextView android:textSize="18.0sp"
+              android:textColor="@android:color/white"
+              android:id="@id/udfps_fingerprint_sensor_message"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="80.0dp"
+              android:text="@string/fingerprint_check_enroll_touch_sensor"
+              android:layout_below="@id/udfps_fingerprint_sensor_view"
+              android:layout_centerHorizontal="true" />
+  </com.android.settings.biometrics.fingerprint.UdfpsCheckEnrolledView>
+</RelativeLayout>

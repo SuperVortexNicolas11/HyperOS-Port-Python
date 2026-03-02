@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.preference.TextPreference android:title="@string/sim_lock_query_all_title"
+                        android:key="query_pin" />
+  <androidx.preference.CheckBoxPreference android:title="@string/sim_lock_setting_keyguard_enable_title"
+                        android:key="master_switch"
+                        android:summary="@string/sim_lock_setting_keyguard_enable_message" />
+</PreferenceScreen>

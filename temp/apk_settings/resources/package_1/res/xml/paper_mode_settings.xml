@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:key="old_paper_mode_ui">
+    <PreferenceCategory android:title="@string/papger_effect_category"
+                        android:key="paper_effect">
+      <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:persistent="false"
+                            android:title="@string/screen_paper_mode_title"
+                            android:key="paper_mode_enable" />
+      <miuix.preference.DividerPreference android:dependency="paper_mode_enable" />
+      <com.android.settings.display.PaperRadioButtonPreference android:persistent="false"
+                            android:title="@string/classic_mode_title"
+                            android:key="classic_mode"
+                            android:summary="@string/classic_mode_summary"
+                            android:dependency="paper_mode_enable" />
+      <com.android.settings.display.PaperRadioButtonPreference android:persistent="false"
+                            android:title="@string/paper_mode_title"
+                            android:key="paper_mode"
+                            android:summary="@string/paper_mode_summary"
+                            android:dependency="paper_mode_enable" />
+    </PreferenceCategory>
+    <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/auto_adjust_effect_title"
+                          android:key="auto_adjust_effect"
+                          android:summary="@string/auto_adjst_effect_summary" />
+    <PreferenceCategory android:key="paper_mode_time_group">
+      <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:persistent="false"
+                            android:title="@string/screen_paper_mode_time_title"
+                            android:key="paper_mode_time_enable"
+                            android:summary="@string/screen_paper_mode_time_summary" />
+      <miuix.preference.DividerPreference android:dependency="paper_mode_time_enable" />
+      <miuix.preference.RadioButtonPreference android:persistent="false"
+                            android:title="@string/paper_mode_auto_twilight_title"
+                            android:key="paper_mode_auto_twilight"
+                            android:summary="@string/paper_mode_auto_twilight_summary"
+                            android:dependency="paper_mode_time_enable" />
+      <miuix.preference.RadioButtonPreference android:persistent="false"
+                            android:title="@string/paper_mode_customize_time_title"
+                            android:key="paper_mode_customize_time"
+                            android:summary="@string/paper_mode_customize_time_summary"
+                            android:dependency="paper_mode_time_enable" />
+      <com.android.settings.dndmode.LabelPreference android:persistent="false"
+                            android:title="@string/paper_mode_start_time_title"
+                            android:key="paper_mode_start_time"
+                            android:dependency="paper_mode_customize_time"
+                            app:applyExtraPadding="false"
+                            app:clickable="true" />
+      <com.android.settings.dndmode.LabelPreference android:persistent="false"
+                            android:title="@string/paper_mode_end_time_title"
+                            android:key="paper_mode_end_time"
+                            android:dependency="paper_mode_customize_time"
+                            app:applyExtraPadding="false"
+                            app:clickable="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/more_settings_eye_health"
+                        android:key="more_eyes_health_settings">
+      <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:persistent="false"
+                            android:title="@string/eye_habit_prompt_title"
+                            android:key="eye_habit_prompt"
+                            android:summary="@string/eye_habit_prompt_summary" />
+      <miuix.preference.DividerPreference android:key="eye_habit_tip_divider"
+                            android:dependency="eye_habit_prompt" />
+      <com.android.settings.display.ImageGuidePreference android:key="eye_habit_tip_image"
+                            app:first_image_option="@drawable/mild_reminder"
+                            app:first_image_option_fold_wide="@drawable/mild_reminder_fold"
+                            app:first_image_option_pad="@drawable/mild_reminder_pad"
+                            app:first_image_option_pad_land="@drawable/mild_reminder_pad_land"
+                            app:first_option_text="@string/mild_reminder"
+                            app:key_status="eyes_habits_tips_status"
+                            app:second_image_option="@drawable/full_screen_reminder"
+                            app:second_image_option_fold_wide="@drawable/full_screen_reminder_fold"
+                            app:second_image_option_pad="@drawable/full_screen_reminder_pad"
+                            app:second_image_option_pad_land="@drawable/full_screen_reminder_pad_land"
+                            app:second_option_text="@string/full_screen_reminder" />
+    </PreferenceCategory>
+  </PreferenceCategory>
+  <PreferenceCategory android:key="new_paper_mode_ui">
+    <PreferenceCategory>
+      <Preference android:layout="@layout/paper_mode_image_layout"
+                  android:selectable="false"
+                  android:key="paper_mode_preview" />
+    </PreferenceCategory>
+    <PreferenceCategory>
+      <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/screen_paper_mode_title_new"
+                            android:key="new_paper_mode_enable"
+                            android:summary="@string/rhythmic_mode_enable_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="spectrum_card"
+                        android:dependency="new_paper_mode_enable">
+      <com.android.settings.display.SpectrumPreference android:title="@string/blue_light_filter"
+                            android:key="spectrum_pref" />
+      <com.android.settings.widget.MiuiSeekBarPreference android:persistent="true"
+                            android:title="@string/screen_paper_texture_new"
+                            android:key="paper_texture_bar" />
+      <com.android.settingslib.miuisettings.preference.miuix.DropDownPreference android:persistent="false"
+                            android:title="@string/paper_color_title_new"
+                            android:key="paper_color_mode"
+                            app:entries="@array/paper_color_values"
+                            app:entryValues="@array/paper_color_index" />
+      <com.android.settingslib.miuisettings.preference.ValuePreference android:title="@string/paper_colors_active_apps"
+                            android:key="active_scope"
+                            android:fragment="com.android.settings.display.newpapermode.NewActiveScopeFragment" />
+      <com.android.settingslib.miuisettings.preference.ValuePreference android:title="@string/eyes_protect_game_title"
+                            android:key="game_mode_eye_comfort">
+        <intent android:targetPackage="com.android.settings"
+                android:action="com.miui.display.action.EYECARE_SETTING" />
+      </com.android.settingslib.miuisettings.preference.ValuePreference>
+    </PreferenceCategory>
+    <PreferenceCategory>
+      <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:persistent="false"
+                            android:title="@string/screen_paper_mode_time_title_new"
+                            android:key="new_paper_mode_time_enable"
+                            android:summary="@string/screen_paper_mode_time_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:dependency="new_paper_mode_time_enable">
+      <miuix.preference.RadioButtonPreference android:persistent="false"
+                            android:title="@string/paper_mode_auto_twilight_title_new"
+                            android:key="new_paper_mode_auto_twilight"
+                            android:summary="@string/paper_mode_auto_twilight_summary" />
+      <miuix.preference.RadioButtonPreference android:persistent="false"
+                            android:title="@string/paper_mode_customize_time_title_new"
+                            android:key="new_paper_mode_customize_time"
+                            android:summary="@string/paper_mode_customize_time_summary" />
+      <com.android.settings.dndmode.LabelPreference android:persistent="false"
+                            android:title="@string/paper_mode_start_time_title_new"
+                            android:key="new_paper_mode_start_time"
+                            android:dependency="new_paper_mode_customize_time"
+                            app:applyExtraPadding="false"
+                            app:clickable="true" />
+      <com.android.settings.dndmode.LabelPreference android:persistent="false"
+                            android:title="@string/paper_mode_end_time_title_new"
+                            android:key="new_paper_mode_end_time"
+                            android:dependency="new_paper_mode_customize_time"
+                            app:applyExtraPadding="false"
+                            app:clickable="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="new_more_eyes_health_settings">
+      <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:persistent="false"
+                            android:title="@string/eye_habit_prompt_title_new"
+                            android:key="new_eye_habit_prompt"
+                            android:summary="@string/eye_habit_prompt_summary" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="new_eyes_tip_image"
+                        android:dependency="new_eye_habit_prompt">
+      <com.android.settings.display.ImageGuidePreference android:key="new_eye_habit_tip_image"
+                            app:first_image_option="@drawable/mild_reminder"
+                            app:first_image_option_fold_wide="@drawable/mild_reminder_fold"
+                            app:first_image_option_pad="@drawable/mild_reminder_pad"
+                            app:first_image_option_pad_land="@drawable/mild_reminder_pad_land"
+                            app:first_option_text="@string/mild_reminder"
+                            app:key_status="eyes_habits_tips_status"
+                            app:second_image_option="@drawable/full_screen_reminder"
+                            app:second_image_option_fold_wide="@drawable/full_screen_reminder_fold"
+                            app:second_image_option_pad="@drawable/full_screen_reminder_pad"
+                            app:second_image_option_pad_land="@drawable/full_screen_reminder_pad_land"
+                            app:second_option_text="@string/full_screen_reminder" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/eyes_protect_certification">
+      <com.android.settings.display.newpapermode.IntroductionPreference android:icon="@drawable/eyes_friendly_certification_icon1"
+                            android:title="@string/eyes_protect_certification_title_1"
+                            android:key="eyes_friendly_certification1"
+                            android:summary="@string/eyes_protect_certification_summary_1" />
+      <com.android.settings.display.newpapermode.IntroductionPreference android:icon="@drawable/eyes_friendly_certification_icon2"
+                            android:title="@string/eyes_protect_certification_title_2"
+                            android:key="eyes_friendly_certification2"
+                            android:summary="@string/eyes_protect_certification_summary_2" />
+      <com.android.settings.display.newpapermode.IntroductionPreference android:icon="@drawable/eyes_friendly_certification_icon3"
+                            android:title="@string/eyes_protect_certification_title_3"
+                            android:key="eyes_friendly_certification3"
+                            android:summary="@string/eyes_protect_certification_summary_3" />
+      <com.android.settings.display.newpapermode.IntroductionPreference android:icon="@drawable/eyes_friendly_certification_icon4"
+                            android:title="@string/eyes_protect_certification_title_4"
+                            android:key="eyes_friendly_certification4"
+                            android:summary="@string/eyes_protect_certification_summary_4" />
+    </PreferenceCategory>
+  </PreferenceCategory>
+</PreferenceScreen>

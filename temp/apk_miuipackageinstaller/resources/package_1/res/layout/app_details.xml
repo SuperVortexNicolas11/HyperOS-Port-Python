@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:id="@id/app_snippet"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/app_icon"
+             android:layout_width="@dimen/dp_72"
+             android:layout_height="@dimen/dp_72"
+             android:layout_marginTop="151.0dp"
+             android:scaleType="centerCrop" />
+  <TextView android:textSize="@dimen/sp_18"
+            android:textColor="@color/app_snippet_app_name_color"
+            android:id="@id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16" />
+  <TextView android:textSize="@dimen/app_install_source_text_size"
+            android:textColor="@color/color_gray_60"
+            android:id="@id/install_confirm_question"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8" />
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.nestedheader.widget.NestedHeaderLayout android:orientation="vertical"
+                        android:id="@id/container"
+                        android:clipChildren="false"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:headerView="@id/am_search_view"
+                        app:rangeOffset="0.0px"
+                        app:scrollableView="@id/pm_editor_springback_layout">
+    <miuix.springback.view.SpringBackLayout android:id="@id/pm_editor_springback_layout"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          app:scrollOrientation="vertical|angle"
+                          app:scrollableView="@id/app_list">
+      <miuix.recyclerview.widget.RecyclerView android:id="@id/app_list"
+                            android:clipToPadding="false"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent" />
+    </miuix.springback.view.SpringBackLayout>
+    <include android:id="@id/am_search_view"
+             layout="@layout/miuix_appcompat_search_stub" />
+  </miuix.nestedheader.widget.NestedHeaderLayout>
+  <miuix.androidbasewidget.widget.ProgressBar android:id="@id/oaid_app_loading"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+</RelativeLayout>

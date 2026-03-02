@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="0.0dp"
+                        android:layout_weight="1.0"
+                        app:scrollOrientation="vertical|angle"
+                        app:scrollableView="@id/main_content">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/main_content"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" />
+  </miuix.springback.view.SpringBackLayout>
+  <LinearLayout android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:id="@id/item_bottom_install_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:paddingStart="@dimen/dp_30"
+                android:paddingEnd="@dimen/dp_30">
+    <CheckBox android:textSize="@dimen/dp_16.7"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/item_install_checked"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/risk_app_install_agree_checkbox"
+              android:paddingStart="@dimen/dp_8" />
+    <Button android:id="@id/item_install_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_22"
+            android:text="@string/risk_app_install_agree_button"
+            style="@style/Widget.Button.Warning" />
+  </LinearLayout>
+</LinearLayout>

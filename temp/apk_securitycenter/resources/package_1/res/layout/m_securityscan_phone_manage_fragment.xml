@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:orientation="vertical"
+                android:background="@color/securityscan_bgcolor"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/activity_actionbar_margin_top"
+           layout="@layout/activity_main_actionbar_layout" />
+  <ViewStub android:id="@id/main_refresh_item"
+            android:layout="@layout/m_main_refresh_item"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+  <LinearLayout android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:id="@id/ll_edit_and_recycler_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_below="@id/abc_action_bar"
+                android:paddingStart="@dimen/scan_paste_list_view_margin_se"
+                android:paddingEnd="@dimen/scan_paste_list_view_margin_se">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_commonly_used_func_edit_card"
+                          android:background="@drawable/commonly_used_func_edit_card_bg"
+                          android:paddingBottom="@dimen/dp_12"
+                          android:visibility="gone"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:overScrollMode="never" />
+    <com.miui.common.customview.MainSpringBackLayout android:id="@id/recycler_container"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          app:scrollableView="@id/recycler_view">
+      <com.miui.common.customview.FirstTouchRecyclerView android:id="@id/recycler_view"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent" />
+    </com.miui.common.customview.MainSpringBackLayout>
+  </LinearLayout>
+  <ViewStub android:id="@id/stub_popular_find_action"
+            android:layout="@layout/stub_popular_find_action_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+</RelativeLayout>

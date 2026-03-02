@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:gravity="center_vertical"
+                      android:background="@drawable/miuix_appcompat_list_item_bg"
+                      android:paddingTop="@dimen/dp_10"
+                      android:paddingBottom="@dimen/dp_10"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/miuix_preference_app_min_height"
+                      android:paddingStart="@dimen/miuix_preference_item_padding_start"
+                      android:paddingEnd="@dimen/miuix_preference_item_padding_end"
+                      app:template="standard_button" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView android:id="@id/app_icon"
+             app:area_id="@id/area_head"
+             style="@style/ResultListIconStyle" />
+  <TextView android:id="@id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:area_id="@id/area_title"
+            style="@style/Miuix.AppCompat.TextAppearance.List.Primary" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+            android:id="@id/app_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:area_id="@id/area_text_button" />
+  <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_40"
+                        app:area_id="@id/area_end">
+    <View android:id="@id/click_area"
+          android:visibility="gone"
+          android:layout_width="@dimen/dp_40"
+          android:layout_height="@dimen/dp_40"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/right_icon"
+               android:clickable="false"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</miuix.flexible.view.HyperCellLayout>

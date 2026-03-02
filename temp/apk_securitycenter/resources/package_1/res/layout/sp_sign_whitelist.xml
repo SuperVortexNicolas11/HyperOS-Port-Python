@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:id="@id/white_list_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <Button android:id="@id/cleanup_btn"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="23.0dp"
+          android:layout_alignParentBottom="true" />
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_above="@id/cleanup_btn"
+                        android:layout_below="@id/header_title"
+                        app:scrollableView="@id/app_list">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/app_list"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" />
+  </miuix.springback.view.SpringBackLayout>
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+            android:gravity="bottom"
+            android:id="@id/header_title"
+            android:paddingBottom="7.0dp"
+            android:visibility="gone"
+            android:clickable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_16"
+            android:layout_marginStart="@dimen/miuix_theme_margin_horizontal_common"
+            android:backgroundTint="@color/v_list_header_background_tint" />
+  <include android:id="@id/empty_view"
+           android:visibility="gone"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:layout_centerInParent="true"
+           layout="@layout/empty_view_maml" />
+</RelativeLayout>

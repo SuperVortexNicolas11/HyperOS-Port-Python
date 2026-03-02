@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <miuix.preference.DropDownPreference android:title="@string/ew_settings_choose_level"
+                          android:key="select_level"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/ew_settings_choose_level"
+                          android:key="select_level_old"
+                          app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.warningcenter.widget.WarningCenterImagePreference app:imageResource="@drawable/warningcenter_ew"
+                          app:intervalLine="true" />
+    <CheckBoxPreference android:enabled="false"
+                        android:title="@string/ew_setting_strong_push_title"
+                        android:key="slide_normal"
+                        android:summary="@string/ew_setting_strong_push_message" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <Preference android:enabled="false"
+                app:layout="@layout/ew_preference_small" />
+    <CheckBoxPreference android:title="@string/ew_setting_normal_push_title"
+                        android:key="slide_push"
+                        android:summary="@string/ew_setting_normal_push_message" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/ew_setting_desc_title">
+    <miuix.preference.CommentPreference android:text="@string/ew_setting_desc_message"
+                          android:key="comment" />
+  </PreferenceCategory>
+</PreferenceScreen>

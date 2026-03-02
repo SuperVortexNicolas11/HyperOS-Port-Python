@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <integer name="gd_app_edit_quick_default_count">6</integer>
+  <integer name="gd_app_edit_rv_column_count">6</integer>
+  <integer name="mtrl_calendar_header_orientation">0</integer>
+  <integer name="mtrl_calendar_selection_text_lines">6</integer>
+</resources>

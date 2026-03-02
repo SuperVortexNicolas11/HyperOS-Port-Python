@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TextView android:textSize="@dimen/view_dimen_30"
+          android:textColor="@color/color_vtb_button_smart_fps"
+          android:gravity="center"
+          android:id="@id/tv_view"
+          android:background="@drawable/vtb_bubble_dolby_bg"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawablePadding="@dimen/view_dimen_14"
+          android:drawableStart="@drawable/vtb_main_dolby_style_press" xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:id="@id/error_part"
+              android:visibility="gone"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="214.9dp"
+             android:src="@drawable/icon_network_failure"
+             android:contentDescription="@null" />
+  <TextView android:textSize="15.27sp"
+            android:textColor="@color/bh_black_40_daynight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17.0dp"
+            android:text="当前网络不可用"
+            android:contentDescription="@null" />
+  <Button android:textSize="17.45dp"
+          android:textColor="@color/bh_black_daynight"
+          android:id="@id/btn_reload"
+          android:background="@drawable/bh_shape_webview_btn_retry"
+          android:paddingTop="2.18dp"
+          android:paddingBottom="2.18dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="41.9dp"
+          android:text="点击重试"
+          android:paddingStart="43.6dp"
+          android:paddingEnd="43.6dp" />
+</LinearLayout>

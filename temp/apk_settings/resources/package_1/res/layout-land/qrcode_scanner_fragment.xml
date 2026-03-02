@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.core.widget.NestedScrollView android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="horizontal"
+                android:paddingTop="@dimen/audio_streams_qrcode_scanner_fragment_padding"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <TextView android:gravity="center"
+              android:id="@android:id/summary"
+              android:layout_width="0.0dp"
+              android:layout_height="fill_parent"
+              android:layout_weight="1.0"
+              style="@style/QrCodeScanner" />
+    <LinearLayout android:gravity="center"
+                  android:orientation="vertical"
+                  android:layout_width="0.0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0">
+      <TextureView android:id="@id/preview_view"
+                   android:focusable="true"
+                   android:layout_width="@dimen/audio_streams_qrcode_preview_size"
+                   android:layout_height="@dimen/audio_streams_qrcode_preview_size"
+                   android:contentDescription="@string/audio_streams_qr_code_scanner_label" />
+      <TextView android:id="@id/error_message"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.ErrorText" />
+    </LinearLayout>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/card_layout_top_scroll_item_height"
+              android:paddingStart="@dimen/card_layout_top_icon_margin_start"
+              android:paddingEnd="@dimen/card_layout_top_right_arrow_margin_end" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/icon"
+             android:layout_width="@dimen/dp_24"
+             android:layout_height="@dimen/dp_24"
+             android:scaleType="centerCrop"
+             android:layout_marginEnd="@dimen/card_layout_top_icon_margin_end" />
+  <TextView android:textSize="@dimen/text_font_size_40"
+            android:textColor="@color/phone_manage_item_text_color"
+            android:layout_gravity="center_vertical"
+            android:id="@id/summary"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_weight="1.0"
+            android:layout_marginEnd="@dimen/card_layout_top_icon_margin_end" />
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/arrow_right"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/miuix_appcompat_arrow_right" />
+</LinearLayout>

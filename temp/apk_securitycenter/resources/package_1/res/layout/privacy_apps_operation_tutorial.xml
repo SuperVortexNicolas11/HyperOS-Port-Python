@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <androidx.viewpager.widget.ViewPager android:layout_gravity="center"
+                        android:id="@id/view_pager"
+                        android:clipChildren="false"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0" />
+  <com.miui.privacyapps.view.ViewPagerIndicator android:layout_gravity="center"
+                        android:id="@id/indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2.0dp" />
+  <Button android:textSize="@dimen/applock_main_info_title_size"
+          android:layout_gravity="bottom"
+          android:id="@id/use_privacy_apps"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="18.0dp"
+          android:layout_marginBottom="@dimen/view_dimen_124"
+          android:text="@string/privacy_apps_go_to_use"
+          android:layout_marginStart="27.0dp"
+          android:layout_marginEnd="27.0dp"
+          style="@style/Widget.Button.Primary" />
+</LinearLayout>

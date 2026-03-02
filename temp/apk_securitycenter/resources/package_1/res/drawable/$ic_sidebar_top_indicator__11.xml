@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<objectAnimator android:duration="900"
+                android:startOffset="300"
+                android:repeatCount="1"
+                android:repeatMode="reverse"
+                android:valueFrom="0.15"
+                android:valueTo="0.1"
+                android:valueType="floatType"
+                android:propertyName="fillAlpha" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" />

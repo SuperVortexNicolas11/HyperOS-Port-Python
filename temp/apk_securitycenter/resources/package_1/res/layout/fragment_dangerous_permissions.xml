@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.smooth.SmoothFrameLayout android:background="@color/first_aid_kit_bgcolor"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      app:scrollableView="@id/center_layout" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.core.widget.NestedScrollView android:id="@id/center_layout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+    <LinearLayout android:gravity="center"
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <TextView android:textSize="@dimen/text_font_size_40"
+                android:textColor="@color/bg_location_occupy"
+                android:background="@drawable/shape_sensitive_permission_top_bg"
+                android:paddingTop="@dimen/view_dimen_48"
+                android:paddingBottom="@dimen/view_dimen_48"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/miuix_preference_item_padding_bottom"
+                android:text="@string/privacy_risk_dangerous_top_tip"
+                android:paddingStart="@dimen/view_dimen_44"
+                android:paddingEnd="@dimen/view_dimen_44"
+                android:layout_marginStart="@dimen/miuix_preference_item_padding_start"
+                android:layout_marginEnd="@dimen/miuix_preference_item_padding_end" />
+      <miuix.smooth.SmoothFrameLayout android:gravity="center"
+                            android:orientation="vertical"
+                            android:background="@color/pc_main_card_item_background"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:radius="20.0dp"
+                            android:layout_marginStart="@dimen/miuix_preference_item_padding_start"
+                            android:layout_marginEnd="@dimen/miuix_preference_item_padding_end">
+        <LinearLayout android:gravity="center"
+                      android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/view_dimen_44"
+                      android:paddingEnd="@dimen/view_dimen_44">
+          <LinearLayout android:gravity="center"
+                        android:orientation="horizontal"
+                        android:id="@id/container_manager"
+                        android:paddingTop="@dimen/view_dimen_45"
+                        android:paddingBottom="@dimen/view_dimen_45"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="0.0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1.0">
+              <TextView android:id="@id/title_manager"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/privacy_risk_dangerous_manager"
+                        style="@style/privacy_main_title" />
+              <TextView android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/privacy_risk_dangerous_manager_msg"
+                        style="@style/privacy_main_summary" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/text_font_size_42"
+                      android:textColor="@color/na_nd_text_sub"
+                      android:gravity="center_vertical"
+                      android:id="@id/manager_num"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:drawablePadding="@dimen/view_dimen_20"
+                      android:drawableEnd="@drawable/ic_arrow_right" />
+          </LinearLayout>
+          <LinearLayout android:gravity="center"
+                        android:orientation="horizontal"
+                        android:id="@id/container_notice"
+                        android:paddingTop="@dimen/view_dimen_45"
+                        android:paddingBottom="@dimen/view_dimen_45"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="0.0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1.0">
+              <TextView android:id="@id/title_notice"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/manage_notification_access_title"
+                        style="@style/privacy_main_title" />
+              <TextView android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/privacy_risk_dangerous_notice_msg"
+                        style="@style/privacy_main_summary" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/text_font_size_42"
+                      android:textColor="@color/na_nd_text_sub"
+                      android:gravity="center_vertical"
+                      android:id="@id/notice_num"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:drawablePadding="@dimen/view_dimen_20"
+                      android:drawableEnd="@drawable/ic_arrow_right" />
+          </LinearLayout>
+          <LinearLayout android:gravity="center"
+                        android:orientation="horizontal"
+                        android:id="@id/container_usage"
+                        android:paddingTop="@dimen/view_dimen_45"
+                        android:paddingBottom="@dimen/view_dimen_45"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="0.0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1.0">
+              <TextView android:id="@id/title_usage"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/usage_access_title"
+                        style="@style/privacy_main_title" />
+              <TextView android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/privacy_risk_dangerous_usage_msg"
+                        style="@style/privacy_main_summary" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/text_font_size_42"
+                      android:textColor="@color/na_nd_text_sub"
+                      android:gravity="center_vertical"
+                      android:id="@id/usage_num"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:drawablePadding="@dimen/view_dimen_20"
+                      android:drawableEnd="@drawable/ic_arrow_right" />
+          </LinearLayout>
+        </LinearLayout>
+      </miuix.smooth.SmoothFrameLayout>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+</miuix.smooth.SmoothFrameLayout>

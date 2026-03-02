@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:paddingStart="@dimen/dp_28"
+              android:paddingEnd="@dimen/dp_28" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textSize="@dimen/text_font_size_72"
+            android:textColor="@color/os2_main_title_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_apps_tutorial_dlg_title"
+            android:fontFamily="mipro-medium" />
+  <miuix.core.widget.NestedScrollView android:scrollbars="none"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.0dp"
+                        android:layout_weight="1.0">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <TextView android:textSize="@dimen/text_font_size_42"
+                android:textColor="@color/blackalpha50"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_dimen_38"
+                android:text="@string/privacy_apps_tutorial_dlg_message_1"
+                android:textAlignment="center" />
+      <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center"
+                            android:id="@id/lav_settings_privacy"
+                            android:layout_width="@dimen/apps_tutorial_anim_width"
+                            android:layout_height="@dimen/apps_tutorial_anim_height"
+                            android:layout_marginTop="@dimen/dp_28"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+    </LinearLayout>
+  </miuix.core.widget.NestedScrollView>
+  <Button android:textSize="@dimen/sp_px_48"
+          android:textColor="@color/pa_dialog_button_text_color"
+          android:id="@id/pa_dlg_button"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/view_dimen_80"
+          android:text="@string/privacy_apps_button_know"
+          style="@style/Widget.Button.Primary" />
+</LinearLayout>

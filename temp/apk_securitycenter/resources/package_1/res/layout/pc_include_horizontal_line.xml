@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<View android:background="@color/separator_line_light_gray_no_dark_mode"
+      android:layout_width="fill_parent"
+      android:layout_height="1.0px"
+      android:layout_marginStart="@dimen/result_list_item_padding_start" xmlns:android="http://schemas.android.com/apk/res/android" />

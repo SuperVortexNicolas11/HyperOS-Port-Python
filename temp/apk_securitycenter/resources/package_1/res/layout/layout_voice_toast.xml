@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TextView android:textSize="@dimen/view_dimen_36"
+          android:textColor="@color/gb_toast_text_color"
+          android:gravity="center"
+          android:layout_gravity="center"
+          android:id="@id/vc_opened"
+          android:background="@drawable/gb_voice_change_toast_bg"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:maxWidth="@dimen/gb_vc_toast_view_max_width"
+          android:minWidth="@dimen/gb_vc_toast_view_min_width"
+          android:minHeight="@dimen/gb_vc_toast_view_min_height"
+          android:text="@string/gb_voice_change_settinged"
+          android:maxLines="2" xmlns:android="http://schemas.android.com/apk/res/android" />

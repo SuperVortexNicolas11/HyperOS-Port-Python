@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settings.special.backstrap.BackStrapImagePreference />
+  <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/back_strap_title"
+                        android:key="back_strap_switch" />
+  <com.android.settingslib.miuisettings.preference.miuix.DropDownPreference android:persistent="false"
+                        android:title="@string/back_strap_title"
+                        android:key="back_strap_drop_down"
+                        settings:entries="@array/back_strap_entries"
+                        settings:entryValues="@array/back_strap_values" />
+  <PreferenceCategory android:title="@string/lamp_effect_settings"
+                      android:key="lamp_effect_settings">
+    <com.android.settingslib.miuisettings.preference.miuix.DropDownPreference android:title="@string/call_reminder_title"
+                          android:key="call_reminder"
+                          settings:controller="com.android.settings.special.backstrap.CallReminderController"
+                          settings:entries="@array/call_reminder_entries"
+                          settings:entryValues="@array/call_reminder_values" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/game_app_title"
+                          android:key="game_app"
+                          android:fragment="com.android.settings.special.backstrap.GameAppFragment" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/musical_rhythm_app_title"
+                          android:key="musical_rhythm_app"
+                          android:fragment="com.android.settings.special.backstrap.MusicalRhythmFragment" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/notification_app_title"
+                          android:key="notification_app"
+                          android:fragment="com.android.settings.special.backstrap.NotificationAppFragment" />
+    <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/light_camera_state_title"
+                          android:key="light_camera_state_switch"
+                          android:summary="@string/light_camera_state_summary"
+                          settings:controller="com.android.settings.special.backstrap.LightCameraController" />
+    <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/xiaoai_wake_up_light_title"
+                          android:key="xiaoai_wake_up_light_switch"
+                          android:summary="@string/xiaoai_wake_up_light_summary"
+                          settings:controller="com.android.settings.special.backstrap.XiaoAiWakeUpLightController" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/back_strap_other_seetings"
+                      android:key="back_strap_other_seetings">
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/lamp_effect_color"
+                          android:key="lamp_effect_color"
+                          android:fragment="com.android.settings.special.backstrap.BackStrapColorSettingsFragment" />
+    <miuix.preference.DividerPreference android:key="lamp_effect_color_divider"
+                          android:dependency="lamp_effect_color" />
+    <com.android.settings.special.LampEffectBrightnessSeekBarPreference android:persistent="true"
+                          android:title="@string/lamp_effect_brightness"
+                          android:key="lamp_effect_brightness"
+                          settings:useAdminDisabledSummary="true"
+                          settings:userRestriction="no_config_brightness" />
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:id="@id/ll_camera_handle_battery_container"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="40.0dp"
+              android:layout_marginRight="16.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="14.0sp"
+            android:textColor="@color/gemini_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/handle_battery" />
+  <FrameLayout android:background="@drawable/icon_battery_container"
+               android:paddingLeft="3.0dp"
+               android:paddingTop="3.0dp"
+               android:paddingRight="6.0dp"
+               android:paddingBottom="3.0dp"
+               android:layout_width="26.0dp"
+               android:layout_height="14.0dp"
+               android:layout_marginLeft="8.0dp">
+    <miuix.androidbasewidget.widget.ProgressBar android:layout_gravity="center"
+                          android:id="@id/camera_handle_progress"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:max="100"
+                          android:progressDrawable="@drawable/camera_handle_battery20_progressbar"
+                          style="?android:attr/progressBarStyleHorizontal" />
+  </FrameLayout>
+  <TextView android:textSize="14.0sp"
+            android:textColor="@color/gemini_name"
+            android:id="@id/tv_handle_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dp"
+            android:text="50%" />
+</LinearLayout>

@@ -1,0 +1,31 @@
+.class public abstract Landroidx/compose/runtime/internal/Expect_jvmKt;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# direct methods
+.method public static final invokeComposable(Landroidx/compose/runtime/Composer;Lkotlin/jvm/functions/Function2;)V
+    .locals 1
+
+    .line 23
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 v0, 0x2
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lkotlin/jvm/functions/Function2;
+
+    const/4 v0, 0x1
+
+    .line 24
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-interface {p1, p0, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+.end method

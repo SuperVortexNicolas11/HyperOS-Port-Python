@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              style="@style/auto_task_item_padding" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/task_icon"
+             android:layout_width="@dimen/view_dimen_64"
+             android:layout_height="@dimen/view_dimen_64" />
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/view_dimen_60"
+                android:layout_marginEnd="@dimen/view_dimen_20">
+    <TextView android:textSize="@dimen/text_font_size_50"
+              android:textColor="@color/task_title_color"
+              android:ellipsize="end"
+              android:id="@id/task_title"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:maxLines="1"
+              android:singleLine="true"
+              android:fontFamily="mipro-medium" />
+    <TextView android:textSize="@dimen/text_font_size_38"
+              android:textColor="@color/task_summary_color"
+              android:ellipsize="end"
+              android:id="@id/task_summary"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_4"
+              android:maxLines="1"
+              android:singleLine="true"
+              android:fontFamily="mipro-regular" />
+  </LinearLayout>
+  <CheckBox android:layout_gravity="center_vertical"
+            android:id="@id/exit_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/view_dimen_16" />
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/task_delete"
+             android:padding="@dimen/view_dimen_24"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/auto_task_icon_delete"
+             android:contentDescription="@string/delete" />
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/task_arrow"
+             android:visibility="gone"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/auto_task_left_small_arrow"
+             android:importantForAccessibility="no"
+             android:layout_marginEnd="@dimen/view_dimen_16" />
+</LinearLayout>

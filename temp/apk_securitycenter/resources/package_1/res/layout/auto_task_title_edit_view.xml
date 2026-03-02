@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <EditText android:textColor="@color/task_title_color"
+            android:textColorHint="@color/auto_task_edit_text_hint_text_color"
+            android:id="@id/edit"
+            android:background="@drawable/auto_task_edit_bg"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_new_task_name"
+            android:maxLines="2"
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:fontFamily="mipro-medium"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_16" />
+</RelativeLayout>

@@ -1,0 +1,42 @@
+.class public final synthetic Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment$$ExternalSyntheticLambda1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/android/settings/special/backstrap/BackStrapColorPickerPreference$OnColorSelectedListener;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment;
+
+.field public final synthetic f$1:Ljava/lang/String;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment;Ljava/lang/String;)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment;
+
+    iput-object p2, p0, Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onColorSelected(I)V
+    .locals 1
+
+    .line 0
+    iget-object v0, p0, Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment;
+
+    iget-object p0, p0, Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
+
+    invoke-static {v0, p0, p1}, Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment;->$r8$lambda$iFkHvk1Fm3vNfgOR-2vDJkQbCao(Lcom/android/settings/special/backstrap/BackStrapColorSettingsFragment;Ljava/lang/String;I)V
+
+    return-void
+.end method

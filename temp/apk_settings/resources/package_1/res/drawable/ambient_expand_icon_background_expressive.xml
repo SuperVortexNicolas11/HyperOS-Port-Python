@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<inset android:drawable="@drawable/ambient_icon_background_expressive"
+       android:insetTop="10.0dp"
+       android:insetBottom="10.0dp" xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.google.android.flexbox.FlexboxLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:alignContent="flex_start"
+                      app:alignItems="flex_start"
+                      app:flexWrap="wrap" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:ellipsize="end"
+            android:id="@id/tv_developer"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/ad_right_line_shape_19"
+            style="@style/AdInfoTextStyle19" />
+  <TextView android:id="@id/tv_version"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/ad_right_line_shape_19"
+            style="@style/AdInfoTextStyle19" />
+  <TextView android:id="@id/tv_privacy"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/ad_right_line_shape_19"
+            style="@style/AdInfoTextStyle19" />
+  <TextView android:id="@id/tv_permission"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/ad_right_line_shape_19"
+            style="@style/AdInfoTextStyle19" />
+  <TextView android:id="@id/tv_introduce"
+            android:text="@string/ad_text_introduce"
+            android:drawableEnd="@drawable/ad_right_line_shape_19"
+            style="@style/AdInfoTextStyle19" />
+  <TextView android:id="@id/tv_ad"
+            android:text="@string/ad_text_adx"
+            style="@style/AdInfoTextStyle19" />
+</com.google.android.flexbox.FlexboxLayout>

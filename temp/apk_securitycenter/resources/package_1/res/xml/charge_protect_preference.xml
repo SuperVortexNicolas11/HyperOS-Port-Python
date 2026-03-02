@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.preference.PreferenceCategory android:title="@string/pc_batery_information"
+                        android:key="preference_key_category_battery_info"
+                        app:needDividerLine="false">
+    <miuix.preference.TextPreference android:title="@string/battery_health_level_text"
+                          android:key="reference_battery_health" />
+    <miuix.preference.TextPreference android:title="@string/power_center_battery_temperature"
+                          android:key="reference_current_temp" />
+    <miuix.preference.TextPreference android:title="@string/pc_toady_charge_time_title"
+                          android:key="reference_toady_charge_time" />
+    <miuix.preference.TextPreference android:title="@string/pc_cycle_count_protect_title"
+                          android:key="reference_cycle_count"
+                          app:clickable="false"
+                          app:touchAnimationEnable="false" />
+    <miuix.preference.TextPreference android:title="@string/pc_production_date_protect_title"
+                          android:key="reference_production_date"
+                          app:clickable="false"
+                          app:touchAnimationEnable="false" />
+    <miuix.preference.TextPreference android:title="@string/pc_first_use_protect_title"
+                          android:key="reference_first_use_date"
+                          app:clickable="false"
+                          app:touchAnimationEnable="false" />
+  </miuix.preference.PreferenceCategory>
+  <miuix.preference.PreferenceCategory android:title="@string/pc_battery_charge_protect"
+                        android:key="preference_key_category_battery_protect" />
+  <miuix.preference.SingleChoicePreferenceCategory android:key="category_features_battery_protect">
+    <miuix.preference.SingleChoicePreference android:persistent="false"
+                          android:title="@string/pc_health_charge_default"
+                          android:key="cb_charge_normal" />
+    <miuix.preference.SingleChoicePreference android:persistent="false"
+                          android:title="@string/pc_health_charge_protect_title"
+                          android:key="cb_always_charge_protect"
+                          android:summary="@string/pc_health_charge_protect_summary_new" />
+    <miuix.preference.SingleChoicePreference android:persistent="false"
+                          android:title="@string/pc_smart_charge_title"
+                          android:key="cb_intellect_charge_protect"
+                          android:summary="@string/pc_smart_charge_button_summary" />
+    <com.miui.powercenter.nightcharge.widget.PowerTextButtonPreference android:persistent="false"
+                          android:title="@string/pc_this_time_charge_full"
+                          android:key="key_once_no_protect" />
+  </miuix.preference.SingleChoicePreferenceCategory>
+</PreferenceScreen>

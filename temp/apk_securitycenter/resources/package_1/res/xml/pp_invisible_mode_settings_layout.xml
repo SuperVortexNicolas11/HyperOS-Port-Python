@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.permcenter.settings.model.CardTextPreference android:selectable="false"
+                        android:key="invisible_mode_head"
+                        app:layout="@layout/invisible_mode_head" />
+  <CheckBoxPreference android:title="@string/cetus_invisible_mode"
+                      android:key="invisible_mode" />
+</PreferenceScreen>

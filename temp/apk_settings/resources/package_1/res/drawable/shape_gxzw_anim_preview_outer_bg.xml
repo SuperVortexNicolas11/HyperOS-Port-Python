@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <corners android:radius="@dimen/miui_gxzw_anim_outer_radius" />
+  <solid android:color="@color/miuix_default_color_container_list_dark" />
+  <padding android:left="@dimen/miui_gxzw_anim_horizontal_padding"
+           android:top="@dimen/miui_gxzw_anim_vertical_padding"
+           android:right="@dimen/miui_gxzw_anim_horizontal_padding"
+           android:bottom="@dimen/miui_gxzw_anim_vertical_padding" />
+</shape>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dp_30"
+                android:paddingEnd="@dimen/dp_30" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="horizontal"
+                android:id="@id/item_top_install_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_36.36">
+    <ImageView android:id="@id/perm_app_install_icon"
+               android:layout_width="@dimen/dp_68.36"
+               android:layout_height="@dimen/dp_68.36" />
+    <LinearLayout android:layout_gravity="center_vertical"
+                  android:orientation="vertical"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="@dimen/dp_16.7">
+      <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+                android:textSize="@dimen/sp_18"
+                android:id="@id/perm_install_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:singleLine="true" />
+      <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+                android:textSize="@dimen/sp_15"
+                android:id="@id/perm_install_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/dp_3.6" />
+    </LinearLayout>
+  </LinearLayout>
+  <LinearLayout android:gravity="center_vertical"
+                android:id="@id/item_risk_app_install_des"
+                android:background="@drawable/shape_desc_blue"
+                android:paddingTop="@dimen/layout_description_padding_top_bottom"
+                android:paddingBottom="@dimen/layout_description_padding_top_bottom"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_35"
+                android:layout_below="@id/item_top_install_layout"
+                android:paddingStart="@dimen/layout_description_padding_start_end"
+                android:paddingEnd="@dimen/layout_description_padding_start_end">
+    <TextView android:textSize="@dimen/app_install_confirm_question_text_size"
+              android:textColor="@color/install_confirm_question_blue_text"
+              android:ellipsize="end"
+              android:id="@id/install_confirm_question"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:maxLines="3" />
+  </LinearLayout>
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/item_content_install_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_35"
+                android:layout_below="@id/item_risk_app_install_des">
+    <TextView android:textSize="@dimen/dp_16.7"
+              android:textColor="#8c93b0"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/risk_app_install_agree_title" />
+    <TextView android:textSize="@dimen/sp_15"
+              android:textColor="@color/black_70"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dp_13.4"
+              android:text="@string/risk_app_install_agree_message"
+              android:lineSpacingMultiplier="1.5" />
+  </LinearLayout>
+</RelativeLayout>

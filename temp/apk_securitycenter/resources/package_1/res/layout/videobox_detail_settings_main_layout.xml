@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.gamebooster.videobox.view.DetailSettingsLayout android:gravity="center_horizontal"
+                      android:orientation="vertical"
+                      android:id="@id/second_main_root"
+                      android:background="@android:color/transparent"
+                      android:visibility="gone"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <include layout="@layout/video_box_pager_second_titlebar" />
+  <FrameLayout android:layout_gravity="center_horizontal"
+               android:layout_width="@dimen/vb_second_lv_w"
+               android:layout_height="fill_parent">
+    <ListView android:layout_gravity="center_horizontal"
+              android:id="@id/lv_main"
+              android:background="@android:color/transparent"
+              android:scrollbars="none"
+              android:layout_width="@dimen/vb_second_lv_w"
+              android:layout_height="fill_parent"
+              android:listSelector="@null"
+              android:divider="@null"
+              android:dividerHeight="0.0dp"
+              android:overScrollMode="never" />
+    <com.miui.gamebooster.videobox.view.MarqueeTextView android:textSize="@dimen/vb_second_tips_txt_size"
+                          android:textColor="#66ffffff"
+                          android:ellipsize="marquee"
+                          android:layout_gravity="bottom|center|start"
+                          android:id="@id/tv_tips"
+                          android:visibility="gone"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/vb_second_tips_mt"
+                          android:layout_marginBottom="@dimen/vb_second_tips_mb"
+                          android:text="@string/vb_ve_settings_display_style_tips"
+                          android:singleLine="true"
+                          android:marqueeRepeatLimit="marquee_forever"
+                          android:textAlignment="viewStart" />
+  </FrameLayout>
+</com.miui.gamebooster.videobox.view.DetailSettingsLayout>

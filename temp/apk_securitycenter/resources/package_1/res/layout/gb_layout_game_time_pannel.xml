@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/panel_container"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.gametime.GameTimeView android:id="@id/pannel_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:gtbPosition="0"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+  <com.miui.gamebooster.gametime.GameTimeView android:id="@id/pannel_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/view_dimen_20"
+                        app:gtbPosition="1"
+                        app:layout_constraintLeft_toRightOf="@id/pannel_one"
+                        app:layout_constraintTop_toTopOf="parent" />
+  <com.miui.gamebooster.gametime.GameTimeView android:id="@id/pannel_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/view_dimen_20"
+                        app:gtbPosition="2"
+                        app:layout_constraintLeft_toRightOf="@id/pannel_two"
+                        app:layout_constraintTop_toTopOf="parent" />
+  <com.miui.gamebooster.gametime.GameTimeView android:id="@id/pannel_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/view_dimen_20"
+                        app:gtbPosition="3"
+                        app:layout_constraintLeft_toRightOf="@id/pannel_three"
+                        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

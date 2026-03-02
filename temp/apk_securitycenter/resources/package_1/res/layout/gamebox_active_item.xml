@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/item_bg"
+                      android:layout_width="@dimen/view_dimen_366"
+                      android:layout_height="@dimen/view_dimen_366" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.common.widgets.gif.GifImageView android:id="@id/item_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+  <TextView android:textSize="@dimen/view_dimen_44"
+            android:textColor="@color/white"
+            android:ellipsize="end"
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_dimen_20"
+            android:maxLines="2"
+            android:paddingStart="@dimen/view_dimen_24"
+            android:paddingEnd="@dimen/view_dimen_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+  <TextView android:textSize="@dimen/view_dimen_24"
+            android:textColor="@color/gb_ngtb_card_subtitle"
+            android:ellipsize="end"
+            android:id="@id/sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_dimen_2"
+            android:maxEms="6"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/view_dimen_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+  <LinearLayout android:textSize="@dimen/view_dimen_24"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/tag_layout"
+                android:background="@drawable/gb_ugc_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_dimen_15"
+                android:layout_marginStart="@dimen/view_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+    <ImageView android:id="@id/tag_img"
+               android:layout_width="@dimen/view_dimen_10"
+               android:layout_height="@dimen/view_dimen_10" />
+    <TextView android:textSize="@dimen/gb_content_tag_size"
+              android:textColor="@color/white"
+              android:id="@id/tag_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="@dimen/view_dimen_8" />
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

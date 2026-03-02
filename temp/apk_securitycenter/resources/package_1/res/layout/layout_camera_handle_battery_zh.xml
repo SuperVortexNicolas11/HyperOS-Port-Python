@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/pc_handle_dialog_progress_margin_left_right"
+              android:layout_marginRight="@dimen/pc_handle_dialog_progress_margin_left_right"
+              android:baselineAligned="false"
+              android:layout_marginHorizontal="@dimen/pc_handle_dialog_progress_margin_left_right" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/ll_phone_battery_container"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+    <TextView android:textSize="@dimen/pc_handle_dialog_progress_text_size"
+              android:textColor="@color/pc_handle_dialog_text_color"
+              android:layout_width="0.0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/pc_phone_battery_level"
+              android:layout_weight="1.0" />
+    <FrameLayout android:background="@drawable/pc_icon_battery_container"
+                 android:paddingTop="@dimen/pc_handle_dialog_progress_padding"
+                 android:paddingBottom="@dimen/pc_handle_dialog_progress_padding"
+                 android:layout_width="@dimen/pc_handle_dialog_progress_width"
+                 android:layout_height="@dimen/pc_handle_dialog_progress_height"
+                 android:paddingStart="@dimen/pc_handle_dialog_progress_padding"
+                 android:paddingEnd="@dimen/pc_handle_dialog_progress_padding_right"
+                 android:layout_marginStart="@dimen/pc_handle_dialog_progress_margin_left">
+      <miuix.androidbasewidget.widget.ProgressBar android:layout_gravity="center"
+                            android:id="@id/phone_progress"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:max="100"
+                            android:progressDrawable="@drawable/pc_camera_handle_battery_progressbar"
+                            android:importantForAccessibility="no"
+                            style="?android:attr/progressBarStyleHorizontal" />
+    </FrameLayout>
+    <TextView android:textColor="@color/pc_handle_dialog_text_color"
+              android:id="@id/tv_phone_level"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="@dimen/pc_handle_dialog_progress_margin_left" />
+  </LinearLayout>
+  <LinearLayout android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/ll_camera_handle_battery_container"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/dp_24">
+    <TextView android:textSize="@dimen/pc_handle_dialog_progress_text_size"
+              android:textColor="@color/pc_handle_dialog_text_color"
+              android:layout_width="0.0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/pc_handle_battery_level"
+              android:layout_weight="1.0" />
+    <FrameLayout android:id="@id/handle_battery_icon_container"
+                 android:background="@drawable/pc_icon_battery_container"
+                 android:paddingTop="@dimen/pc_handle_dialog_progress_padding"
+                 android:paddingBottom="@dimen/pc_handle_dialog_progress_padding"
+                 android:layout_width="@dimen/pc_handle_dialog_progress_width"
+                 android:layout_height="@dimen/pc_handle_dialog_progress_height"
+                 android:paddingStart="@dimen/pc_handle_dialog_progress_padding"
+                 android:paddingEnd="@dimen/pc_handle_dialog_progress_padding_right"
+                 android:layout_marginStart="@dimen/pc_handle_dialog_progress_margin_left">
+      <miuix.androidbasewidget.widget.ProgressBar android:layout_gravity="center"
+                            android:id="@id/camera_handle_progress"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:max="100"
+                            android:progressDrawable="@drawable/pc_camera_handle_battery20_progressbar"
+                            android:importantForAccessibility="no"
+                            style="?android:attr/progressBarStyleHorizontal" />
+    </FrameLayout>
+    <TextView android:textColor="@color/pc_handle_dialog_text_color"
+              android:id="@id/tv_handle_level"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="@dimen/pc_handle_dialog_progress_margin_left" />
+  </LinearLayout>
+</LinearLayout>

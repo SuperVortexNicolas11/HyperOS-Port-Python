@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:id="@id/am_search_view"
+           layout="@layout/miuix_appcompat_search_stub" />
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/ll_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical"
+                  android:id="@id/layout_fast_open_mode_group"
+                  android:background="@drawable/na_shape_list_wrapper_white_corner"
+                  android:paddingLeft="@dimen/am_main_item_padding_se"
+                  android:paddingRight="@dimen/am_main_item_padding_se"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/dp_12"
+                  android:layout_marginBottom="9.09dp"
+                  android:layout_marginStart="@dimen/na_main_horizontal_margin"
+                  android:layout_marginEnd="@dimen/na_main_horizontal_margin"
+                  android:paddingHorizontal="@dimen/am_main_item_padding_se">
+      <RelativeLayout android:id="@id/layout_open_fast_open_mode"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/lucky_twolinetxt_padding_top"
+                      android:layout_marginBottom="@dimen/lucky_twolinetxt_padding_bottom">
+        <TextView android:textSize="@dimen/lucky_setting_title_txtsize"
+                  android:textStyle="bold"
+                  android:textColor="@color/lucky_settings_item_title_color"
+                  android:id="@id/txv_fast_mode"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/open_fast_open_mode"
+                  android:layout_alignParentStart="true" />
+        <miuix.slidingwidget.widget.SlidingButton android:id="@id/sliding_button_fast_open"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_centerVertical="true"
+                              android:layout_alignParentEnd="true" />
+        <TextView android:textSize="@dimen/lucky_setting_summary_txtsize"
+                  android:textColor="@color/lucky_fastopen_mode_summary_color"
+                  android:id="@id/lucky_fast_open_desc"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/lucky_twolinetxt_margin"
+                  android:text="@string/open_fast_open_mode_summary"
+                  android:layout_below="@id/txv_fast_mode"
+                  android:layout_marginEnd="@dimen/lucky_twolinetxt_margin_end" />
+      </RelativeLayout>
+      <ImageView android:background="@color/lucky_fastopen_divider_color"
+                 android:visibility="gone"
+                 android:layout_width="fill_parent"
+                 android:layout_height="@dimen/dp_0_74"
+                 android:layout_marginTop="@dimen/dp_15_63"
+                 android:layout_marginBottom="@dimen/dp_15_63" />
+    </LinearLayout>
+    <com.miui.common.expandableview.WrapPinnedHeaderListView android:id="@id/list_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          style="@style/Widget.ListView" />
+  </LinearLayout>
+</LinearLayout>

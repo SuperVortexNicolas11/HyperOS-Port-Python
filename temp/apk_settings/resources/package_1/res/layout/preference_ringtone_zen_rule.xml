@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:gravity="center_vertical"
+                      android:layout_gravity="center_vertical"
+                      android:background="@drawable/preference_background_ringtone_zen_rule"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/miuix_preference_item_min_height"
+                      app:template="standard_button" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.PreferenceList"
+            android:ellipsize="end"
+            android:id="@android:id/title"
+            android:fadingEdge="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            app:area_id="@id/area_title" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary.Preference"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:layout_gravity="right"
+            android:id="@android:id/summary"
+            android:fadingEdge="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="135.0dp"
+            android:maxLines="10"
+            app:area_id="@id/area_text_button" />
+  <ImageView android:gravity="center"
+             android:layout_gravity="center|right"
+             android:id="@id/arrow_right"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/miuix_appcompat_arrow_right"
+             android:contentDescription="@null"
+             app:area_id="@id/area_end" />
+</miuix.flexible.view.HyperCellLayout>

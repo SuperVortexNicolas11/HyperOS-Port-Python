@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:persistent="true"
+                  android:key="accessibility_settings_screen" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <com.android.settings.hyperosai.FixedSizePreference android:title="@string/voice_assist"
+                          android:key="super_xiao_ai"
+                          android:summary="@string/voice_assist_summary">&gt; <intent android:action="miui.intent.action.APP_SETTINGS" /></com.android.settings.hyperosai.FixedSizePreference>
+    <com.android.settings.hyperosai.FixedSizePreference android:title="@string/gemini"
+                          android:key="gemini"
+                          android:summary="@string/voice_assist_summary"
+                          android:fragment="com.android.settings.hyperosai.GeminiFragment" />
+  </PreferenceCategory>
+  <PreferenceCategory android:key="ai_enhanced" />
+  <PreferenceCategory>
+    <com.android.settings.hyperosai.FixedSizePreference android:key="proactive_intelligence">
+      <intent android:targetPackage="com.miui.securitycore"
+              android:action="com.miui.miinput.action.EDGE_SUPPRESSION" />
+    </com.android.settings.hyperosai.FixedSizePreference>
+    <com.android.settings.hyperosai.FixedSizePreference android:title="@string/compute_power_sharing"
+                          android:key="computing_power_sharing"
+                          android:summary="@string/compute_power_sharing_summary">
+      <intent android:action="com.xiaomi.aicr.dist" />
+    </com.android.settings.hyperosai.FixedSizePreference>
+    <com.android.settings.hyperosai.FixedSizePreference android:title="@string/model_management"
+                          android:key="model_management"
+                          android:summary="@string/model_management_summary">
+      <intent android:targetPackage="com.xiaomi.aicr"
+              android:targetClass="com.xiaomi.aicr.common.download.ModelActivity" />
+    </com.android.settings.hyperosai.FixedSizePreference>
+  </PreferenceCategory>
+</PreferenceScreen>

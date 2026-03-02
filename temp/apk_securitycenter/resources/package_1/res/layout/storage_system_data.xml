@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.core.widget.NestedScrollView android:id="@id/root"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:background="@drawable/miuix_card_drawable"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginHorizontal="@dimen/dp_12">
+    <miuix.flexible.view.HyperCellLayout android:id="@id/memory_layout"
+                          android:onClick="onClick"
+                          app:template="standard_button"
+                          style="@style/storageSystemDataItem">
+      <ImageView android:id="@id/memory_arrow"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/miuix_appcompat_intent_arrow_right"
+                 android:scaleType="centerCrop"
+                 android:layout_marginStart="@dimen/miuix_preference_item_padding_inner"
+                 app:area_id="@id/area_end" />
+      <TextView android:id="@id/memory_size_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15GB"
+                android:layout_centerVertical="true"
+                app:area_id="@id/area_text_button"
+                style="@style/StorageSystemItemRight" />
+      <TextView android:id="@id/memory_title_tv"
+                android:text="@string/storage_system_memory_expansion"
+                app:area_id="@id/area_title"
+                style="@style/StorageSystemItemTitle" />
+      <TextView android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/storage_system_memory_expansion_tip"
+                app:area_id="@id/area_content"
+                app:custom_params="marginTop"
+                style="@style/StorageSystemItemDes" />
+    </miuix.flexible.view.HyperCellLayout>
+    <miuix.flexible.view.HyperCellLayout android:id="@id/log_layout"
+                          app:template="standard_button"
+                          style="@style/storageSystemDataItem">
+      <TextView android:id="@id/log_size_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15GB"
+                app:area_id="@id/area_text_button"
+                style="@style/StorageSystemItemRight" />
+      <TextView android:id="@id/log_title_tv"
+                android:text="@string/storage_system_log"
+                app:area_id="@id/area_title"
+                style="@style/StorageSystemItemTitle" />
+      <TextView android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/storage_system_log_tip"
+                app:area_id="@id/area_content"
+                app:custom_params="marginTop"
+                style="@style/StorageSystemItemDes" />
+    </miuix.flexible.view.HyperCellLayout>
+    <miuix.flexible.view.HyperCellLayout android:id="@id/other_layout"
+                          app:template="standard_button"
+                          style="@style/storageSystemDataItem">
+      <TextView android:id="@id/size_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15GB"
+                app:area_id="@id/area_text_button"
+                style="@style/StorageSystemItemRight" />
+      <TextView android:id="@id/title_tv"
+                android:text="@string/storage_item_other_name"
+                app:area_id="@id/area_title"
+                style="@style/StorageSystemItemTitle" />
+      <TextView android:id="@id/system_data_tip"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/storage_system_other_tip"
+                android:layout_marginEnd="@dimen/dp_48"
+                app:area_id="@id/area_content"
+                app:custom_params="marginEnd|marginTop"
+                style="@style/StorageSystemItemDes" />
+    </miuix.flexible.view.HyperCellLayout>
+  </LinearLayout>
+</miuix.core.widget.NestedScrollView>

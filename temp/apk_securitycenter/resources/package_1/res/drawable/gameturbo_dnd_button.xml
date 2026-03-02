@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_dnd_button__0"
+            android:pathData="M13,16h40v24h-40z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_dnd_button__1"
+            android:pathData="M59,7H7V45H32H59L59,7Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="@drawable/$gameturbo_dnd_button__2"
+            android:pathData="M7,49V59L22.7143,49H7Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+  <item xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_dnd_button__3"
+            android:pathData="M13,16h40v24h-40z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_dnd_button__4"
+            android:pathData="M59,7H7V45H32H59L59,7Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="@drawable/$gameturbo_dnd_button__5"
+            android:pathData="M7,49V59L22.7143,49H7Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+</selector>

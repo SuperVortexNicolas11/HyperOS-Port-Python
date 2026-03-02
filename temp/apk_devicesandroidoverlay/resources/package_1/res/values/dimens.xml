@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="config_wallpaperMaxScale">1.2</dimen>
+  <dimen name="notification_min_height">106.0dp</dimen>
+  <dimen name="rounded_corner_radius">111.0px</dimen>
+  <dimen name="rounded_corner_radius_bottom">111.0px</dimen>
+  <dimen name="rounded_corner_radius_top">120.0px</dimen>
+  <dimen name="status_bar_height_default">106.0px</dimen>
+  <dimen name="status_bar_height_portrait">106.0px</dimen>
+  <dimen name="system_app_widget_background_radius">16.73dp</dimen>
+  <dimen name="system_app_widget_inner_radius">8.73dp</dimen>
+</resources>

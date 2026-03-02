@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/device_details_more_settings"
+                  android:key="bluetooth_device_more_settings_screen" xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory android:key="bluetooth_audio_device_type_group" />
+  <PreferenceCategory android:key="bluetooth_profiles" />
+</PreferenceScreen>

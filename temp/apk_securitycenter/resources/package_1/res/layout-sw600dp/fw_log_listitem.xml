@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:id="@id/root"
+              android:paddingTop="@dimen/list_item_padding"
+              android:paddingBottom="@dimen/list_item_padding"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/dp_56"
+              android:minHeight="@dimen/dp_56"
+              android:paddingStart="@dimen/dp_16"
+              android:paddingEnd="@dimen/dp_16" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:id="@id/head1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:fontFamily="sans-serif-medium"
+            style="@style/ListItemTitle" />
+  <TextView android:id="@id/head2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:fontFamily="sans-serif-medium"
+            style="@style/ListItemSubTitle" />
+  <ImageView android:id="@id/sim_icon_item"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/log_sim_icon_margin" />
+</LinearLayout>

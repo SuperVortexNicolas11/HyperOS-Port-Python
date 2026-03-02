@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:id="@id/item"
+              android:background="@drawable/selector_storage_item_bg"
+              android:paddingTop="@dimen/storage_list_item_pb_pt"
+              android:paddingBottom="@dimen/storage_list_item_pb_pt"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/storage_list_item_mb"
+              android:paddingStart="@dimen/storage_list_item_ps_pe"
+              android:paddingEnd="@dimen/storage_tpye_list_pe" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <View android:id="@id/v_dot"
+            android:background="@drawable/storage_list_item_dot_bg"
+            android:layout_width="@dimen/storage_list_item_dot_w_h"
+            android:layout_height="@dimen/storage_list_item_dot_w_h"
+            android:layout_marginEnd="@dimen/storage_list_item_dot_me" />
+      <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/storage_list_item_title"
+                            android:id="@id/tv_title"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="viewStart" />
+    </LinearLayout>
+    <com.miui.optimizecenter.widget.storage.SizeTextView android:textSize="@dimen/storage_list_item_size_txt_size"
+                          android:textColor="@color/storage_list_item_size"
+                          android:id="@id/tv_size"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="viewStart" />
+  </LinearLayout>
+  <FrameLayout android:id="@id/right_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+    <miuix.androidbasewidget.widget.ProgressBar android:layout_gravity="center"
+                          android:id="@id/scanning"
+                          android:layout_width="@dimen/scanning_progress_size"
+                          android:layout_height="@dimen/scanning_progress_size"
+                          android:indeterminate="true"
+                          style="@style/progress_circle_v10" />
+    <ImageView android:id="@id/iv_arrow"
+               android:visibility="invisible"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/storage_item_right_arrow"
+               android:scaleType="centerCrop" />
+  </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,337 @@
+.class public Lcom/google/gson/internal/PreJava9DateFormatProvider;
+.super Ljava/lang/Object;
+.source "PreJava9DateFormatProvider.java"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    return-void
+    .line 5
+.end method
+
+.method private static getDateFormatPattern(I)Ljava/lang/String;
+    .locals 3
+
+    .line 1
+    if-eqz p0, :cond_3
+
+    .line 2
+    const/4 v0, 0x1
+
+    .line 4
+    if-eq p0, v0, :cond_2
+
+    .line 5
+    const/4 v0, 0x2
+
+    .line 7
+    if-eq p0, v0, :cond_1
+
+    .line 8
+    const/4 v0, 0x3
+
+    .line 10
+    if-ne p0, v0, :cond_0
+
+    .line 11
+    const-string p0, "M/d/yy"
+
+    .line 13
+    return-object p0
+
+    .line 15
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    .line 16
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 18
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 20
+    const-string v2, "Unknown DateFormat style: "
+
+    .line 23
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 25
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 28
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 31
+    move-result-object p0
+
+    .line 34
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 35
+    throw v0
+
+    .line 38
+    :cond_1
+    const-string p0, "MMM d, y"
+
+    .line 39
+    return-object p0
+
+    .line 41
+    :cond_2
+    const-string p0, "MMMM d, y"
+
+    .line 42
+    return-object p0
+
+    .line 44
+    :cond_3
+    const-string p0, "EEEE, MMMM d, y"
+
+    .line 45
+    return-object p0
+    .line 47
+.end method
+
+.method private static getDatePartOfDateTimePattern(I)Ljava/lang/String;
+    .locals 3
+
+    .line 1
+    if-eqz p0, :cond_3
+
+    .line 2
+    const/4 v0, 0x1
+
+    .line 4
+    if-eq p0, v0, :cond_2
+
+    .line 5
+    const/4 v0, 0x2
+
+    .line 7
+    if-eq p0, v0, :cond_1
+
+    .line 8
+    const/4 v0, 0x3
+
+    .line 10
+    if-ne p0, v0, :cond_0
+
+    .line 11
+    const-string p0, "M/d/yy"
+
+    .line 13
+    return-object p0
+
+    .line 15
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    .line 16
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 18
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 20
+    const-string v2, "Unknown DateFormat style: "
+
+    .line 23
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 25
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 28
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 31
+    move-result-object p0
+
+    .line 34
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 35
+    throw v0
+
+    .line 38
+    :cond_1
+    const-string p0, "MMM d, yyyy"
+
+    .line 39
+    return-object p0
+
+    .line 41
+    :cond_2
+    const-string p0, "MMMM d, yyyy"
+
+    .line 42
+    return-object p0
+
+    .line 44
+    :cond_3
+    const-string p0, "EEEE, MMMM d, yyyy"
+
+    .line 45
+    return-object p0
+    .line 47
+.end method
+
+.method private static getTimePartOfDateTimePattern(I)Ljava/lang/String;
+    .locals 3
+
+    .line 1
+    if-eqz p0, :cond_2
+
+    .line 2
+    const/4 v0, 0x1
+
+    .line 4
+    if-eq p0, v0, :cond_2
+
+    .line 5
+    const/4 v0, 0x2
+
+    .line 7
+    if-eq p0, v0, :cond_1
+
+    .line 8
+    const/4 v0, 0x3
+
+    .line 10
+    if-ne p0, v0, :cond_0
+
+    .line 11
+    const-string p0, "h:mm a"
+
+    .line 13
+    return-object p0
+
+    .line 15
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    .line 16
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 18
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 20
+    const-string v2, "Unknown DateFormat style: "
+
+    .line 23
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 25
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 28
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 31
+    move-result-object p0
+
+    .line 34
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 35
+    throw v0
+
+    .line 38
+    :cond_1
+    const-string p0, "h:mm:ss a"
+
+    .line 39
+    return-object p0
+
+    .line 41
+    :cond_2
+    const-string p0, "h:mm:ss a z"
+
+    .line 42
+    return-object p0
+    .line 44
+.end method
+
+.method public static getUSDateFormat(I)Ljava/text/DateFormat;
+    .locals 2
+
+    .line 1
+    new-instance v0, Ljava/text/SimpleDateFormat;
+
+    .line 2
+    invoke-static {p0}, Lcom/google/gson/internal/PreJava9DateFormatProvider;->getDateFormatPattern(I)Ljava/lang/String;
+
+    .line 4
+    move-result-object p0
+
+    .line 7
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    .line 8
+    invoke-direct {v0, p0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    .line 10
+    return-object v0
+    .line 13
+.end method
+
+.method public static getUSDateTimeFormat(II)Ljava/text/DateFormat;
+    .locals 1
+
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 2
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 4
+    invoke-static {p0}, Lcom/google/gson/internal/PreJava9DateFormatProvider;->getDatePartOfDateTimePattern(I)Ljava/lang/String;
+
+    .line 7
+    move-result-object p0
+
+    .line 10
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 11
+    const-string p0, " "
+
+    .line 14
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 16
+    invoke-static {p1}, Lcom/google/gson/internal/PreJava9DateFormatProvider;->getTimePartOfDateTimePattern(I)Ljava/lang/String;
+
+    .line 19
+    move-result-object p0
+
+    .line 22
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 23
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 26
+    move-result-object p0
+
+    .line 29
+    new-instance p1, Ljava/text/SimpleDateFormat;
+
+    .line 30
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    .line 32
+    invoke-direct {p1, p0, v0}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    .line 34
+    return-object p1
+    .line 37
+.end method

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.securityscan.ui.main.MainContentFrameLite android:id="@id/content_frame"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="@dimen/main_contentview_height"
+                      android:layout_marginTop="@dimen/main_contentview_margin_top" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.securityscan.ui.main.GlowingRingAnimView android:id="@id/glowing_ring_anim_view"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/main_contentview_height"
+                        android:layout_marginTop="@dimen/main_video_margin_top"
+                        android:layout_centerHorizontal="true" />
+  <ViewStub android:id="@id/result_score_content_viewstub"
+            android:layout="@layout/m_viewstub_result_score_lite_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true" />
+  <include layout="@layout/include_merge_scan_score" />
+</com.miui.securityscan.ui.main.MainContentFrameLite>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="32.0dp"
+        android:width="32.0dp"
+        android:viewportWidth="32.0"
+        android:viewportHeight="32.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="@color/pm_icon_background_color"
+        android:pathData="M8,0L24,0A8,8 0,0 1,32 8L32,24A8,8 0,0 1,24 32L8,32A8,8 0,0 1,0 24L0,8A8,8 0,0 1,8 0z"
+        android:fillAlpha="@dimen/pm_icon_background_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M17.562,8.303C18.079,8.267 18.56,8.567 18.756,9.046L21.193,15.014H24.5C25.163,15.014 25.7,15.551 25.7,16.213C25.7,16.876 25.163,17.413 24.5,17.413H20.387C19.899,17.413 19.46,17.119 19.276,16.667L17.91,13.323L15.243,23.796C15.114,24.304 14.67,24.669 14.147,24.698C13.623,24.727 13.142,24.413 12.957,23.923L10.508,17.413H7.5C6.837,17.413 6.3,16.876 6.3,16.213C6.3,15.551 6.837,15.014 7.5,15.014H11.339C11.838,15.014 12.286,15.323 12.462,15.791L13.859,19.505L16.482,9.204C16.61,8.702 17.045,8.339 17.562,8.303Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha"
+        android:fillType="evenOdd" />
+</vector>

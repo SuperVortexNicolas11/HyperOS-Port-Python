@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:background="@drawable/card_bg_no_shadow_selector"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:securitycenter="http://schemas.android.com/apk/res/com.miui.securitycenter" xmlns:RoundImageView="http://schemas.android.com/apk/res-auto">
+  <com.miui.common.customview.ResizeFrameLayout android:layout_width="fill_parent"
+                        android:layout_height="@dimen/result_activity_round_image_height_7"
+                        securitycenter:ratioXY="0.435">
+    <com.miui.securitycenter.ad.view.RoundImageView android:id="@id/icon"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:scaleType="centerCrop"
+                          RoundImageView:radiusLeftBottom="@dimen/card_bg_no_shadow_radius"
+                          RoundImageView:radiusLeftTop="@dimen/card_bg_no_shadow_radius"
+                          RoundImageView:radiusRightBottom="@dimen/card_bg_no_shadow_radius"
+                          RoundImageView:radiusRightTop="@dimen/card_bg_no_shadow_radius" />
+  </com.miui.common.customview.ResizeFrameLayout>
+  <TextView android:textSize="@dimen/sp_15"
+            android:textColor="@color/result_activity_template_7_title_color"
+            android:gravity="center_vertical"
+            android:layout_gravity="center|start"
+            android:id="@id/title"
+            android:background="@drawable/card_title_bg_activity_template_7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/result_activity_title_height_7"
+            android:layout_alignParentBottom="true"
+            android:paddingStart="@dimen/dp_16"
+            android:layout_alignParentEnd="true" />
+</RelativeLayout>

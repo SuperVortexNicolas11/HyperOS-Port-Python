@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="preview_lock_screen_radius">12.0dp</dimen>
+  <dimen name="preview_wallpaper_image_height">98.0dp</dimen>
+  <dimen name="preview_wallpaper_image_padding">16.0dp</dimen>
+  <dimen name="preview_wallpaper_image_width">85.0dp</dimen>
+  <dimen name="tiny_battery_inner_height">7.0dp</dimen>
+  <dimen name="tiny_battery_inner_width">18.0dp</dimen>
+</resources>

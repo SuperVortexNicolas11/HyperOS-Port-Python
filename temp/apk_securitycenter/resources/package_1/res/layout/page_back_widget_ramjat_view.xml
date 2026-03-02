@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:background="@drawable/scan_widget_item_bg"
+                android:layout_width="@dimen/v_dimens_400"
+                android:layout_height="@dimen/v_dimens_400" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.securitycenter.ad.view.RoundImageView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/v_dimens_16_d"
+                        android:src="@drawable/widget_ramjat_icon"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="@dimen/v_dimens_4"
+                        android:layout_alignParentEnd="true" />
+  <TextView android:textSize="@dimen/v_dimens_91"
+            android:textColor="@color/widget_guide_text_color_BF"
+            android:id="@id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/v_dimens_42"
+            android:text="@string/widget_ramjat_size"
+            android:layout_alignParentTop="true"
+            android:fontFamily="mitype-bold"
+            android:layout_marginStart="@dimen/v_dimens_36"
+            android:layout_alignParentStart="true" />
+  <TextView android:textSize="@dimen/v_dimens_32"
+            android:textColor="@color/widget_guide_text_color_66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/v_dimens_40"
+            android:text="@string/widget_cleaner_size_unit"
+            android:fontFamily="mipro-medium"
+            android:layout_marginStart="@dimen/v_dimens_7"
+            android:layout_toEndOf="@id/size" />
+  <TextView android:textSize="@dimen/v_dimens_29"
+            android:textColor="@color/widget_guide_text_color_4D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/v_dimens_2"
+            android:text="@string/widget_ramjat_message"
+            android:layout_below="@id/size"
+            android:fontFamily="mipro-medium"
+            android:layout_marginStart="@dimen/v_dimens_36" />
+</RelativeLayout>

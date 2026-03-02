@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:paddingTop="@dimen/card_layout_line_height_half"
+                android:paddingBottom="@dimen/card_layout_line_height_half"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:clean="http://schemas.android.com/apk/res/com.miui.securitycenter">
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/inner_layout"
+                android:background="@drawable/shape_result_card_border_whole"
+                android:paddingTop="13.0dp"
+                android:paddingBottom="13.0dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <TextView android:textSize="@dimen/result_title_text"
+              android:id="@id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/adds_item_top_margin" />
+    <com.miui.antivirus.ui.ResizeFrameLayout android:layout_width="fill_parent"
+                          android:layout_height="100.0dp"
+                          android:layout_marginTop="@dimen/vartical_margin_pic_text"
+                          clean:ratioXY="0.5">
+      <ImageView android:id="@id/img"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:scaleType="centerCrop" />
+    </com.miui.antivirus.ui.ResizeFrameLayout>
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/vartical_margin_pic_text"
+                  android:layout_marginBottom="@dimen/adds_item_bottom_margin">
+      <TextView android:id="@id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                style="@style/ResultBottomText" />
+      <Button android:id="@id/button"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/go_to"
+              style="@style/ResultButton" />
+    </LinearLayout>
+  </LinearLayout>
+</RelativeLayout>

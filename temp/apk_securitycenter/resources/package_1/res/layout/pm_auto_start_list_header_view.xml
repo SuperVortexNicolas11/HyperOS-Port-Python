@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityHeading="true" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+            android:gravity="center_vertical"
+            android:id="@id/header_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/applock_list_view_header_height"
+            android:textDirection="locale"
+            android:layout_toStartOf="@id/header_operate"
+            android:layout_alignParentStart="true" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+            android:textColor="@color/main_btn_action_bule"
+            android:gravity="center_vertical"
+            android:id="@id/header_operate"
+            android:visibility="gone"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/applock_list_view_header_height"
+            android:text="@string/applock_lock_all"
+            android:textDirection="locale"
+            android:layout_alignParentEnd="true" />
+</RelativeLayout>

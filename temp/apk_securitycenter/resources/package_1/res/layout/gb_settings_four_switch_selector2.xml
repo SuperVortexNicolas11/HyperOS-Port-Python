@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/transparent"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.videobox.view.MarqueeTextView android:ellipsize="marquee"
+                        android:id="@id/optionA"
+                        android:layout_width="fill_parent"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="2"
+                        android:paddingStart="@dimen/view_dimen_48"
+                        android:paddingEnd="@dimen/view_dimen_48"
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/GBFourSwitchOption" />
+  <com.miui.gamebooster.videobox.view.MarqueeTextView android:ellipsize="marquee"
+                        android:id="@id/optionB"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/view_dimen_22"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="2"
+                        android:paddingStart="@dimen/view_dimen_48"
+                        android:paddingEnd="@dimen/view_dimen_48"
+                        app:layout_constraintEnd_toEndOf="@id/optionA"
+                        app:layout_constraintStart_toStartOf="@id/optionA"
+                        app:layout_constraintTop_toBottomOf="@id/optionA"
+                        style="@style/GBFourSwitchOption" />
+  <com.miui.gamebooster.videobox.view.MarqueeTextView android:ellipsize="marquee"
+                        android:id="@id/optionC"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/view_dimen_22"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="2"
+                        android:paddingStart="@dimen/view_dimen_48"
+                        android:paddingEnd="@dimen/view_dimen_48"
+                        app:layout_constraintEnd_toEndOf="@id/optionA"
+                        app:layout_constraintStart_toStartOf="@id/optionA"
+                        app:layout_constraintTop_toBottomOf="@id/optionB"
+                        style="@style/GBFourSwitchOption" />
+</androidx.constraintlayout.widget.ConstraintLayout>

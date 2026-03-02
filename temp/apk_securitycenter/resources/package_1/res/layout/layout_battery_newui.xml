@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:paddingLeft="2.0dp"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="13.0dp"
+            android:textColor="@color/pc_textview_color"
+            android:gravity="center"
+            android:id="@id/battery_level_health_text"
+            android:paddingLeft="2.0dp"
+            android:paddingRight="2.0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dp" />
+  <ImageView android:id="@id/battery_level_health_down_triangle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/ic_health_level_text_down_triangle0" />
+  <ImageView android:id="@id/battery_health_level_bg"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="8.0dp"
+             android:src="@drawable/ic_health_level_bg0"
+             android:scaleType="fitXY" />
+</LinearLayout>

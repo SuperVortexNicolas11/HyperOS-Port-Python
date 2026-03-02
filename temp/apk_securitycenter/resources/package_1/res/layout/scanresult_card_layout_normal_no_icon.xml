@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:background="@drawable/card_bg_no_shadow_selector"
+              android:paddingTop="@dimen/result_func_item_padding_top"
+              android:paddingBottom="@dimen/result_func_item_padding_bottom"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/result_card_margin_left"
+              android:paddingEnd="@dimen/result_card_margin_left" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:id="@id/title"
+            android:singleLine="true"
+            style="@style/CardTitleTextViewStyle" />
+  <TextView android:id="@id/summary"
+            style="@style/CardSummaryTextViewStyle" />
+  <Button android:layout_gravity="end"
+          android:id="@id/tv_button"
+          android:layout_marginTop="@dimen/dp_20"
+          android:singleLine="true"
+          style="@style/ResultBlueButtonStyle" />
+</LinearLayout>

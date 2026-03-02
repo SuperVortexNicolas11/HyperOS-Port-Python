@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<action deploy-property="static"
+        execution="background"
+        sync-flag="1"
+        sync-timeout="5000"
+        type="urn:aiot-spec-v3:com.mi.phones:action:[com.android.settings/wifi/easywificonnect]:0:1.0" />

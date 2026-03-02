@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:background="@drawable/scan_widget_item_bg"
+                android:layout_width="@dimen/v_dimens_400"
+                android:layout_height="@dimen/v_dimens_400" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_width="@dimen/v_dimens_140"
+             android:layout_height="@dimen/v_dimens_164"
+             android:layout_marginTop="@dimen/v_dimens_36"
+             android:src="@drawable/widget_health_icon"
+             android:layout_marginEnd="@dimen/v_dimens_30"
+             android:layout_alignParentEnd="true" />
+  <TextView android:textSize="@dimen/v_dimens_31"
+            android:textColor="@color/widget_guide_text_color_4D"
+            android:id="@id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/v_dimens_45"
+            android:text="@string/widget_health_message"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="mipro-medium"
+            android:layout_marginStart="@dimen/v_dimens_38"
+            android:layout_alignParentStart="true" />
+  <TextView android:textSize="@dimen/v_dimens_127"
+            android:textColor="@color/widget_guide_text_color_BF"
+            android:id="@id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/v_dimens_11_d"
+            android:text="@string/widget_health_size"
+            android:layout_above="@id/message"
+            android:fontFamily="mitype-semibold"
+            android:layout_marginStart="@dimen/v_dimens_36" />
+</RelativeLayout>

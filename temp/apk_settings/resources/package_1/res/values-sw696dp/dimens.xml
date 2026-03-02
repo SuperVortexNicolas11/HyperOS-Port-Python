@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="freeform_text_margin_left">56.0dp</dimen>
+  <dimen name="freeform_text_margin_right">56.0dp</dimen>
+  <dimen name="miuix_appcompat_window_extra_padding_horizontal_huge">68.0dp</dimen>
+  <dimen name="miuix_appcompat_window_extra_padding_horizontal_large">44.0dp</dimen>
+  <dimen name="miuix_appcompat_window_extra_padding_horizontal_small">28.0dp</dimen>
+  <dimen name="provision_adjust_padding_horizontal">0.0dp</dimen>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingHorizontal="@dimen/miuix_theme_padding_horizontal_common" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.Comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_authorize_cloud_msg" />
+</LinearLayout>

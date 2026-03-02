@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:id="@id/optionA"
+            android:layout_width="fill_parent"
+            style="@style/GBFourSwitchOption" />
+  <View android:background="@color/transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="1.0" />
+  <TextView android:id="@id/optionB"
+            android:layout_width="fill_parent"
+            style="@style/GBFourSwitchOption" />
+  <View android:background="@color/transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="1.0" />
+  <TextView android:id="@id/optionC"
+            android:layout_width="fill_parent"
+            style="@style/GBFourSwitchOption" />
+  <View android:background="@color/transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="1.0" />
+  <TextView android:id="@id/optionD"
+            android:layout_width="fill_parent"
+            style="@style/GBFourSwitchOption" />
+</LinearLayout>

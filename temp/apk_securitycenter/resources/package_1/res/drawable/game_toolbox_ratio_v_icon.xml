@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/dp_24"
+        android:width="@dimen/dp_24"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$game_toolbox_ratio_v_icon__0"
+        android:pathData="M18.545,1.818V22.182H5.454L5.454,1.818H18.545ZM9.818,19.273H15.636V17.091V13.454H13.454L13.454,17.091H9.818V19.273ZM8.363,6.909L8.363,10.545H10.545V6.909H14.181V4.727H10.545L8.363,4.727V6.909Z"
+        android:fillType="evenOdd" />
+  <path android:fillColor="@drawable/$game_toolbox_ratio_v_icon__1"
+        android:pathData="M18.545,22.182V1.818H22.181V22.182H18.545Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+  <path android:fillColor="@drawable/$game_toolbox_ratio_v_icon__2"
+        android:pathData="M1.818,22.182L1.818,1.818H5.454L5.454,22.182H1.818Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+</vector>

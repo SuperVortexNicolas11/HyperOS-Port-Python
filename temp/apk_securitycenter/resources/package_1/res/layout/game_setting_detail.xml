@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="52.3dp"
+              android:minHeight="?android:attr/listPreferredItemHeight"
+              android:paddingEnd="?android:attr/scrollbarSize"
+              style="@style/Widget.ListView.Item.DoubleLine" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center"
+             android:id="@id/icon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginEnd="14.0dp" />
+  <RelativeLayout android:layout_gravity="center_vertical"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="6.0dp"
+                  android:layout_marginBottom="6.0dp"
+                  android:layout_weight="1.0"
+                  android:layout_marginStart="2.0dp"
+                  android:layout_marginEnd="6.0dp">
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.PreferenceList"
+              android:textSize="12.0sp"
+              android:textColor="@color/show_whitelist_color"
+              android:ellipsize="marquee"
+              android:id="@android:id/title"
+              android:fadingEdge="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+              android:textSize="10.0sp"
+              android:textColor="@color/show_title_color"
+              android:id="@android:id/summary"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="6.0dp"
+              android:maxLines="10"
+              android:layout_below="@android:id/title"
+              android:layout_alignLeft="@android:id/title" />
+  </RelativeLayout>
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+            android:textColor="@color/show_title_color"
+            android:layout_gravity="center|right"
+            android:id="@id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="13.0dp"
+            android:drawableEnd="@drawable/gb_arrow_right_pressed" />
+</LinearLayout>

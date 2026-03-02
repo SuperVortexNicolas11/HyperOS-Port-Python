@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:padding="16.0dp"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:id="@id/local_area"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            style="@style/ListItemTitle" />
+  <TextView android:textSize="@dimen/text_font_size_42"
+            android:textColor="@color/ew_list_empty_text_color"
+            android:id="@id/not_support"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ew_not_support_area" />
+  <TextView android:textSize="@dimen/wc_text_summary_text_size"
+            android:textColor="@color/color_blue_primary_default"
+            android:id="@id/get_location"
+            android:background="@drawable/ew_getlocation_bg"
+            android:paddingTop="@dimen/view_dimen_15"
+            android:paddingBottom="@dimen/view_dimen_15"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ew_get_location"
+            android:paddingStart="@dimen/view_dimen_44"
+            android:paddingEnd="@dimen/view_dimen_44" />
+</LinearLayout>

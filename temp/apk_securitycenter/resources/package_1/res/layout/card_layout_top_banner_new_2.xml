@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:background="@drawable/hp_card_bg_no_shadow_selector"
+              android:paddingBottom="@dimen/card_top_banner_padding_bottom_global"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/hp_function_icon_padding_start"
+              android:paddingEnd="@dimen/hp_function_icon_padding_start" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:securitycenter="http://schemas.android.com/apk/res/com.miui.securitycenter" xmlns:RoundImageView="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <ImageView android:layout_gravity="center_vertical"
+               android:id="@id/icon"
+               android:layout_width="@dimen/card_main_list_banner_iv_banner_size"
+               android:layout_height="@dimen/card_main_list_banner_iv_banner_size"
+               android:layout_marginTop="@dimen/card_main_list_icon_margin_top"
+               android:layout_marginBottom="@dimen/card_main_list_icon_margin_top"
+               android:scaleType="centerCrop" />
+    <LinearLayout android:layout_gravity="center_vertical"
+                  android:orientation="vertical"
+                  android:layout_width="0.0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"
+                  android:layout_marginStart="@dimen/dp_8">
+      <TextView android:textSize="@dimen/hp_scroll_card_title_size"
+                android:textStyle="bold"
+                android:textColor="@color/card_title_text_color"
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+      <TextView android:textSize="@dimen/hp_scroll_card_summary_size"
+                android:textColor="@color/card_summary_text_color"
+                android:id="@id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textAlignment="viewStart"
+                style="@style/HpCardSummaryTextViewStyle" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center_vertical"
+               android:id="@id/right_arrow"
+               android:background="@drawable/miuix_appcompat_arrow_right"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+  </LinearLayout>
+  <com.miui.common.customview.ResizeFrameLayout android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        securitycenter:ratioXY="0.48">
+    <com.miui.securitycenter.ad.view.RoundImageView android:id="@id/iv_big_banner"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:scaleType="centerCrop"
+                          RoundImageView:needStat="false"
+                          RoundImageView:radiusLeftBottom="@dimen/securityscan_big_banner_radius"
+                          RoundImageView:radiusLeftTop="@dimen/securityscan_big_banner_radius"
+                          RoundImageView:radiusRightBottom="@dimen/securityscan_big_banner_radius"
+                          RoundImageView:radiusRightTop="@dimen/securityscan_big_banner_radius" />
+  </com.miui.common.customview.ResizeFrameLayout>
+  <Button android:id="@id/button"
+          android:layout_width="fill_parent"
+          android:layout_height="@dimen/view_dimen_122"
+          android:layout_marginTop="@dimen/view_dimen_30"
+          style="@style/CardActionBigButtonStyle" />
+</LinearLayout>

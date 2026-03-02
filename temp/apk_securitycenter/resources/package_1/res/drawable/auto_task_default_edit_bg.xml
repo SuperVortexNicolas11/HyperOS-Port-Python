@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_focused="true">
+    <layer-list>
+      <item>
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/miuix_appcompat_edit_text_radius_size" />
+          <solid android:color="@color/miuix_recyclerview_card_group_background" />
+        </shape>
+      </item>
+      <item android:state_focused="true">
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/miuix_appcompat_edit_text_border_radius_size" />
+          <stroke android:width="@dimen/miuix_appcompat_edit_text_border_stroke_width"
+                  android:color="@color/miuix_appcompat_edit_text_border_color_light" />
+          <solid android:color="@color/miuix_appcompat_transparent" />
+        </shape>
+      </item>
+    </layer-list>
+  </item>
+  <item>
+    <shape android:shape="rectangle">
+      <corners android:radius="@dimen/miuix_appcompat_edit_text_radius_size" />
+      <solid android:color="@color/miuix_recyclerview_card_group_background" />
+    </shape>
+  </item>
+</selector>

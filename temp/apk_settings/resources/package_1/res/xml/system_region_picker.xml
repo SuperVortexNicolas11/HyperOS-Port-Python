@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/region_picker_title"
+                  android:key="key_system_region_picker_page" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.android.settingslib.widget.TopIntroPreference android:persistent="false"
+                        android:title="@string/region_picker_sub_title"
+                        android:key="key_region_picker_sub_title" />
+  <PreferenceCategory android:title="@string/suggested_region_title"
+                      android:key="system_region_suggested_category" />
+  <PreferenceCategory android:title="@string/all_supported_region_title"
+                      android:key="system_region_all_supported_category" />
+</PreferenceScreen>

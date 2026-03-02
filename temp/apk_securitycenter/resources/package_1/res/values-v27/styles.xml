@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <style name="SafeSharingDialogActivity" parent="@style/DialogActivity">
+    <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    <item name="android:backgroundDimEnabled">false</item>
+    <item name="android:windowTranslucentNavigation">false</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+  </style>
+  <style name="Theme.Compat.MenuAndPreferenceArrow" parent="@style/Theme.DayNight">
+    <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+    <item name="actionBarTitleEnableEllipsis">true</item>
+    <item name="arrowRightFillColor">@color/miuix_appcompat_arrow_right_fill_color</item>
+    <item name="endActionMenuEnabled">true</item>
+    <item name="preferenceTheme">@style/Theme.PreferenceOverlay.DayNight</item>
+    <item name="responsiveActionMenuViewStyle">@style/Widget.CustomResponsiveActionMenuView</item>
+    <item name="windowSplitActionBar">true</item>
+  </style>
+  <style name="Theme.DayNight.NoTitle.GDTranslate" parent="@style/Theme.Light.NoTitle">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowDisablePreview">true</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    <item name="windowTranslucentStatus">transparentDark</item>
+  </style>
+  <style name="Theme.DayNight.NoTitle.Transparent.DisplayCutouts" parent="@style/Theme.DayNight.NoTitle.Transparent">
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+  </style>
+  <style name="Theme.DayNight.NoTitle.Transparent.DisplayCutouts.RedButton" parent="@style/Theme.DayNight.NoTitle.Transparent">
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    <item name="bottom_big_button_background_color_disable">@color/miuix_color_deep_red_dark_primary_disable</item>
+    <item name="bottom_big_button_background_color_normal">@color/miuix_color_deep_red_dark_primary_default</item>
+    <item name="bottom_big_button_background_color_pressed">@color/miuix_color_deep_red_dark_primary_pressed</item>
+  </style>
+  <style name="Theme.Light.DayNight.Settings.Menu" parent="@style/Theme.DayNight">
+    <item name="android:windowBackground">@color/na_main_activity_background</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+    <item name="windowSplitActionBar">true</item>
+  </style>
+  <style name="Theme.Light.NoTitile.Transparent.RedButton" parent="@style/Theme.Light.NoTitile.Transparent">
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    <item name="bottom_big_button_background_color_disable">@color/miuix_color_deep_red_dark_primary_disable</item>
+    <item name="bottom_big_button_background_color_normal">@color/miuix_color_deep_red_dark_primary_default</item>
+    <item name="bottom_big_button_background_color_pressed">@color/miuix_color_deep_red_dark_primary_pressed</item>
+  </style>
+  <style name="Theme.Light.NoTitile.TransparentDark" parent="@style/Theme.DayNight.NoTitle">
+    <item name="android:windowBackground">@drawable/splash_main</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+    <item name="arrowRightFillColor">@color/miuix_appcompat_arrow_right_fill_color</item>
+  </style>
+  <style name="ThemeAlertActivityPreference" parent="@style/Theme.DayNight.NoTitle">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowAnimationStyle">@null</item>
+    <item name="android:windowEnterAnimation">@null</item>
+    <item name="android:windowExitAnimation">@null</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    <item name="preferenceTheme">@style/ThemeAlertActivityPreferenceTheme</item>
+  </style>
+  <style name="VirusScanActivityStyle" parent="@style/Theme.DayNight">
+    <item name="android:windowBackground">@color/v_background_color</item>
+    <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+  </style>
+</resources>

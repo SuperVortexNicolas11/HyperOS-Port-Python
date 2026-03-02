@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:importantForAccessibility="no" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_horizontal"
+             android:layout_width="@dimen/dp_124"
+             android:layout_height="@dimen/dp_140"
+             android:layout_marginTop="@dimen/dp_25"
+             android:layout_marginBottom="@dimen/dp_42"
+             android:src="@drawable/icon_selectric_protection"
+             android:scaleType="centerCrop"
+             android:importantForAccessibility="no" />
+</LinearLayout>

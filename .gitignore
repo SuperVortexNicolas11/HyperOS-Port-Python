@@ -57,3 +57,4 @@ roms/
 assets/
 devices/fuxi/override/16/product/priv-app/MiuiExtraPhoto/MiuiExtraPhoto.apk
 mk_erofs.sh
+temp/

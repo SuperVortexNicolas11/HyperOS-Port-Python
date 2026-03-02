@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/detail_rl"
+              android:background="@drawable/bh_selector_item_order"
+              android:paddingTop="21.73dp"
+              android:paddingBottom="21.73dp"
+              android:focusable="true"
+              android:clickable="true"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="13.09dp"
+              android:paddingStart="16.0dp"
+              android:paddingEnd="16.0dp"
+              android:layout_marginStart="13.09dp"
+              android:layout_marginEnd="13.09dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <RelativeLayout android:gravity="center_vertical"
+                  android:id="@id/content"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+    <TextView android:textSize="17.5sp"
+              android:textColor="@color/bh_black_daynight"
+              android:ellipsize="end"
+              android:id="@id/tv_content"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:singleLine="true"
+              android:layout_alignParentStart="true" />
+    <TextView android:textSize="14.0dp"
+              android:textColor="#0d84ff"
+              android:id="@id/tv_orderStatus"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentEnd="true" />
+  </RelativeLayout>
+  <RelativeLayout android:id="@id/payInfo"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="4.0dp"
+                  android:layout_below="@id/content">
+    <TextView android:textSize="20.36sp"
+              android:textColor="@color/bh_black_daynight"
+              android:id="@id/tv_productName"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:layout_alignParentStart="true" />
+    <TextView android:textSize="20.36sp"
+              android:textColor="@color/bh_black_daynight"
+              android:id="@id/tv_paidFee"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:layout_alignParentEnd="true" />
+  </RelativeLayout>
+  <RelativeLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="4.0dp"
+                  android:layout_below="@id/content">
+    <TextView android:textSize="13.09sp"
+              android:textColor="@color/record_list_buy_time_text_color"
+              android:id="@id/tv_time"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+    <TextView android:textSize="13.09sp"
+              android:textColor="@color/bh_blue_ff"
+              android:id="@id/tv_pay_status"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentEnd="true" />
+  </RelativeLayout>
+</LinearLayout>

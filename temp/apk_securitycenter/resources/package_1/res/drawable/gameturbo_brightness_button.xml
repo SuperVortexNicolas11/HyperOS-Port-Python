@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_brightness_button__0"
+            android:pathData="M23,60H45L43,64H21L23,60Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_brightness_button__1"
+            android:pathData="M48.0752,43.6756C46.2774,45.1286 45,47.2127 45,49.5243V56H38.5243H27.4757H21V49.5243C21,47.2127 19.7226,45.1286 17.9248,43.6756C12.4811,39.2759 9,32.5445 9,25C9,11.7452 19.7452,1 33,1C46.2548,1 57,11.7452 57,25C57,32.5445 53.5189,39.2759 48.0752,43.6756Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+  <item xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_brightness_button__2"
+            android:pathData="M23,60H45L43,64H21L23,60Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_brightness_button__3"
+            android:pathData="M48.0752,43.6756C46.2774,45.1286 45,47.2127 45,49.5243V56H38.5243H27.4757H21V49.5243C21,47.2127 19.7226,45.1286 17.9248,43.6756C12.4811,39.2759 9,32.5445 9,25C9,11.7452 19.7452,1 33,1C46.2548,1 57,11.7452 57,25C57,32.5445 53.5189,39.2759 48.0752,43.6756Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+</selector>

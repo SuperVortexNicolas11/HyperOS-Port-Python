@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:id="@id/miuix_action_end_menu_group">
+    <item android:id="@id/modify_risk_app_perm"
+          android:orderInCategory="1"
+          android:title="@string/risk_app_menu_title" />
+  </group>
+</menu>

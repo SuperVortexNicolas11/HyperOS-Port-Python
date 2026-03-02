@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.preference.PreferenceCategory app:needDividerLine="false">
+    <com.miui.permcenter.permissions.ValuePreference android:title="@string/connected_devices_camera"
+                          android:key="device_permission_for_camera"
+                          android:summary="@string/connected_devices_camera_desc" />
+    <com.miui.permcenter.permissions.ValuePreference android:title="@string/connected_devices_screen"
+                          android:key="device_permission_for_screen"
+                          android:summary="@string/connected_devices_screen_desc" />
+    <com.miui.permcenter.permissions.ValuePreference android:title="@string/connected_devices_notification"
+                          android:key="device_permission_for_notification"
+                          android:summary="@string/connected_devices_notification_desc"
+                          app:isPreferenceVisible="false" />
+    <com.miui.permcenter.permissions.ValuePreference android:title="@string/connected_devices_files"
+                          android:key="device_permission_for_files"
+                          android:summary="@string/connected_devices_files_desc" />
+  </miuix.preference.PreferenceCategory>
+</PreferenceScreen>

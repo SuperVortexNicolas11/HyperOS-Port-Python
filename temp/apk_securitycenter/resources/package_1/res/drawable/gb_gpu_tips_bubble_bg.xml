@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/gb_gpu_bubble_height"
+        android:width="@dimen/gb_gpu_bubble_width"
+        android:viewportWidth="823.0"
+        android:viewportHeight="176.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="#282a31"
+        android:pathData="M0,10C0,4.477 4.477,0 10,0H813C818.523,0 823,4.477 823,10V155C823,160.523 818.523,165 813,165H25C23.359,165 21.742,165.404 20.294,166.176L2.941,175.431C1.609,176.142 0,175.177 0,173.667L0,165L0,144V10Z" />
+</vector>

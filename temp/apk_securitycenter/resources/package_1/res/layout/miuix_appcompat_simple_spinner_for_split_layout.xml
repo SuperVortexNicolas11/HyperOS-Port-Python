@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center|end"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              style="@style/Widget.DropdownSelector.Spinner.Power" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textColor="@color/pc_battery_statics_rank_summary_color"
+            android:gravity="end"
+            android:id="@android:id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/pc_power_main_battery_check_summary_split_max_width"
+            android:textDirection="locale"
+            style="@style/Miuix.AppCompat.TextAppearance.Spinner.Power" />
+  <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center|end"
+                        android:id="@android:id/icon1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/miuix_appcompat_spinner_icon_padding"
+                        app:srcCompat="@drawable/miuix_appcompat_arrow_up_down" />
+</LinearLayout>

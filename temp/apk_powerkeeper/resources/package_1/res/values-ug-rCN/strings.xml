@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <string name="active_classify">ئاكتىپ ھالىتى بويىچە ئايرىش</string>
+  <string name="app_name">توك مىقدارى ۋە ئىقتىدار</string>
+  <string name="base_info">ئاساسى ئۇچۇر</string>
+  <string name="checking_intranet">ئىچكى تورنى تەكشۈرىۋاتىدۇ، ساقلاڭ</string>
+  <string name="clear_temperature">تازىلاش تېمپىراتۇرىسى</string>
+  <string name="cloud_addr_info">يوشۇرۇن ھالىتى بۇلۇت ئۇچۇرى</string>
+  <string name="confirm">جەزملەش</string>
+  <string name="connect_intranet_hint">ئىچكى تورغا ئۇلاڭ</string>
+  <string name="delete_data_confirm">بۇ سانلىق مەلۇماتنى ئۆچۈرەمسىز</string>
+  <string name="enable_sleep_mode">ئۇيقۇ ھالىتىنى قوزغىتىپ كېچىدىكى توك خوراشنى ئەلالاشتۇرۇش</string>
+  <string name="failure">مەغلۇپ بولدى</string>
+  <string name="high_temp_benchmark_state">يۇقىرى تېمپىراتۇرا ئەسكەرتىشى</string>
+  <string name="high_temp_benchmark_state_message">ئۈسكۈنە تېمپىراتۇرىسى بەك يۇقىرى، ئۈسكۈنە تېمپىراتۇرىسى تۆۋەنلىگەندىن كېيىن ئاندىن ئىشلىتىڭ:</string>
+  <string name="high_temp_state">يۇقىرى تېمپىراتۇرا ئەسكەرتىشى</string>
+  <string name="high_temp_state_message">ئۈسكۈنە تېمپىراتۇرىسى بەك يۇقىرى،يۇقىرى تېمپىراتۇرىدىن ساقلاشنى ئاچسىڭىز، سانلىق مەلۇمات،قىزىق نۇقتا،ئورۇن بەلگىلەش،كامېرا قاتارلىق مەنبەلەر چەكلىمىگە ئۇچرايدۇ!</string>
+  <string name="insert_data">سانلىق مەلۇمات كىرگۈزۈش</string>
+  <string name="kill_all_back_pro_toast_message">ئۈسكۈنە تېمپىراتۇرىسى بەك يۇقىرى، يۇقىرى تېمپىراتۇرىدىن قوغداشنى ئاچسىڭىز، بارلىق ئەپ چېكىنىدۇ</string>
+  <string name="kill_pkg_toast_message">ئۈسكۈنە تېموىراتۇرىسى بەك يۇقىرى، يۇقىرى تېمپىراتۇرىدىن قوغداشنى ئاچسىڭىز، ئەپ چېكىنىدۇ</string>
+  <string name="kill_some_back_pro_toast_message">ئۈسكۈنە تېمپىراتۇرىسى بەك يۇقىرى، يۇقىرى تېمپىراتۇرىدىن قوغداشنى ئاچسىڭىز، قىسمەن ئەپتىن چېكىنىدۇ</string>
+  <string name="lasttime_applist_cloud">ئەپ تىزىملىكى يېڭىلانغان ۋاقتى:</string>
+  <string name="lasttime_feature_cloud">ئورتاق ئىقتىدار يېڭىلانغان ۋاقتى:</string>
+  <string name="modify_data">سانلىق مەلۇمات تۈزىتىش</string>
+  <string name="power_consume_abnormal_night">كېچىدە توك بىنورمال خورىغان</string>
+  <string name="privacy">شەخسىي مەخپىيەتلىك سىياسىتى</string>
+  <string name="save_data">سانلىق مەلۇمات ساقلاش</string>
+  <string name="screen_off_current">ئېكران ئۆچۈش توك ئېقىمى</string>
+  <string name="screen_on_current">ئېكران يورۇش توك ئېقىمى</string>
+  <string name="search_input_txt_na">&lt;font color='#ff0000'&gt;%s&lt;/font&gt;</string>
+  <string name="search_result_text">ھېچقانداق ئەپ تېپىلمىدى</string>
+  <string name="softbank_high_temp_toast_time_10min">باتارىيە تېمپىراتۇرىسىنىڭ بەك يۇقىرى بولۇپ كېتىشتىن ساقلىنىش ئۈچۈن، قول چىراغ ئاپتوماتىك تاقالدى</string>
+  <string name="softbank_high_temp_toast_time_4min">باتارىيە تېمپىراتۇرىسىنىڭ بەك يۇقىرى بولۇپ كېتىشتىن ساقلىنىش ئۈچۈن، چاقماق لامپا ئاپتوماتىك تاقالدى</string>
+  <string name="stricter_high_temp_state_message">ئۈسكۈنە تېمپىراتۇرىسى يۇقىرى،"چاقىرىش" ۋە"ئالاقىداش"تىن باشقا ئەپلەرنى ئىشلەتكىلى بولمايدۇ</string>
+  <string name="sucess">تامام</string>
+  <string name="thermal_cancel">بىكار قىلىش</string>
+  <string name="thermal_confirm">جەزملەش</string>
+  <string name="trig_temperature">قوزغىتىش تېمپىراتۇرىسى</string>
+</resources>

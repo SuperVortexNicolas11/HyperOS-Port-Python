@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:orientation="vertical"
+                android:background="@color/passport_dialog_list_item_selected_bg"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/icon"
+             android:layout_width="15.3dp"
+             android:layout_height="12.3dp"
+             android:src="@drawable/passport_list_item_selected"
+             android:layout_centerVertical="true"
+             android:layout_marginEnd="@dimen/passport_page_min_horizontal_padding"
+             android:layout_alignParentEnd="true" />
+  <TextView android:textSize="17.0sp"
+            android:textColor="@color/passport_common_app_color_primary"
+            android:gravity="center|start"
+            android:id="@id/text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="相册"
+            android:layout_marginStart="@dimen/passport_page_min_horizontal_padding"
+            android:layout_marginEnd="@dimen/passport_page_min_horizontal_padding"
+            android:layout_toStartOf="@id/icon" />
+</RelativeLayout>

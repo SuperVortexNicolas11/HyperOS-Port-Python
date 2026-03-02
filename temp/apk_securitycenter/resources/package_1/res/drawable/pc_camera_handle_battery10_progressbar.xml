@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@android:id/background">
+    <shape>
+      <corners android:radius="@dimen/dp_1_5" />
+    </shape>
+  </item>
+  <item android:id="@android:id/progress">
+    <scale android:drawable="@drawable/pc_handle_battery_progress10_bar_color"
+           android:scaleWidth="100%" />
+  </item>
+</layer-list>

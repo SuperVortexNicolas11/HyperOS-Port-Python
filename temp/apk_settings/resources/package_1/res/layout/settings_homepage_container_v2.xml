@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/settings_homepage_container"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.core.widget.NestedScrollView android:id="@id/main_content_scrollable_container"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:layout_behavior="com.android.settings.widget.HomepageAppBarScrollingViewBehavior">
+    <LinearLayout android:orientation="vertical"
+                  android:id="@id/homepage_container"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <FrameLayout android:id="@id/suggestion_content"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
+                   android:layout_marginEnd="?android:attr/listPreferredItemPaddingEnd" />
+      <FrameLayout android:id="@id/contextual_cards_content"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="@dimen/contextual_card_side_margin"
+                   android:layout_marginEnd="@dimen/contextual_card_side_margin" />
+      <FrameLayout android:id="@id/main_content"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:animateLayoutChanges="true" />
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+  <com.google.android.material.appbar.AppBarLayout android:id="@id/app_bar"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:touchscreenBlocksFocus="false"
+                        android:keyboardNavigationCluster="false"
+                        app:elevation="0.0dp">
+    <LinearLayout android:orientation="horizontal"
+                  android:id="@id/app_bar_container"
+                  android:paddingTop="@dimen/search_bar_container_top_padding"
+                  android:paddingBottom="16.0dp"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                  android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
+      <include layout="@layout/search_bar_unified_version" />
+    </LinearLayout>
+  </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

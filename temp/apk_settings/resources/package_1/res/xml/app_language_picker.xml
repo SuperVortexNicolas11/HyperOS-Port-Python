@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/app_locale_picker_title"
+                  android:key="key_app_language_picker_page" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settingslib.widget.TopIntroPreference android:title="@string/desc_app_locale_disclaimer"
+                        android:key="app_locale_disclaimer"
+                        android:order="1"
+                        settings:isPreferenceVisible="false" />
+  <com.android.settingslib.widget.IntroPreference android:key="app_intro"
+                        android:order="2" />
+  <com.android.settingslib.widget.TopIntroPreference android:title="@string/desc_no_available_supported_locale"
+                        android:selectable="false"
+                        android:key="app_locale_description"
+                        android:order="3"
+                        settings:isPreferenceVisible="false"
+                        settings:searchable="false" />
+  <PreferenceCategory android:title="@string/suggested_locales_title"
+                      android:key="app_language_suggested_category"
+                      android:order="4" />
+  <PreferenceCategory android:title="@string/all_supported_locales_title"
+                      android:key="app_language_all_supported_category"
+                      android:order="5" />
+</PreferenceScreen>

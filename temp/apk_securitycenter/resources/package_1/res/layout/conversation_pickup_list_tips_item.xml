@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.videobox.view.MarqueeTextView android:textSize="@dimen/dp_12"
+                        android:textColor="#63646a"
+                        android:ellipsize="marquee"
+                        android:gravity="center"
+                        android:id="@id/tv_function_desc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:text="@string/cs_pickup_vioce_print_in_private_tips"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:layout_marginStart="@dimen/dp_12"
+                        android:layout_marginEnd="@dimen/dp_12"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

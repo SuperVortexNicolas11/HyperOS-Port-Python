@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge android:layout_width="fill_parent"
+       android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollOrientation="vertical|angle"
+                        app:scrollableView="@id/recycler_view">
+    <androidx.recyclerview.widget.RecyclerView android:orientation="vertical"
+                          android:id="@id/recycler_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+  </miuix.springback.view.SpringBackLayout>
+  <RelativeLayout android:id="@id/search_layout"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+    <include android:id="@id/header_view"
+             android:visibility="gone"
+             layout="@layout/miuix_appcompat_search_stub" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="vertical"
+                          android:id="@id/result_recycler"
+                          android:visibility="gone"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_below="@id/header_view"
+                          android:nestedScrollingEnabled="false"
+                          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    <include android:id="@id/empty_view"
+             android:visibility="gone"
+             layout="@layout/empty_tips" />
+  </RelativeLayout>
+  <miuix.androidbasewidget.widget.ProgressBar android:layout_gravity="center"
+                        android:id="@id/network_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+</merge>

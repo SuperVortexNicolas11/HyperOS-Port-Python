@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <RelativeLayout android:id="@id/result_score_content"
+                  android:visibility="invisible"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true">
+    <ImageView android:id="@id/result_circle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/securityscan_result_circle_margin_top"
+               android:src="@drawable/result_top_icon"
+               android:scaleType="center"
+               android:layout_centerHorizontal="true" />
+    <com.miui.common.customview.ScoreTextView android:textSize="@dimen/scan_result_score_text_size"
+                          android:textColor="@color/m_activity_main_score"
+                          android:id="@id/result_score"
+                          android:focusable="false"
+                          android:focusableInTouchMode="false"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/securityscan_result_score_margin_top"
+                          android:singleLine="true"
+                          android:includeFontPadding="false"
+                          android:layout_centerHorizontal="true"
+                          android:importantForAccessibility="no" />
+  </RelativeLayout>
+  <TextView android:textSize="@dimen/status_bar_bottom_textsize"
+            android:textStyle="bold"
+            android:textColor="@color/color_blue_primary_default"
+            android:id="@id/status_bar_bottom"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/status_bar_bottom_margin_top"
+            android:layout_centerHorizontal="true"
+            android:importantForAccessibility="no" />
+</RelativeLayout>

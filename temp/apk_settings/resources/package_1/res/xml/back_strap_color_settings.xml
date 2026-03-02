@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.android.settings.special.backstrap.BackStrapColorPickerPreference android:title="@string/back_strap_call_reminder_title"
+                        android:key="back_strap_call_reminder" />
+  <com.android.settings.special.backstrap.BackStrapColorPickerPreference android:title="@string/back_strap_app_notification_title"
+                        android:key="back_strap_app_notification" />
+</PreferenceScreen>

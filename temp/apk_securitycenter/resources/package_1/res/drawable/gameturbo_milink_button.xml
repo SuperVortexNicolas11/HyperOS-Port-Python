@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <item android:state_selected="true">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_milink_button__0"
+            android:pathData="M32.1619,35.0888L9,40.0521V11H57L57,40.0521L33.8381,35.0888L33,34.9092L32.1619,35.0888Z"
+            android:strokeColor="@drawable/$gameturbo_milink_button__1"
+            android:strokeWidth="8.0" />
+      <path android:fillColor="@drawable/$gameturbo_milink_button__2"
+            android:pathData="M31,45L35,43V55H31V45Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_milink_button__3"
+            android:pathData="M21,55H47L45,59H19L21,55Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+    </vector>
+  </item>
+  <item android:state_enabled="false">
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_milink_button__4"
+            android:pathData="M32.1619,35.0888L9,40.0521V11H57L57,40.0521L33.8381,35.0888L33,34.9092L32.1619,35.0888Z"
+            android:strokeColor="@drawable/$gameturbo_milink_button__5"
+            android:strokeWidth="8.0" />
+      <path android:fillColor="@drawable/$gameturbo_milink_button__6"
+            android:pathData="M31,45L35,43V55H31V45Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_milink_button__7"
+            android:pathData="M21,55H47L45,59H19L21,55Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+    </vector>
+  </item>
+  <item>
+    <vector android:height="@dimen/view_dimen_66"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="66.0"
+            android:viewportHeight="66.0">
+      <path android:fillColor="@drawable/$gameturbo_milink_button__8"
+            android:pathData="M32.1619,35.0888L9,40.0521V11H57L57,40.0521L33.8381,35.0888L33,34.9092L32.1619,35.0888Z"
+            android:strokeColor="@drawable/$gameturbo_milink_button__9"
+            android:strokeWidth="8.0" />
+      <path android:fillColor="@drawable/$gameturbo_milink_button__10"
+            android:pathData="M31,45L35,43V55H31V45Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_milink_button__11"
+            android:pathData="M21,55H47L45,59H19L21,55Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+    </vector>
+  </item>
+</selector>

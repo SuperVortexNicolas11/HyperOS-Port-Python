@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              style="@style/ListSingleItem" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:id="@id/city_name"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ew_main_warning_list_title"
+            android:layout_weight="1.0"
+            android:textDirection="locale"
+            style="@style/ListItemTitle" />
+  <TextView android:textSize="@dimen/sp_12"
+            android:textColor="@color/ew_list_empty_text_color"
+            android:id="@id/last_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ew_concern_date_empty"
+            android:layout_marginEnd="@dimen/view_dimen_20" />
+  <ImageView android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/miuix_appcompat_arrow_right" />
+</LinearLayout>

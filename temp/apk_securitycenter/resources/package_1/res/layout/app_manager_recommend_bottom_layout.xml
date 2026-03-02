@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:minHeight="@dimen/dp_57" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:id="@id/text_container"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent">
+    <TextView android:textSize="@dimen/sp_13"
+              android:textColor="@color/color_black_trans_40"
+              android:layout_gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/app_manager_to_appstore"
+              android:drawablePadding="@dimen/view_dimen_14"
+              android:drawableEnd="@drawable/am_bottom_right_arrow" />
+  </FrameLayout>
+</FrameLayout>

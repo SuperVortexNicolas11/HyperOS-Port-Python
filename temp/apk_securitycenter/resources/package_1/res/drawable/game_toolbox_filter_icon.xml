@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true">
+    <vector android:height="24.0dp"
+            android:width="24.0dp"
+            android:autoMirrored="true"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+      <path android:fillColor="#277af7"
+            android:pathData="M12,8m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"
+            android:fillAlpha="0.9" />
+      <path android:fillColor="#277af7"
+            android:pathData="M12,8m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"
+            android:fillAlpha="0.9" />
+      <path android:fillColor="#277af7"
+            android:pathData="M18.795,9.689C18.283,11.753 16.856,13.456 14.969,14.341C14.99,14.558 15,14.778 15,15C15,17.002 14.159,18.808 12.812,20.084C13.736,20.664 14.829,21 16,21C19.314,21 22,18.314 22,15C22,12.696 20.701,10.694 18.795,9.689Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.54"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#277af7"
+            android:pathData="M13.993,14.712C13.361,14.9 12.693,15 12,15C8.717,15 5.961,12.739 5.205,9.69C3.299,10.695 2,12.696 2,15C2,18.314 4.686,21 8,21C11.314,21 14,18.314 14,15C14,14.904 13.998,14.808 13.993,14.712Z"
+            android:fillAlpha="0.9"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#277af7"
+            android:pathData="M13.993,14.712C13.361,14.9 12.693,15 12,15C8.717,15 5.961,12.739 5.205,9.69C3.299,10.695 2,12.696 2,15C2,18.314 4.686,21 8,21C11.314,21 14,18.314 14,15C14,14.904 13.998,14.808 13.993,14.712Z"
+            android:fillAlpha="0.9"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#277af7"
+            android:pathData="M13.993,14.712C13.361,14.9 12.693,15 12,15C8.717,15 5.961,12.739 5.205,9.69C3.299,10.695 2,12.696 2,15C2,18.314 4.686,21 8,21C11.314,21 14,18.314 14,15C14,14.904 13.998,14.808 13.993,14.712Z"
+            android:fillAlpha="0.9"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+  <item>
+    <vector android:height="24.0dp"
+            android:width="24.0dp"
+            android:autoMirrored="true"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+      <path android:fillColor="#ffffff"
+            android:pathData="M12,8m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"
+            android:fillAlpha="0.9" />
+      <path android:fillColor="#ffffff"
+            android:pathData="M12,8m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"
+            android:fillAlpha="0.9" />
+      <path android:fillColor="#ffffff"
+            android:pathData="M18.795,9.689C18.283,11.753 16.856,13.456 14.969,14.341C14.99,14.558 15,14.778 15,15C15,17.002 14.159,18.808 12.812,20.084C13.736,20.664 14.829,21 16,21C19.314,21 22,18.314 22,15C22,12.696 20.701,10.694 18.795,9.689Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.54"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#ffffff"
+            android:pathData="M13.993,14.712C13.361,14.9 12.693,15 12,15C8.717,15 5.961,12.739 5.205,9.69C3.299,10.695 2,12.696 2,15C2,18.314 4.686,21 8,21C11.314,21 14,18.314 14,15C14,14.904 13.998,14.808 13.993,14.712Z"
+            android:fillAlpha="0.9"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#ffffff"
+            android:pathData="M13.993,14.712C13.361,14.9 12.693,15 12,15C8.717,15 5.961,12.739 5.205,9.69C3.299,10.695 2,12.696 2,15C2,18.314 4.686,21 8,21C11.314,21 14,18.314 14,15C14,14.904 13.998,14.808 13.993,14.712Z"
+            android:fillAlpha="0.9"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#ffffff"
+            android:pathData="M13.993,14.712C13.361,14.9 12.693,15 12,15C8.717,15 5.961,12.739 5.205,9.69C3.299,10.695 2,12.696 2,15C2,18.314 4.686,21 8,21C11.314,21 14,18.314 14,15C14,14.904 13.998,14.808 13.993,14.712Z"
+            android:fillAlpha="0.9"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+</selector>

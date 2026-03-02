@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.miuixbasewidget.widget.FilterSortView2 android:layout_gravity="center"
+                        android:id="@id/filter_sort"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginBottom="@dimen/dp_8"
+                        android:layout_marginStart="@dimen/ew_warning_list_filter_margin_start_and_end"
+                        android:layout_marginEnd="@dimen/ew_warning_list_filter_margin_start_and_end" />
+  <androidx.viewpager2.widget.ViewPager2 android:id="@id/viewpager"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.0dp"
+                        android:layout_marginTop="@dimen/ew_warning_list_title_margin_bottom"
+                        android:layout_weight="1.0" />
+</LinearLayout>

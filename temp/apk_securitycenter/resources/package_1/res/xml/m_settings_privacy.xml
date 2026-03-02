@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory android:title="@string/menu_item_about_privacy_title">
+    <Preference android:title="@string/privacy_look_privacy"
+                android:key="privacy_look_privacy" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/privacy_permission_relate"
+                      android:key="privacy_permission_relate">
+    <Preference android:title="@string/privacy_permission_desc"
+                android:key="privacy_permission_desc" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/privacy_recommend_category"
+                      android:key="privacy_recommend_category">
+    <CheckBoxPreference android:title="@string/privacy_recommend_title"
+                        android:key="privacy_recommend_title"
+                        android:summary="@string/privacy_recommend_summary" />
+    <CheckBoxPreference android:title="@string/load_only_under_wlan"
+                        android:key="preference_key_information_setting_wlan"
+                        android:defaultValue="false" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/privacy_revoke_category_title">
+    <Preference android:title="@string/privacy_revoke_title"
+                android:key="privacy_revoke_title" />
+  </PreferenceCategory>
+</PreferenceScreen>

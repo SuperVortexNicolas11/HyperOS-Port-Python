@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:background="@drawable/card_bg_no_shadow_normal"
+              android:paddingTop="@dimen/firstaidkit_item_padding_bottom"
+              android:paddingBottom="@dimen/firstaidkit_item_padding_bottom"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:importantForAccessibility="no"
+              android:paddingStart="@dimen/result_card_margin_left"
+              android:paddingEnd="@dimen/result_card_margin_left" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:gravity="center_vertical"
+            android:id="@id/ll1"
+            android:duplicateParentState="true"
+            android:text="@string/first_aid_item1_content"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/scan_state_safe"
+            style="@style/TextListSingleItem" />
+  <TextView android:gravity="center_vertical"
+            android:id="@id/ll2"
+            android:duplicateParentState="true"
+            android:text="@string/first_aid_item2_content"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/scan_state_safe"
+            style="@style/TextListSingleItem" />
+  <TextView android:gravity="center_vertical"
+            android:id="@id/ll3"
+            android:duplicateParentState="true"
+            android:text="@string/first_aid_item3_content"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/scan_state_safe"
+            style="@style/TextListSingleItem" />
+  <TextView android:gravity="center_vertical"
+            android:id="@id/ll4"
+            android:duplicateParentState="true"
+            android:text="@string/first_aid_item4_content"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/scan_state_safe"
+            style="@style/TextListSingleItem" />
+  <TextView android:gravity="center_vertical"
+            android:id="@id/ll5"
+            android:duplicateParentState="true"
+            android:text="@string/first_aid_item5_content"
+            android:singleLine="true"
+            android:drawableEnd="@drawable/scan_state_safe"
+            style="@style/TextListSingleItem" />
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:paddingLeft="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+              android:paddingRight="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <CheckBox android:textSize="@dimen/dp_16_73"
+            android:id="@id/power_dialog_performance_mode_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/pc_main_power_save_dialog_padding_size" />
+</LinearLayout>

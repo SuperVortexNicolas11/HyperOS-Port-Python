@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:paddingTop="@dimen/dp_16_50"
+             android:paddingBottom="@dimen/dp_16_50"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:paddingStart="@dimen/dp_16"
+             android:paddingEnd="@dimen/dp_16" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/text_font_size_56"
+            android:textColor="@color/task_default_task_title_color"
+            android:id="@id/default_task_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auto_task_default_if_exclude"
+            android:fontFamily="mipro-normal" />
+</FrameLayout>

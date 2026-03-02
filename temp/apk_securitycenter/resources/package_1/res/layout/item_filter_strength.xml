@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:paddingTop="@dimen/dp_8"
+              android:paddingBottom="@dimen/dp_20"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/dp_6"
+              android:paddingEnd="@dimen/dp_6" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/dp_14"
+            android:textColor="@color/whitealpha90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gamebox_filter_alpha_tip" />
+  <miuix.androidbasewidget.widget.SeekBar android:id="@id/progress_bar"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_18"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:max="100"
+                        style="@style/BarrageSeekBarStyle" />
+</LinearLayout>

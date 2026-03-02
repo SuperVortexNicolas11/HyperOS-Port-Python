@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="32.0dp"
+        android:width="32.0dp"
+        android:viewportWidth="32.0"
+        android:viewportHeight="32.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="@color/pm_icon_background_color"
+        android:pathData="M8,0L24,0A8,8 0,0 1,32 8L32,24A8,8 0,0 1,24 32L8,32A8,8 0,0 1,0 24L0,8A8,8 0,0 1,8 0z"
+        android:fillAlpha="@dimen/pm_icon_background_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M16,24.7C20.805,24.7 24.7,20.805 24.7,16C24.7,11.195 20.805,7.3 16,7.3C11.195,7.3 7.3,11.195 7.3,16C7.3,20.805 11.195,24.7 16,24.7ZM12.432,16.931C12.946,16.931 13.363,16.514 13.363,16C13.363,15.486 12.946,15.069 12.432,15.069C11.918,15.069 11.501,15.486 11.501,16C11.501,16.514 11.918,16.931 12.432,16.931ZM16.93,16C16.93,16.514 16.513,16.931 15.999,16.931C15.485,16.931 15.068,16.514 15.068,16C15.068,15.486 15.485,15.069 15.999,15.069C16.513,15.069 16.93,15.486 16.93,16ZM20.498,16C20.498,16.514 20.081,16.931 19.567,16.931C19.053,16.931 18.636,16.514 18.636,16C18.636,15.486 19.053,15.069 19.567,15.069C20.081,15.069 20.498,15.486 20.498,16Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha"
+        android:fillType="evenOdd" />
+</vector>

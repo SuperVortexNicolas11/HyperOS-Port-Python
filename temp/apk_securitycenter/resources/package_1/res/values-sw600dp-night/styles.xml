@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <style name="Theme.Preference.Settings.Floating.Close" parent="@style/Theme.DayNight.FloatingWindow">
+    <item name="android:windowIsTranslucent">@bool/miuix_appcompat_window_floating</item>
+    <item name="android:homeAsUpIndicator">@drawable/miuix_action_icon_cancel_dark</item>
+    <item name="android:statusBarColor">@color/miuix_window_color</item>
+    <item name="arrowRightFillColor">@color/miuix_appcompat_arrow_right_fill_color</item>
+    <item name="preferenceTheme">@style/Theme.PreferenceOverlay.Floating.DayNight</item>
+  </style>
+  <style name="Theme.Preference.Settings.Floating.Close.Secondary" parent="@style/Theme.DayNight.FloatingWindow">
+    <item name="android:windowIsTranslucent">@bool/miuix_appcompat_window_floating</item>
+    <item name="android:homeAsUpIndicator">@drawable/miuix_action_icon_back_dark</item>
+    <item name="arrowRightFillColor">@color/miuix_appcompat_arrow_right_fill_color</item>
+    <item name="preferenceTheme">@style/Theme.PreferenceOverlay.Floating.DayNight</item>
+  </style>
+  <style name="Theme.Preference.Settings.Floating.For_Antispam" parent="@style/Theme.DayNight.FloatingWindow">
+    <item name="android:windowIsTranslucent">@bool/miuix_appcompat_window_floating</item>
+    <item name="android:statusBarColor">@color/double_circle_anim_view_inner_circle_bg</item>
+    <item name="android:navigationBarColor">@color/double_circle_anim_view_inner_circle_bg</item>
+    <item name="actionBarMaxSize">@dimen/dp_120</item>
+    <item name="actionBarTitleEnableEllipsis">true</item>
+    <item name="arrowRightFillColor">@color/miuix_appcompat_arrow_right_fill_color</item>
+    <item name="collapseSubtitleTheme">@style/CollapseTitleStyle.MultipleLinesTitle</item>
+    <item name="collapseTitleTheme">@style/CollapseTitleStyle.MultipleLinesTitle</item>
+    <item name="filterSortTabView2Style">@style/Widget.FilterSortTabView2.Dark.Secondary</item>
+    <item name="preferenceTheme">@style/Theme.PreferenceOverlay.Floating.DayNight</item>
+  </style>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="32.0dp"
+        android:width="32.0dp"
+        android:viewportWidth="32.0"
+        android:viewportHeight="32.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$ic_battery_charge_wireless__0"
+        android:pathData="M8,0L24,0A8,8 0,0 1,32 8L32,24A8,8 0,0 1,24 32L8,32A8,8 0,0 1,0 24L0,8A8,8 0,0 1,8 0z" />
+  <path android:fillColor="@drawable/$ic_battery_charge_wireless__1"
+        android:pathData="M5.64,8.906L16.001,4.469V27.932C10.002,25.273 6.557,21.575 6.224,18.338C5.891,15.102 5.64,8.906 5.64,8.906Z" />
+  <path android:fillColor="@drawable/$ic_battery_charge_wireless__2"
+        android:pathData="M26.363,8.906L16.001,4.469V27.932C22.001,25.273 25.446,21.575 25.779,18.338C26.112,15.102 26.363,8.906 26.363,8.906Z" />
+  <path android:fillColor="@drawable/$ic_battery_charge_wireless__3"
+        android:pathData="M26.363,8.906L16.001,4.469V27.932C22.001,25.273 25.446,21.575 25.779,18.338C26.112,15.102 26.363,8.906 26.363,8.906Z"
+        android:fillAlpha="0.4" />
+  <path android:fillColor="#00000000"
+        android:pathData="M26.218,8.998L16.143,4.683V27.714C19.036,26.408 21.314,24.862 22.915,23.252C24.554,21.604 25.476,19.899 25.638,18.324C25.804,16.71 25.95,14.355 26.055,12.401C26.107,11.425 26.149,10.55 26.177,9.918C26.192,9.603 26.203,9.348 26.211,9.173L26.218,8.998Z"
+        android:strokeColor="@drawable/$ic_battery_charge_wireless__4"
+        android:strokeWidth="0.282982"
+        android:strokeAlpha="0.5" />
+  <path android:fillColor="@drawable/$ic_battery_charge_wireless__5"
+        android:pathData="M16.001,17.199V8.243L12.151,17.199H16.001ZM16.001,14.492V23.449L19.851,14.492H16.001Z"
+        android:fillType="evenOdd" />
+</vector>

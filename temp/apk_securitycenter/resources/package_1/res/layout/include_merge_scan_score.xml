@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <RelativeLayout android:id="@id/content_main"
+                  android:layout_width="@dimen/hp_content_main_size"
+                  android:layout_height="@dimen/hp_content_main_size"
+                  android:layout_marginTop="@dimen/content_main_margin_top"
+                  android:minWidth="154.0dp"
+                  android:layout_centerHorizontal="true">
+    <com.miui.common.customview.ScoreTextView android:textSize="@dimen/main_card_score_textview_textsize"
+                          android:textColor="@color/m_activity_main_score"
+                          android:id="@id/score"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/hp_score_text_margin_top"
+                          android:singleLine="true"
+                          android:includeFontPadding="false"
+                          android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/status_bar_textsize"
+              android:textColor="@color/card_summary_text_color"
+              android:ellipsize="marquee"
+              android:gravity="center"
+              android:id="@id/status_bar"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxWidth="@dimen/status_bar_width"
+              android:singleLine="true"
+              android:layout_below="@id/score"
+              android:layout_centerHorizontal="true"
+              android:marqueeRepeatLimit="1"
+              android:paddingStart="@dimen/status_bar_padding_start"
+              android:paddingEnd="@dimen/status_bar_padding_end" />
+    <ViewStub android:id="@id/btn_action_stub"
+              android:layout="@layout/m_securityscan_btn_action_viewstub_layout"
+              android:layout_width="@dimen/dp_149"
+              android:layout_height="@dimen/security_optimize_button_height"
+              android:layout_marginTop="@dimen/btn_action_margin_top"
+              android:layout_below="@id/status_bar"
+              android:layout_centerHorizontal="true" />
+  </RelativeLayout>
+</merge>

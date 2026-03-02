@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <androidx.viewpager.widget.ViewPager android:id="@id/view_pager"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_246"
+                        android:importantForAccessibility="no" />
+  <TextView android:textSize="@dimen/sp_14"
+            android:textColor="@color/os2_right_title_icon_color"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:id="@id/indicator_text"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20" />
+  <com.miui.privacyapps.view.ViewPagerIndicator android:layout_gravity="center"
+                        android:id="@id/indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+</LinearLayout>

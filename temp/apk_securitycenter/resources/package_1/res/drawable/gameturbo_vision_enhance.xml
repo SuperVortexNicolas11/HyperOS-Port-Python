@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="false" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_69"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="24.0"
+            android:viewportHeight="25.0">
+      <path android:fillColor="@drawable/$gameturbo_vision_enhance__0"
+            android:pathData="M1.818,20.337V4.337H22.182V17.428L20.364,19.246L19.273,20.337H1.818Z" />
+      <path android:fillColor="#191e33"
+            android:pathData="M10,7.337H8H7V8.337V10.337H8V8.337H10V7.337Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M8,14.337H7V16.337V17.337H8H10V16.337H8V14.337Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M16,7.337H14V8.337H16V10.337H17V8.337V7.337H16Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M17,14.337H16V16.337H14V17.337H16H17V16.337V14.337Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M9,11.398h6v2h-6z" />
+      <path android:fillColor="#191e33"
+            android:pathData="M11,15.398l0,-6l2,-0l0,6z" />
+    </vector>
+  </item>
+  <item android:state_selected="true" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/view_dimen_69"
+            android:width="@dimen/view_dimen_66"
+            android:viewportWidth="24.0"
+            android:viewportHeight="25.0">
+      <path android:fillColor="@drawable/$gameturbo_vision_enhance__1"
+            android:pathData="M1.818,20.337V4.337H22.182V17.428L20.364,19.246L19.273,20.337H1.818Z" />
+      <path android:fillColor="#191e33"
+            android:pathData="M10,7.337H8H7V8.337V10.337H8V8.337H10V7.337Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M8,14.337H7V16.337V17.337H8H10V16.337H8V14.337Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M16,7.337H14V8.337H16V10.337H17V8.337V7.337H16Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M17,14.337H16V16.337H14V17.337H16H17V16.337V14.337Z"
+            android:fillType="evenOdd" />
+      <path android:fillColor="#191e33"
+            android:pathData="M9,11.398h6v2h-6z" />
+      <path android:fillColor="#191e33"
+            android:pathData="M11,15.398l0,-6l2,-0l0,6z" />
+    </vector>
+  </item>
+</selector>

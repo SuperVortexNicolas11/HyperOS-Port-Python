@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="@color/miuix_appcompat_dropdown_popup_list_item_bg_light" />
+  <corners android:topLeftRadius="@dimen/miuix_theme_radius_common"
+           android:topRightRadius="@dimen/miuix_theme_radius_common" />
+  <padding android:top="@dimen/miuix_theme_radius_common" />
+</shape>

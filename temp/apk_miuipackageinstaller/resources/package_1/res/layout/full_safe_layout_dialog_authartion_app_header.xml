@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textSize="@dimen/sp_18"
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:text="@string/full_safe_auth_dialog_title"
+            android:fontFamily="mipro-demibold" />
+  <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+    <com.miui.packageInstaller.view.RoundImageView android:id="@id/app_icon"
+                          android:layout_width="@dimen/dp_68"
+                          android:layout_height="@dimen/dp_68"
+                          app:round_corner="@dimen/dp_13" />
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="@dimen/dp_14">
+      <TextView android:textSize="@dimen/sp_16"
+                android:textColor="@color/black"
+                android:id="@id/app_label"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="mipro-medium" />
+      <TextView android:textSize="@dimen/sp_12"
+                android:textColor="@color/black_50"
+                android:id="@id/install_source"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginBottom="@dimen/dp_4" />
+      <TextView android:textSize="@dimen/sp_12"
+                android:textColor="@color/install_hint_title_yellow"
+                android:gravity="center"
+                android:id="@id/tag"
+                android:background="@drawable/full_safe_unknown_app_unsafe_tips_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/dp_22"
+                android:text="@string/risk_app"
+                android:fontFamily="mipro-medium"
+                android:paddingStart="@dimen/dp_6"
+                android:paddingEnd="@dimen/dp_6" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

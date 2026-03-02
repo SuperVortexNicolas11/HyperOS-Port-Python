@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      app:template="unlock_card_item_ternary" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView android:id="@id/card_icon"
+             android:layout_width="@dimen/secure_card_img_width"
+             android:layout_height="@dimen/secure_card_img_width"
+             app:area_id="@id/area_head" />
+  <com.android.settings.widget.CustomMarqueeTextView android:textSize="@dimen/card_key_words_text_size"
+                        android:textColor="@color/ringtone_item_title_color"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:id="@id/card_title"
+                        android:scrollbars="none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:singleLine="false"
+                        android:lineSpacingMultiplier="0.9"
+                        android:fontFamily="mipro-medium"
+                        android:hyphenationFrequency="fullFast"
+                        app:area_id="@id/area_title" />
+  <com.android.settings.widget.CustomMarqueeTextView android:textSize="@dimen/card_instructions_text_size"
+                        android:textColor="@color/ringtone_item_value_color"
+                        android:ellipsize="marquee"
+                        android:id="@id/card_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        app:area_id="@id/area_content" />
+</miuix.flexible.view.HyperCellLayout>

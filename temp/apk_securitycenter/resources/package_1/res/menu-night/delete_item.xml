@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:icon="@drawable/miuix_action_icon_delete_dark"
+        android:id="@id/edit_mode_delete"
+        android:title="@string/delete" />
+</menu>

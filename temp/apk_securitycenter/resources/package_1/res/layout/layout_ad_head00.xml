@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge android:layout_width="fill_parent"
+       android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.securitycenter.ad.view.AdImageView android:id="@id/iv_icon"
+                        android:layout_width="@dimen/v_dimens_110"
+                        android:layout_height="@dimen/v_dimens_110"
+                        android:layout_marginTop="@dimen/v_dimens_6"
+                        android:contentDescription="@null"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+  <TextView android:id="@id/tv_title"
+            android:layout_width="0.0dp"
+            android:layout_marginStart="@dimen/v_dimens_40"
+            app:layout_constraintEnd_toStartOf="@id/tv_adx"
+            app:layout_constraintStart_toEndOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/AdTitleTextStyle" />
+  <TextView android:id="@id/tv_adx"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/AdxViewStyle" />
+  <TextView android:id="@id/tv_desc"
+            android:layout_width="0.0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            style="@style/AdDescTextStyle" />
+  <androidx.constraintlayout.widget.Barrier android:id="@id/ad_head_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="bottom"
+                        app:constraint_referenced_ids="iv_icon,tv_desc" />
+</merge>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <Space android:layout_width="fill_parent"
+         android:layout_height="@dimen/dp_16" />
+  <TextView android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            android:textColor="@color/six_pices_card_item_title_textcolor"
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_7"
+            android:text="@string/popular_action_card_title"
+            android:layout_marginStart="@dimen/dp_16" />
+  <GridLayout android:id="@id/popular_action_grid"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:rowCount="2"
+              android:columnCount="2" />
+</LinearLayout>

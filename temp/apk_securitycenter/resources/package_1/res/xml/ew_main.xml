@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.warningcenter.widget.WarningCenterImagePreference android:key="banner"
+                        app:contentDescription="@string/ew_main_setting_show_desc"
+                        app:enableCardStyle="false"
+                        app:imageResource="@drawable/warning_earth_quick_view_icon"
+                        app:intervalLine="false"
+                        app:isTouchAnimEnable="false"
+                        app:paddingBottom="@dimen/dp_36"
+                        app:paddingTop="@dimen/dp_25" />
+  <PreferenceCategory>
+    <CheckBoxPreference android:title="@string/ew_main_open_title"
+                        android:key="ew_switch"
+                        android:summary="@string/ew_main_open_tips" />
+    <miuix.preference.TextPreference android:title="@string/ew_main_subscribe_city"
+                          android:key="concerns"
+                          android:dependency="ew_switch">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:targetClass="com.miui.earthquakewarning.ui.EarthquakeWarningSubscribeAreaActivity" />
+    </miuix.preference.TextPreference>
+  </PreferenceCategory>
+  <miuix.preference.TextPreference android:title="@string/ew_monitor_join"
+                        android:key="ew_monitor_join">
+    <intent android:targetPackage="com.miui.securitycenter"
+            android:targetClass="com.miui.earthquakewarning.ui.EarthquakeWarningMonitorActivity" />
+  </miuix.preference.TextPreference>
+</PreferenceScreen>

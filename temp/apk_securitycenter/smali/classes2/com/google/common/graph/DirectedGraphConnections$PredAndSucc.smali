@@ -1,0 +1,45 @@
+.class final Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/graph/DirectedGraphConnections;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1a
+    name = "PredAndSucc"
+.end annotation
+
+
+# instance fields
+.field private final successorValue:Ljava/lang/Object;
+
+
+# direct methods
+.method constructor <init>(Ljava/lang/Object;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    iput-object p1, p0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->successorValue:Ljava/lang/Object;
+
+    .line 5
+    return-void
+    .line 7
+.end method
+
+.method static synthetic access$600(Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;)Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/google/common/graph/DirectedGraphConnections$PredAndSucc;->successorValue:Ljava/lang/Object;
+
+    .line 2
+    return-object p0
+    .line 4
+.end method

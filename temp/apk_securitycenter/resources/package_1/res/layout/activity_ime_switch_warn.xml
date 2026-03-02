@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:id="@id/other_view"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:background="@drawable/dialog_background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <TextView android:textSize="@dimen/bottom_dialog_title_text_size"
+              android:textStyle="bold"
+              android:textColor="@color/tip_title"
+              android:gravity="center"
+              android:id="@id/tv_title"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/bottom_dialog_title_margin_top"
+              android:text="@string/risk_tip" />
+    <TextView android:textSize="@dimen/bottom_dialog_message_text_size"
+              android:textColor="@color/tip_subtitle"
+              android:id="@id/tv_message"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/bottom_dialog_message_margin_top"
+              android:layout_marginBottom="@dimen/bottom_dialog_message_margin_bottom"
+              android:paddingStart="@dimen/bottom_dialog_message_padding_horizontal"
+              android:paddingEnd="@dimen/bottom_dialog_message_padding_horizontal" />
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="@dimen/bottom_dialog_button_margin_bottom">
+      <Button android:textSize="@dimen/bottom_dialog_message_text_size"
+              android:id="@id/bt_sure"
+              android:layout_marginRight="@dimen/bottom_dialog_button_margin_horizontal"
+              android:text="@string/text_done"
+              android:layout_weight="1.0"
+              android:layout_marginEnd="@dimen/bottom_dialog_button_margin_horizontal"
+              style="@style/Button_Normal_Negative" />
+      <Button android:textSize="@dimen/bottom_dialog_message_text_size"
+              android:id="@id/bt_cancel"
+              android:layout_marginLeft="@dimen/bottom_dialog_button_margin_horizontal"
+              android:text="@string/cancel"
+              android:layout_weight="1.0"
+              android:layout_marginStart="@dimen/bottom_dialog_button_margin_horizontal"
+              style="@style/Button_Normal" />
+    </LinearLayout>
+  </LinearLayout>
+</FrameLayout>

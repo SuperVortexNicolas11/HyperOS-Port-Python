@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal"
+                      android:id="@id/pic"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/dp_22"
+                      android:paddingEnd="@dimen/dp_22" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.packageInstaller.view.RoundImageView android:id="@id/pic1"
+                        android:layout_width="0.0dp"
+                        android:layout_height="0.0dp"
+                        app:layout_constraintDimensionRatio="w,1:0.55"
+                        app:layout_constraintEnd_toStartOf="@id/pic2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:round_corner="@dimen/dp_10" />
+  <com.miui.packageInstaller.view.RoundImageView android:id="@id/pic2"
+                        android:layout_width="0.0dp"
+                        android:layout_height="0.0dp"
+                        android:layout_marginStart="@dimen/dp_7.6"
+                        android:layout_marginEnd="@dimen/dp_7.6"
+                        app:layout_constraintDimensionRatio="w,1:0.55"
+                        app:layout_constraintEnd_toStartOf="@id/pic3"
+                        app:layout_constraintStart_toEndOf="@id/pic1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:round_corner="@dimen/dp_10" />
+  <com.miui.packageInstaller.view.RoundImageView android:id="@id/pic3"
+                        android:background="@color/black"
+                        android:layout_width="0.0dp"
+                        android:layout_height="0.0dp"
+                        app:layout_constraintDimensionRatio="w,1:0.55"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/pic2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:round_corner="@dimen/dp_10" />
+</androidx.constraintlayout.widget.ConstraintLayout>

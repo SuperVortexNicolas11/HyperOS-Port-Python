@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/game_tool_calendar_view"
+              android:background="@drawable/game_center_tool_bg"
+              android:padding="@dimen/game_center_max_space"
+              android:layout_width="@dimen/game_center_tool_width"
+              android:layout_height="@dimen/game_center_tool_height" xmlns:android="http://schemas.android.com/apk/res/android">
+  <include layout="@layout/game_center_tool_title" />
+  <LinearLayout android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_15"
+                android:layout_marginTop="@dimen/game_center_max_space">
+    <TextView android:textSize="@dimen/game_center_tool_sub_title_size"
+              android:textColor="@color/game_center_tool_title_color"
+              android:gravity="center"
+              android:id="@id/first_calendar_date"
+              android:background="@drawable/game_center_tool_dating_txt_bg"
+              android:paddingLeft="@dimen/game_center_mini_space"
+              android:paddingRight="@dimen/game_center_mini_space"
+              android:layout_width="@dimen/dp_34"
+              android:layout_height="fill_parent"
+              android:fontFamily="sans-serif-medium"
+              android:paddingHorizontal="@dimen/game_center_mini_space" />
+    <TextView android:textSize="@dimen/game_center_tool_content_size"
+              android:textColor="@color/white"
+              android:ellipsize="end"
+              android:id="@id/first_calendar_content"
+              android:layout_width="0.0dp"
+              android:layout_height="fill_parent"
+              android:layout_marginLeft="@dimen/game_center_medium_space"
+              android:maxLines="1"
+              android:layout_weight="1.0" />
+  </LinearLayout>
+  <LinearLayout android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_12">
+    <TextView android:textSize="@dimen/game_center_tool_sub_title_size"
+              android:textColor="@color/game_center_tool_title_color"
+              android:gravity="center"
+              android:id="@id/sec_calendar_date"
+              android:background="@drawable/game_center_tool_dating_txt_bg"
+              android:paddingLeft="@dimen/game_center_mini_space"
+              android:paddingRight="@dimen/game_center_mini_space"
+              android:layout_width="@dimen/dp_34"
+              android:layout_height="fill_parent"
+              android:fontFamily="sans-serif-medium"
+              android:paddingHorizontal="@dimen/game_center_mini_space" />
+    <TextView android:textSize="@dimen/game_center_tool_content_size"
+              android:textColor="@color/white"
+              android:ellipsize="end"
+              android:id="@id/sec_calendar_content"
+              android:layout_width="0.0dp"
+              android:layout_height="fill_parent"
+              android:layout_marginLeft="@dimen/game_center_medium_space"
+              android:maxLines="1"
+              android:layout_weight="1.0" />
+  </LinearLayout>
+</LinearLayout>

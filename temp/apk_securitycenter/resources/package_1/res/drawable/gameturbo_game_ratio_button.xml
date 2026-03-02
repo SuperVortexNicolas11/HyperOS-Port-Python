@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/dp_24"
+        android:width="@dimen/dp_24"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gameturbo_game_ratio_button__0"
+        android:pathData="M22.1813,5.456H1.8176V18.547H22.1813V5.456ZM10.5446,8.3648L6.9083,8.3648H4.7264V10.5466L4.7264,14.183H6.9083V10.5466L10.5446,10.5466V8.3648ZM17.0901,15.6375L13.4537,15.6375V13.4557H17.0901V9.8193H19.2719V13.4557L19.2719,15.6375H17.0901Z"
+        android:fillType="evenOdd" />
+  <path android:fillColor="@drawable/$gameturbo_game_ratio_button__1"
+        android:pathData="M1.8176,5.4551H22.1813V1.8187H1.8176V5.4551Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+  <path android:fillColor="@drawable/$gameturbo_game_ratio_button__2"
+        android:pathData="M1.8176,22.1826H22.1813V18.5463H1.8176V22.1826Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+</vector>

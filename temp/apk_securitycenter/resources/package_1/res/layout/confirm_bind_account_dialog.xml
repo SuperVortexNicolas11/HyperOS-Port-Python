@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.core.widget.NestedScrollView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:paddingLeft="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+                android:paddingRight="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <TextView android:layout_gravity="center_horizontal"
+              android:id="@id/confirm_bind_account_title"
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/password_promotion_title"
+              style="@style/Miuix.AppCompat.TextAppearance.DialogTitle" />
+    <TextView android:layout_gravity="center_horizontal"
+              android:id="@id/confirm_bind_account_message"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10.0dp"
+              style="?android:attr/textAppearanceLarge" />
+    <CheckBox android:layout_gravity="start"
+              android:id="@id/confirm_bind_account_checkBox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10.0dp"
+              android:text="@string/fingerprint_not_remind"
+              style="?android:attr/textAppearanceLarge" />
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

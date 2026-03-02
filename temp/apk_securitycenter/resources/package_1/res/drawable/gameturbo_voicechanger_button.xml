@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/view_dimen_66"
+        android:width="@dimen/view_dimen_66"
+        android:viewportWidth="66.0"
+        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gameturbo_voicechanger_button__0"
+        android:pathData="M18,32V16C18,7.7157 24.7157,1 33,1C41.2843,1 48,7.7157 48,16L48,32C48,40.2843 41.2843,47 33,47C24.7157,47 18,40.2843 18,32Z" />
+  <path android:fillColor="@drawable/$gameturbo_voicechanger_button__1"
+        android:pathData="M31,53L35,51V61H31V53Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+  <path android:fillColor="@drawable/$gameturbo_voicechanger_button__2"
+        android:pathData="M21,61H47L45,65H19L21,61Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+  <path android:fillColor="#00000000"
+        android:pathData="M59.6026,15C62.7991,21.2629 62.7991,28.7371 59.6026,35M6.3974,35C3.2009,28.7371 3.2009,21.2629 6.3974,15"
+        android:strokeColor="@drawable/$gameturbo_voicechanger_button__3"
+        android:strokeWidth="6.0" />
+</vector>

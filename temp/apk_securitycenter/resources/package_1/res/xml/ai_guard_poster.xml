@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <com.miui.permcenter.permissions.NoClickTextPreference app:layout="@layout/ai_guard_poster_banner" />
+    <miuix.preference.DividerPreference />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:title="@string/ai_guard_settings_preference_title"
+                          android:key="ai_guard"
+                          android:summary="@string/ai_guard_post_preference_summary" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:title="@string/ai_guard_post_preference_guidance_title"
+                          android:key="ai_guard_guidance" />
+  </PreferenceCategory>
+</androidx.preference.PreferenceScreen>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <string name="chip_card_gpu_ratio">715:90</string>
+  <string name="chip_card_ratio">352.5:220</string>
+  <string name="chip_card_ratio2">352.5:220</string>
+  <string name="chip_welcome_ratio">545:636</string>
+</resources>

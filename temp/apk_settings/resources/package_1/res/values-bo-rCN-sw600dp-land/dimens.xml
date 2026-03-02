@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="miui_face_enroll_first_suggestion_horizontal">281.0dp</dimen>
+  <dimen name="miui_face_enroll_suggestion_text_width_land">420.0dp</dimen>
+</resources>

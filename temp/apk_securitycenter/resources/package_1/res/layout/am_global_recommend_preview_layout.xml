@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/dp_79"
+              android:paddingStart="@dimen/dp_16"
+              android:paddingEnd="@dimen/dp_16" xmlns:android="http://schemas.android.com/apk/res/android">
+  <View android:layout_gravity="center_vertical"
+        android:id="@id/view_icon"
+        android:background="@drawable/am_global_preview_icon_bg"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40" />
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/dp_16">
+    <View android:id="@id/view_text1"
+          android:background="@drawable/am_global_preview_text_bg"
+          android:layout_width="@dimen/dp_158"
+          android:layout_height="@dimen/dp_12" />
+    <View android:id="@id/view_text2"
+          android:background="@drawable/am_global_preview_text_bg"
+          android:layout_width="@dimen/dp_88"
+          android:layout_height="@dimen/dp_12"
+          android:layout_marginTop="@dimen/dp_8" />
+  </LinearLayout>
+  <View android:layout_gravity="center_vertical"
+        android:background="@drawable/am_global_preview_button_bg"
+        android:layout_width="@dimen/dp_68"
+        android:layout_height="@dimen/dp_36" />
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:paddingTop="@dimen/card_layout_line_height_half"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/inner_layout"
+                android:background="@drawable/shape_result_card_border_up"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:clickable="true"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+      <TextView android:gravity="center_vertical"
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="47.0dp"
+                android:layout_marginStart="@dimen/result_page_padding"
+                style="@style/NewsTitleStyle" />
+      <TextView android:textSize="8.0sp"
+                android:textColor="@color/white"
+                android:id="@id/cornerTip"
+                android:background="@drawable/result_tag_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7.0dp" />
+      <View android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" />
+      <TextView android:gravity="center"
+                android:id="@id/change"
+                android:background="@drawable/normal_clickable_view_bg"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/news_change"
+                android:paddingStart="15.0dp"
+                android:paddingEnd="15.0dp"
+                style="@style/NewsSecondStyle" />
+    </LinearLayout>
+    <View android:id="@id/bar"
+          android:background="#e5e5e5"
+          android:layout_width="fill_parent"
+          android:layout_height="1.0px" />
+  </LinearLayout>
+</LinearLayout>

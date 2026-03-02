@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <size android:width="@dimen/game_toolbox_game_mode_radio_simple_width" />
+  <size android:height="@dimen/game_toolbox_game_mode_radio_simple_height" />
+  <corners android:radius="@dimen/game_toolbox_game_mode_radio_simple_radius" />
+  <solid android:color="@color/transparent" />
+</shape>

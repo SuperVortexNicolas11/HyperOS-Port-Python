@@ -1,0 +1,31 @@
+.class public interface abstract Lcom/android/settingslib/qrcode/QrCamera$ScannerCallback;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settingslib/qrcode/QrCamera;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "ScannerCallback"
+.end annotation
+
+
+# virtual methods
+.method public abstract getViewSize()Landroid/util/Size;
+.end method
+
+.method public abstract handleCameraFailure()V
+.end method
+
+.method public abstract handleSuccessfulResult(Ljava/lang/String;)V
+.end method
+
+.method public abstract isValid(Ljava/lang/String;)Z
+.end method
+
+.method public abstract setTransform(Landroid/graphics/Matrix;)V
+.end method

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+            android:gravity="center_vertical"
+            android:id="@id/header_title"
+            android:background="@color/pc_list_view_header"
+            android:clickable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/applock_list_view_header_height"
+            android:textDirection="locale"
+            android:paddingStart="@dimen/applock_list_view_header_padding_start"
+            android:paddingEnd="@dimen/applock_list_view_header_padding_end" />
+  <View android:layout_gravity="bottom"
+        android:background="@color/pc_pinned_header_separator_line_light"
+        android:layout_width="wrap_content"
+        android:layout_height="2.0px"
+        android:layout_marginStart="@dimen/applock_list_view_header_padding_start"
+        android:layout_marginEnd="@dimen/applock_list_view_header_padding_end" />
+</FrameLayout>

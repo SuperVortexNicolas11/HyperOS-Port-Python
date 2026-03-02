@@ -1,0 +1,2 @@
+signature,file,startline,startcol,endline,endcol,properties
+Lcom/android/settings/connectivity/CustomFeatureFlags;->ethernetSettings()Z,out/soong/.intermediates/packages/apps/MiuiSettingsAosp/aconfig/settings_connectivity_flags_lib/android_common/javac/srcjars/com/android/settings/connectivity/CustomFeatureFlags.java,20,5,20,25,

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/miui_visual_perception_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:miuisettings="http://schemas.android.com/apk/miuisettings" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+  <miuix.preference.CommentPreference android:layout="@layout/visual_perception_diagram"
+                        android:key="key_visual_perception_description"
+                        android:summary="@string/miui_visual_perception_summary" />
+  <PreferenceCategory android:key="aon_feature_list">
+    <CheckBoxPreference android:title="@string/eye_gaze_title"
+                        android:key="eye_gaze"
+                        android:summary="@string/eye_gaze_summary" />
+    <CheckBoxPreference android:title="@string/leave_loclscreen_title"
+                        android:key="miui_tof_screen_off"
+                        android:summary="@string/leave_loclscreen_summary" />
+    <CheckBoxPreference android:title="@string/near_loclscreen_title"
+                        android:key="miui_tof_screen_on"
+                        android:summary="@string/near_loclscreen_summary" />
+    <CheckBoxPreference android:title="@string/gaze_lock_screen_title"
+                        android:key="key_gaze_lock_screen"
+                        android:summary="@string/gaze_lock_screen_summary" />
+    <CheckBoxPreference android:title="@string/near_loclscreen_title"
+                        android:key="key_near_wake_screen"
+                        android:summary="@string/near_loclscreen_summary" />
+    <CheckBoxPreference android:title="@string/anti_burn_title"
+                        android:key="key_anti_burn"
+                        android:summary="@string/anti_burn_summary" />
+    <com.android.settingslib.miuisettings.preference.ValuePreference android:title="@string/aon_gesture_settings"
+                          android:key="key_aon_gesture"
+                          android:fragment="com.android.settings.aon.gesture.AonGestureSettings"
+                          settings:controller="com.android.settings.special.AonGestureController"
+                          settings:showRightArrow="true" />
+    <com.android.settingslib.miuisettings.preference.ValuePreference android:text="@string/aon_scanner_status_close"
+                          android:title="@string/aon_scanner_settings"
+                          android:key="key_aon_scanner"
+                          settings:controller="com.android.settings.special.AonScannerController"
+                          settings:showRightArrow="true" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/tofgesture_settings"
+                          android:key="tof_gesture"
+                          android:fragment="com.android.settings.tofgesture.TofGestureSettings"
+                          settings:controller="com.android.settings.special.TofGestureController" />
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_gravity="center_vertical"
+                android:background="@drawable/na_bg_selector"
+                android:layout_width="fill_parent"
+                android:layout_height="76.0dp"
+                android:paddingStart="@dimen/am_line_margin_lr"
+                android:paddingEnd="@dimen/am_line_margin_lr"
+                style="@style/Widget.ListView.Item.SingleLine" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/imageview_icon"
+             android:layout_width="@dimen/icon_width"
+             android:layout_height="@dimen/icon_width"
+             android:layout_centerVertical="true"
+             android:layout_alignParentStart="true" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+            android:id="@id/textview_traffic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12.0dp"
+            android:layout_alignParentEnd="true" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+            android:id="@id/textview_appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12.0dp"
+            android:layout_marginEnd="12.0dp"
+            android:layout_toStartOf="@id/textview_traffic"
+            android:layout_toEndOf="@id/imageview_icon" />
+</RelativeLayout>

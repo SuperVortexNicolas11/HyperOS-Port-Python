@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:descendantFocusability="blocksDescendants"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/view_dimen_170"
+              android:paddingStart="@dimen/pp_permission_app_list_horizontal"
+              android:paddingEnd="@dimen/pp_permission_app_list_horizontal"
+              style="@style/Widget.ListView.Item.DoubleLine" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:layout_gravity="center"
+            android:id="@id/auto_start_type"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            style="@style/Miuix.AppCompat.TextAppearance.List.Primary" />
+  <miuix.slidingwidget.widget.SlidingButton android:layout_gravity="center_vertical"
+                        android:id="@id/auto_start_sliding_button"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+</LinearLayout>

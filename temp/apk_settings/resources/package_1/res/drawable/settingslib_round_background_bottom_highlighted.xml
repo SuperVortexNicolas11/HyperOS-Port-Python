@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ripple android:color="?android:attr/colorControlHighlight" xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:top="2.0dp"
+        android:bottom="16.0dp"
+        android:start="?android:attr/listPreferredItemPaddingStart"
+        android:end="?android:attr/listPreferredItemPaddingEnd">
+    <shape android:tint="?android:attr/colorAccent"
+           android:shape="rectangle">
+      <corners android:topLeftRadius="4.0dp"
+               android:topRightRadius="4.0dp"
+               android:bottomLeftRadius="@dimen/settingslib_preference_corner_radius"
+               android:bottomRightRadius="@dimen/settingslib_preference_corner_radius" />
+      <padding android:bottom="16.0dp" />
+      <solid android:color="#42000000" />
+    </shape>
+  </item>
+</ripple>

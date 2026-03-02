@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/zen_mode_rename_title"
+                  android:key="zen_mode_edit_name_icon"
+                  settings:searchable="false" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settingslib.widget.LayoutPreference android:layout="@layout/settings_entity_header"
+                        android:key="chosen_icon" />
+  <com.android.settings.applications.SpacePreference android:layout_height="16.0dp" />
+  <com.android.settingslib.widget.LayoutPreference android:layout="@layout/modes_edit_name"
+                        android:key="name" />
+  <PreferenceCategory android:title="@string/zen_mode_edit_choose_icon_title"
+                      android:key="modes_filters">
+    <com.android.settingslib.widget.LayoutPreference android:layout="@layout/modes_icon_list"
+                          android:selectable="false"
+                          android:key="icon_list" />
+  </PreferenceCategory>
+  <com.android.settingslib.widget.LayoutPreference android:layout="@layout/modes_edit_done_button"
+                        android:key="done" />
+</PreferenceScreen>

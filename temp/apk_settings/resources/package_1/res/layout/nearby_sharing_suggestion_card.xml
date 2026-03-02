@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:id="@id/nearby_sharing_suggestion_card"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+              android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+              android:paddingVertical="@dimen/settingslib_expressive_space_medium3" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@id/card_container"
+                android:background="@drawable/settingslib_card_preference_background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:paddingHorizontal="@dimen/settingslib_expressive_space_small1">
+    <FrameLayout android:layout_gravity="center|top"
+                 android:paddingTop="@dimen/settingslib_expressive_space_small1"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content">
+      <ImageView android:layout_gravity="center"
+                 android:padding="@dimen/settingslib_expressive_space_extrasmall2"
+                 android:layout_width="@dimen/settingslib_expressive_space_medium4"
+                 android:layout_height="@dimen/settingslib_expressive_space_medium4"
+                 android:src="@drawable/circle"
+                 android:scaleType="fitCenter"
+                 android:tint="@color/settingslib_materialColorPrimary"
+                 android:importantForAccessibility="no" />
+      <ImageView android:layout_gravity="center"
+                 android:layout_width="@dimen/settingslib_expressive_space_small3"
+                 android:layout_height="@dimen/settingslib_expressive_space_small3"
+                 android:src="@drawable/ic_bluetooth_share_info"
+                 android:scaleType="fitCenter"
+                 android:tint="@color/settingslib_materialColorPrimaryContainer"
+                 android:importantForAccessibility="no" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical"
+                  android:id="@id/text_container"
+                  android:paddingTop="@dimen/settingslib_expressive_space_small1"
+                  android:paddingBottom="@dimen/settingslib_expressive_space_small4"
+                  android:layout_width="0.0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"
+                  android:paddingHorizontal="@dimen/settingslib_expressive_space_small1">
+      <TextView android:textAppearance="@style/TextAppearance.CardTitle.SettingsLib"
+                android:id="@id/nearby_sharing_suggestion_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+      <TextView android:textAppearance="@style/TextAppearance.CardSummary.SettingsLib"
+                android:id="@id/nearby_sharing_suggestion_summary"
+                android:paddingTop="@dimen/settingslib_expressive_space_extrasmall2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bluetooth_try_nearby_share_summary" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center"
+               android:layout_width="@dimen/settingslib_expressive_space_small4"
+               android:layout_height="@dimen/settingslib_expressive_space_small4"
+               android:src="@drawable/ic_chevron_right_24dp"
+               android:tint="@color/settingslib_materialColorPrimary"
+               android:contentDescription="@null"
+               android:importantForAccessibility="no" />
+  </LinearLayout>
+</LinearLayout>

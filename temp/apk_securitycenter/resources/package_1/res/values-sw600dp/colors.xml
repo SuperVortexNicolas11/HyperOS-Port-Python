@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <color name="color_black_trans_40">#66000000</color>
+  <color name="color_black_trans_60">#99000000</color>
+  <color name="pc_battery_item_normal_color">#fafafa</color>
+  <color name="pm_activity_root_apply_title">#ccffffff</color>
+  <color name="pp_title_black">#000000</color>
+</resources>

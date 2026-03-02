@@ -1,0 +1,1949 @@
+{
+  "type": "urn:aiot-spec-v3:com.mi.phones:device:phones:0:1.0",
+  "description": "",
+  "protocol-version": "3.0",
+  "class": "MiPhone",
+  "dynamic": 0,
+  "ddfid": 7995398,
+  "modules": {
+    "iid": 1,
+    "type": "urn:aiot-spec-v3:com.mi.phones:module:[com.miui.securitycenter]:0:1.0",
+    "description": "securitycenter service",
+    "name": "com.miui.securitycenter",
+    "services": {
+      "iid": 1,
+      "type": "urn:aiot-spec-v3:com.mi.phones:service:[com.miui.securitycenter/powercenter]:0:1.0",
+      "description": "powercenter service",
+      "name": "powercenter",
+      "actions": [
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/power_model_query]:0:1.0",
+          "description": "query power model",
+          "in": [
+            {
+              "name": "type",
+              "description": "模式类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "当前开启的模式"
+                },
+                {
+                  "value": 1,
+                  "description": "省电模式"
+                },
+                {
+                  "value": 2,
+                  "description": "均衡模式"
+                },
+                {
+                  "value": 3,
+                  "description": "性能模式"
+                },
+                {
+                  "value": 4,
+                  "description": "狂暴模式"
+                },
+                {
+                  "value": 5,
+                  "description": "超级省电"
+                }
+              ]
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "openModel",
+              "description": "开启的模式",
+              "format": "uint8",
+              "value-list": [
+                {
+                  "value": 1,
+                  "description": "省电模式"
+                },
+                {
+                  "value": 2,
+                  "description": "均衡模式"
+                },
+                {
+                  "value": 3,
+                  "description": "性能模式"
+                },
+                {
+                  "value": 4,
+                  "description": "狂暴模式"
+                },
+                {
+                  "value": 5,
+                  "description": "超级省电"
+                }
+              ]
+            },
+            {
+              "name": "supportModelList",
+              "description": "支持的模式列表",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "string",
+                  "description": "模式_当前模式预估可用时间"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/power_model_switch]:0:1.0",
+          "description": "power model switch",
+          "in": [
+            {
+              "name": "type",
+              "description": "模式类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "当前开启模式"
+                },
+                {
+                  "value": 1,
+                  "description": "省电模式"
+                },
+                {
+                  "value": 2,
+                  "description": "均衡模式"
+                },
+                {
+                  "value": 3,
+                  "description": "性能模式"
+                },
+                {
+                  "value": 4,
+                  "description": "狂暴模式"
+                },
+                {
+                  "value": 5,
+                  "description": "超级省电"
+                }
+              ]
+            },
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "openModel",
+              "description": "开启的模式",
+              "format": "uint8",
+              "value-list": [
+                {
+                  "value": 1,
+                  "description": "省电模式"
+                },
+                {
+                  "value": 2,
+                  "description": "均衡模式"
+                },
+                {
+                  "value": 3,
+                  "description": "性能模式"
+                },
+                {
+                  "value": 4,
+                  "description": "狂暴模式"
+                },
+                {
+                  "value": 5,
+                  "description": "超级省电"
+                }
+              ]
+            },
+            {
+              "name": "lastOpenModel",
+              "description": "关闭的模式",
+              "format": "uint8",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "未知模式"
+                },
+                {
+                  "value": 1,
+                  "description": "省电模式"
+                },
+                {
+                  "value": 2,
+                  "description": "均衡模式"
+                },
+                {
+                  "value": 3,
+                  "description": "性能模式"
+                },
+                {
+                  "value": 4,
+                  "description": "狂暴模式"
+                },
+                {
+                  "value": 5,
+                  "description": "超级省电"
+                }
+              ]
+            },
+            {
+              "name": "supportModelList",
+              "description": "支持的模式列表",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "string",
+                  "description": "模式_时间"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/go_power_model_setting]:0:1.0",
+          "description": "open power model setting",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/wired_charging_type_query]:0:1.0",
+          "description": "query wired charging type",
+          "in": [
+            {
+              "name": "type",
+              "description": "有线充电类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "标准"
+                },
+                {
+                  "value": 1,
+                  "description": "极速"
+                }
+              ]
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "openType",
+              "description": "开启的类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "标准"
+                },
+                {
+                  "value": 1,
+                  "description": "极速"
+                }
+              ]
+            },
+            {
+              "name": "supportTypeList",
+              "description": "支持的类型列表",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "支持的类型",
+                  "value-list": [
+                    {
+                      "value": 0,
+                      "description": "标准"
+                    },
+                    {
+                      "value": 1,
+                      "description": "极速"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/wired_charging_type_switch]:0:1.0",
+          "description": "switch wired charging type",
+          "in": [
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            },
+            {
+              "name": "type",
+              "description": "有线充电类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "标准"
+                },
+                {
+                  "value": 1,
+                  "description": "极速"
+                }
+              ]
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "openType",
+              "description": "开启的类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "标准"
+                },
+                {
+                  "value": 1,
+                  "description": "极速"
+                }
+              ]
+            },
+            {
+              "name": "supportTypeList",
+              "description": "支持的类型列表",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "支持的类型",
+                  "value-list": [
+                    {
+                      "value": 0,
+                      "description": "标准"
+                    },
+                    {
+                      "value": 1,
+                      "description": "极速"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/go_wired_charging_setting]:0:1.0",
+          "description": "open wired charging setting",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/power_information]:0:1.0",
+          "description": "power information",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "result",
+              "description": "电量百分比",
+              "format": "string"
+            },
+            {
+              "name": "time",
+              "description": "3小时2分钟",
+              "format": "string"
+            },
+            {
+              "name": "type",
+              "description": "类型",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "放电"
+                },
+                {
+                  "value": 1,
+                  "description": "充电"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/toggle_timing_power_setting]:0:1.0",
+          "description": "toggle timing power setting",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/toggle_timing_power_on]:0:1.0",
+          "description": "toggle timing power on",
+          "in": [
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            },
+            {
+              "name": "hour",
+              "description": "时间点（小时）默认7点",
+              "format": "int32"
+            },
+            {
+              "name": "minute",
+              "description": "时间点（分钟）默认00",
+              "format": "int32"
+            },
+            {
+              "name": "repeat",
+              "description": "频次默认每天",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "仅一次"
+                },
+                {
+                  "value": 1,
+                  "description": "每天"
+                },
+                {
+                  "value": 2,
+                  "description": "法定工作日"
+                },
+                {
+                  "value": 3,
+                  "description": "周一至周五"
+                },
+                {
+                  "value": 4,
+                  "description": "自定义"
+                }
+              ]
+            },
+            {
+              "name": "week",
+              "description": "星期",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "星期编号",
+                  "value-list": [
+                    {
+                      "value": 1,
+                      "description": "星期一"
+                    },
+                    {
+                      "value": 2,
+                      "description": "星期二"
+                    },
+                    {
+                      "value": 3,
+                      "description": "星期三"
+                    },
+                    {
+                      "value": 4,
+                      "description": "星期四"
+                    },
+                    {
+                      "value": 5,
+                      "description": "星期五"
+                    },
+                    {
+                      "value": 6,
+                      "description": "星期六"
+                    },
+                    {
+                      "value": 7,
+                      "description": "星期日"
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "hour",
+              "description": "时间点（小时）",
+              "format": "int32"
+            },
+            {
+              "name": "minute",
+              "description": "时间点（分钟）",
+              "format": "int32"
+            },
+            {
+              "name": "repeat",
+              "description": "频次",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "仅一次"
+                },
+                {
+                  "value": 1,
+                  "description": "每天"
+                },
+                {
+                  "value": 2,
+                  "description": "法定工作日"
+                },
+                {
+                  "value": 3,
+                  "description": "周一至周五"
+                },
+                {
+                  "value": 4,
+                  "description": "自定义"
+                }
+              ]
+            },
+            {
+              "name": "week",
+              "description": "星期",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "星期编号",
+                  "value-list": [
+                    {
+                      "value": 1,
+                      "description": "星期一"
+                    },
+                    {
+                      "value": 2,
+                      "description": "星期二"
+                    },
+                    {
+                      "value": 3,
+                      "description": "星期三"
+                    },
+                    {
+                      "value": 4,
+                      "description": "星期四"
+                    },
+                    {
+                      "value": 5,
+                      "description": "星期五"
+                    },
+                    {
+                      "value": 6,
+                      "description": "星期六"
+                    },
+                    {
+                      "value": 7,
+                      "description": "星期日"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/toggle_timing_power_off]:0:1.0",
+          "description": "toggle timing power off",
+          "in": [
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            },
+            {
+              "name": "hour",
+              "description": "时间点（小时）默认23点",
+              "format": "int32"
+            },
+            {
+              "name": "minute",
+              "description": "时间点（分钟）默认30分",
+              "format": "int32"
+            },
+            {
+              "name": "repeat",
+              "description": "频次默认每天",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "仅一次"
+                },
+                {
+                  "value": 1,
+                  "description": "每天"
+                },
+                {
+                  "value": 2,
+                  "description": "法定工作日"
+                },
+                {
+                  "value": 3,
+                  "description": "周一至周五"
+                },
+                {
+                  "value": 4,
+                  "description": "自定义"
+                }
+              ]
+            },
+            {
+              "name": "week",
+              "description": "星期",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "星期编号",
+                  "value-list": [
+                    {
+                      "value": 1,
+                      "description": "星期一"
+                    },
+                    {
+                      "value": 2,
+                      "description": "星期二"
+                    },
+                    {
+                      "value": 3,
+                      "description": "星期三"
+                    },
+                    {
+                      "value": 4,
+                      "description": "星期四"
+                    },
+                    {
+                      "value": 5,
+                      "description": "星期五"
+                    },
+                    {
+                      "value": 6,
+                      "description": "星期六"
+                    },
+                    {
+                      "value": 7,
+                      "description": "星期日"
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "hour",
+              "description": "时间点（小时）",
+              "format": "int32"
+            },
+            {
+              "name": "minute",
+              "description": "时间点（分钟）",
+              "format": "int32"
+            },
+            {
+              "name": "repeat",
+              "description": "频次",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "仅一次"
+                },
+                {
+                  "value": 1,
+                  "description": "每天"
+                },
+                {
+                  "value": 2,
+                  "description": "法定工作日"
+                },
+                {
+                  "value": 3,
+                  "description": "周一至周五"
+                },
+                {
+                  "value": 4,
+                  "description": "自定义"
+                }
+              ]
+            },
+            {
+              "name": "week",
+              "description": "星期",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "星期编号",
+                  "value-list": [
+                    {
+                      "value": 1,
+                      "description": "星期一"
+                    },
+                    {
+                      "value": 2,
+                      "description": "星期二"
+                    },
+                    {
+                      "value": 3,
+                      "description": "星期三"
+                    },
+                    {
+                      "value": 4,
+                      "description": "星期四"
+                    },
+                    {
+                      "value": 5,
+                      "description": "星期五"
+                    },
+                    {
+                      "value": 6,
+                      "description": "星期六"
+                    },
+                    {
+                      "value": 7,
+                      "description": "星期日"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/query_timing_power_on]:0:1.0",
+          "description": "query timing power on",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            },
+            {
+              "name": "hour",
+              "description": "开启的时间点（小时）",
+              "format": "int32"
+            },
+            {
+              "name": "minute",
+              "description": "开启的时间点（分钟）",
+              "format": "int32"
+            },
+            {
+              "name": "repeat",
+              "description": "开启的频次",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "仅一次"
+                },
+                {
+                  "value": 1,
+                  "description": "每天"
+                },
+                {
+                  "value": 2,
+                  "description": "法定工作日"
+                },
+                {
+                  "value": 3,
+                  "description": "周一至周五"
+                },
+                {
+                  "value": 4,
+                  "description": "自定义"
+                }
+              ]
+            },
+            {
+              "name": "week",
+              "description": "频次的星期",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "星期编号",
+                  "value-list": [
+                    {
+                      "value": 1,
+                      "description": "星期一"
+                    },
+                    {
+                      "value": 2,
+                      "description": "星期二"
+                    },
+                    {
+                      "value": 3,
+                      "description": "星期三"
+                    },
+                    {
+                      "value": 4,
+                      "description": "星期四"
+                    },
+                    {
+                      "value": 5,
+                      "description": "星期五"
+                    },
+                    {
+                      "value": 6,
+                      "description": "星期六"
+                    },
+                    {
+                      "value": 7,
+                      "description": "星期日"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/query_timing_power_off]:0:1.0",
+          "description": "query timing power off",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            },
+            {
+              "name": "hour",
+              "description": "开启的时间点（小时）",
+              "format": "int32"
+            },
+            {
+              "name": "minute",
+              "description": "开启的时间点（分钟）",
+              "format": "int32"
+            },
+            {
+              "name": "repeat",
+              "description": "开启的频次",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "仅一次"
+                },
+                {
+                  "value": 1,
+                  "description": "每天"
+                },
+                {
+                  "value": 2,
+                  "description": "法定工作日"
+                },
+                {
+                  "value": 3,
+                  "description": "周一至周五"
+                },
+                {
+                  "value": 4,
+                  "description": "自定义"
+                }
+              ]
+            },
+            {
+              "name": "week",
+              "description": "频次的星期",
+              "format": "array",
+              "items": {
+                "item": {
+                  "format": "int32",
+                  "description": "星期编号",
+                  "value-list": [
+                    {
+                      "value": 1,
+                      "description": "星期一"
+                    },
+                    {
+                      "value": 2,
+                      "description": "星期二"
+                    },
+                    {
+                      "value": 3,
+                      "description": "星期三"
+                    },
+                    {
+                      "value": 4,
+                      "description": "星期四"
+                    },
+                    {
+                      "value": 5,
+                      "description": "星期五"
+                    },
+                    {
+                      "value": 6,
+                      "description": "星期六"
+                    },
+                    {
+                      "value": 7,
+                      "description": "星期日"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/wireless_reverse_charge_query]:0:1.0",
+          "description": "query wireless reverse charge",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/wireless_reverse_charge_switch]:0:1.0",
+          "description": "switch wireless reverse charge",
+          "in": [
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": 20,
+                  "description": "有线充电中"
+                },
+                {
+                  "value": 21,
+                  "description": "复古掌机保护壳佩戴中"
+                },
+                {
+                  "value": 22,
+                  "description": "低电量或无线充电中"
+                },
+                {
+                  "value": 23,
+                  "description": "省电模式开启中"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/powercenter/wireless_reverse_charge_go]:0:1.0",
+          "description": "go wireless reverse charge",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/privacycenter/open_privacy_safety]:0:1.0",
+          "description":"open privacy and safety",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/applicationlock/jump_app_lock]:0:1.0",
+          "description":"打开应用锁页面",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "appLockStatus",
+              "description": "应用锁开启状态",
+              "format": "bool",
+              "value-list": [
+                {
+                  "value": true,
+                  "description": "开启"
+                },
+                {
+                  "value": false,
+                  "description": "关闭"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/privacypassword/query_privacypassword]:0:1.0",
+          "description":"隐私密码开启状态查询",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "privacyPasswordStatus",
+              "description": "隐私密码开启状态",
+              "format": "bool",
+              "value-list": [
+                {
+                  "value": true,
+                  "description": "开启"
+                },
+                {
+                  "value": false,
+                  "description": "关闭"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/privacypassword/open_privacypassword]:0:1.0",
+          "description":"打开隐私密码",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/appmanager/go_appmanager]:0:1.0",
+          "description": "open app manager",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -2,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "isLand",
+              "description": "是否上岛",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": -1,
+                  "description": "不上岛"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/go_warningcenter]:0:1.0",
+          "description": "open warningcenter",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/go_earthquakewarning]:0:1.0",
+          "description": "open earthquakewarning",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/go_disasterwarning]:0:1.0",
+          "description": "open disasterwarning",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/go_emergency_sos]:0:1.0",
+          "description": "open emergency sos",
+          "in": [
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/emergency_sos_query]:0:1.0",
+          "description": "query emergency sos",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/earthquake_waring_query]:0:1.0",
+          "description": "query earthquakewaring",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/disaster_waring_query]:0:1.0",
+          "description": "query disasterwaring",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/strong_disaster_waring_query]:0:1.0",
+          "description": "query strong disasterwaring",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "name": "modeStatue",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/disasterwarning_switch]:0:1.0",
+          "description": "switch disasterwarning",
+          "in": [
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/warning/strong_disasterwarning_switch]:0:1.0",
+          "description": "switch strong disasterwarning",
+          "in": [
+            {
+              "name": "action",
+              "description": "开启/关闭",
+              "format": "boolean"
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "value": "执行状态",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -10,
+                  "description": "无需执行"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/luckymoney/lucky_money_switch]:0:1.0",
+          "description": "query lucky money switch",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                }
+              ]
+            },
+            {
+              "format": "boolean",
+              "name": "result",
+              "description": "红包助手开启状态",
+              "value-list": [
+                {
+                  "value": true,
+                  "description": "红包助手已开启"
+                },
+                {
+                  "value": false,
+                  "description": "红包助手已关闭"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/luckymoney/lucky_money_toggle]:0:1.0",
+          "description": "on/off lucky money",
+          "in": [
+            {
+              "name": "enable",
+              "description": "开启或关闭红包助手",
+              "format": "boolean"
+            }
+          ],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -10,
+                  "description": "红包打开or关闭状态/关闭页面与当前状态相同"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                },
+                {
+                  "value": -13,
+                  "description": "第一次打开红包助手引导页"
+                },
+                {
+                  "value": -14,
+                  "description": "第一次打开红包助手引导页, 但引导页已经打开"
+                }
+              ]
+            },
+            {
+              "format": "boolean",
+              "name": "result",
+              "description": "红包助手当前开启状态",
+              "value-list": [
+                {
+                  "value": true,
+                  "description": "红包助手已开启"
+                },
+                {
+                  "value": false,
+                  "description": "红包助手已关闭"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "urn:aiot-spec-v3:com.mi.phones:action:[com.miui.securitycenter/luckymoney/open_lucky_money]:0:1.0",
+          "description": "open lucky money",
+          "in": [],
+          "out": [
+            {
+              "name": "status",
+              "description": "执行状态",
+              "format": "int32",
+              "value-list": [
+                {
+                  "value": 0,
+                  "description": "执行成功"
+                },
+                {
+                  "value": -1,
+                  "description": "执行失败"
+                },
+                {
+                  "value": -10,
+                  "description": "当前已经在这个页面了"
+                },
+                {
+                  "value": -11,
+                  "description": "设备不支持"
+                },
+                {
+                  "value": -13,
+                  "description": "第一次打开红包助手引导页"
+                },
+                {
+                  "value": -14,
+                  "description": "第一次打开红包助手引导页, 但引导页已经打开"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:orientation="vertical"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollOrientation="vertical"
+                        app:scrollableView="@id/app_list">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/app_list"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:overScrollMode="always" />
+  </miuix.springback.view.SpringBackLayout>
+  <miuix.androidbasewidget.widget.ProgressBar android:layout_gravity="bottom|center"
+                        android:id="@id/qr_progressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/qr_progress_bar_margin_bottom"
+                        style="@style/Widget.ProgressBar" />
+</FrameLayout>

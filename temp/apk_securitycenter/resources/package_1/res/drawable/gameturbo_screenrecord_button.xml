@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_enabled="true" xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/dp_24"
+            android:width="@dimen/dp_24"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+      <path android:fillColor="@drawable/$gameturbo_screenrecord_button__0"
+            android:pathData="M8.364,21.428H16.364L15.637,22.882H7.636L8.364,21.428Z"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6" />
+      <path android:fillColor="@drawable/$gameturbo_screenrecord_button__1"
+            android:pathData="M2.182,3.61V19.61H21.818L21.818,3.61H2.182ZM13.996,12.557L15.653,11.61L13.996,10.663L11.45,9.208L9.818,8.275V10.155V13.064V14.944L11.45,14.011L13.996,12.557Z"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+  <item xmlns:aapt="http://schemas.android.com/aapt">
+    <vector android:height="@dimen/dp_24"
+            android:width="@dimen/dp_24"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+      <path android:fillColor="@drawable/$gameturbo_screenrecord_button__2"
+            android:pathData="M8.364,21.428H16.364L15.637,22.882H7.636L8.364,21.428Z"
+            android:strokeAlpha="0.3"
+            android:fillAlpha="0.3" />
+      <path android:fillColor="@drawable/$gameturbo_screenrecord_button__3"
+            android:pathData="M2.182,3.61V19.61H21.818L21.818,3.61H2.182ZM13.996,12.557L15.653,11.61L13.996,10.662L11.45,9.208L9.818,8.275V10.155V13.064V14.944L11.45,14.011L13.996,12.557Z"
+            android:fillAlpha="0.3"
+            android:fillType="evenOdd" />
+    </vector>
+  </item>
+</selector>

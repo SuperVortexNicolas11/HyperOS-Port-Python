@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory android:title="@string/game_app_fragment_category"
+                      android:key="support_apps" />
+</PreferenceScreen>

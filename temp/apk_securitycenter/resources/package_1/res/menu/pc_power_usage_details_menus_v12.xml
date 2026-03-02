@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:icon="@drawable/app_manager_finish_icon"
+        android:id="@id/item_force_stop"
+        android:title="@string/menu_item_force_stop"
+        android:showAsAction="always|withText" />
+  <item android:icon="@drawable/app_manager_delete_icon"
+        android:id="@id/item_uninstall"
+        android:title="@string/menu_item_uninstall"
+        android:showAsAction="always|withText" />
+  <item android:icon="@drawable/app_manager_info_icon"
+        android:id="@id/item_details"
+        android:title="@string/menu_item_app_details"
+        android:showAsAction="always|withText" />
+</menu>

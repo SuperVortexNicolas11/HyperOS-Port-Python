@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <integer name="svg_applock_guide_icon_alpha">0.9</integer>
+  <integer name="svg_fill_alpha_w006_d01">0.1</integer>
+  <integer name="svg_fill_alpha_w006_d02">0.2</integer>
+  <integer name="svg_fill_alpha_w01_d02">0.2</integer>
+  <integer name="svg_fill_alpha_w03_d04">0.4</integer>
+  <integer name="svg_fill_alpha_w03_d05">0.5</integer>
+  <integer name="svg_fill_alpha_w06_d02">0.2</integer>
+  <integer name="svg_fill_alpha_w06_d07">0.7</integer>
+  <integer name="svg_fill_alpha_w1_d04">0.4</integer>
+</resources>

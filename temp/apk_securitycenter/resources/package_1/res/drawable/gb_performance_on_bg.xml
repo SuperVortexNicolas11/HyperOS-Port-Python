@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_checked="true">
+    <shape android:shape="rectangle">
+      <size android:height="@dimen/gt_pannel_performance_tab_item_height"
+            android:width="@dimen/gt_pannel_performance_tab_item_width" />
+      <solid android:color="#09ffffff" />
+      <corners android:radius="@dimen/view_dimen_10" />
+    </shape>
+  </item>
+  <item>
+    <shape android:shape="rectangle">
+      <size android:height="@dimen/gt_pannel_performance_tab_item_height"
+            android:width="@dimen/gt_pannel_performance_tab_item_width" />
+      <solid android:color="@color/transparent" />
+      <corners android:radius="@dimen/view_dimen_10" />
+    </shape>
+  </item>
+</selector>

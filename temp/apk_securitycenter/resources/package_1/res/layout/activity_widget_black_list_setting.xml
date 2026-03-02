@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:orientation="vertical"
+             android:id="@id/temp_view"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:id="@id/search_view"
+           layout="@layout/miuix_appcompat_search_stub" />
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/miuix_appcompat_action_bar_default_height">
+    <TextView android:textSize="@dimen/text_font_size_40"
+              android:textColor="@color/app_predict_black_list_title_color"
+              android:id="@id/title_view"
+              android:background="@drawable/app_predict_black_list_setting_title_bg"
+              android:paddingTop="@dimen/view_dimen_48"
+              android:paddingBottom="@dimen/view_dimen_48"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/app_predict_setting_black_list_message"
+              android:fontFamily="mipro-regular"
+              android:paddingStart="@dimen/view_dimen_44"
+              android:paddingEnd="@dimen/view_dimen_44"
+              android:layout_marginStart="@dimen/view_dimen_70"
+              android:layout_marginEnd="@dimen/view_dimen_70" />
+    <miuix.springback.view.SpringBackLayout android:id="@id/result_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          app:scrollableView="@id/list_view">
+      <miuix.recyclerview.widget.RecyclerView android:id="@id/list_view"
+                            android:clipToPadding="false"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent" />
+    </miuix.springback.view.SpringBackLayout>
+  </LinearLayout>
+  <include android:id="@id/empty_view"
+           android:visibility="gone"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/view_dimen_600"
+           layout="@layout/empty_view_maml" />
+</FrameLayout>

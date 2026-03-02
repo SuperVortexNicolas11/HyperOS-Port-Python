@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <CheckBoxPreference android:persistent="true"
+                      android:title="@string/gmscore_support_service"
+                      android:key="key_gmscore_enable" />
+  <miuix.preference.CommentPreference android:text="@string/gmscore_support_remind" />
+</PreferenceScreen>

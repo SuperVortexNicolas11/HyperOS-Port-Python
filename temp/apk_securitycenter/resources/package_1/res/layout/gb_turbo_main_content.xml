@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:id="@id/game_content_layout"
+             android:background="@drawable/shape_new_turbo_bg"
+             android:layout_width="@dimen/game_toolbox_width"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/main_view"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+    <com.miui.gamebooster.windowmanager.newbox.NewToolBoxTopView android:id="@id/layout_new_gb_title"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent" />
+    <com.miui.gamebooster.windowmanager.GbNestedScrollView android:id="@id/gtp_vp"
+                          android:paddingBottom="@dimen/game_toolbox_functions_padding_bottom"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_marginTop="@dimen/game_toolbox_functions_margin_top"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent">
+      <LinearLayout android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+        <miuix.recyclerview.widget.RecyclerView android:id="@id/rv_function"
+                              android:scrollbars="none"
+                              android:clipChildren="false"
+                              android:clipToPadding="false"
+                              android:layout_width="fill_parent"
+                              android:layout_height="@dimen/game_toolbox_functions_min_height"
+                              android:overScrollMode="never"
+                              android:importantForAccessibility="no"
+                              android:paddingStart="@dimen/game_toolbox_functions_padding_start"
+                              android:paddingEnd="@dimen/game_toolbox_functions_padding_end"
+                              android:nestedScrollingEnabled="true"
+                              android:scrollIndicators="none" />
+        <FrameLayout android:id="@id/fl_line_panel"
+                     android:layout_width="fill_parent"
+                     android:layout_height="@dimen/game_toolbox_panel_indicator_layout_height">
+          <ImageView android:gravity="center"
+                     android:layout_gravity="center"
+                     android:id="@id/indicator"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:src="@drawable/shape_ngb_header_line"
+                     android:contentDescription="@null" />
+        </FrameLayout>
+        <miuix.recyclerview.widget.RecyclerView android:id="@id/rv_information"
+                              android:scrollbars="none"
+                              android:clipChildren="false"
+                              android:clipToPadding="false"
+                              android:layout_width="fill_parent"
+                              android:layout_height="fill_parent"
+                              android:layout_marginTop="@dimen/game_toolbox_contents_margin_top"
+                              android:overScrollMode="never"
+                              android:importantForAccessibility="no"
+                              android:paddingStart="@dimen/game_toolbox_contents_padding_start"
+                              android:paddingEnd="@dimen/game_toolbox_contents_padding_end"
+                              android:nestedScrollingEnabled="true"
+                              android:scrollIndicators="none" />
+      </LinearLayout>
+    </com.miui.gamebooster.windowmanager.GbNestedScrollView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <FrameLayout android:id="@id/second_view"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent" />
+</FrameLayout>

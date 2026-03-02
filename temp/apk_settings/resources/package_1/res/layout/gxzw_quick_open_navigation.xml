@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.android.settings.GxzwQuickOpenNavigationView android:id="@id/gxzw_quick_open_navigation"
+                      android:background="@drawable/gxzw_quick_open_navigation_background"
+                      android:paddingTop="?attr/preferenceItemPaddingTop"
+                      android:paddingBottom="?attr/preferenceItemPaddingBottom"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:contentDescription="@string/key_operation_diagram"
+                      android:paddingHorizontal="28.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.android.settings.MutedVideoView android:id="@id/gxzw_quick_open_preview"
+                        android:layout_width="118.0dp"
+                        android:layout_height="235.0dp"
+                        android:layout_centerHorizontal="true" />
+</com.android.settings.GxzwQuickOpenNavigationView>

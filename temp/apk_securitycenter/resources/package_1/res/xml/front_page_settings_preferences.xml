@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:key="pref_key_front_package_type_category">
+    <miuix.preference.RadioButtonPreferenceCategory android:key="radio_group">
+      <miuix.preference.RadioSetPreferenceCategory android:title="@string/pref_title_traffic_package_type">
+        <miuix.preference.RadioButtonPreference android:title="@string/daily_card_setting_fragment_month_package"
+                              android:key="preference_dependence_key_month_plan"
+                              android:summary="@string/fixed_package_tips" />
+      </miuix.preference.RadioSetPreferenceCategory>
+      <miuix.preference.RadioSetPreferenceCategory>
+        <miuix.preference.RadioButtonPreference android:title="@string/unlimited_cellular_data_monthly"
+                              android:key="preference_dependence_key_month_infinite"
+                              android:summary="@string/limit_speed_by_quota" />
+      </miuix.preference.RadioSetPreferenceCategory>
+      <miuix.preference.RadioSetPreferenceCategory android:key="category_key_brand">
+        <miuix.preference.RadioButtonPreference android:title="@string/pref_category_daily_package_tile"
+                              android:key="preference_dependence_key_day_plan"
+                              android:summary="@string/traffic_calculation" />
+      </miuix.preference.RadioSetPreferenceCategory>
+    </miuix.preference.RadioButtonPreferenceCategory>
+  </PreferenceCategory>
+</PreferenceScreen>

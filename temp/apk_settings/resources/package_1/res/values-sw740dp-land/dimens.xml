@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="lock_password_edit_text_top_margin">10.0dp</dimen>
+  <dimen name="lock_password_header_text_top_margin">20.0dp</dimen>
+  <dimen name="wifi_nearby_padding_start">28.0dp</dimen>
+  <dimen name="wifi_saved_preference_margin">0.0dp</dimen>
+  <dimen name="wifi_spinner_title_margin">28.0dp</dimen>
+</resources>

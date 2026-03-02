@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/keyboard_repeat_keys_title"
+                  android:key="repeat_keys_main_page" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settingslib.widget.MainSwitchPreference android:title="@string/keyboard_repeat_keys_title"
+                        android:key="repeat_keys_main_switch"
+                        settings:controller="com.android.settings.inputmethod.KeyboardRepeatKeysController" />
+  <com.android.settings.widget.LabeledSeekBarPreference android:max="6"
+                        android:title="@string/keyboard_repeat_keys_timeout_title"
+                        android:key="repeat_keys_timeout_preference"
+                        android:min="0"
+                        settings:controller="com.android.settings.inputmethod.KeyboardRepeatKeysTimeOutPreferenceController"
+                        settings:seekBarIncrement="1" />
+  <com.android.settings.widget.LabeledSeekBarPreference android:max="8"
+                        android:title="@string/keyboard_repeat_keys_delay_title"
+                        android:key="repeat_keys_delay_preference"
+                        android:min="0"
+                        settings:controller="com.android.settings.inputmethod.KeyboardRepeatKeysDelayPreferenceController"
+                        settings:seekBarIncrement="1" />
+</PreferenceScreen>

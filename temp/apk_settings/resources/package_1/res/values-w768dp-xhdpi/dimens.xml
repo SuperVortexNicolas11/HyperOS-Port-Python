@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="boot_msg_bottom_padding">135.0dp</dimen>
+  <dimen name="boot_msg_left_padding">260.0dp</dimen>
+  <dimen name="boot_msg_right_padding">260.0dp</dimen>
+  <dimen name="boot_msg_top_padding">396.0dp</dimen>
+</resources>

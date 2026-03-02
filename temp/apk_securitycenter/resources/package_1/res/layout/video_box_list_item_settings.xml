@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:background="@android:color/transparent"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:minHeight="@dimen/vtb_main_panel_title_bar_h" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <FrameLayout android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/view_dimen_3"
+               android:layout_marginStart="@dimen/view_dimen_50"
+               android:layout_marginEnd="@dimen/vtb_main_panel_setting_end_margin">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center|start"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+      <com.miui.gamebooster.videobox.view.MarqueeTextView android:textSize="@dimen/vtb_main_panel_title_bar_txt_size"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_vtb_main_title_bar_txt"
+                            android:ellipsize="marquee"
+                            android:gravity="start"
+                            android:id="@id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/videobox_settings_title"
+                            android:singleLine="true"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:textAlignment="viewStart"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+      <com.miui.gamebooster.windowmanager.newbox.NewToolBatteryView android:id="@id/game_turbo_battery"
+                            android:layout_width="@dimen/game_toolbox_battery_width"
+                            android:layout_height="@dimen/game_toolbox_battery_height"
+                            android:layout_marginTop="@dimen/dp_3"
+                            app:battery_content_corner="@dimen/view_dimen_1"
+                            app:battery_content_margin="@dimen/view_dimen_4"
+                            app:battery_min_progress="0.05"
+                            app:layout_constraintStart_toStartOf="@id/tv_title"
+                            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+      <TextView android:textSize="@dimen/gt_pannel_time_fontsize"
+                android:textColor="@color/gb_game_turbo_box_top_title_light"
+                android:id="@id/game_turbo_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_7"
+                app:layout_constraintBottom_toBottomOf="@id/game_turbo_battery"
+                app:layout_constraintStart_toEndOf="@id/game_turbo_battery"
+                app:layout_constraintTop_toTopOf="@id/game_turbo_battery" />
+      <TextView android:textSize="@dimen/gt_pannel_time_fontsize"
+                android:textColor="@color/gb_game_turbo_box_top_title_light"
+                android:id="@id/game_turbo_battery_surplus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_7"
+                app:layout_constraintBottom_toBottomOf="@id/game_turbo_battery"
+                app:layout_constraintStart_toEndOf="@id/game_turbo_time"
+                app:layout_constraintTop_toTopOf="@id/game_turbo_battery" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:layout_gravity="center|end"
+               android:id="@id/tv_setting"
+               android:visibility="invisible"
+               android:layout_width="@dimen/vtb_main_panel_title_bar_btn_w_h"
+               android:layout_height="@dimen/vtb_main_panel_title_bar_btn_w_h"
+               android:src="@drawable/vtb_icon_main_settings"
+               android:scaleType="center"
+               android:contentDescription="@string/vb_settings" />
+  </FrameLayout>
+</FrameLayout>

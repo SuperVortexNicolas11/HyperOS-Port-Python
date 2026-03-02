@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.clock.tiny.classic.ClassicClockView android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layoutDirection="ltr" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/tiny_classic_date_week_text_size"
+            android:layout_gravity="start"
+            android:id="@id/date_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_classic_date_week_margin_top_180"
+            android:paddingStart="@dimen/tiny_classic_date_week_padding_start"
+            android:layout_marginStart="@dimen/tiny_classic_date_week_margin_start_180"
+            android:lineHeight="@dimen/tiny_classic_date_week_line_height" />
+  <TextView android:textSize="@dimen/tiny_classic_clock_time_size"
+            android:layout_gravity="start"
+            android:id="@id/clock_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_classic_clock_time_margin_top_180"
+            android:maxLines="1"
+            android:layout_marginStart="@dimen/tiny_classic_clock_time_margin_start_180"
+            android:lineHeight="@dimen/tiny_classic_clock_time_line_height" />
+  <include android:layout_gravity="start"
+           android:id="@id/classic_battery"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/tiny_classic_battery_text_margin_top_180"
+           android:layout_marginStart="@dimen/tiny_classic_battery_text_margin_start_180"
+           layout="@layout/layout_battery_view" />
+</com.miui.clock.tiny.classic.ClassicClockView>

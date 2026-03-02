@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:id="@id/ll_top_result"
+              android:visibility="gone"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/result_score_icon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true" />
+  <TextView android:textSize="@dimen/firstaidkit_box_summary_textsize"
+            android:textStyle="bold"
+            android:textColor="@color/first_aid_box_summary_textcolor"
+            android:id="@id/tv_summary_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/firstaidkit_circle_summary_margin_top_lite"
+            android:singleLine="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/firstaidkit_circle_summary_margin_start"
+            android:layout_marginEnd="@dimen/firstaidkit_circle_summary_margin_end" />
+</LinearLayout>

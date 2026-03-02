@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.autotask.view.TextEditPreference android:layout="@layout/auto_task_title_edit_view"
+                        android:key="key_title" />
+  <com.miui.permcenter.settings.model.FlexiblePreference android:title="@string/new_task_condition_name"
+                        android:selectable="false" />
+  <com.miui.autotask.view.RecyclerViewPreference android:layout="@layout/auto_task_item_recycler_view"
+                        android:key="key_condition_list" />
+  <com.miui.permcenter.settings.model.FlexiblePreference android:title="@string/new_task_result_name"
+                        android:selectable="false" />
+  <com.miui.autotask.view.RecyclerViewPreference android:layout="@layout/auto_task_item_recycler_view"
+                        android:key="key_result_list" />
+  <PreferenceCategory android:key="@string/exit_category"
+                      app:isPreferenceVisible="false">
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_set_exit_condition"
+                        android:key="@string/set_exit_condition" />
+    <com.miui.autotask.view.RecyclerViewPreference android:layout="@layout/auto_task_item_recycler_view"
+                          android:key="key_exit_condition_list"
+                          android:dependency="@string/set_exit_condition"
+                          app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_show_notification_before_exclude"
+                        android:key="@string/before_execute_notify" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_setting_exclude_notify"
+                        android:key="@string/execute_notify"
+                        app:isPreferenceVisible="false" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_show_notification_before_exit"
+                        android:key="@string/exit_notify"
+                        android:dependency="@string/set_exit_condition"
+                        app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+  <com.miui.permcenter.settings.model.FlexiblePreference app:place_height="@dimen/view_dimen_40"
+                        app:selectable="false" />
+</PreferenceScreen>

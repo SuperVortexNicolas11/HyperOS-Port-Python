@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="@color/miuix_default_color_on_surface_tertiary_light" />
+  <corners android:radius="@dimen/dp_10" />
+  <padding android:left="@dimen/dp_20"
+           android:top="@dimen/dp_14"
+           android:right="@dimen/dp_20"
+           android:bottom="@dimen/dp_14" />
+</shape>

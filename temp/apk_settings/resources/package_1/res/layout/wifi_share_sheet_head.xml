@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent"
+                      android:layout_height="@dimen/wifi_sheet_head_height" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageButton android:id="@id/closeButton"
+               android:background="@android:color/transparent"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="28.0dp"
+               android:src="@drawable/wifi_chooser_title_close_button"
+               android:layout_marginStart="28.0dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:id="@id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/wifi_sheet_head_height"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+    <TextView android:textSize="@dimen/wifi_sheet_headline_size"
+              android:textColor="@color/headline_text_color"
+              android:gravity="center"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/headline"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/wifi_share_upload"
+              android:fontFamily="sans-serif-medium" />
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

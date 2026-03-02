@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollOrientation="vertical|angle"
+                        app:scrollableView="@id/list_view">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/list_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" />
+  </miuix.springback.view.SpringBackLayout>
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@id/message_layout"
+                android:background="#ffe1ae"
+                android:paddingTop="5.0dp"
+                android:paddingBottom="5.0dp"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="12.0dp"
+                android:paddingEnd="7.0dp">
+    <TextView android:textSize="12.0sp"
+              android:textColor="#f59300"
+              android:id="@id/message"
+              android:layout_width="0.0dp"
+              android:layout_height="wrap_content"
+              android:singleLine="true"
+              android:layout_weight="1.0"
+              android:paddingEnd="20.0dp" />
+    <ImageButton android:id="@id/close"
+                 android:background="@null"
+                 android:layout_width="30.0dp"
+                 android:layout_height="30.0dp"
+                 android:src="@drawable/ic_toast_close" />
+  </LinearLayout>
+  <include android:id="@id/empty_view"
+           android:visibility="gone"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           layout="@layout/empty_tips" />
+</FrameLayout>

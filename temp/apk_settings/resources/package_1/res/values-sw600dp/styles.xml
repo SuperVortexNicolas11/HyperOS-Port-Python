@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <style name="Widget.Design.TabLayout" parent="@style/Base.Widget.Design.TabLayout">
+    <item name="tabGravity">center</item>
+    <item name="tabMode">fixed</item>
+  </style>
+  <style name="chip_welcome_group" parent="">
+    <item name="android:layout_width">545.0dp</item>
+    <item name="android:layout_height">636.0dp</item>
+  </style>
+</resources>

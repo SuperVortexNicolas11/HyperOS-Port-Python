@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ScrollView android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:layout_marginTop="@dimen/view_dimen_93">
+    <LinearLayout android:orientation="vertical"
+                  android:id="@id/page_layout"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <TextView android:textSize="@dimen/text_font_size_46"
+                android:textColor="@color/pm_setting_title_color"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_provision_summary"
+                android:fontFamily="mipro-medium"
+                android:layout_marginStart="@dimen/view_dimen_130"
+                android:layout_marginEnd="@dimen/view_dimen_122" />
+      <TextView android:textSize="@dimen/text_font_size_38"
+                android:textColor="@color/pm_provision_text_summary_color"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_dimen_25"
+                android:text="@string/privacy_provision_text"
+                android:layout_marginStart="@dimen/view_dimen_130"
+                android:layout_marginEnd="@dimen/view_dimen_130" />
+      <TextView android:textSize="@dimen/text_font_size_38"
+                android:textColor="@color/pm_provision_text_link_color"
+                android:id="@id/privacy_more"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_dimen_60"
+                android:text="@string/privacy_provision_more"
+                android:layout_marginStart="@dimen/view_dimen_130"
+                android:layout_marginEnd="@dimen/view_dimen_130" />
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>

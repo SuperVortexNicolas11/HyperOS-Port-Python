@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<View android:layout_gravity="bottom|center"
+      android:id="@id/divider"
+      android:background="@drawable/vtb_main_panel_divider_line"
+      android:layout_width="fill_parent"
+      android:layout_height="@dimen/view_dimen_46" xmlns:android="http://schemas.android.com/apk/res/android" />

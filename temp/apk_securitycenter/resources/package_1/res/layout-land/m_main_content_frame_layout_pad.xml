@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.securityscan.ui.main.MainContentFramePad android:id="@id/content_frame"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="@dimen/main_contentview_height_tablet" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.securityscan.ui.main.TabletTextureView android:layout_gravity="center_horizontal"
+                        android:id="@id/video_view"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/main_contentview_height_tablet" />
+  <RelativeLayout android:id="@id/content_main"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/hp_content_main_margin_top"
+                  android:paddingStart="@dimen/scan_top_content_margin_se_land"
+                  android:paddingEnd="@dimen/scan_top_content_margin_se_land">
+    <com.miui.common.customview.ScoreTextView android:textSize="@dimen/main_card_score_textview_textsize"
+                          android:textColor="@color/m_activity_main_score"
+                          android:id="@id/score"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:singleLine="true"
+                          android:includeFontPadding="false" />
+    <TextView android:textSize="@dimen/status_bar_textsize"
+              android:textColor="@color/card_summary_text_color"
+              android:id="@id/status_bar"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/hp_staus_bar_text_margin_top"
+              android:singleLine="true"
+              android:layout_below="@id/score" />
+    <include android:layout_width="@dimen/hp_action_btn_width"
+             android:layout_height="@dimen/hp_action_btn_height"
+             android:layout_marginTop="@dimen/hp_action_button_margin_top"
+             android:layout_alignParentEnd="true"
+             layout="@layout/m_securityscan_btn_action_viewstub_layout" />
+  </RelativeLayout>
+</com.miui.securityscan.ui.main.MainContentFramePad>

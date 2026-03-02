@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/dp_13"
+            android:textColor="@color/superpower_progress_remainingtime_text_color"
+            android:id="@id/tv_progress_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/superpower_progress_title"
+            android:importantForAccessibility="no" />
+  <TextView android:textSize="@dimen/dp_18"
+            android:textColor="@android:color/white"
+            android:id="@id/tv_left_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_9"
+            android:layout_marginBottom="@dimen/dp_9"
+            android:importantForAccessibility="no" />
+  <TextView android:textSize="@dimen/dp_11"
+            android:textColor="@color/superpower_progress_content_color"
+            android:id="@id/tv_progress_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pc_enter_super_power_margin"
+            android:layout_marginRight="@dimen/pc_enter_super_power_margin"
+            android:text="@string/superpower_progress_content"
+            android:drawablePadding="@dimen/pc_enter_super_power_drawble_padding"
+            android:drawableStart="@drawable/superpower_flash_icon_small"
+            android:textAlignment="center" />
+</LinearLayout>

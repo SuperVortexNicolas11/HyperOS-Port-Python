@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.google.android.flexbox.FlexboxLayout android:id="@id/flex_layout"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:alignContent="flex_start"
+                      app:alignItems="flex_start"
+                      app:flexWrap="wrap" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:id="@id/tv_version"
+            android:singleLine="true"
+            style="@style/AdInfoTextStyle" />
+  <TextView android:id="@id/tv_introduce"
+            android:text="@string/ad_text_introduce"
+            style="@style/AdInfoTextStyle" />
+  <TextView android:id="@id/tv_privacy"
+            android:singleLine="true"
+            style="@style/AdInfoTextStyle" />
+  <TextView android:id="@id/tv_permission"
+            android:singleLine="true"
+            style="@style/AdInfoTextStyle" />
+  <TextView android:ellipsize="end"
+            android:id="@id/tv_developer"
+            android:singleLine="true"
+            style="@style/AdInfoTextStyle" />
+</com.google.android.flexbox.FlexboxLayout>

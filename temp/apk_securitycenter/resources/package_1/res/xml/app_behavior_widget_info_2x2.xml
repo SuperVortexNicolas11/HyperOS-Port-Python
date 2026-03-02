@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<appwidget-provider android:minWidth="@dimen/privacy_protect_widget_width"
+                    android:minHeight="@dimen/privacy_protect_widget_width"
+                    android:initialLayout="@layout/app_behavior_widget_layout_2x2"
+                    android:previewImage="@drawable/privacy_protect_widget_preview"
+                    android:resizeMode="none"
+                    android:initialKeyguardLayout="@layout/app_behavior_widget_layout_2x2" xmlns:android="http://schemas.android.com/apk/res/android" />

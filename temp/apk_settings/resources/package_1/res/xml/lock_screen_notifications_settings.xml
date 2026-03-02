@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/lock_screen_notifs_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.android.settingslib.widget.MainSwitchPreference android:title="@string/switch_on_text"
+                        android:key="lock_screen_notification_global_pref"
+                        app:controller="com.android.settings.notification.LockScreenNotificationsGlobalPreferenceController" />
+  <com.android.settingslib.widget.IllustrationPreference android:selectable="false"
+                        android:key="compact_illustration"
+                        app:dynamicColor="true"
+                        app:lottie_rawRes="@raw/lottie_lock_screen_notification_minimalism_compact_view"
+                        app:searchable="false" />
+  <com.android.settingslib.widget.IllustrationPreference android:selectable="false"
+                        android:key="full_list_illustration"
+                        app:dynamicColor="true"
+                        app:lottie_rawRes="@raw/lottie_lock_screen_notification_minimalism_full_list"
+                        app:searchable="false" />
+  <com.android.settingslib.widget.LayoutPreference android:layout="@layout/notification_ls_minimalism_selector"
+                        android:selectable="false"
+                        android:key="ls_minimalism"
+                        app:controller="com.android.settings.notification.lockscreen.MinimalismPreferenceController" />
+  <PreferenceCategory android:title="@string/lockscreen_notification_what_to_show_title"
+                      android:key="lockscreen_notification_what_to_show"
+                      app:controller="com.android.settings.notification.LockScreenWhatToShowController">
+    <SwitchPreferenceCompat android:title="@string/lock_screen_notification_show_seen_title"
+                          android:key="lock_screen_notification_show_seen_toggle"
+                          app:controller="com.android.settings.notification.LockScreenNotificationShowSeenController" />
+    <SwitchPreferenceCompat android:title="@string/lock_screen_notification_show_silent_title"
+                          android:key="lock_screen_notification_show_silent_toggle"
+                          app:controller="com.android.settings.notification.LockScreenNotificationShowSilentController" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/lock_screen_notification_show_sensitive_content_title"
+                          android:key="lock_screen_notification_show_sensitive_toggle"
+                          app:controller="com.android.settings.notification.LockScreenNotificationShowSensitiveController" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/lock_screen_notification_show_sensitive_work_content_title"
+                          android:key="work_profile_show_sensitive_notif_toggle"
+                          app:controller="com.android.settings.notification.LockScreenNotificationShowSensitiveController" />
+  </PreferenceCategory>
+</PreferenceScreen>

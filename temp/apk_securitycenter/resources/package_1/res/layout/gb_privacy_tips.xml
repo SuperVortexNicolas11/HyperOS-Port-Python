@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:background="@drawable/gb_privacy_float_bg"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/gb_ic_beauty_privacy_select" />
+  <TextView android:textSize="@dimen/view_dimen_36"
+            android:textColor="@color/gb_beauty_privacy_dialog_title"
+            android:id="@id/tv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/beauty_fun_privacy_tips" />
+</LinearLayout>

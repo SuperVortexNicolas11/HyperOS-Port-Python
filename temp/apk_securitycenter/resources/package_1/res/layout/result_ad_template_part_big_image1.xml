@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.optimizemanage.view.OMRoundResizeFrameLayout android:layout_width="fill_parent"
+                      android:layout_height="@dimen/result_item_big_img_height"
+                      android:importantForAccessibility="no"
+                      optimizemanage:ratioXY="0.56"
+                      optimizemanage:roundCornerRadius="@dimen/securityscan_big_banner_radius" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:optimizemanage="http://schemas.android.com/apk/res-auto">
+  <com.miui.securitycenter.ad.view.AdImageView android:id="@id/big_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:scaleType="fitXY" />
+</com.miui.optimizemanage.view.OMRoundResizeFrameLayout>

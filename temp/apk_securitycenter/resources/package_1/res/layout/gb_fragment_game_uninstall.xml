@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:id="@id/list_container"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.0dp"
+                        android:layout_weight="1.0"
+                        app:scrollableView="@id/list_view">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/list_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" />
+  </miuix.springback.view.SpringBackLayout>
+  <View android:background="@color/gb_uninstall_vertical_interval_line_color"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/gb_uninstall_vertical_interval_height" />
+  <LinearLayout android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@id/uninstall_view"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/gb_uninstall_button_height">
+    <ImageView android:layout_gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/gb_uninstall_icon_margin_top"
+               android:src="@drawable/action_button_all_delete" />
+    <TextView android:textSize="@dimen/gb_uninstall_button_text_size"
+              android:layout_gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/app_manager_unstall_application" />
+  </LinearLayout>
+</LinearLayout>

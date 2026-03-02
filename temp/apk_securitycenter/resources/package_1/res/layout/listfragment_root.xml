@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:id="@id/view_root"
+                android:background="@color/na_nd_bg"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <FrameLayout android:id="@id/header_layout"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true" />
+  <miuix.springback.view.SpringBackLayout android:id="@id/middle_list_layout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="@dimen/view_dimen_20"
+                        android:layout_above="@id/footer_layout"
+                        android:layout_below="@id/header_layout"
+                        app:scrollableView="@id/list_view">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/list_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" />
+  </miuix.springback.view.SpringBackLayout>
+  <FrameLayout android:id="@id/footer_layout"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.BlankPage"
+            android:id="@android:id/empty"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260.0dp"
+            android:text="@string/list_empty_text"
+            android:drawableTop="@drawable/icon_list_empty"
+            android:layout_centerHorizontal="true" />
+</RelativeLayout>

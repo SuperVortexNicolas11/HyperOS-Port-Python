@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="23.0dp"
+        android:width="22.0dp"
+        android:viewportWidth="22.0"
+        android:viewportHeight="23.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$face_recognition_left_icon__0"
+        android:pathData="M8.839,0.716L2.135,4.587C1.146,5.158 0.536,6.213 0.536,7.356V12.694L8.44,8.132C9.429,7.561 10.038,6.505 10.038,5.363V1.408C10.038,0.792 9.372,0.408 8.839,0.716Z"
+        android:strokeAlpha="0.9"
+        android:fillAlpha="0.9" />
+  <path android:fillColor="@drawable/$face_recognition_left_icon__1"
+        android:pathData="M19.866,4.587L13.161,0.715C12.628,0.407 11.962,0.792 11.962,1.408V5.363C11.962,6.505 12.571,7.56 13.56,8.131L21.464,12.694V7.355C21.464,6.213 20.855,5.158 19.866,4.587Z"
+        android:strokeAlpha="0.9"
+        android:fillAlpha="0.9" />
+  <path android:fillColor="@drawable/$face_recognition_left_icon__2"
+        android:pathData="M8.839,0.716L2.135,4.587C1.146,5.158 0.536,6.213 0.536,7.356V12.694L8.44,8.132C9.429,7.561 10.038,6.505 10.038,5.363V1.408C10.038,0.792 9.372,0.408 8.839,0.716Z"
+        android:strokeAlpha="0.9"
+        android:fillAlpha="0.9" />
+  <path android:fillColor="@drawable/$face_recognition_left_icon__3"
+        android:pathData="M19.866,4.587L13.161,0.715C12.628,0.407 11.962,0.792 11.962,1.408V5.363C11.962,6.505 12.571,7.56 13.56,8.131L21.464,12.694V7.355C21.464,6.213 20.855,5.158 19.866,4.587Z"
+        android:strokeAlpha="0.9"
+        android:fillAlpha="0.9" />
+  <path android:fillColor="@drawable/$face_recognition_left_icon__4"
+        android:pathData="M2.334,4.472L2.135,4.587C1.146,5.158 0.537,6.213 0.537,7.355V15.859C0.537,17.001 1.146,18.056 2.135,18.627L8.839,22.499C9.372,22.807 10.038,22.422 10.038,21.807V12.843C10.038,11.701 9.429,10.646 8.44,10.075C8.44,10.075 3.929,7.469 2.334,6.55C1.534,6.086 1.534,4.933 2.334,4.472Z"
+        android:strokeAlpha="0.9"
+        android:fillAlpha="0.9" />
+  <path android:fillColor="@drawable/$face_recognition_left_icon__5"
+        android:pathData="M19.866,4.587L19.666,4.472C20.465,4.933 20.465,6.086 19.666,6.549C18.073,7.469 13.56,10.074 13.56,10.074C12.571,10.645 11.962,11.7 11.962,12.842V21.806C11.962,22.421 12.628,22.806 13.161,22.497L19.866,18.626C20.854,18.055 21.464,17 21.464,15.858V7.355C21.464,6.213 20.854,5.158 19.866,4.587Z"
+        android:strokeAlpha="0.9"
+        android:fillAlpha="0.9" />
+</vector>

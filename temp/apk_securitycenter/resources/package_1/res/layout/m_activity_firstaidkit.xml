@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:background="@color/first_aid_kit_bgcolor"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <FrameLayout android:id="@id/fl_top_content"
+               android:layout_width="fill_parent"
+               android:layout_height="@dimen/firstaidkit_main_top_height"
+               android:layout_centerHorizontal="true">
+    <ViewStub android:id="@id/stub_top_result"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/firstaidkit_main_top_height" />
+    <com.miui.firstaidkit.ui.FirstAidAnimView android:layout_gravity="center_horizontal"
+                          android:id="@id/ll_top_main"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true" />
+  </FrameLayout>
+  <miuix.springback.view.SpringBackLayout android:id="@id/springbacklayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/first_aid_kit_result_layout_margin_end"
+                        android:layout_marginEnd="@dimen/first_aid_kit_result_layout_margin_end"
+                        app:scrollableView="@id/auto_paste_listview">
+    <com.miui.common.customview.AutoPasteListView android:orientation="vertical"
+                          android:id="@id/auto_paste_listview"
+                          android:visibility="gone"
+                          android:scrollbars="none"
+                          android:clipToPadding="false"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:divider="@android:color/transparent" />
+  </miuix.springback.view.SpringBackLayout>
+  <com.miui.firstaidkit.ui.ProgressLayout android:id="@id/progressLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/first_aid_kit_progress_layout_margin_start"
+                        android:layout_marginEnd="@dimen/first_aid_kit_progress_layout_margin_end">
+    <ScrollView android:scrollbars="none"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@id/btn_stop"
+                android:overScrollMode="never">
+      <LinearLayout android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+        <include android:id="@id/item_1"
+                 layout="@layout/m_item_firstaidkit" />
+        <include android:id="@id/item_2"
+                 layout="@layout/m_item_firstaidkit" />
+        <include android:id="@id/item_3"
+                 layout="@layout/m_item_firstaidkit" />
+        <include android:id="@id/item_4"
+                 layout="@layout/m_item_firstaidkit" />
+        <include android:id="@id/item_5"
+                 layout="@layout/m_item_firstaidkit" />
+      </LinearLayout>
+    </ScrollView>
+    <Button android:layout_gravity="center_horizontal"
+            android:id="@id/btn_stop"
+            android:text="@string/first_aid_stop_scan"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            style="@style/FistAidKitButtonStyle" />
+  </com.miui.firstaidkit.ui.ProgressLayout>
+</RelativeLayout>

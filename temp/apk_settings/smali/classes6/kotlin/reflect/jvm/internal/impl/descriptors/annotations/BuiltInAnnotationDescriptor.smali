@@ -1,0 +1,167 @@
+.class public final Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/AnnotationDescriptor;
+
+
+# instance fields
+.field private final allValueArguments:Ljava/util/Map;
+
+.field private final builtIns:Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;
+
+.field private final forcePropagationDeprecationToOverrides:Z
+
+.field private final fqName:Lkotlin/reflect/jvm/internal/impl/name/FqName;
+
+.field private final type$delegate:Lkotlin/Lazy;
+
+
+# direct methods
+.method public constructor <init>(Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;Lkotlin/reflect/jvm/internal/impl/name/FqName;Ljava/util/Map;Z)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;",
+            "Lkotlin/reflect/jvm/internal/impl/name/FqName;",
+            "Ljava/util/Map<",
+            "Lkotlin/reflect/jvm/internal/impl/name/Name;",
+            "+",
+            "Lkotlin/reflect/jvm/internal/impl/resolve/constants/ConstantValue;",
+            ">;Z)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 27
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 28
+    iput-object p1, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->builtIns:Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;
+
+    .line 29
+    iput-object p2, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->fqName:Lkotlin/reflect/jvm/internal/impl/name/FqName;
+
+    .line 30
+    iput-object p3, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->allValueArguments:Ljava/util/Map;
+
+    .line 31
+    iput-boolean p4, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->forcePropagationDeprecationToOverrides:Z
+
+    .line 33
+    sget-object p1, Lkotlin/LazyThreadSafetyMode;->PUBLICATION:Lkotlin/LazyThreadSafetyMode;
+
+    new-instance p2, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor$$Lambda$0;
+
+    invoke-direct {p2, p0}, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor$$Lambda$0;-><init>(Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;)V
+
+    invoke-static {p1, p2}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->type$delegate:Lkotlin/Lazy;
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;Lkotlin/reflect/jvm/internal/impl/name/FqName;Ljava/util/Map;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    .locals 0
+
+    and-int/lit8 p5, p5, 0x8
+
+    if-eqz p5, :cond_0
+
+    const/4 p4, 0x0
+
+    .line 27
+    :cond_0
+    invoke-direct {p0, p1, p2, p3, p4}, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;-><init>(Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;Lkotlin/reflect/jvm/internal/impl/name/FqName;Ljava/util/Map;Z)V
+
+    return-void
+.end method
+
+.method static synthetic accessor$BuiltInAnnotationDescriptor$lambda0(Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;)Lkotlin/reflect/jvm/internal/impl/types/SimpleType;
+    .locals 0
+
+    invoke-static {p0}, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->type_delegate$lambda$0(Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;)Lkotlin/reflect/jvm/internal/impl/types/SimpleType;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static final type_delegate$lambda$0(Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;)Lkotlin/reflect/jvm/internal/impl/types/SimpleType;
+    .locals 1
+
+    .line 34
+    iget-object v0, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->builtIns:Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;
+
+    invoke-virtual {p0}, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->getFqName()Lkotlin/reflect/jvm/internal/impl/name/FqName;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lkotlin/reflect/jvm/internal/impl/builtins/KotlinBuiltIns;->getBuiltInClassByFqName(Lkotlin/reflect/jvm/internal/impl/name/FqName;)Lkotlin/reflect/jvm/internal/impl/descriptors/ClassDescriptor;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lkotlin/reflect/jvm/internal/impl/descriptors/ClassDescriptor;->getDefaultType()Lkotlin/reflect/jvm/internal/impl/types/SimpleType;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public getAllValueArguments()Ljava/util/Map;
+    .locals 0
+
+    .line 30
+    iget-object p0, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->allValueArguments:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public getFqName()Lkotlin/reflect/jvm/internal/impl/name/FqName;
+    .locals 0
+
+    .line 29
+    iget-object p0, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->fqName:Lkotlin/reflect/jvm/internal/impl/name/FqName;
+
+    return-object p0
+.end method
+
+.method public getSource()Lkotlin/reflect/jvm/internal/impl/descriptors/SourceElement;
+    .locals 0
+
+    .line 38
+    sget-object p0, Lkotlin/reflect/jvm/internal/impl/descriptors/SourceElement;->NO_SOURCE:Lkotlin/reflect/jvm/internal/impl/descriptors/SourceElement;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-object p0
+.end method
+
+.method public getType()Lkotlin/reflect/jvm/internal/impl/types/KotlinType;
+    .locals 0
+
+    .line 33
+    iget-object p0, p0, Lkotlin/reflect/jvm/internal/impl/descriptors/annotations/BuiltInAnnotationDescriptor;->type$delegate:Lkotlin/Lazy;
+
+    invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    check-cast p0, Lkotlin/reflect/jvm/internal/impl/types/KotlinType;
+
+    return-object p0
+.end method

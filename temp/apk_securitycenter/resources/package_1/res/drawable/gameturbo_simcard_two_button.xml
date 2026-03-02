@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/view_dimen_66"
+        android:width="@dimen/view_dimen_66"
+        android:viewportWidth="66.0"
+        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gameturbo_simcard_two_button__0"
+        android:pathData="M9,4V62H57V20L41,4H9ZM24,46V36V30H26H30H36V26H24L26,20H42V30V36H30V40H42L40,46H30H24Z"
+        android:fillType="evenOdd" />
+</vector>

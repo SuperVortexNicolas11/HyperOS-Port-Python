@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <corners android:topLeftRadius="@dimen/view_dimen_48"
+           android:topRightRadius="@dimen/view_dimen_48" />
+  <solid android:color="@color/wc_disaster_detail_card_bg" />
+</shape>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.earthquakewarning.ui.NameCardPreference android:key="name" />
+  <PreferenceCategory android:title="@string/medical_info_category_title_persion">
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/medical_info_sp_title_height"
+                          android:key="height" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/medical_info_sp_title_weight"
+                          android:key="weight" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/medical_sp_category_title_address"
+                          android:key="address" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/medical_info_category_title_medical">
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/medical_sp_blood_type_title"
+                          android:key="blood_type" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/ew_emergency_organ_donation"
+                          android:key="organDonor" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:visible="false"
+                          android:title="@string/ew_emergency_gender_title"
+                          android:key="gender" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/ew_emergency_allergy"
+                          android:key="allergy" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/medical_sp_category_title_medicine"
+                          android:key="medicine" />
+    <com.miui.permcenter.permissions.NoClickTextPreference android:layout="@layout/medical_card_no_click_text_preference_layout"
+                          android:title="@string/ew_emergency_medical"
+                          android:key="medical" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/sp_emergency_contact_title"
+                      android:key="contacts_category" />
+</androidx.preference.PreferenceScreen>

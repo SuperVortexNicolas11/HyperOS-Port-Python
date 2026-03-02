@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="32.0dp"
+        android:width="32.0dp"
+        android:viewportWidth="32.0"
+        android:viewportHeight="32.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="@color/pm_icon_background_color"
+        android:pathData="M8,0L24,0A8,8 0,0 1,32 8L32,24A8,8 0,0 1,24 32L8,32A8,8 0,0 1,0 24L0,8A8,8 0,0 1,8 0z"
+        android:fillAlpha="@dimen/pm_icon_background_fillAlpha" />
+  <path android:fillColor="#00000000"
+        android:pathData="M9.333,12.267C9.333,10.773 9.333,10.026 9.624,9.456C9.88,8.954 10.288,8.546 10.789,8.291C11.36,8 12.106,8 13.6,8H18.4C19.893,8 20.64,8 21.211,8.291C21.712,8.546 22.12,8.954 22.376,9.456C22.667,10.026 22.667,10.773 22.667,12.267V19.733C22.667,21.227 22.667,21.973 22.376,22.544C22.12,23.046 21.712,23.454 21.211,23.709C20.64,24 19.893,24 18.4,24H13.6C12.106,24 11.36,24 10.789,23.709C10.288,23.454 9.88,23.046 9.624,22.544C9.333,21.973 9.333,21.227 9.333,19.733L9.333,12.267Z"
+        android:strokeColor="@color/pm_icon_middle_color"
+        android:strokeWidth="1.33333"
+        android:strokeAlpha="@dimen/pm_icon_middle_fillAlpha"
+        android:fillType="evenOdd" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M11,11.833C11,11.087 11,10.713 11.145,10.428C11.273,10.177 11.477,9.973 11.728,9.845C12.013,9.7 12.387,9.7 13.133,9.7L18.867,9.7C19.613,9.7 19.987,9.7 20.272,9.845C20.523,9.973 20.727,10.177 20.855,10.428C21,10.713 21,11.087 21,11.833V20.167C21,20.913 21,21.287 20.855,21.572C20.727,21.823 20.523,22.027 20.272,22.155C19.987,22.3 19.613,22.3 18.867,22.3H13.133C12.387,22.3 12.013,22.3 11.728,22.155C11.477,22.027 11.273,21.823 11.145,21.572C11,21.287 11,20.913 11,20.167L11,11.833Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha"
+        android:fillType="evenOdd" />
+</vector>

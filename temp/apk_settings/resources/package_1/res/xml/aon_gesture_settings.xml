@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/aon_gesture_settings" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" xmlns:miuisettings="http://schemas.android.com/apk/miuisettings">
+  <PreferenceCategory>
+    <com.android.settingslib.miuisettings.preference.ValuePreference android:text="@string/aon_gesture_status_not_open"
+                          android:title="@string/aon_gesture_up_down_waving_title"
+                          android:key="key_up_down_waving"
+                          android:summary="@string/aon_gesture_up_down_waving_summary"
+                          android:fragment="com.android.settings.aon.gesture.AonUpDownGestureSettings"
+                          settings:controller="com.android.settings.special.AonGestureController"
+                          settings:showRightArrow="true" />
+  </PreferenceCategory>
+</PreferenceScreen>

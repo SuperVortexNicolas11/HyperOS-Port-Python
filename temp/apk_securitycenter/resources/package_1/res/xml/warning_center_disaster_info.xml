@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/warningcenter_disaster_receive_info">
+    <com.miui.warningcenter.widget.WarningCenterImagePreference app:imageResource="@drawable/warningcenter_disaster_normal_push"
+                          app:intervalLine="true"
+                          app:paddingTop="@dimen/dp_32" />
+    <CheckBoxPreference android:title="@string/warningcenter_disaster_receive_system"
+                        android:key="preference_key_system_receive" />
+    <miuix.preference.TextPreference android:title="@string/warningcenter_disaster_receive_level"
+                          android:key="preference_key_system_receive_level" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.warningcenter.widget.WarningCenterImagePreference app:imageResource="@drawable/warningcenter_disaster_strong_push"
+                          app:intervalLine="true" />
+    <CheckBoxPreference android:title="@string/warningcenter_disaster_receive_strong_title"
+                        android:key="preference_key_strong_receive" />
+    <miuix.preference.TextPreference android:title="@string/warningcenter_disaster_receive_level"
+                          android:key="preference_key_strong_receive_level" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/warningcenter_disaster_receive_type">
+    <com.miui.warningcenter.disasterwarning.DisasterTypePreference app:layout="@layout/warning_center_disaster_info_type" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/warningcenter_disaster_level_info">
+    <com.miui.permcenter.permissions.NoClickTextPreference app:layout="@layout/warning_center_preference_disaster_level" />
+  </PreferenceCategory>
+</PreferenceScreen>

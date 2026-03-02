@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/dp_11"
+            android:textColor="@color/gb_voice_changer_setting_subtitle_text_color"
+            android:layout_gravity="center_vertical"
+            android:id="@android:id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium" />
+  <ImageView android:layout_gravity="center_vertical"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/gb_voice_change_spinner_icon"
+             android:layout_marginStart="@dimen/dp_px_14" />
+</LinearLayout>

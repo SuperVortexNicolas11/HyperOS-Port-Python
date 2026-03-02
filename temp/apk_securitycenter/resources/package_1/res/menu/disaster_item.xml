@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:id="@id/miuix_action_end_menu_group">
+    <item android:id="@id/disaster_item"
+          android:title="@string/warningcenter_disaster_service_area" />
+  </group>
+</menu>

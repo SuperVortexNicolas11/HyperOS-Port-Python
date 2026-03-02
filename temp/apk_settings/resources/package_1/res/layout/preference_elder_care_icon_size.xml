@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:id="@id/top_screen"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:gravity="center"
+                android:orientation="vertical"
+                android:id="@id/icon_container"
+                android:background="@drawable/elder_care_icon_bg"
+                android:layout_width="fill_parent"
+                android:layout_height="184.0dp"
+                android:layout_margin="10.0dp"
+                android:importantForAccessibility="no">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/icon_list"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:overScrollMode="never"
+                          android:importantForAccessibility="no"
+                          android:layout_marginStart="12.0dp"
+                          android:layout_marginEnd="12.0dp"
+                          android:nestedScrollingEnabled="false" />
+  </LinearLayout>
+  <LinearLayout android:gravity="center"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dp"
+                android:layout_marginTop="2.0dp"
+                android:layout_marginBottom="12.0dp">
+    <com.android.settings.eldercare.IconSizeSeekBar android:id="@id/font_view"
+                          android:layout_width="fill_parent"
+                          android:layout_height="28.0dp"
+                          android:layout_marginStart="16.0dp"
+                          android:layout_marginEnd="16.0dp"
+                          style="?attr/seekBarPreferenceInternalTheme" />
+  </LinearLayout>
+</LinearLayout>

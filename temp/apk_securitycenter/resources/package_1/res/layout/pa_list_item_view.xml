@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:paddingTop="@dimen/dp_14"
+              android:paddingBottom="@dimen/dp_14"
+              android:descendantFocusability="blocksDescendants"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/view_dimen_170" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/icon"
+             android:layout_width="@dimen/dp_40"
+             android:layout_height="@dimen/dp_40" />
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+    <LinearLayout android:layout_gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="@dimen/view_dimen_44"
+                  android:layout_marginEnd="@dimen/view_dimen_32">
+      <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:fontFamily="@string/miuix_font_style_misans_medium_font_family"
+                android:textDirection="locale" />
+      <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+                android:textSize="10.0sp"
+                android:textColor="@color/auto_start_prog_runing_text_color"
+                android:layout_gravity="center_vertical"
+                android:id="@id/procIsRunning"
+                android:background="@drawable/textview_border_green"
+                android:paddingLeft="4.0dp"
+                android:paddingRight="4.0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1.0dp"
+                android:text="@string/pm_auto_start_proc_is_running"
+                android:singleLine="true"
+                android:layout_marginStart="2.0dp" />
+    </LinearLayout>
+  </LinearLayout>
+  <miuix.slidingwidget.widget.SlidingButton android:layout_gravity="center_vertical"
+                        android:id="@id/sliding_button"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="yes" />
+</LinearLayout>

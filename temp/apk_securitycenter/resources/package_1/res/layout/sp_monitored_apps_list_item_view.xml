@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/shortcut_item_height"
+              android:layout_marginStart="@dimen/view_dimen_80"
+              android:layout_marginEnd="@dimen/view_dimen_80" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/icon"
+             android:layout_width="@dimen/scan_item_icon_size"
+             android:layout_height="@dimen/scan_item_icon_size" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+            android:textSize="@dimen/text_font_size_48"
+            android:layout_gravity="center_vertical"
+            android:id="@id/title"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_weight="1.0"
+            android:layout_marginStart="@dimen/shortcut_item_text_margin_start"
+            android:layout_marginEnd="@dimen/shortcut_item_text_margin_end" />
+  <com.miui.gamebooster.view.QRSlidingButton android:layout_gravity="center_vertical"
+                        android:id="@id/sliding_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+</LinearLayout>

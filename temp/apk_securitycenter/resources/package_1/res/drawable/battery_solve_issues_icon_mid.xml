@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="48.0dp"
+        android:width="48.0dp"
+        android:viewportWidth="48.0"
+        android:viewportHeight="48.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="@color/miuix_color_blue_light_primary_default"
+        android:pathData="M21.567,3C19.972,3 18.586,4.093 18.216,5.641L18.106,6.103C18.003,6.535 18.331,6.949 18.777,6.949H30.224C30.669,6.949 30.997,6.535 30.894,6.103L30.784,5.641C30.414,4.093 29.028,3 27.433,3H21.567Z" />
+  <path android:fillColor="@color/miuix_color_blue_light_primary_default"
+        android:pathData="M14.167,8.266C11.313,8.266 9,10.574 9,13.422V41.844C9,44.692 11.313,47 14.167,47H34.833C37.687,47 40,44.692 40,41.844V13.422C40,10.574 37.687,8.266 34.833,8.266H14.167Z" />
+  <path android:fillColor="@color/pc_solve_battery_color"
+        android:pathData="M18.102,27.817C17.839,28.231 18.112,28.767 18.614,28.822L23.868,29.401V35.667C23.868,36.004 24.33,36.127 24.511,35.838L30.9,25.631C31.16,25.216 30.885,24.682 30.383,24.629L24.869,24.045V18.333C24.869,17.997 24.41,17.873 24.228,18.16L18.102,27.817Z" />
+</vector>

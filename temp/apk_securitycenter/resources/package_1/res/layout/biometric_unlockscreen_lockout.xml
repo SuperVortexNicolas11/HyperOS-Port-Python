@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:id="@id/unlockscreen_lockout_id"
+                android:background="@android:color/black"
+                android:paddingBottom="@dimen/miui_unlock_lockout_page_padding"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingStart="@dimen/miui_unlock_lockout_page_padding"
+                android:paddingEnd="@dimen/miui_unlock_lockout_page_padding" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/miui_unlock_lockout_title_text_size"
+            android:textColor="@color/unlock_screen_lockout_phone_locked"
+            android:id="@id/phone_locked_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/miui_unlock_lockout_title_margin_top"
+            android:layout_centerHorizontal="true" />
+  <TextView android:textSize="@dimen/miui_unlock_lockout_content_text_size"
+            android:textColor="@color/unlock_screen_lockout_phone_locked_timeout"
+            android:id="@id/phone_locked_timeout_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/miui_unlock_lockout_content_margin_top"
+            android:layout_below="@id/phone_locked_textview"
+            android:layout_centerHorizontal="true" />
+  <include android:id="@id/keyguard_selector_fade_container"
+           android:layout_width="@dimen/miui_keyguard_pattern_view_pattern_view_height"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="@dimen/miui_keyguard_pattern_view_eca_margin_bottom"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"
+           layout="@layout/biometric_bottom_layout" />
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.clock.tiny.splicing.SplicingClockView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layoutDirection="ltr" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/splicing_date_text_text_size"
+            android:id="@id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/splicing_date_text_margin_top_aod_180"
+            android:fontFamily="miclock-beihaibei-sc-regular"
+            android:layout_marginStart="@dimen/splicing_margin_start_aod_180"
+            android:layout_alignParentStart="true" />
+  <TextView android:textSize="@dimen/splicing_time_text_text_size_0"
+            android:id="@id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/splicing_time_text_margin_top_aod_180"
+            android:fontFamily="miclock-beihaibei-sc-regular"
+            android:layout_marginStart="@dimen/splicing_margin_start_aod_180"
+            android:layout_alignParentStart="true" />
+  <TextView android:textSize="@dimen/splicing_week_text_text_size_aod"
+            android:textColor="@color/tiny_default_black"
+            android:id="@id/tv_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/splicing_week_text_margin_top_aod_180"
+            android:fontFamily="mipro-medium"
+            android:layout_marginStart="@dimen/splicing_margin_start_aod_180"
+            android:layout_alignParentStart="true" />
+  <include android:id="@id/battery_splicing"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/splicing_battery_text_margin_top_aod_180"
+           android:layout_marginStart="@dimen/splicing_margin_start_aod_180"
+           android:layout_alignParentStart="true"
+           layout="@layout/layout_battery_view" />
+</com.miui.clock.tiny.splicing.SplicingClockView>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/iv_search"
+             android:layout_width="@dimen/actionbar_icon_size"
+             android:layout_height="@dimen/actionbar_icon_size"
+             android:src="?attr/actionBarSearchIcon"
+             android:scaleType="center"
+             android:contentDescription="@string/miuix_appcompat_search_input_description" />
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/more"
+             android:layout_width="@dimen/actionbar_icon_size"
+             android:layout_height="@dimen/actionbar_icon_size"
+             android:src="?attr/immersionButtonMoreBackground"
+             android:scaleType="center"
+             android:contentDescription="@string/miuix_appcompat_actionbar_immersion_button_more_description" />
+</LinearLayout>

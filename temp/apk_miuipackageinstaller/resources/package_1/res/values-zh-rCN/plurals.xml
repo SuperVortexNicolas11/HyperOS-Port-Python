@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <plurals name="app_info_permission_count">
+    <item quantity="other">%1$s项权限</item>
+  </plurals>
+  <plurals name="app_info_permission_count_">
+    <item quantity="other">使用%1$s项权限，</item>
+  </plurals>
+  <plurals name="app_info_private_permission_count">
+    <item quantity="other">%1$s项隐私相关</item>
+  </plurals>
+  <plurals name="comment_count">
+    <item quantity="other">%1$s评论</item>
+  </plurals>
+  <plurals name="fingerprint_authrioze_retry_after_seconds">
+    <item quantity="other">指纹验证失败%1$d次，请%2$d秒后重试</item>
+  </plurals>
+  <plurals name="input_text_count_limit_talkback_one">
+    <item quantity="other">已输入%1$d字</item>
+  </plurals>
+  <plurals name="input_text_count_limit_talkback_two">
+    <item quantity="other">最多%1$d字</item>
+  </plurals>
+  <plurals name="miuix_appcompat_items_selected">
+    <item quantity="one">已选择%d项</item>
+    <item quantity="other">已选择%d项</item>
+  </plurals>
+  <plurals name="miuix_indexer_selected">
+    <item quantity="other">已选中%1$d个</item>
+  </plurals>
+  <plurals name="password_wrong_retry_msg">
+    <item quantity="other">尝试解锁失败次数过多，请在%1$S秒后重试</item>
+  </plurals>
+  <plurals name="pure_mode_guard_day">
+    <item quantity="other">已守护您%1$d天</item>
+  </plurals>
+  <plurals name="settings_security_mode_enable_count">
+    <item quantity="other">已有 &lt;font color=#0D84FF&gt;%1$s&lt;/font&gt; 人开启</item>
+  </plurals>
+  <plurals name="settings_security_mode_protect_count">
+    <item quantity="other">安全守护已为您阻挡 &lt;font color=#0D84FF&gt;%1$s&lt;/font&gt; 次风险</item>
+  </plurals>
+  <plurals name="settings_security_mode_protect_days">
+    <item quantity="other">已守护您 &lt;font color=#0D84FF&gt;%1$s&lt;/font&gt; 天</item>
+  </plurals>
+  <plurals name="settings_security_mode_title_on_msg">
+    <item quantity="other">已守护您%1$s天</item>
+  </plurals>
+</resources>

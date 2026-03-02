@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <drawable name="app_manager_back_icon">@drawable/miuix_action_icon_back_dark</drawable>
+  <drawable name="app_manager_delete_icon">@drawable/miuix_action_icon_delete_dark</drawable>
+  <drawable name="app_manager_finish_icon">@drawable/miuix_action_icon_discard_dark</drawable>
+  <drawable name="app_manager_info_icon">@drawable/miuix_action_icon_info_dark</drawable>
+  <drawable name="applock_miuix_appcompat_list_item_bg">@drawable/miuix_appcompat_list_item_bg_dark</drawable>
+  <drawable name="applock_settings">@drawable/miuix_action_icon_settings_dark</drawable>
+  <drawable name="ew_monitor_actionbar_more">@drawable/miuix_action_icon_immersion_more_dark</drawable>
+  <drawable name="ew_monitor_actionbar_share">@drawable/miuix_action_icon_share_dark</drawable>
+  <drawable name="expander_close">@drawable/miuix_appcompat_expander_close_dark</drawable>
+  <drawable name="expander_open">@drawable/miuix_appcompat_expander_open_dark</drawable>
+  <drawable name="icon_main_back">@drawable/miuix_action_icon_cancel_light</drawable>
+  <drawable name="miuix_appcompat_action_bar_navigator_switch">@drawable/miuix_action_icon_navigator_switch_dark</drawable>
+  <drawable name="miuix_appcompat_action_mode_title_button_cancel">@drawable/miuix_action_icon_cancel_dark</drawable>
+  <drawable name="miuix_appcompat_action_mode_title_button_confirm">@drawable/miuix_action_icon_immersion_confirm_dark</drawable>
+  <drawable name="miuix_appcompat_action_mode_title_button_delete">@drawable/miuix_action_icon_immersion_delete_dark</drawable>
+  <drawable name="miuix_appcompat_action_mode_title_button_deselect_all">@drawable/miuix_action_icon_deselect_all_dark</drawable>
+  <drawable name="miuix_appcompat_action_mode_title_button_select_all">@drawable/miuix_action_icon_select_all_dark</drawable>
+  <drawable name="miuix_appcompat_list_item_bg">@drawable/miuix_appcompat_list_item_bg_dark</drawable>
+  <drawable name="miuix_appcompat_pairing_dialog_closable_icon">@drawable/miuix_appcompat_circle_closable_icon_dark</drawable>
+  <drawable name="miuix_appcompat_window_bg">@drawable/miuix_appcompat_window_bg_dark</drawable>
+  <drawable name="miuix_back">@drawable/miuix_action_icon_back_dark</drawable>
+  <drawable name="miuix_popup_window_list_item_fg">@drawable/miuix_appcompat_list_item_fg_dropdown_popup_dark</drawable>
+  <drawable name="pc_battery_risk_icon_shadow">@drawable/battery_risk_icon_shadow_dark</drawable>
+  <drawable name="pc_battery_solve_issues_icon_shadow">@drawable/battery_solve_issues_icon_shadow_dark</drawable>
+  <drawable name="phone_manager_edit_confirm">@drawable/miuix_action_icon_confirm_dark</drawable>
+  <drawable name="preference_category_background">@drawable/miuix_preference_category_bg_dark</drawable>
+  <drawable name="preference_category_background_first">@drawable/miuix_preference_category_bg_first_dark</drawable>
+  <drawable name="preference_item_bg">@drawable/miuix_preference_item_background_dark</drawable>
+  <drawable name="sp_preference_category_bg_first_light">@drawable/miuix_preference_category_bg_first_dark</drawable>
+  <drawable name="v_back_icon">@drawable/miuix_action_icon_back_dark</drawable>
+  <drawable name="v_setting_icon">@drawable/miuix_action_icon_settings_dark</drawable>
+</resources>

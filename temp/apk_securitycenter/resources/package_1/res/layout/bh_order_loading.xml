@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:orientation="vertical"
+                android:id="@id/loading_part"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.androidbasewidget.widget.ProgressBar android:id="@id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:indeterminateTint="@color/bh_black_daynight" />
+  <TextView android:textSize="15.27sp"
+            android:textColor="@color/bh_black_60_daynight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17.0dp"
+            android:text="载入中"
+            android:layout_below="@id/progress"
+            android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/keyboard_mouse_touch"
+                  android:key="keyboard_mouse_touch" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/keyboard_options_category"
+                      android:key="keyboard_options_category">
+    <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/show_ime"
+                          android:key="show_virtual_keyboard_switch"
+                          android:summary="@string/show_ime_summary"
+                          android:defaultValue="false" />
+    <com.android.settings.inputmethod.ImageSpanPreference android:title="@string/keyboard_shortcuts_helper"
+                          android:key="keyboard_shortcuts_helper"
+                          android:summary="@string/keyboard_shortcuts_helper_summary"
+                          settings:showRightArrow="true" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/modifier_keys_settings"
+                          android:key="modifier_keys_settings"
+                          android:summary="@string/modifier_keys_settings_summary"
+                          android:fragment="com.android.settings.inputmethod.MiuiModifierKeysSettings" />
+    <com.android.settings.PrimarySwitchSettingsPreference android:title="@string/keyboard_repeat_keys_title"
+                          android:key="physical_keyboard_repeat_keys"
+                          android:summary="@string/keyboard_repeat_keys_summary"
+                          android:defaultValue="false"
+                          android:fragment="com.android.settings.inputmethod.KeyboardRepeatKeysMainFragment"
+                          settings:controller="com.android.settings.inputmethod.KeyboardRepeatKeysController" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/keyboard_a11y_settings"
+                          android:key="physical_keyboard_a11y"
+                          android:summary="@string/keyboard_a11y_settings_summary"
+                          android:fragment="com.android.settings.inputmethod.PhysicalKeyboardA11yFragment" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/keyboard_a11y_category"
+                      android:key="keyboard_a11y_category">
+    <SwitchPreferenceCompat android:title="@string/sticky_keys"
+                          android:key="accessibility_sticky_keys"
+                          android:summary="@string/sticky_keys_summary"
+                          android:defaultValue="false" />
+    <SwitchPreferenceCompat android:title="@string/bounce_keys"
+                          android:key="accessibility_bounce_keys"
+                          android:defaultValue="false" />
+    <SwitchPreferenceCompat android:title="@string/slow_keys"
+                          android:key="accessibility_slow_keys"
+                          android:defaultValue="false" />
+    <SwitchPreferenceCompat android:title="@string/mouse_keys"
+                          android:key="accessibility_mouse_keys"
+                          android:summary="@string/mouse_keys_summary"
+                          android:defaultValue="false" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/pointer_settings_category"
+                      android:key="pointer_settings_category">
+    <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/natural_scroll"
+                          android:key="mouse_gesture_natural_scroll"
+                          android:summary="@string/natural_scroll_summary"
+                          android:defaultValue="false"
+                          android:contentDescription="@string/natural_scroll" />
+    <com.android.settings.PointerSpeedPreference android:title="@string/pointer_speed"
+                          android:key="pointer_speed"
+                          android:dialogTitle="@string/pointer_speed" />
+  </PreferenceCategory>
+</PreferenceScreen>

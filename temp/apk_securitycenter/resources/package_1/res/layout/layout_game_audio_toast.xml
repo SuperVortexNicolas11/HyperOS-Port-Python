@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TextView android:textSize="@dimen/dp_14"
+          android:textColor="@color/gb_audio_toast_text_color"
+          android:gravity="center"
+          android:layout_gravity="center"
+          android:id="@id/game_audio_toast"
+          android:background="@drawable/gb_audio_change_toast_bg"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:maxWidth="@dimen/gb_audio_toast_view_max_width"
+          android:minWidth="@dimen/gb_vc_toast_view_min_width"
+          android:minHeight="@dimen/gb_vc_toast_view_min_height"
+          android:maxLines="2"
+          android:fontFamily="sans-serif-medium" xmlns:android="http://schemas.android.com/apk/res/android" />

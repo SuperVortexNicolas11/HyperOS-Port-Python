@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:gravity="center_vertical"
+                      android:paddingLeft="@dimen/miuix_item_padding_start"
+                      android:paddingTop="@dimen/miuix_item_padding_top"
+                      android:paddingRight="@dimen/miuix_item_padding_start"
+                      android:paddingBottom="@dimen/miuix_item_padding_top"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/storage_app_details_item_header_h"
+                      android:paddingHorizontal="@dimen/miuix_item_padding_start"
+                      android:paddingVertical="@dimen/miuix_item_padding_top"
+                      app:template="standard_button" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView android:id="@id/app_icon"
+             android:layout_width="@dimen/dp_68"
+             android:layout_height="@dimen/dp_68"
+             android:scaleType="fitXY"
+             android:layout_marginEnd="@dimen/storage_app_details_item_header_icon_me"
+             app:area_id="@id/area_head" />
+  <TextView android:textSize="@dimen/storage_app_details_name_text"
+            android:textStyle="bold"
+            android:textColor="@color/storage_app_detail_name"
+            android:ellipsize="end"
+            android:id="@id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            app:area_id="@id/area_title" />
+  <TextView android:textSize="@dimen/storage_app_details_version_text"
+            android:textColor="@color/storage_app_detail_app_version"
+            android:id="@id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/storage_app_details_item_header_title_mb"
+            app:area_id="@id/area_content" />
+</miuix.flexible.view.HyperCellLayout>

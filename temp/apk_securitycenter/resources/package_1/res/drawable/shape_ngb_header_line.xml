@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="#33ffffff" />
+  <corners android:radius="@dimen/view_dimen_8" />
+  <size android:height="@dimen/game_toolbox_panel_indicator_height"
+        android:width="@dimen/game_toolbox_panel_indicator_width" />
+</shape>

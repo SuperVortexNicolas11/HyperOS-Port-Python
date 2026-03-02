@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.core.widget.NestedScrollView android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/view_dimen_70"
+                android:paddingEnd="@dimen/view_dimen_70">
+    <TextView android:textSize="@dimen/font_size_36"
+              android:textColor="@color/white"
+              android:id="@id/tv_message"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+    <TextView android:textSize="@dimen/font_size_32"
+              android:textColor="@color/gb_wonderful_video_header"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_40"
+              android:text="@string/gtb_brightness_dialog_sub_message" />
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

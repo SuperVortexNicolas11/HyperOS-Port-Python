@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:id="@id/fl_more_feature"
+               android:paddingTop="@dimen/dp_16"
+               android:paddingBottom="@dimen/dp_24"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content">
+    <TextView android:textSize="@dimen/sp_14"
+              android:textColor="@color/pc_battery_statics_rank_title_color"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/tv_more_feature"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/pc_more_power_rank_apps"
+              android:drawablePadding="@dimen/dp_8"
+              android:drawableEnd="@drawable/pc_icon_more_apps" />
+  </FrameLayout>
+</LinearLayout>

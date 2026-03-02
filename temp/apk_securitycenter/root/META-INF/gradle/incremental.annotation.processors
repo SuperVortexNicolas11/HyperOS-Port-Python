@@ -1,0 +1,6 @@
+com.google.auto.value.extension.memoized.processor.MemoizedValidator,ISOLATING
+com.google.auto.value.extension.toprettystring.processor.ToPrettyStringValidator,ISOLATING
+com.google.auto.value.processor.AutoAnnotationProcessor,ISOLATING
+com.google.auto.value.processor.AutoOneOfProcessor,ISOLATING
+com.google.auto.value.processor.AutoValueBuilderProcessor,ISOLATING
+com.google.auto.value.processor.AutoValueProcessor,DYNAMIC

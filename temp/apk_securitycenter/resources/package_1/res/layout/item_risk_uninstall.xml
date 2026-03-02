@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="@dimen/view_dimen_186"
+                android:paddingStart="@dimen/miuix_preference_item_padding_start"
+                android:paddingEnd="@dimen/miuix_preference_item_padding_start" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/image_view"
+             android:layout_width="@dimen/view_dimen_110"
+             android:layout_height="@dimen/view_dimen_106"
+             android:layout_centerVertical="true" />
+  <com.miui.optimizemanage.view.StateCheckBox android:id="@id/check_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true" />
+  <TextView android:textSize="@dimen/text_font_size_48"
+            android:textColor="@color/tip_title"
+            android:id="@id/name_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="mipro-medium"
+            android:paddingStart="@dimen/view_dimen_35"
+            android:paddingEnd="@dimen/view_dimen_35"
+            android:layout_toStartOf="@id/check_view"
+            android:layout_toEndOf="@id/image_view" />
+</RelativeLayout>

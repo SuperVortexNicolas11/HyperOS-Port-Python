@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/activity_storage_app_list"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:id="@id/list_container"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/storage_app_list_pt"
+                        app:scrollableView="@id/apps">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/apps"
+                          android:paddingBottom="@dimen/view_dimen_40"
+                          android:clipToPadding="false"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_marginTop="@dimen/storage_app_list_margin_top" />
+  </miuix.springback.view.SpringBackLayout>
+  <include android:layout_gravity="center"
+           android:visibility="gone"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           layout="@layout/empty_view_maml" />
+</LinearLayout>

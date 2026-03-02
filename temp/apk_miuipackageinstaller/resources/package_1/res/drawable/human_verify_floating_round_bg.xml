@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="@color/floating_window_background_white" />
+  <corners android:radius="@dimen/miuix_appcompat_floating_window_background_radius" />
+</shape>

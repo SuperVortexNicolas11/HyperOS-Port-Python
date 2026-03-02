@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:layout_width="fill_parent"
+                  android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <CheckBoxPreference android:title="@string/power_center_super_save_title_text"
+                      android:key="preference_key_superpower_switch"
+                      android:summary="@string/superpower_settins_switch_summary" />
+  <com.miui.superpower.SuperPowerDetailPreference android:key="preference_key_superpower_description" />
+  <PreferenceCategory android:key="preference_key_superpower_othersettings">
+    <CheckBoxPreference android:title="@string/superpower_settins_autoleave_title"
+                        android:key="preference_key_superpower_autoleave" />
+  </PreferenceCategory>
+</PreferenceScreen>

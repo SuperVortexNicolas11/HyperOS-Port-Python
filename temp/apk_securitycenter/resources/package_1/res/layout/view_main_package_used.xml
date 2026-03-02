@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="bottom"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/layout_today_used"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+    <TextView android:gravity="bottom|center|start"
+              android:id="@id/main_today_used"
+              android:text="@string/main_today_used"
+              android:textAlignment="viewStart"
+              style="@style/TextStyleTodayUsedDesc" />
+    <RelativeLayout android:id="@id/today_used_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.0dp"
+                    android:paddingStart="0.0dp"
+                    android:paddingEnd="1.0dp">
+      <TextView android:id="@id/today_used"
+                android:text="@string/main_no_info"
+                android:layout_alignParentStart="true"
+                style="@style/TextStyleTodayUsedValue" />
+      <TextView android:id="@id/today_used_unit"
+                android:layout_alignBaseline="@id/today_used"
+                android:layout_toEndOf="@id/today_used"
+                style="@style/TextStyleTodayUsedUnit" />
+    </RelativeLayout>
+  </LinearLayout>
+  <FrameLayout android:layout_width="0.0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1.0">
+    <LinearLayout android:layout_gravity="center_horizontal"
+                  android:orientation="vertical"
+                  android:id="@id/layout_month_package"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+      <TextView android:gravity="bottom|center|start"
+                android:id="@id/month_used_text"
+                android:text="@string/main_month_used"
+                android:textAlignment="viewStart"
+                style="@style/TextStyleTodayUsedDesc" />
+      <RelativeLayout android:id="@id/month_package_box"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="4.0dp"
+                      android:paddingStart="0.0dp"
+                      android:paddingEnd="1.0dp">
+        <TextView android:id="@id/month_package"
+                  android:text="@string/main_no_info"
+                  style="@style/TextStyleTodayUsedValue" />
+        <TextView android:id="@id/month_package_goto"
+                  android:visibility="gone"
+                  android:text="@string/main_balance_check"
+                  android:drawableEnd="@drawable/na_ic_goto"
+                  style="@style/TextStyleTodayUsedValue" />
+        <TextView android:id="@id/month_package_unit"
+                  android:layout_alignBaseline="@id/month_package"
+                  android:layout_toEndOf="@id/month_package"
+                  style="@style/TextStyleTodayUsedUnit" />
+      </RelativeLayout>
+    </LinearLayout>
+  </FrameLayout>
+  <LinearLayout android:gravity="end"
+                android:orientation="vertical"
+                android:id="@id/layout_bill_remained"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+    <TextView android:gravity="bottom|center|start"
+              android:id="@id/main_bill_remained"
+              android:text="@string/main_bill_remained"
+              android:textAlignment="viewStart"
+              style="@style/TextStyleTodayUsedDesc" />
+    <RelativeLayout android:id="@id/bill_remained_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.0dp"
+                    android:paddingStart="0.0dp"
+                    android:paddingEnd="1.0dp">
+      <com.miui.antispam.ui.view.AutoScaleTextView android:id="@id/bill_remained"
+                            android:text="@string/main_no_info"
+                            android:layout_toStartOf="@id/bill_remained_unit"
+                            style="@style/TextStyleTodayUsedValue" />
+      <TextView android:id="@id/bill_remained_unit"
+                android:visibility="gone"
+                android:text="@string/yuan"
+                android:layout_alignBaseline="@id/bill_remained"
+                android:layout_alignParentEnd="true"
+                style="@style/TextStyleTodayUsedUnit" />
+    </RelativeLayout>
+  </LinearLayout>
+</LinearLayout>

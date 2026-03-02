@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:gravity="center_vertical"
+                      android:orientation="horizontal"
+                      android:paddingTop="@dimen/dp_14"
+                      android:paddingBottom="@dimen/dp_14"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/miuix_preference_item_padding_start"
+                      android:paddingEnd="@dimen/miuix_preference_item_padding_end"
+                      app:template="standard_button" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:area_id="@id/area_title">
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+              android:id="@id/tx_perm_op_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:fontFamily="@string/miuix_font_style_misans_medium_font_family" />
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+              android:id="@id/tx_perm_op_content"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:fontFamily="@string/miuix_font_style_misans_font_family" />
+  </LinearLayout>
+  <TextView android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            android:textColor="@color/os2_right_title_icon_color"
+            android:id="@id/spinner_perm_op"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/am_sort_drop_icon_margin_left"
+            android:drawableEnd="@drawable/am_sort_drop_icon"
+            app:area_id="@id/area_end" />
+</miuix.flexible.view.HyperCellLayout>

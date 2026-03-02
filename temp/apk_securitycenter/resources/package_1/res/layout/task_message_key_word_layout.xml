@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/view_dimen_80"
+             android:layout_marginEnd="@dimen/view_dimen_80" xmlns:android="http://schemas.android.com/apk/res/android">
+  <EditText android:gravity="center|start|top"
+            android:id="@id/edit_text"
+            android:background="@drawable/task_message_key_word_edit_text_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/view_dimen_313"
+            android:maxLines="3"
+            android:singleLine="false" />
+  <TextView android:textSize="@dimen/text_font_size_46"
+            android:textColor="@color/task_default_add_action_text_color"
+            android:layout_gravity="bottom|center|end"
+            android:id="@id/finish"
+            android:padding="@dimen/view_dimen_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auto_task_dialog_button_close" />
+</FrameLayout>

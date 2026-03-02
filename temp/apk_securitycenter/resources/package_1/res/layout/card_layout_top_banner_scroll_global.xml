@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:AutoScrollViewPager="http://schemas.android.com/apk/res-auto">
+  <com.miui.common.customview.AutoScrollViewPager android:layout_gravity="center"
+                        android:id="@id/view_pager"
+                        android:clipChildren="false"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        AutoScrollViewPager:defaultHeight="@dimen/security_center_viewpager_height_global"
+                        AutoScrollViewPager:defaultHeight1860="@dimen/security_center_viewpager_height_global_1860"
+                        AutoScrollViewPager:defaultHeight880="@dimen/security_center_viewpager_height_global_880" />
+  <com.miui.privacyapps.view.ViewPagerIndicator android:gravity="center_horizontal"
+                        android:layout_gravity="bottom|center"
+                        android:id="@id/indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+</FrameLayout>

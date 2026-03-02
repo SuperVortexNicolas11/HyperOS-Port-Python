@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:paddingLeft="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+             android:paddingRight="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <EditText android:textSize="14.0sp"
+            android:ellipsize="end"
+            android:id="@id/textview_input"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="numberDecimal" />
+  <miuix.appcompat.widget.Spinner android:entries="@array/traffic_input_dialog_spinner_unit"
+                        android:layout_gravity="center|end"
+                        android:id="@id/spinner_units"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="13.0dp" />
+</FrameLayout>

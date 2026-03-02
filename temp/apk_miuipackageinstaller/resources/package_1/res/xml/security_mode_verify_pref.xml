@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.preference.CheckBoxPreference android:title="@string/secure_mode_app_install_verify"
+                        android:key="secure_mode_app_install_verify"
+                        android:summary="@string/secure_mode_open_app_verify_des" />
+  <miuix.preference.PreferenceCategory android:title="@string/secure_mode_authority_verification_type"
+                        android:key="verify_method" />
+  <miuix.preference.SingleChoicePreference android:title="@string/xiaomi_account_risk"
+                        android:key="xiaomi_account_risk" />
+  <miuix.preference.SingleChoicePreference android:title="@string/lock_screen_risk"
+                        android:key="lock_screen_risk" />
+  <miuix.preference.SingleChoicePreference android:title="@string/lock_finger"
+                        android:key="lock_finger" />
+  <miuix.preference.SingleChoicePreference android:title="@string/face_verify_authority"
+                        android:key="face_verify_authority" />
+  <com.miui.packageInstaller.ui.setting.AccessibilityCommentPreference android:text="@string/no_set_lock_screen_tip"
+                        android:key="no_set_lock_screen_tip" />
+</PreferenceScreen>

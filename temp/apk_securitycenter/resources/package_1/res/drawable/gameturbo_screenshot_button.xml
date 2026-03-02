@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/view_dimen_66"
+        android:width="@dimen/view_dimen_66"
+        android:viewportWidth="66.0"
+        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gameturbo_screenshot_button__0"
+        android:pathData="M33,35.5V44L7,19L16,2L33,35.5Z" />
+  <path android:fillColor="@drawable/$gameturbo_screenshot_button__1"
+        android:pathData="M33,35.5V44L59,19L50,2L33,35.5Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+  <path android:fillColor="#00000000"
+        android:pathData="M49,51m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0"
+        android:strokeColor="@drawable/$gameturbo_screenshot_button__2"
+        android:strokeWidth="6.0" />
+  <path android:fillColor="#00000000"
+        android:pathData="M17,51m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0"
+        android:strokeColor="@drawable/$gameturbo_screenshot_button__3"
+        android:strokeWidth="6.0" />
+</vector>

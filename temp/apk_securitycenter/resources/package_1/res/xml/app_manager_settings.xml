@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:key="key_setting_category">
+    <Preference android:title="@string/app_manager_defaults_setting"
+                android:key="key_default_app_setting" />
+    <Preference android:title="@string/app_manager_systemapp_setting"
+                android:key="key_system_app_setting" />
+    <Preference android:title="@string/app_manager_deleted_system_app_title"
+                android:key="key_deleted_system_app" />
+    <Preference android:title="@string/app_manager_reset_app_preferences"
+                android:key="key_reset_app_preferences" />
+    <CheckBoxPreference android:title="@string/app_manager_appupdate_remind"
+                        android:key="am_update_remind" />
+    <CheckBoxPreference android:title="@string/app_manager_pref_ads"
+                        android:key="key_open_ads"
+                        android:defaultValue="true" />
+    <CheckBoxPreference android:key="key_anomaly_analysis" />
+    <Preference android:key="key_anomaly_analysis_result" />
+    <Preference android:title="@string/app_manager_shortcut_manager"
+                android:key="shortcut_manager_setting"
+                app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+</PreferenceScreen>

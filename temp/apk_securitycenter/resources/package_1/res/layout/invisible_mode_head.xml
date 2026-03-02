@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:background="@color/miuix_color_transparent"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_horizontal"
+             android:id="@id/head"
+             android:paddingTop="@dimen/dp_12"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/invisible_mode_head"
+             android:adjustViewBounds="true" />
+  <TextView android:textSize="14.0sp"
+            android:textColor="@color/invisible_mode_text_color"
+            android:id="@id/invisible_mode_description"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:text="@string/cetus_invisible_mode_description_switch"
+            android:paddingStart="@dimen/dp_16"
+            android:paddingEnd="@dimen/dp_16" />
+</LinearLayout>

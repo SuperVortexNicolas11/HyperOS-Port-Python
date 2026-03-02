@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/satellite_network_title"
+                  android:key="satellite_network_settings"
+                  settings:controller="com.android.settings.development.SatelliteNetworkPreferenceController"
+                  settings:searchable="false" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/satellite_call_assistant"
+                      android:key="satellite_call_assistant">
+    <SwitchPreference android:title="@string/sos_add_area_code_switch_title"
+                      android:key="sos_add_area_code_switch"
+                      android:summary="@string/sos_add_area_code_switch_summary" />
+    <com.android.settings.development.AreaCodeSettingsPreference android:hint="@string/sos_area_code_settings_hint"
+                          android:title="@string/sos_area_code_settings_title"
+                          android:key="sos_area_code_settings"
+                          android:summary="@string/sos_area_code_settings_summary"
+                          android:inputType="phone" />
+  </PreferenceCategory>
+</PreferenceScreen>

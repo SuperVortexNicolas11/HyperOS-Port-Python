@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:paddingHorizontal="80.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <include android:layout_gravity="center_horizontal"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           layout="@layout/mode_interstitial_layout_base" />
+</FrameLayout>

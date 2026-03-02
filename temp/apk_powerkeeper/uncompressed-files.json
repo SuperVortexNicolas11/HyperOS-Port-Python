@@ -1,0 +1,38 @@
+{
+  "extensions": [
+    ".jpg",
+    ".mp3",
+    ".mp4",
+    ".png",
+    ".wav",
+    ".webp"
+  ],
+  "paths": [
+    "assets/OWNERS",
+    "assets/local.config.md5",
+    "assets/overlay/elish/local.config",
+    "assets/overlay/xagain/local.config",
+    "assets/overlay/xagaproin/local.config",
+    "assets/union_power/common/other.config",
+    "assets/union_power/corot/intl/other_display_feature_group.config",
+    "assets/union_power/duchamp/base_power_save_mode_new.config",
+    "assets/union_power/goku/base_clear_unactive_music_apps.config",
+    "assets/union_power/goku/base_power_save_mode_new.config",
+    "assets/union_power/goku/base_video_idle_config.config",
+    "assets/union_power/goku/intl/base_power_save_mode_new.config",
+    "assets/union_power/goku/intl/special_cpu_doze_group.config",
+    "assets/union_power/manet/base_power_save_mode_new.config",
+    "assets/union_power/peridot/base_clear_unactive_music_apps.config",
+    "assets/union_power/peridot/base_video_idle_config.config",
+    "assets/union_power/peridot/intl/special_cpu_doze_group.config",
+    "assets/union_power/vermeer/base_power_save_mode_new.config",
+    "assets/union_power/vermeer/intl/base_power_save_mode_new.config",
+    "assets/union_power/yili/special_power_seg_group.config",
+    "classes.dex",
+    "res/drawable-hdpi-v4/icon.webp",
+    "res/drawable-xhdpi-v4/icon.webp",
+    "res/drawable-xxhdpi-v4/icon.webp",
+    "res/drawable-xxxhdpi-v4/icon.webp",
+    "resources.arsc"
+  ]
+}

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ImageView android:background="@drawable/gb_float_record_start"
+           android:layout_width="@dimen/gb_wonderful_record_floatball_size"
+           android:layout_height="@dimen/gb_wonderful_record_floatball_size" xmlns:android="http://schemas.android.com/apk/res/android" />

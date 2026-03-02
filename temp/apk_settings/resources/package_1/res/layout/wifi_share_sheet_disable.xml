@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.core.widget.NestedScrollView android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/layout_wifi_share_qrcode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <include layout="@layout/wifi_share_sheet_head" />
+    <ImageView android:layout_gravity="center_horizontal"
+               android:id="@id/qrcode"
+               android:layout_width="250.0dp"
+               android:layout_height="250.0dp"
+               android:layout_marginTop="30.0dp"
+               android:scaleType="fitCenter"
+               android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary.Preference"
+              android:textSize="17.0dp"
+              android:textStyle="bold"
+              android:textColor="@color/headline_text_color"
+              android:gravity="center"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/wifi_share_id"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30.0dp"
+              android:fontFamily="MiSans" />
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary.Preference"
+              android:textSize="14.0dp"
+              android:textColor="@color/headline_text_color"
+              android:gravity="center"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/wifi_share_password_id"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="70.0dp"
+              android:text="@string/wifi_share_plain_password_text" />
+  </LinearLayout>
+</miuix.core.widget.NestedScrollView>

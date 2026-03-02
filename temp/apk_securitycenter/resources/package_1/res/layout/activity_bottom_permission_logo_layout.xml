@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:id="@id/fragment_container"
+               android:layout_width="fill_parent"
+               android:layout_height="0.0dp"
+               android:layout_weight="1.0" />
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/text_security">
+    <com.miui.permcenter.settings.view.PrivacyIconImageView android:layout_gravity="center"
+                          android:id="@id/image"
+                          android:visibility="gone"
+                          android:layout_width="@dimen/dp_56"
+                          android:layout_height="@dimen/dp_24"
+                          android:layout_marginTop="@dimen/pp_bottom_icon_margin_top_bottom"
+                          android:layout_marginBottom="@dimen/pp_bottom_img_margin_top_bottom"
+                          android:src="@drawable/privacy_bottom_icon" />
+  </LinearLayout>
+</LinearLayout>

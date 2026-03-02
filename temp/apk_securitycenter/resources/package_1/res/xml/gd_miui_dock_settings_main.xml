@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.dock.settings.DockDescPreference android:enabled="false"
+                        android:key="preference_key_miui_dock_gallery"
+                        app:layout="@layout/gd_miui_dock_gallery_layout" />
+  <PreferenceCategory android:key="preference_category_key_settings">
+    <CheckBoxPreference android:title="@string/gd_setting_dock_title"
+                        android:key="preference_key_miui_dock_switch"
+                        android:summary="@string/gd_setting_dock_summary" />
+    <CheckBoxPreference android:title="@string/gs_gamebox"
+                        android:key="preference_key_gtb_switch"
+                        android:summary="@string/gd_setting_dock_game_summary_new" />
+    <CheckBoxPreference android:title="@string/videobox_settings_title"
+                        android:key="preference_key_vtb_switch"
+                        android:summary="@string/gd_setting_dock_video_summary_new" />
+    <CheckBoxPreference android:title="@string/gd_setting_dock_call_title"
+                        android:key="preference_key_conversation_switch"
+                        android:summary="@string/gd_setting_dock_call_summary_new" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/settings_category_other"
+                      android:key="gd_setting_group_custom_settings">
+    <miuix.preference.TextPreference android:title="@string/gd_setting_group_custom_gtb_apps_new"
+                          android:key="preference_key_gtb_apps_manage" />
+    <miuix.preference.TextPreference android:title="@string/gd_setting_group_custom_vtb_apps_new"
+                          android:key="preference_key_vtb_apps_manage" />
+    <miuix.preference.TextPreference android:title="@string/gd_setting_group_custom_beauty_new"
+                          android:key="preference_key_beauty_manage" />
+    <miuix.preference.TextPreference android:title="@string/gd_setting_group_custom_conversation_apps"
+                          android:key="preference_key_cb_voice_print" />
+    <miuix.preference.TextPreference android:title="@string/cs_privacy_camera_global_settings_title"
+                          android:key="preference_key_cb_privacy_camera" />
+  </PreferenceCategory>
+</PreferenceScreen>

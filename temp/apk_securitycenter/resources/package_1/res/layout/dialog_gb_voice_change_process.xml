@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:layout_gravity="center"
+               android:background="@drawable/gb_voice_change_dialog_loading_shape"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="@dimen/view_dimen_60"
+               android:layout_marginEnd="@dimen/view_dimen_60">
+    <TextView android:textSize="@dimen/view_dimen_32"
+              android:textColor="@color/whitealpha90"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/message_tv"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/gb_voice_changer_trial_gender_dialog" />
+  </FrameLayout>
+</FrameLayout>

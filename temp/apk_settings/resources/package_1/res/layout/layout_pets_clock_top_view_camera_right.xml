@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.clock.tiny.pets.PetsClockTopView android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layoutDirection="ltr" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/tiny_pets_180_date_text_size"
+            android:layout_gravity="end"
+            android:id="@id/tv_date_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_pets_180_date_margin_top"
+            android:fontFamily="mipro-heavy"
+            android:layout_marginEnd="@dimen/tiny_pets_180_date_margin_end" />
+  <TextView android:textSize="@dimen/tiny_pets_180_date_text_size"
+            android:layout_gravity="end"
+            android:id="@id/tv_week_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tiny_pets_180_week_margin_top"
+            android:fontFamily="mipro-heavy"
+            android:layout_marginEnd="@dimen/tiny_pets_180_week_margin_end" />
+  <include android:layout_gravity="end"
+           android:id="@id/battery_view_top"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginEnd="@dimen/tiny_pets_180_battery_margin_end"
+           layout="@layout/layout_battery_view" />
+</com.miui.clock.tiny.pets.PetsClockTopView>

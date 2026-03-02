@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="32.0dp"
+        android:width="32.0dp"
+        android:viewportWidth="32.0"
+        android:viewportHeight="32.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="@color/pm_icon_background_color"
+        android:pathData="M8,0L24,0A8,8 0,0 1,32 8L32,24A8,8 0,0 1,24 32L8,32A8,8 0,0 1,0 24L0,8A8,8 0,0 1,8 0z"
+        android:fillAlpha="@dimen/pm_icon_background_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M20.497,16.702C21.375,15.636 21.903,14.27 21.903,12.78C21.903,9.372 19.14,6.61 15.732,6.61C12.324,6.61 9.561,9.372 9.561,12.78C9.561,14.269 10.089,15.636 10.967,16.702L12.904,19.176C12.904,19.176 12.904,19.176 12.904,19.176L14.045,20.635C14.045,20.635 14.045,20.635 14.045,20.635L15.066,21.938C15.405,22.371 16.06,22.371 16.399,21.938L20.497,16.702ZM17.636,12.78C17.636,13.832 16.784,14.684 15.732,14.684C14.681,14.684 13.828,13.832 13.828,12.78C13.828,11.729 14.681,10.877 15.732,10.877C16.784,10.877 17.636,11.729 17.636,12.78Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha"
+        android:fillType="evenOdd" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M7.415,22.305C7.415,21.111 9.011,20.064 11.414,19.469L12.469,20.817C10.527,21.123 9.231,21.675 9.231,22.305C9.231,23.268 12.262,24.049 16,24.049C19.739,24.049 22.77,23.268 22.77,22.305C22.77,21.624 21.257,21.035 19.05,20.747L20.132,19.364C22.787,19.935 24.586,21.038 24.586,22.305C24.586,24.157 20.742,25.658 16,25.658C11.259,25.658 7.415,24.157 7.415,22.305Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M21.364,21.416C21.365,21.416 21.355,21.424 21.33,21.441C21.35,21.424 21.362,21.416 21.364,21.416Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M10.637,21.416C10.639,21.416 10.651,21.424 10.671,21.441C10.646,21.424 10.636,21.416 10.637,21.416Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M10.637,23.193C10.636,23.193 10.646,23.185 10.671,23.169C10.651,23.185 10.639,23.194 10.637,23.193Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha" />
+  <path android:fillColor="@color/pm_icon_middle_color"
+        android:pathData="M21.33,23.169C21.355,23.185 21.365,23.193 21.364,23.193C21.362,23.194 21.35,23.185 21.33,23.169Z"
+        android:fillAlpha="@dimen/pm_icon_middle_fillAlpha" />
+</vector>

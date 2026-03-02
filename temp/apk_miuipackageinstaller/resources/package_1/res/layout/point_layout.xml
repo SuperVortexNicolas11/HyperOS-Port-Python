@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<View android:background="@drawable/point_selector"
+      android:layout_width="@dimen/dp_5.45"
+      android:layout_height="@dimen/dp_5.45" xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <Button android:textSize="16.7sp"
+          android:id="@id/btNext"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/dp_28"
+          android:layout_marginTop="@dimen/btn_action_margin_top"
+          android:layout_marginRight="@dimen/dp_28"
+          android:layout_marginBottom="@dimen/btn_action_margin_top"
+          android:text="@string/traffic_setting_fragment_button2_text"
+          android:layout_marginHorizontal="@dimen/dp_28"
+          style="@style/Widget.Button.Warning" />
+</LinearLayout>

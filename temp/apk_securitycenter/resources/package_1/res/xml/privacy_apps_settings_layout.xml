@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <CheckBoxPreference android:title="@string/privacy_apps_shield_message_title"
+                      android:key="pa_shield_message"
+                      android:summary="@string/privacy_apps_shield_message_summary" />
+  <CheckBoxPreference android:title="@string/privacy_apps_password_auth_title"
+                      android:key="pa_password_enable"
+                      android:summary="@string/privacy_apps_password_auth_summary" />
+  <Preference android:title="@string/privacy_apps_tutorial"
+              android:key="privacy_apps_tutorial" />
+</PreferenceScreen>

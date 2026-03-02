@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:id="@id/top_layout"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           layout="@layout/warning_car_accident_demo_call_top_layout" />
+  <ImageView android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="@dimen/dp_40"
+             android:src="@drawable/warning_car_accident_emergency_call_icon"
+             app:layout_constraintBottom_toTopOf="@id/emergency_hang_up"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent" />
+  <ImageView android:id="@id/emergency_hang_up"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="@dimen/dp_55"
+             android:src="@drawable/warning_car_accident_demo_hangup"
+             android:contentDescription="@string/warning_car_accident_demo_hang_up"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

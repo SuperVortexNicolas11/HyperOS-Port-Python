@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="62.0dp"
+        android:width="62.0dp"
+        android:viewportWidth="62.0"
+        android:viewportHeight="62.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <group>
+    <clip-path android:pathData="M16.534,0L45.466,0A16.534,16.534 0,0 1,62 16.534L62,45.466A16.534,16.534 0,0 1,45.466 62L16.534,62A16.534,16.534 0,0 1,0 45.466L0,16.534A16.534,16.534 0,0 1,16.534 0z" />
+    <path android:fillColor="@drawable/$elder_care_weather__0"
+          android:pathData="M-6.728,-6.728L68.463,-6.728V68.463H-6.728L-6.728,-6.728Z" />
+    <group>
+      <clip-path android:pathData="M9.102,13.06h43.532v35.353h-43.532z" />
+      <path android:fillColor="@drawable/$elder_care_weather__1"
+            android:pathData="M42.345,23.349m10.289,0a10.289,10.289 0,1 0,-20.579 0a10.289,10.289 0,1 0,20.579 0" />
+      <path android:fillColor="@drawable/$elder_care_weather__2"
+            android:pathData="M29.681,18.6C35.946,18.6 41.026,23.679 41.026,29.945C41.026,30.402 40.995,30.852 40.943,31.294C45.42,31.65 48.94,35.338 48.94,39.838C48.94,44.557 45.07,48.384 40.285,48.41V48.412H19.641L19.64,48.411C13.819,48.403 9.102,43.683 9.102,37.86C9.102,32.375 13.286,27.868 18.636,27.356C19.808,22.338 24.307,18.6 29.681,18.6Z"
+            android:fillAlpha="0.8" />
+      <path android:fillColor="@drawable/$elder_care_weather__3"
+            android:pathData="M29.681,29.945m11.345,0a11.345,11.345 0,1 0,-22.689 0a11.345,11.345 0,1 0,22.689 0"
+            android:fillAlpha="0.1" />
+    </group>
+  </group>
+</vector>

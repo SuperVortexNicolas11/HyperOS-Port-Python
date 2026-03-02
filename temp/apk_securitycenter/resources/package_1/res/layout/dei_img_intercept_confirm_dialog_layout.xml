@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:paddingTop="@dimen/view_dimen_45"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/view_dimen_80"
+              android:paddingEnd="@dimen/view_dimen_80" xmlns:android="http://schemas.android.com/apk/res/android">
+  <Button android:textSize="@dimen/pp_activity_del_img_intercept_btn_text_size"
+          android:textColor="@color/pp_activity_del_img_intercept_del_and_exit_btn_text_color"
+          android:gravity="center"
+          android:id="@id/exit_and_del_pic"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/result_page_padding"
+          android:layout_marginBottom="@dimen/dp_px_45"
+          android:text="@string/image_protect_exit_and_del" />
+  <Button android:textSize="@dimen/pp_activity_del_img_intercept_btn_text_size"
+          android:textColor="@color/color_black_trans_80"
+          android:gravity="center"
+          android:id="@id/cancel_action"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/cancel" />
+</LinearLayout>

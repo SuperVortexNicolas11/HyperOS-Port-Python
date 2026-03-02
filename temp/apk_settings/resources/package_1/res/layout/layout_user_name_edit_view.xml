@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layoutDirection="locale" xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.androidbasewidget.widget.EditText android:textSize="16.0sp"
+                        android:ellipsize="end"
+                        android:gravity="center|start"
+                        android:id="@id/edit_user_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:fontFamily="mipro-medium"
+                        android:textDirection="locale"
+                        android:textAlignment="viewStart"
+                        android:layout_marginStart="@dimen/miuix_appcompat_dialog_button_panel_horizontal_margin"
+                        android:layout_marginEnd="@dimen/miuix_appcompat_dialog_button_panel_horizontal_margin" />
+</FrameLayout>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory>
+    <com.miui.powercenter.fastCharge.OneImagePreference android:icon="@drawable/pc_fast_charge_page_drawable" />
+    <miuix.preference.TextPreference android:enabled="false"
+                          android:summary="@string/pc_fast_charge_switch_summary" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/pc_fast_charge_switch_title"
+                        android:key="fast_charge_enabled" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/pc_fast_charge_notifi_switch_title"
+                        android:key="fast_charge_notification_enabled"
+                        android:summary="@string/pc_fast_charge_switch_summary_new" />
+    <miuix.preference.DropDownPreference android:persistent="false"
+                          android:entries="@array/pc_fast_charge_entry"
+                          android:title="@string/pc_fast_charge_notifi_power_threshold_title"
+                          android:key="power_threshold"
+                          android:dependency="fast_charge_notification_enabled"
+                          android:entryValues="@array/pc_fast_charge_entry_value" />
+  </PreferenceCategory>
+</PreferenceScreen>

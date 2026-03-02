@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/pc_battery_chart_root"
+              android:paddingLeft="@dimen/power_main_view_common_padding"
+              android:paddingRight="@dimen/power_main_view_common_padding"
+              android:focusable="true"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:contentDescription="@string/pc_battery_history_item_chart"
+              android:importantForAccessibility="yes"
+              android:paddingHorizontal="@dimen/power_main_view_common_padding" xmlns:android="http://schemas.android.com/apk/res/android">
+  <include layout="@layout/pc_battery_statics_usedtime_model" />
+  <include layout="@layout/pc_battery_statics_chart_model_chart" />
+  <View android:background="@color/pc_main_card_border_whole_color"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/pc_battery_statics_split_height"
+        android:layout_marginTop="@dimen/view_dimen_60"
+        android:layout_marginBottom="@dimen/view_dimen_60" />
+  <TextView android:textSize="@dimen/text_font_size_36"
+            android:textColor="@color/tab_sort_text"
+            android:gravity="center_vertical"
+            android:id="@id/spinner_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_dimen_100"
+            android:text="@string/pc_battery_history_consume_rank_menu_item"
+            android:drawableEnd="@drawable/fw_expand_indicator"
+            android:layout_marginStart="@dimen/pc_power_history_layout_padding_horizon" />
+</LinearLayout>

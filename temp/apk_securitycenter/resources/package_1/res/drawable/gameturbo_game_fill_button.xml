@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/dp_23"
+        android:width="@dimen/dp_23"
+        android:viewportWidth="23.0"
+        android:viewportHeight="23.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gameturbo_game_fill_button__0"
+        android:pathData="M20.5668,2.0898H1.9001V20.7565H20.5668V2.0898ZM9.9005,4.7562L6.5671,4.7562L4.5671,4.7562V6.7562L4.5671,10.0895H6.5671L6.5671,6.7562H9.9005V4.7562ZM15.9005,18.0895L12.5671,18.0895V16.0895H15.9005V12.7562H17.9005V16.0895V18.0895H15.9005Z"
+        android:fillType="evenOdd" />
+</vector>

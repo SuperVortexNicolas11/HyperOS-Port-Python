@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:background="@color/securityscan_bgcolor"
+                android:paddingTop="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:paddingStart="@dimen/result_card_margin_left"
+                android:paddingEnd="@dimen/result_card_margin_left" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            style="@style/CardListTitleTextiViewStyle" />
+</RelativeLayout>

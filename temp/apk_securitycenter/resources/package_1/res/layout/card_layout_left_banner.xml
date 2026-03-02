@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:background="@drawable/hp_card_bg_no_shadow_selector"
+              android:paddingTop="@dimen/result_card_margin_top_bottom"
+              android:paddingBottom="@dimen/result_card_margin_top_bottom"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/card_main_left_banner_height"
+              android:paddingStart="@dimen/result_card_margin_left"
+              android:paddingEnd="@dimen/result_card_margin_left" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/icon"
+             style="@style/ListIconNoMargin" />
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_2">
+    <TextView android:id="@id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/HpCardTitleTextViewStyle" />
+    <TextView android:id="@id/summary"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxLines="2"
+              style="@style/HpCardSummaryTextViewStyle" />
+  </LinearLayout>
+  <ViewStub android:layout_gravity="center_vertical"
+            android:id="@id/button_stub"
+            android:layout="@layout/card_layout_left_banner_button_stub"
+            style="@style/CardActionButtonStyle" />
+</LinearLayout>

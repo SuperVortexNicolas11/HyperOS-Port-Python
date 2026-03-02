@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/rootView"
+              android:layout_width="fill_parent"
+              android:layout_marginBottom="0.0dp"
+              android:minHeight="0.0dp"
+              style="@style/GBPerformanceItem" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@id/second_root"
+                android:paddingTop="@dimen/dp_12_50"
+                android:paddingBottom="@dimen/dp_12_50"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="0.0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"
+                  android:layout_marginEnd="@dimen/view_dimen_30">
+      <TextView android:textSize="@dimen/dp_13_82"
+                android:id="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_18"
+                style="@style/GBSettingItemTitle" />
+      <TextView android:textSize="@dimen/dp_11"
+                android:id="@id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_3_28"
+                style="@style/GBSettingItemSubtitle" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center_vertical"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_performance_more_setting"
+               android:scaleType="centerCrop" />
+  </LinearLayout>
+  <ImageView android:id="@id/bottomImg"
+             android:background="@drawable/gb_wifi_settings_bg"
+             android:paddingTop="@dimen/view_dimen_36"
+             android:paddingBottom="@dimen/view_dimen_36"
+             android:visibility="gone"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="@dimen/view_dimen_24"
+             android:paddingStart="@dimen/view_dimen_50"
+             android:paddingEnd="@dimen/view_dimen_50" />
+</LinearLayout>

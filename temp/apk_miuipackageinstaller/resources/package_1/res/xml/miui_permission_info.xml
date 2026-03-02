@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/miui_security_relative"
+                      android:key="security_relative" />
+  <PreferenceCategory android:title="@string/miui_privacy_relative"
+                      android:key="privacy_relative" />
+  <PreferenceCategory android:key="other_relative">
+    <miuix.preference.TextPreference android:title="@string/miui_other_permission"
+                          android:key="other_relative_item" />
+  </PreferenceCategory>
+  <Preference android:key="bottom_logo"
+              app:layout="@layout/preference_bottom_privacy_logo_layout" />
+</PreferenceScreen>

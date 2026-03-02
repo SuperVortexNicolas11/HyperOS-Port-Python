@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="@dimen/dp_32"
+             android:paddingStart="@dimen/miuix_preference_item_padding_start"
+             android:paddingEnd="@dimen/miuix_preference_item_padding_end" xmlns:android="http://schemas.android.com/apk/res/android">
+  <View android:layout_gravity="center_vertical"
+        android:id="@id/perm_content_gap"
+        android:background="@color/pm_setting_divider_color"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/view_dimen_2" />
+</FrameLayout>

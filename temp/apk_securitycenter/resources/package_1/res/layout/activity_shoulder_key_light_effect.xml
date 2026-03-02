@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      app:scrollableView="@id/content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.core.widget.NestedScrollView android:id="@id/content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent">
+      <FrameLayout android:orientation="horizontal"
+                   android:id="@id/layout_title"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="@dimen/view_dimen_102"
+                   android:minHeight="@dimen/view_dimen_160"
+                   android:layout_marginStart="@dimen/view_dimen_80"
+                   android:layout_marginEnd="@dimen/view_dimen_80"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="@dimen/view_dimen_50"
+                  android:textColor="@color/color_videobox_main_btn_txt"
+                  android:layout_gravity="center|start"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/gb_shoulder_key_light_effect_title" />
+        <miuix.slidingwidget.widget.SlidingButton android:layout_gravity="center|end"
+                              android:id="@id/light_switch"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:checked="true" />
+      </FrameLayout>
+      <TextView android:textSize="@dimen/view_dimen_50"
+                android:textColor="@color/color_videobox_main_btn_txt"
+                android:gravity="center_vertical"
+                android:id="@id/view_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/view_dimen_160"
+                android:text="@string/gb_shoulder_key_light_effect_color"
+                android:layout_marginStart="@dimen/view_dimen_80"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_title" />
+      <LinearLayout android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:id="@id/color_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/view_dimen_170"
+                    android:layout_marginStart="@dimen/view_dimen_80"
+                    android:layout_marginEnd="@dimen/view_dimen_80"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_color" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+</miuix.springback.view.SpringBackLayout>

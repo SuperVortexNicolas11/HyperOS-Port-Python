@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="1000.0dp"
+        android:width="1080.0dp"
+        android:viewportWidth="1080.0"
+        android:viewportHeight="1000.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <group>
+    <clip-path android:pathData="M0,0h1080v1000h-1080z" />
+    <path android:fillColor="#ffffff"
+          android:pathData="M0,0h1080v780h-1080z" />
+    <path android:fillColor="@drawable/$activity_no_credible_bg__0"
+          android:pathData="M540,-269m-945,0a945,945 0,1 1,1890 0a945,945 0,1 1,-1890 0"
+          android:strokeAlpha="0.4"
+          android:fillAlpha="0.4" />
+  </group>
+</vector>

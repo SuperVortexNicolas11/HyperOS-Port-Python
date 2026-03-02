@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:gravity="center_horizontal"
+                android:id="@id/ll_top_result"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:id="@id/result_img_content"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent">
+    <ImageView android:layout_gravity="center_horizontal"
+               android:id="@id/iv_circle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/result_top_icon" />
+    <ImageView android:layout_gravity="center_horizontal"
+               android:id="@id/result_score_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/firstaidkit_result_score_icon_margin_top" />
+  </FrameLayout>
+  <TextView android:textSize="@dimen/firstaidkit_box_summary_textsize"
+            android:textStyle="bold"
+            android:textColor="@color/first_aid_box_summary_textcolor"
+            android:id="@id/tv_summary_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/firstaidkit_circle_summary_margin_top"
+            android:singleLine="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/firstaidkit_circle_summary_margin_start"
+            android:layout_marginEnd="@dimen/firstaidkit_circle_summary_margin_end" />
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/shape_result_card_border_whole"
+                      android:padding="16.0dp"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textColor="@color/color_deep_orange_primary_default"
+            android:ellipsize="end"
+            android:id="@android:id/title"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/ListItemTitle" />
+  <miuix.recyclerview.widget.RecyclerView android:id="@android:id/list"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        app:layoutManager="androidx.recyclerview.widget.SpringLinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@android:id/title" />
+  <Button android:id="@android:id/button1"
+          android:text="@string/apps_item_virus_cleanup_text"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@android:id/list"
+          app:layout_constraintWidth_max="128.0dp"
+          style="@style/ResultBlueButtonStyle" />
+  <Button android:textSize="@dimen/sp_14"
+          android:textColor="@color/result_card_item_summary_color"
+          android:gravity="center_vertical"
+          android:id="@id/ignore"
+          android:background="@null"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/apps_item_virus_ignore_text"
+          android:layout_marginEnd="@dimen/dp_24"
+          app:layout_constraintBottom_toBottomOf="@android:id/button1"
+          app:layout_constraintEnd_toStartOf="@android:id/button1"
+          app:layout_constraintTop_toTopOf="@android:id/button1"
+          app:layout_constraintWidth_max="128.0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:orientation="vertical"
+                android:id="@id/root_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_above="@id/applock_button_confirm_lock_unlock"
+                        app:scrollableView="@id/scroll_content">
+    <androidx.core.widget.NestedScrollView android:id="@id/scroll_content"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent">
+      <RelativeLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center_horizontal"
+                   android:id="@id/icon2"
+                   android:layout_width="@dimen/confirm_account_icon_width"
+                   android:layout_height="@dimen/confirm_account_icon_width"
+                   android:layout_marginTop="@dimen/confirm_account_icon"
+                   android:src="@drawable/icon_app_pad"
+                   android:scaleType="centerCrop"
+                   android:layout_alignParentTop="true"
+                   android:layout_centerHorizontal="true" />
+        <TextView android:textSize="@dimen/text_font_size_50"
+                  android:gravity="center_horizontal"
+                  android:layout_gravity="center_horizontal"
+                  android:id="@id/tv_account_status"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/confirm_account_status_topmargin"
+                  android:text="@string/applock_not_login_account"
+                  android:layout_below="@id/icon2"
+                  android:layout_centerHorizontal="true"
+                  android:fontFamily="mipro-medium"
+                  android:layout_marginStart="@dimen/view_dimen_40"
+                  android:layout_marginEnd="@dimen/view_dimen_40" />
+        <LinearLayout android:orientation="vertical"
+                      android:id="@id/choose_lock_top_layout"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/confirm_account_status_info_topmargin"
+                      android:layout_below="@id/tv_account_status"
+                      android:layout_marginStart="@dimen/view_dimen_40"
+                      android:layout_marginEnd="@dimen/view_dimen_40">
+          <TextView android:textSize="@dimen/text_font_size_50"
+                    android:textColor="@color/applock_number_circle_color"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@id/privacy_password_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/applock_add_account_title_part"
+                    android:fontFamily="mipro-medium" />
+          <TextView android:textSize="@dimen/text_font_size_42"
+                    android:textColor="@color/applock_reset_header_text_color"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_dimen_10"
+                    android:text="@string/applock_exit_account_info" />
+        </LinearLayout>
+      </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+  </miuix.springback.view.SpringBackLayout>
+  <Button android:textSize="@dimen/sp_13"
+          android:textColor="@color/micloud_storage_item_text_color"
+          android:id="@id/applock_button_confirm_lock_unlock"
+          android:background="@android:color/transparent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/applock_not_bind_margin_bottom"
+          android:layout_marginBottom="@dimen/applock_not_bind_margin_bottom"
+          android:text="@string/applock_not_add_account"
+          android:maxLines="2"
+          android:layout_alignParentBottom="true"
+          android:layout_centerHorizontal="true" />
+</RelativeLayout>

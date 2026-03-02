@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@android:id/content"
+              android:background="@color/activity_optimize_handle_bg_orange"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <RelativeLayout android:id="@id/header_bar"
+                  android:layout_width="fill_parent"
+                  android:layout_height="@dimen/optimize_header_bar_height" />
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/handle_bar"
+                android:background="@drawable/main_page_background"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dp"
+                android:layout_weight="1.0" />
+</LinearLayout>

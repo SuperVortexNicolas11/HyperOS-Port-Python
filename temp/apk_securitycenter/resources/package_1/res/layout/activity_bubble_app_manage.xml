@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/root"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:id="@id/search_input_view"
+           android:visibility="gone"
+           app:layout_constraintTop_toTopOf="parent"
+           layout="@layout/miuix_appcompat_search_stub" />
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="0.0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/search_input_view"
+                        app:scrollableView="@id/rv_app_list">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/rv_app_list"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" />
+  </miuix.springback.view.SpringBackLayout>
+  <ImageView android:id="@id/iv_empty_app_icon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/ic_bubble_application"
+             app:layout_constraintBottom_toTopOf="@id/tv_empty_desc"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintVertical_chainStyle="packed" />
+  <TextView android:textSize="@dimen/bubble_desc_text_size"
+            android:textColor="@color/bubble_app_empty_desc_bg"
+            android:gravity="center_horizontal"
+            android:id="@id/tv_empty_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bubble_desc_text_margin_top"
+            android:text="@string/bubble_app_empty_page"
+            android:paddingStart="@dimen/bubble_desc_text_margin_start"
+            android:paddingEnd="@dimen/bubble_desc_text_margin_start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_empty_app_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

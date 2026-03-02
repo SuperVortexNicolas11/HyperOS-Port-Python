@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:paddingStart="@dimen/dp_36"
+              android:paddingEnd="@dimen/dp_36" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textSize="@dimen/dp_34"
+            android:textColor="@color/car_accident_alert_top_text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_car_accident_alert_waiting_rescue"
+            android:textAlignment="viewStart" />
+  <View android:background="@color/car_accident_alert_line_bg_color"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_20" />
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="100.0dp"
+                        app:scrollOrientation="vertical"
+                        app:scrollableView="@id/scroll_view">
+    <ScrollView android:id="@id/scroll_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+      <LinearLayout android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+        <com.miui.warningcenter.caraccident.ui.AlertOptionItemView android:id="@id/item_time"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginBottom="@dimen/dp_9"
+                              app:item_icon="@drawable/warning_car_accident_alert_waiting_time_icon" />
+        <com.miui.warningcenter.caraccident.ui.AlertOptionItemView android:id="@id/send_message"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginBottom="@dimen/dp_9"
+                              app:item_icon="@drawable/warning_car_accident_alert_waiting_confirm_icon"
+                              app:item_text="@string/warning_car_accident_alert_option_item_contats" />
+        <com.miui.warningcenter.caraccident.ui.AlertOptionItemView android:id="@id/call_120"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              app:item_icon="@drawable/warning_car_accident_alert_waiting_confirm_icon"
+                              app:item_text="@string/warning_car_accident_alert_option_item_call" />
+      </LinearLayout>
+    </ScrollView>
+  </miuix.springback.view.SpringBackLayout>
+  <TextView android:textSize="@dimen/dp_17"
+            android:textColor="@color/car_accident_demo_circle_pressed_color"
+            android:gravity="center"
+            android:id="@id/medical_card"
+            android:background="@drawable/warning_car_accident_alert_medical_bg"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:minHeight="@dimen/dp_50"
+            android:text="@string/ew_main_emergency_title"
+            android:fontFamily="mipro-demibold" />
+</LinearLayout>

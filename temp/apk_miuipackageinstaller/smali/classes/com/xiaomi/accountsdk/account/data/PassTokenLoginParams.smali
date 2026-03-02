@@ -1,0 +1,178 @@
+.class public Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+    }
+.end annotation
+
+
+# instance fields
+.field public final deviceId:Ljava/lang/String;
+
+.field public final isGetPhoneTicketLoginMetaData:Z
+
+.field public final loginRequestUrl:Ljava/lang/String;
+
+.field public final packageName:Ljava/lang/String;
+
+.field public final passToken:Ljava/lang/String;
+
+.field public final returnStsUrl:Z
+
+.field public final serviceId:Ljava/lang/String;
+
+.field public final uDevId:Ljava/lang/String;
+
+.field public final userId:Ljava/lang/String;
+
+
+# direct methods
+.method private constructor <init>(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)V
+    .locals 1
+
+    .line 2
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 3
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$000(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->userId:Ljava/lang/String;
+
+    .line 4
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$100(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->passToken:Ljava/lang/String;
+
+    .line 5
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$200(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->serviceId:Ljava/lang/String;
+
+    .line 6
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$300(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->loginRequestUrl:Ljava/lang/String;
+
+    .line 7
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$400(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->deviceId:Ljava/lang/String;
+
+    .line 8
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$500(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->uDevId:Ljava/lang/String;
+
+    .line 9
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$600(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->returnStsUrl:Z
+
+    .line 10
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$700(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->isGetPhoneTicketLoginMetaData:Z
+
+    .line 11
+    invoke-static {p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->access$800(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->packageName:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$1;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;-><init>(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;)V
+
+    return-void
+.end method
+
+.method public static buildUpon(Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+    .locals 2
+
+    new-instance v0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    invoke-direct {v0}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;-><init>()V
+
+    iget-object v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->userId:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->userId(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->passToken:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->passToken(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->serviceId:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->serviceId(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->loginRequestUrl:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->loginRequestUrl(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->deviceId:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->deviceId(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->uDevId:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->uDevId(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->returnStsUrl:Z
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->isReturnStsUrl(Z)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->isGetPhoneTicketLoginMetaData:Z
+
+    invoke-virtual {v0, v1}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->isGetPhoneTicketLoginMetaData(Z)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;->packageName(Ljava/lang/String;)Lcom/xiaomi/accountsdk/account/data/PassTokenLoginParams$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical"
+                      android:id="@id/cl_root"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/dp_12"
+                      android:layout_marginBottom="@dimen/dp_4" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.packageInstaller.view.RoundImageView android:id="@id/app_icon"
+                        android:layout_width="@dimen/full_safe_app_icon_size"
+                        android:layout_height="@dimen/full_safe_app_icon_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:round_corner="@dimen/full_safe_app_icon_radius" />
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/full_safe_app_icon_info_spacing"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/app_icon"
+                app:layout_constraintTop_toTopOf="parent">
+    <TextView android:textSize="@dimen/sp_18"
+              android:textColor="@color/black"
+              android:id="@id/app_name"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" />
+    <TextView android:textSize="@dimen/sp_14"
+              android:textColor="@color/black_50"
+              android:id="@id/developer_name"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dp_4" />
+    <TextView android:textSize="@dimen/sp_14"
+              android:textColor="@color/black_50"
+              android:id="@id/logo_text"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dp_4"
+              android:text="@string/verified_app_logo_text"
+              android:drawablePadding="@dimen/sp_6"
+              android:drawableStart="@drawable/verified_app_logo" />
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

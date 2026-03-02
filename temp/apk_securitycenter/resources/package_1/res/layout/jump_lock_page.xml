@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:id="@id/search_view"
+           layout="@layout/miuix_appcompat_search_stub" />
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollOrientation="vertical|angle"
+                        app:scrollableView="@id/listnolockapps">
+    <miuix.recyclerview.widget.RecyclerView android:orientation="vertical"
+                          android:id="@id/listnolockapps"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:overScrollMode="ifContentScrolls"
+                          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+  </miuix.springback.view.SpringBackLayout>
+</LinearLayout>

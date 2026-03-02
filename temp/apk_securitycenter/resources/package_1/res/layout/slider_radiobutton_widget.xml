@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TextView android:textSize="@dimen/sp_15"
+          android:textColor="#ff0097ff"
+          android:gravity="center"
+          android:id="@id/slider_right_tv"
+          android:background="@drawable/slider_button_view"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:minWidth="@dimen/dp_70"
+          android:text="@string/dialog_btn_yes_create_icon" xmlns:android="http://schemas.android.com/apk/res/android" />

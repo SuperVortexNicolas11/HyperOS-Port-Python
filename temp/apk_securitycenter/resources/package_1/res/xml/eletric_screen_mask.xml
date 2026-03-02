@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/eletric_card_one_identification_risk_screen">
+    <CheckBoxPreference android:title="@string/eletric_card_one_identification_risk_screen"
+                        android:key="key_protect_screen"
+                        android:summary="@string/eletric_card_one_identification_risk_screen_summary" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.electricrisk.ElectricMaskBaseRVPreference app:image_src="@drawable/electric_screen_mask_img1" />
+    <miuix.preference.TextPreference app:clickable="false"
+                          app:summary="@string/eletric_group_title_one_identification_risk_screen_summary"
+                          app:title="@string/eletric_group_title_one_identification_risk_screen"
+                          app:touchAnimationEnable="false" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.electricrisk.ElectricMaskBaseRVPreference app:image_src="@drawable/electric_screen_mask_img2" />
+    <miuix.preference.TextPreference app:clickable="false"
+                          app:summary="@string/eletric_group_title_two_identification_risk_screen_summary"
+                          app:title="@string/eletric_group_title_two_identification_risk_screen"
+                          app:touchAnimationEnable="false" />
+  </PreferenceCategory>
+</PreferenceScreen>

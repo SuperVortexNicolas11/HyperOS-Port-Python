@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/root"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:id="@id/my_content"
+               android:layout_width="fill_parent"
+               android:layout_height="0.0dp"
+               android:layout_weight="1.0" />
+  <Button android:layout_gravity="center_horizontal"
+          android:id="@id/button_ok"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dp_5"
+          android:layout_marginBottom="@dimen/dp_28"
+          android:text="@string/antivirus_none_engine_dialog_ok"
+          android:layout_marginStart="@dimen/pp_compact_cta_btn_horizontal"
+          android:layout_marginEnd="@dimen/pp_compact_cta_btn_horizontal"
+          style="@style/Widget.Button.Primary" />
+</LinearLayout>

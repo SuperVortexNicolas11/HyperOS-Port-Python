@@ -1,0 +1,68 @@
+.class Lcom/miui/securityscan/ui/main/TabletTextureView$b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/miui/securityscan/ui/main/TabletTextureView;->s(FF)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/miui/securityscan/ui/main/TabletTextureView;
+
+
+# direct methods
+.method constructor <init>(Lcom/miui/securityscan/ui/main/TabletTextureView;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/miui/securityscan/ui/main/TabletTextureView$b;->a:Lcom/miui/securityscan/ui/main/TabletTextureView;
+
+    .line 2
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    return-void
+    .line 7
+.end method
+
+
+# virtual methods
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 1
+
+    .line 1
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    .line 2
+    move-result-object p1
+
+    .line 5
+    check-cast p1, Ljava/lang/Float;
+
+    .line 6
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    .line 8
+    move-result p1
+
+    .line 11
+    iget-object v0, p0, Lcom/miui/securityscan/ui/main/TabletTextureView$b;->a:Lcom/miui/securityscan/ui/main/TabletTextureView;
+
+    .line 12
+    invoke-virtual {v0, p1}, Lcom/miui/securityscan/ui/main/TabletTextureView;->setRenderState(F)V
+
+    .line 14
+    return-void
+    .line 17
+.end method

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:layout_width="fill_parent"
+            android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <ImageView android:layout_gravity="center"
+               android:id="@id/charge_image"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/view_dimen_30"
+               android:src="@drawable/charger_detect"
+               style="?android:attr/textAppearanceMedium" />
+    <TextView android:textSize="18.0sp"
+              android:textStyle="bold"
+              android:textColor="@color/battery_low_title_color"
+              android:id="@id/charge_detect_info1"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_107"
+              android:text="@string/charger_detect_info1"
+              android:layout_marginStart="@dimen/view_dimen_120"
+              android:layout_marginEnd="@dimen/view_dimen_120"
+              style="?android:attr/textAppearanceMedium" />
+    <TextView android:textSize="14.0sp"
+              android:textColor="@color/battery_low_percent_color"
+              android:id="@id/charge_detect_info2"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_40"
+              android:text="@string/charger_detect_info2"
+              android:layout_marginStart="@dimen/view_dimen_120"
+              android:layout_marginEnd="@dimen/view_dimen_120" />
+    <androidx.appcompat.widget.AppCompatCheckBox android:textSize="16.0sp"
+                          android:textColor="@color/battery_low_percent_color"
+                          android:id="@id/checkbox"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/view_dimen_40"
+                          android:text="@string/charger_detect_no_remind"
+                          android:drawablePadding="@dimen/miuix_appcompat_dialog_checkbox_inner_padding"
+                          android:layout_marginStart="@dimen/view_dimen_120"
+                          android:layout_marginEnd="@dimen/view_dimen_120"
+                          style="?attr/dialogCheckBoxStyle" />
+  </LinearLayout>
+</ScrollView>

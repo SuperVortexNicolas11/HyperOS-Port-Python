@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:background="?attr/preferenceItemBackground"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              style="@style/Miuix.Preference" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.PreferenceList"
+            android:ellipsize="end"
+            android:layout_gravity="center_vertical"
+            android:id="@id/title"
+            android:fadingEdge="horizontal"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_item_create_icon_title"
+            android:layout_weight="1.0"
+            android:textAlignment="viewStart" />
+  <TextView android:textSize="@dimen/sp_14"
+            android:textColor="@color/color_blue_primary_default"
+            android:layout_gravity="center_vertical"
+            android:id="@id/summary"
+            android:background="@drawable/slider_button_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_btn_yes_create_icon" />
+  <ViewStub android:layout_gravity="center_vertical"
+            android:id="@id/added_stub"
+            android:layout="@layout/slider_radiotext_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+</LinearLayout>

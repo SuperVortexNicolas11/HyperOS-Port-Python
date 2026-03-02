@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/detail_rl"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="29.0dp"
+              android:paddingEnd="29.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/iv_div"
+             android:background="@color/bh_black_daynight"
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginTop="21.8dp"
+             android:alpha="0.1" />
+</LinearLayout>

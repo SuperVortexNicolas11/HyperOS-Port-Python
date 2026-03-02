@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="?attr/radioPreferenceItemTwoStateBackground"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.PreferenceList"
+            android:ellipsize="end"
+            android:id="@android:id/title"
+            android:fadingEdge="horizontal"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textAlignment="viewStart"
+            android:hyphenationFrequency="full"
+            app:layout_constraintBottom_toTopOf="@android:id/summary"
+            app:layout_constraintEnd_toStartOf="@id/preview_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+  <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary.Preference"
+            android:id="@android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/miuix_preference_summary_margin_top"
+            android:textAlignment="viewStart"
+            android:layout_alignStart="@android:id/title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@android:id/title" />
+  <miuix.smooth.SmoothFrameLayout2 android:id="@id/preview_layout"
+                        android:layout_width="@dimen/preview_wallpaper_image_width"
+                        android:layout_height="@dimen/preview_wallpaper_image_height"
+                        android:layout_marginTop="@dimen/preview_wallpaper_image_padding"
+                        android:layout_marginBottom="@dimen/preview_wallpaper_image_padding"
+                        android:radius="@dimen/preview_lock_screen_radius"
+                        android:layout_marginEnd="@dimen/preview_wallpaper_image_margin_end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@android:id/title"
+                        app:layout_constraintTop_toTopOf="parent">
+    <ImageView android:id="@id/preview_background"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:scaleType="centerCrop" />
+    <ImageView android:id="@id/preview_icon"
+               android:visibility="gone"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:scaleType="centerInside"
+               android:contentDescription="@null" />
+  </miuix.smooth.SmoothFrameLayout2>
+</androidx.constraintlayout.widget.ConstraintLayout>

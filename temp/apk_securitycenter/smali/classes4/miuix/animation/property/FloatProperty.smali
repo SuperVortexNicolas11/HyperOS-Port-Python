@@ -1,0 +1,260 @@
+.class public abstract Lmiuix/animation/property/FloatProperty;
+.super Landroid/util/Property;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Landroid/util/Property<",
+        "TT;",
+        "Ljava/lang/Float;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field mMinVisibleChange:F
+
+.field final mPropertyName:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 1
+
+    const/high16 v0, -0x40800000    # -1.0f
+
+    .line 1
+    invoke-direct {p0, p1, v0}, Lmiuix/animation/property/FloatProperty;-><init>(Ljava/lang/String;F)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;F)V
+    .locals 1
+
+    .line 2
+    const-class v0, Ljava/lang/Float;
+
+    invoke-direct {p0, v0, p1}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+
+    .line 3
+    iput-object p1, p0, Lmiuix/animation/property/FloatProperty;->mPropertyName:Ljava/lang/String;
+
+    .line 4
+    iput p2, p0, Lmiuix/animation/property/FloatProperty;->mMinVisibleChange:F
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public get(Ljava/lang/Object;)Ljava/lang/Float;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)",
+            "Ljava/lang/Float;"
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x0
+
+    .line 2
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+
+    .line 3
+    :cond_0
+    invoke-virtual {p0, p1}, Lmiuix/animation/property/FloatProperty;->getValue(Ljava/lang/Object;)F
+
+    move-result p1
+
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lmiuix/animation/property/FloatProperty;->get(Ljava/lang/Object;)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public getMinVisibleChange()F
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lmiuix/animation/property/FloatProperty;->mMinVisibleChange:F
+
+    .line 2
+    return v0
+    .line 4
+.end method
+
+.method public abstract getValue(Ljava/lang/Object;)F
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)F"
+        }
+    .end annotation
+.end method
+
+.method public final set(Ljava/lang/Object;Ljava/lang/Float;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;",
+            "Ljava/lang/Float;",
+            ")V"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_0
+
+    .line 2
+    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
+
+    move-result p2
+
+    invoke-virtual {p0, p1, p2}, Lmiuix/animation/property/FloatProperty;->setValue(Ljava/lang/Object;F)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
+
+    .line 1
+    check-cast p2, Ljava/lang/Float;
+
+    invoke-virtual {p0, p1, p2}, Lmiuix/animation/property/FloatProperty;->set(Ljava/lang/Object;Ljava/lang/Float;)V
+
+    return-void
+.end method
+
+.method public setMinVisibleChange(F)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Lmiuix/animation/property/FloatProperty;->mMinVisibleChange:F
+
+    .line 2
+    return-void
+    .line 4
+.end method
+
+.method public abstract setValue(Ljava/lang/Object;F)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;F)V"
+        }
+    .end annotation
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 3
+
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 2
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 4
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 7
+    move-result-object v1
+
+    .line 10
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    .line 11
+    move-result-object v1
+
+    .line 14
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 15
+    const-string v1, "@"
+
+    .line 18
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 20
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+
+    .line 23
+    move-result v1
+
+    .line 26
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 27
+    const-string v1, "{name=\'"
+
+    .line 30
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 32
+    iget-object v1, p0, Lmiuix/animation/property/FloatProperty;->mPropertyName:Ljava/lang/String;
+
+    .line 35
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 37
+    const/16 v1, 0x27
+
+    .line 40
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 42
+    const-string v2, ",min=\'"
+
+    .line 45
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 47
+    iget v2, p0, Lmiuix/animation/property/FloatProperty;->mMinVisibleChange:F
+
+    .line 50
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    .line 52
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 55
+    const/16 v1, 0x7d
+
+    .line 58
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 60
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 63
+    move-result-object v0
+
+    .line 66
+    return-object v0
+    .line 67
+.end method

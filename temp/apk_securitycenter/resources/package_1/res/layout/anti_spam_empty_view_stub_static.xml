@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:id="@id/anti_spam_static_empty_view"
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:importantForAccessibility="yes" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/empty_static_img"
+             android:layout_width="@dimen/anti_spam_empty_icon_width"
+             android:layout_height="@dimen/anti_spam_empty_icon_height"
+             android:scaleType="center" />
+  <TextView android:textSize="@dimen/anti_spam_empty_text_size"
+            android:id="@id/emptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_dimen_47"
+            android:text="@string/bl_no_block_call"
+            android:layout_marginStart="@dimen/miuix_theme_padding_horizontal_common"
+            android:layout_marginEnd="@dimen/miuix_theme_padding_horizontal_common"
+            style="@style/Miuix.AppCompat.TextAppearance.BlankPage" />
+</LinearLayout>

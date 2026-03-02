@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:layout_gravity="center_horizontal"
+              android:id="@id/font_preview_layout"
+              android:paddingTop="50.0dp"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingHorizontal="@dimen/font_preview_layout_padding" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/font_bubble_size"
+            android:id="@id/font_preview_text"
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/font_preview_text_content"
+            android:includeFontPadding="false" />
+</LinearLayout>

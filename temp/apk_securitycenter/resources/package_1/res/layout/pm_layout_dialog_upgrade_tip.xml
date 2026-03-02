@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="@dimen/view_dimen_1150" xmlns:android="http://schemas.android.com/apk/res/android">
+  <androidx.viewpager.widget.ViewPager android:id="@id/pm_tip_pager"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/view_dimen_1150" />
+  <com.miui.privacyapps.view.ViewPagerIndicator android:id="@id/pm_tip_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/pm_tip_pager"
+                        android:layout_centerHorizontal="true" />
+</RelativeLayout>

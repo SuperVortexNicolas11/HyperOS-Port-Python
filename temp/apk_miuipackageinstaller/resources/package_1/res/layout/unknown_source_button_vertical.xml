@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <Button android:textSize="@dimen/sp_17"
+          android:textColor="@color/white_white"
+          android:gravity="center"
+          android:id="@id/bt_cancel"
+          android:background="@drawable/pure_mode_button_sure_bg"
+          android:layout_width="fill_parent"
+          android:layout_height="@dimen/dp_51"
+          android:text="@string/prohibit_isntall"
+          android:fontFamily="mipro-demibold" />
+  <Button android:textSize="@dimen/sp_17"
+          android:textColor="@color/black_80"
+          android:id="@id/bt_allow"
+          android:background="@drawable/pure_mode_button_normal_bg"
+          android:layout_width="fill_parent"
+          android:layout_height="@dimen/dp_51"
+          android:layout_marginTop="@dimen/dp_10"
+          android:text="@string/cancel_install"
+          android:fontFamily="mipro-demibold" />
+</merge>

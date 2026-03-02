@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/pc_icon_exit_super_power" />
+  <TextView android:textSize="@dimen/dp_16"
+            android:id="@id/tv_exit_super_power_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pc_enter_super_power_margin"
+            android:layout_marginTop="11.0dp"
+            android:layout_marginRight="@dimen/pc_enter_super_power_margin"
+            android:text="@string/pc_is_exiting_super_power"
+            android:textAlignment="center" />
+</LinearLayout>

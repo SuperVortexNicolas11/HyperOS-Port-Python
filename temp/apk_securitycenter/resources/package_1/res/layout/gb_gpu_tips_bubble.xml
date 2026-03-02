@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TextView android:textSize="@dimen/text_font_size_38"
+          android:textColor="@color/color_white_50"
+          android:gravity="center_vertical"
+          android:paddingTop="@dimen/view_dimen_31"
+          android:paddingBottom="@dimen/view_dimen_46"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:maxWidth="@dimen/gb_gpu_bubble_width"
+          android:paddingStart="@dimen/view_dimen_36"
+          android:paddingEnd="@dimen/view_dimen_30" xmlns:android="http://schemas.android.com/apk/res/android" />

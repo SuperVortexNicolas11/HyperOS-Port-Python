@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollOrientation="vertical|angle"
+                        app:scrollableView="@id/app_list">
+    <miuix.recyclerview.widget.RecyclerView android:orientation="vertical"
+                          android:id="@id/app_list"
+                          android:paddingBottom="@dimen/dp_16"
+                          android:clipToPadding="false"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+  </miuix.springback.view.SpringBackLayout>
+</RelativeLayout>

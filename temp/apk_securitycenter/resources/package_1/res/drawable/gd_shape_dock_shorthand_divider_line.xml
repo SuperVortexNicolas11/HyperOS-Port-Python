@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="@color/gd_dock_shorthand_divider_line" />
+  <corners android:radius="@dimen/dock_divider_radius" />
+  <size android:height="@dimen/dock_divider_height"
+        android:width="@dimen/dock_divider_width" />
+</shape>

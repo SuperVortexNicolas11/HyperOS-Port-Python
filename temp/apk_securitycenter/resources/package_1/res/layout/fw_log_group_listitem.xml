@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:id="@id/root"
+              android:paddingTop="@dimen/dp_14"
+              android:paddingBottom="@dimen/dp_14"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/miuix_appcompat_list_preferred_item_height"
+              android:paddingStart="@dimen/dp_16"
+              android:paddingEnd="@dimen/dp_16" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="7.0">
+    <TextView android:ellipsize="end"
+              android:gravity="center_vertical"
+              android:id="@id/title"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:maxLines="2"
+              style="@style/ListItemTitle" />
+    <TextView android:textSize="@dimen/text_font_size_40"
+              android:ellipsize="end"
+              android:id="@id/data1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxEms="15"
+              android:singleLine="true"
+              style="@style/ListItemSubTitle" />
+  </LinearLayout>
+  <FrameLayout android:layout_width="0.0px"
+               android:layout_height="fill_parent"
+               android:layout_weight="3.3">
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="vertical"
+                  android:id="@id/moreInfoLayout"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+      <TextView android:textSize="@dimen/text_font_size_40"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:id="@id/reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ListItemSubTitle" />
+      <TextView android:textSize="@dimen/text_font_size_40"
+                android:layout_gravity="end"
+                android:id="@id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                style="@style/ListItemSubTitle" />
+    </LinearLayout>
+    <CheckBox android:layout_gravity="center|end"
+              android:id="@android:id/checkbox"
+              android:focusable="false"
+              android:visibility="gone"
+              android:clickable="false"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginEnd="5.0dp" />
+  </FrameLayout>
+</LinearLayout>

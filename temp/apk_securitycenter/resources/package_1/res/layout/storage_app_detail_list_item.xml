@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:gravity="center_vertical"
+                      android:orientation="horizontal"
+                      android:paddingLeft="@dimen/miuix_item_padding_start"
+                      android:paddingTop="@dimen/miuix_item_padding_top"
+                      android:paddingRight="@dimen/miuix_item_padding_start"
+                      android:paddingBottom="@dimen/miuix_item_padding_top"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/dp_56"
+                      android:paddingHorizontal="@dimen/miuix_item_padding_start"
+                      android:paddingVertical="@dimen/miuix_item_padding_top"
+                      app:template="standard_button" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <TextView android:ellipsize="end"
+            android:id="@id/title"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            app:area_id="@id/area_title"
+            style="@style/StorageDetailNameLabel" />
+  <TextView android:id="@id/summary"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/storage_app_details_item_title_me"
+            app:area_id="@id/area_text_button"
+            style="@style/StorageDetailSizeLabel" />
+  <ImageView android:id="@id/arrow"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/miuix_appcompat_arrow_right"
+             app:area_id="@id/area_end" />
+</miuix.flexible.view.HyperCellLayout>

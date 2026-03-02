@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:paddingLeft="@dimen/pc_dialog_activity_wireless_charge_padding"
+            android:paddingRight="@dimen/pc_dialog_activity_wireless_charge_padding"
+            android:scrollbars="none"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <TextView android:textSize="@dimen/wireless_charge_position_text_size"
+              android:textColor="@color/pc_wireless_charge_position_text_color"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/wireless_charge_reminder_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/pc_remind_close_cover_to_charge_title" />
+    <TextView android:textSize="@dimen/pc_remind_close_cover_to_charge_summary_size"
+              android:textColor="@color/pc_wireless_charge_position_summary_color"
+              android:layout_gravity="center_horizontal"
+              android:id="@id/wireless_charge_reminder_summary"
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/pc_remind_close_cover_to_charge_summary_margintop"
+              android:text="@string/pc_remind_close_cover_to_charge_summary" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/lottie_anima"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          app:lottie_loop="true" />
+    <androidx.appcompat.widget.AppCompatCheckBox android:textSize="@dimen/pc_wireless_charge_checkbox_text_size"
+                          android:textColor="@color/pc_wireless_charge_position_summary_color"
+                          android:id="@id/pc_wireless_charge_checkbox"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/pc_no_more_remind"
+                          style="?attr/dialogCheckBoxStyle" />
+  </LinearLayout>
+</ScrollView>

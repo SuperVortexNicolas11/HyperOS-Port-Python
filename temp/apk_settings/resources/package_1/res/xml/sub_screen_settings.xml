@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <com.android.settings.hyperosai.FixedSizePreference android:icon="@drawable/com_android_thememanager"
+                          android:title="@string/subscreen_personality"
+                          android:key="subscreen_personality"
+                          settings:controller="com.android.settings.subscreen.SubScreenPersonController">
+      <intent android:targetPackage="com.android.thememanager"
+              android:action="miui.intent.action.rearscreen_list" />
+    </com.android.settings.hyperosai.FixedSizePreference>
+    <com.android.settings.hyperosai.FixedSizePreference android:icon="@drawable/ic_serve_assistant"
+                          android:title="@string/serve_assistant"
+                          android:key="serve_assistant"
+                          settings:controller="com.android.settings.subscreen.ServeAssistantController">
+      <intent android:targetPackage="com.xiaomi.subscreencenter"
+              android:targetClass="com.xiaomi.subscreencenter.settings.ServiceAssistantSetting" />
+    </com.android.settings.hyperosai.FixedSizePreference>
+    <com.android.settings.hyperosai.FixedSizePreference android:icon="@drawable/ic_aod"
+                          android:title="@string/subscreen_aod"
+                          android:key="subscreen_aod"
+                          settings:controller="com.android.settings.subscreen.AodAssistantController">
+      <intent android:targetPackage="com.android.thememanager"
+              android:action="miui.intent.action.rearscreen_aod_setting" />
+    </com.android.settings.hyperosai.FixedSizePreference>
+  </PreferenceCategory>
+  <com.android.settings.hyperosai.FixedSizePreference android:icon="@drawable/ic_user_guide"
+                        android:title="@string/user_guide"
+                        android:key="user_guide"
+                        settings:controller="com.android.settings.subscreen.UserGuideController">
+    <intent android:targetPackage="com.xiaomi.subscreencenter"
+            android:targetClass="com.xiaomi.subscreencenter.settings.GuideSetting" />
+  </com.android.settings.hyperosai.FixedSizePreference>
+  <com.android.settings.hyperosai.FixedSizePreference android:icon="@drawable/ic_phone_case"
+                        android:title="@string/phone_case"
+                        android:key="phone_case"
+                        android:fragment="com.android.settings.subscreen.PhoneCaseFragment"
+                        settings:controller="com.android.settings.subscreen.PhoneCaseController" />
+</PreferenceScreen>

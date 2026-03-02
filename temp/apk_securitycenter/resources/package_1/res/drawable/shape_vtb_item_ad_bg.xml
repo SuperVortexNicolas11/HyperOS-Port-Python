@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:start="@dimen/vb_main_item_ad_ms_me"
+        android:end="@dimen/vb_main_item_ad_ms_me">
+    <shape android:shape="rectangle">
+      <padding android:left="@dimen/vb_main_item_ad_bg_ps_pe"
+               android:right="@dimen/vb_main_item_ad_bg_ps_pe" />
+      <corners android:radius="@dimen/vb_main_item_ad_bg_radius" />
+      <solid android:color="@color/vtb_main_ad_item_bg" />
+    </shape>
+  </item>
+</layer-list>

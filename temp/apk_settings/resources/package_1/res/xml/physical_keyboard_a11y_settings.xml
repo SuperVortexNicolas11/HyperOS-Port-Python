@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/keyboard_a11y_settings"
+                  android:key="physical_keyboard_a11y_page" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/keyboard_a11y_category"
+                      android:key="keyboard_a11y_page_category">
+    <SwitchPreferenceCompat android:title="@string/sticky_keys"
+                          android:key="keyboard_a11y_page_sticky_keys"
+                          android:summary="@string/sticky_keys_summary"
+                          android:defaultValue="false"
+                          settings:controller="com.android.settings.inputmethod.KeyboardAccessibilityStickyKeysController" />
+    <com.android.settingslib.PrimarySwitchPreference android:title="@string/bounce_keys"
+                          android:key="keyboard_a11y_page_bounce_keys"
+                          android:summary="@string/bounce_keys_summary"
+                          android:defaultValue="false"
+                          settings:controller="com.android.settings.inputmethod.KeyboardAccessibilityBounceKeysController" />
+    <com.android.settingslib.PrimarySwitchPreference android:title="@string/slow_keys"
+                          android:key="keyboard_a11y_page_slow_keys"
+                          android:summary="@string/slow_keys_summary"
+                          android:defaultValue="false"
+                          settings:controller="com.android.settings.inputmethod.KeyboardAccessibilitySlowKeysController" />
+    <com.android.settingslib.PrimarySwitchPreference android:title="@string/mouse_keys"
+                          android:key="keyboard_a11y_page_mouse_keys"
+                          android:summary="@string/mouse_keys_summary"
+                          android:defaultValue="false"
+                          android:fragment="com.android.settings.inputmethod.MouseKeysMainPageFragment"
+                          settings:controller="com.android.settings.inputmethod.KeyboardAccessibilityMouseKeysController" />
+  </PreferenceCategory>
+</PreferenceScreen>

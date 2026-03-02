@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/lost_focus_layout"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ScrollView android:id="@id/content_container"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:maxHeight="400.0dp"
+              android:nestedScrollingEnabled="true"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <TextView android:textSize="@dimen/sp_24"
+                android:textColor="@color/black"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@id/lost_focus_title"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16.0dp"
+                android:text="@string/click_page_to_recognition"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:fontFamily="mipro-demibold"
+                android:layout_marginStart="@dimen/secure_keyguard_bouncer_message_margin_start_end"
+                android:layout_marginEnd="@dimen/secure_keyguard_bouncer_message_margin_start_end"
+                android:textFontWeight="450" />
+      <TextView android:textSize="@dimen/sp_14"
+                android:textColor="@color/black"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:id="@id/lost_focus_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4.0dp"
+                android:text="@string/page_lose_focus_cant_recognition"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="mipro-medium"
+                android:paddingStart="@dimen/view_dimen_25"
+                android:paddingEnd="@dimen/view_dimen_25"
+                android:layout_marginStart="@dimen/secure_keyguard_bouncer_message_margin_start_end"
+                android:layout_marginEnd="@dimen/secure_keyguard_bouncer_message_margin_start_end"
+                android:textFontWeight="380" />
+    </LinearLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

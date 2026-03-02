@@ -32,6 +32,8 @@ from src.core.modifiers.plugin_system import (
     ModifierRegistry,
     create_backup_hook,
     create_backup_hook_factory,
+    load_plugins_from_config,
+    PluginConfig,
 )
 
 # Transaction system
@@ -80,6 +82,8 @@ __all__ = [
     'ModifierRegistry',
     'create_backup_hook',
     'create_backup_hook_factory',
+    'load_plugins_from_config',
+    'PluginConfig',
     # Transaction system
     'TransactionManager',
     'Transaction',

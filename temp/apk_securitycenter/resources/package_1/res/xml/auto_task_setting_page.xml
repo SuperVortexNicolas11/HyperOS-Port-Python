@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/auto_task_notification_tips">
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_setting_allow_notify"
+                        android:key="@string/allow_notify" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_show_notification_before_exclude"
+                        android:key="@string/before_execute_notify"
+                        android:dependency="allow_notify" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_setting_exclude_notify"
+                        android:key="@string/execute_notify"
+                        app:isPreferenceVisible="false" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_show_notification_before_exit"
+                        android:key="@string/exit_notify"
+                        android:dependency="allow_notify" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/auto_task_setting_show_task_shortcut_in_desktop"
+                        android:key="@string/show_task_shortcut_in_desktop" />
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <group android:id="@id/miuix_action_end_menu_group">
+    <item android:icon="@drawable/more_icon"
+          android:id="@id/more"
+          android:visible="false"
+          android:title=""
+          android:showAsAction="always" />
+    <item android:icon="@drawable/feedback_icon"
+          android:id="@id/feedback"
+          android:title=""
+          android:contentDescription="@string/report_text"
+          android:showAsAction="always" />
+    <item android:icon="@drawable/setting_icon"
+          android:id="@id/setting"
+          android:title=""
+          android:contentDescription="@string/settings"
+          android:showAsAction="always" />
+  </group>
+</menu>

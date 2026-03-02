@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:paddingLeft="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+              android:paddingRight="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="13.82dp"
+            android:textColor="@color/v_activity_dialog"
+            android:layout_gravity="center"
+            android:id="@id/dialog_header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+</LinearLayout>

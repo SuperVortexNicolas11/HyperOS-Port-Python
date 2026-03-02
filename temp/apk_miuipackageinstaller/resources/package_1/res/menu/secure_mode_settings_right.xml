@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:id="@id/miuix_action_end_menu_group">
+    <item android:id="@id/change_secure_mode"
+          android:visible="true"
+          android:title="@string/close_safe_mode"
+          android:contentDescription="@string/close_safe_mode"
+          android:showAsAction="never" />
+  </group>
+</menu>

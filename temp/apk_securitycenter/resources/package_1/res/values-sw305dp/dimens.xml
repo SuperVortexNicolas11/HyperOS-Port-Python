@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="bottom_btn_w">280.0dp</dimen>
+  <dimen name="gd_app_edit_desc_text_size">@dimen/text_font_size_32</dimen>
+  <dimen name="gd_app_edit_left_list_height">@dimen/view_dimen_800</dimen>
+  <dimen name="gd_app_edit_me">@dimen/view_dimen_25</dimen>
+  <dimen name="gd_app_edit_ms">@dimen/view_dimen_20</dimen>
+  <dimen name="gd_app_edit_mt">@dimen/view_dimen_170</dimen>
+  <dimen name="gd_app_edit_rv_l_mb">@dimen/view_dimen_144</dimen>
+  <dimen name="gd_app_edit_rv_l_ms">@dimen/view_dimen_20</dimen>
+  <dimen name="gd_app_edit_rv_l_mt">@dimen/dock_view_dimens_48</dimen>
+  <dimen name="gd_app_edit_rv_r_me">@dimen/view_dimen_1</dimen>
+  <dimen name="gd_app_edit_rv_r_ms">@dimen/view_dimen_39</dimen>
+  <dimen name="storage_btn_with">@dimen/dp_262</dimen>
+  <dimen name="storage_column_shadow_w">105.39dp</dimen>
+  <dimen name="storage_list_item_width">151.0dp</dimen>
+  <dimen name="storage_ui_w">100.0dp</dimen>
+</resources>

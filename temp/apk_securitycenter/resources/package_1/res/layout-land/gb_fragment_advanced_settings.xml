@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:background="@android:color/transparent"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.recyclerview.widget.RecyclerView android:id="@id/listview"
+                        android:paddingTop="@dimen/dp_58"
+                        android:clipToPadding="false"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+</FrameLayout>

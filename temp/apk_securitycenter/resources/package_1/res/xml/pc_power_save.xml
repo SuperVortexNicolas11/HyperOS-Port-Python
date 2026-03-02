@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.preference.PreferenceCategory android:title="@string/pc_work_in_save_mode"
+                        android:key="key_other_optimization">
+    <CheckBoxPreference android:title="@string/power_save_mode_close_notification_screenon_title"
+                        android:key="close_notification_wakeup"
+                        android:summary="@string/power_save_mode_close_notification_screenon_summary"
+                        android:defaultValue="true" />
+    <CheckBoxPreference android:title="@string/power_save_mode_close_aod_display_title"
+                        android:key="close_aod_display"
+                        android:summary="@string/power_save_mode_close_aod_display_summary"
+                        android:defaultValue="true" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/pc_charged_auto_close_title"
+                        android:key="auto_exit_power_save_mode"
+                        android:defaultValue="true" />
+    <CheckBoxPreference android:persistent="false"
+                        android:title="@string/power_save_mode_ontime_enabled"
+                        android:key="key_ontime_enabled" />
+    <miuix.preference.TextPreference android:title="@string/power_save_mode_start_time"
+                          android:key="key_ontime_open_time"
+                          android:dependency="key_ontime_enabled" />
+    <miuix.preference.TextPreference android:title="@string/power_save_mode_end_time"
+                          android:key="key_ontime_close_time"
+                          android:dependency="key_ontime_enabled" />
+    <CheckBoxPreference android:title="@string/power_save_mode_close_xiaoai_wakeup_title"
+                        android:key="close_xiaoai_voice_wakeup"
+                        android:defaultValue="false" />
+  </miuix.preference.PreferenceCategory>
+  <miuix.preference.PreferenceCategory android:title="@string/pc_work_in_super_save_mode"
+                        android:key="key_schedule_category">
+    <CheckBoxPreference android:title="@string/pc_charged_auto_close_title"
+                        android:key="preference_key_superpower_autoleave" />
+  </miuix.preference.PreferenceCategory>
+  <miuix.preference.PreferenceCategory android:title="@string/pc_extreme_category"
+                        android:key="key_extreme_category">
+    <CheckBoxPreference android:title="@string/pc_extreme_mode_setting_title"
+                        android:key="preference_key_extreme_mode_button"
+                        android:summary="@string/pc_extreme_mode_setting_summary" />
+  </miuix.preference.PreferenceCategory>
+</PreferenceScreen>

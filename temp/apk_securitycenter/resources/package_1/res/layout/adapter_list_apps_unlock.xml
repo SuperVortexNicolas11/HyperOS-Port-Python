@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:descendantFocusability="blocksDescendants"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/view_dimen_210" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/app_image_lock"
+             style="@style/ListIconNoMargin" />
+  <RelativeLayout android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"
+                  android:layout_marginStart="@dimen/view_dimen_32"
+                  android:layout_marginEnd="@dimen/view_dimen_32"
+                  style="@style/Widget.PreferenceItem">
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+              android:textSize="@dimen/miuix_preference_normal_text_size"
+              android:ellipsize="end"
+              android:id="@id/app_name_lock"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxLines="2"
+              android:fontFamily="sans-serif-medium"
+              android:textAlignment="viewStart"
+              android:hyphenationFrequency="full" />
+  </RelativeLayout>
+  <miuix.slidingwidget.widget.SlidingButton android:layout_gravity="center_vertical"
+                        android:id="@id/switch1"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="yes" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.preference.TextPreference android:title="@string/deep_clean_memory_clean_title"
+                        android:key="preference_key_deep_save_memory_clean_in_lockscreen" />
+  <CheckBoxPreference android:title="@string/power_center_5g_save_title_text"
+                      android:key="preference_key_settings_5g_save"
+                      android:summary="@string/power_center_5g_save_summary_text" />
+  <miuix.preference.TextPreference android:title="@string/power_center_auto_shutdown"
+                        android:key="preference_key_boot_shutdown_ontime" />
+  <miuix.preference.TextPreference android:title="@string/power_settings_category_title"
+                        android:key="preference_key_battery_style" />
+  <miuix.preference.TextPreference android:title="@string/power_setting_config_scenario_policies_title"
+                        android:key="preference_key_config_scenario_policies"
+                        android:summary="@string/power_setting_scenario_policies_summary" />
+  <ListPreference android:persistent="false"
+                  android:entries="@array/pc_settings_thermal_entries"
+                  android:title="@string/power_setting_warm_configure"
+                  android:key="preference_key_thermal_configure" />
+</PreferenceScreen>

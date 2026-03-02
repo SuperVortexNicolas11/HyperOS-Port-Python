@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <stroke android:color="@color/tiny_default_black" />
+  <corners android:radius="@dimen/splicing_week_background_radius_180" />
+  <size android:height="@dimen/splicing_week_background_height_180"
+        android:width="@dimen/splicing_week_background_width_180" />
+  <solid android:color="@color/tiny_default_black" />
+</shape>

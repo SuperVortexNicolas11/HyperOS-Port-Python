@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.packageInstaller.ui.NormalInstallProgress android:orientation="vertical"
+                      android:id="@id/layout_progressing"
+                      android:background="@color/white"
+                      android:paddingBottom="@dimen/dp_28"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/dp_30"
+                      android:paddingEnd="@dimen/dp_30" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/left_button_info_view"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_51"
+                android:layout_weight="1.0"
+                style="@style/Widget.Button">
+    <ProgressBar android:layout_width="@dimen/dp_17.4"
+                 android:layout_height="@dimen/dp_17.4"
+                 android:indeterminate="true"
+                 android:indeterminateDrawable="@drawable/progress_bar_progressing_anim"
+                 android:layout_marginEnd="@dimen/dp_7" />
+    <TextView android:textSize="@dimen/sp_17"
+              android:textColor="@color/black_80_white_40"
+              android:id="@id/msg"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:fontFamily="mipro-medium" />&gt; </LinearLayout>
+</com.miui.packageInstaller.ui.NormalInstallProgress>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:background="@drawable/gamebox_setting_tab_gb"
+            android:scrollbars="none"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:paddingBottom="@dimen/view_dimen_160"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <com.miui.gamebooster.widget.RedDotTextView android:id="@id/tabGlobal"
+                          android:text="@string/gb_global_settings"
+                          style="@style/GBSetingsTabItem" />
+    <com.miui.gamebooster.widget.RedDotTextView android:id="@id/tabPerformance"
+                          android:text="@string/gs_performance_mode"
+                          style="@style/GBSetingsTabItem" />
+    <com.miui.gamebooster.widget.RedDotTextView android:id="@id/tabDnd"
+                          android:text="@string/game_anti_disturb_msg"
+                          style="@style/GBSetingsTabItem" />
+    <com.miui.gamebooster.widget.RedDotTextView android:id="@id/tabOthers"
+                          android:text="@string/gs_advanced_setting_title"
+                          style="@style/GBSetingsTabItem" />
+  </LinearLayout>
+</ScrollView>

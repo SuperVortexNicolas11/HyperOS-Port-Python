@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.clock.tiny.doodle.DoodleClockView android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layoutDirection="ltr" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include android:id="@id/content_tiny_doodle"
+           android:layout_width="@dimen/tiny_doodle_base_view_width"
+           android:layout_height="@dimen/tiny_doodle_base_view_height"
+           layout="@layout/layout_doodle_clock_base_view" />
+  <ImageView android:id="@id/aod_left_doodle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+  <ImageView android:id="@id/aod_right_doodle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/battery_doodle_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+    <include android:id="@id/battery_doodle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentEnd="true"
+             layout="@layout/layout_battery_view" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</com.miui.clock.tiny.doodle.DoodleClockView>

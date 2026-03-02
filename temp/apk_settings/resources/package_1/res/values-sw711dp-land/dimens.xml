@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="autoui_mode_image_marginbottom">20.0dp</dimen>
+  <dimen name="autoui_mode_image_margintop">21.0dp</dimen>
+  <dimen name="font_bubble_margin">68.0dp</dimen>
+  <dimen name="headset_ignore_marginLeft">88.89dp</dimen>
+  <dimen name="miuix_appcompat_window_extra_padding_horizontal_huge">128.0dp</dimen>
+  <dimen name="miuix_appcompat_window_extra_padding_horizontal_large">72.0dp</dimen>
+  <dimen name="miuix_appcompat_window_extra_padding_horizontal_small">44.0dp</dimen>
+  <dimen name="remove_all_data_padding">44.0dp</dimen>
+  <dimen name="state_edit_left_right_margin">56.0dp</dimen>
+  <dimen name="visual_border_width">221.33dp</dimen>
+  <dimen name="visual_border_width_big">332.0dp</dimen>
+  <dimen name="visual_text_width">205.0dp</dimen>
+  <dimen name="visual_text_width_big">316.0dp</dimen>
+  <dimen name="wifi_detail_grid_padding">72.0dp</dimen>
+  <dimen name="wifi_direct_connection">72.0dp</dimen>
+  <dimen name="wifi_nearby_padding_start">72.0dp</dimen>
+  <dimen name="wifi_refresh_end_margin">56.0dp</dimen>
+  <dimen name="wifi_saved_preference_margin">43.0dp</dimen>
+  <dimen name="wifi_spinner_title_margin">72.0dp</dimen>
+  <dimen name="wifi_spinner_title_margin_constant">28.0dp</dimen>
+  <dimen name="wifi_state_edit_left_right_margin">12.0dp</dimen>
+  <dimen name="wifi_subsettings_margin">112.0dp</dimen>
+  <dimen name="wifi_subsettings_padding">56.0dp</dimen>
+</resources>

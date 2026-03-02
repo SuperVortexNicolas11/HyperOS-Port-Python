@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/zen_mode_calls_title"
+                  android:key="zen_mode_calls_settings_page"
+                  settings:searchable="false" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/zen_mode_calls_header"
+                      android:key="zen_mode_settings_category_calls" />
+  <com.android.settings.applications.SpacePreference android:layout_height="16.0dp"
+                        android:key="hearing_aid_space_layout" />
+  <PreferenceCategory>
+    <SwitchPreferenceCompat android:title="@string/zen_mode_repeat_callers_title"
+                          android:key="zen_mode_repeat_callers" />
+  </PreferenceCategory>
+  <com.android.settingslib.widget.FooterPreference android:title="@string/zen_mode_calls_footer"
+                        android:selectable="false"
+                        android:key="info_footer"
+                        settings:searchable="false" />
+</PreferenceScreen>

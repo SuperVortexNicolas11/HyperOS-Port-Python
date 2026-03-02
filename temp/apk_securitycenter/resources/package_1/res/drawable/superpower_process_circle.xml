@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="190.0dp"
+        android:width="190.0dp"
+        android:viewportWidth="190.0"
+        android:viewportHeight="190.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="#00000000"
+        android:pathData="M95,91m-90.25,0a90.25,90.25 0,1 1,180.5 0a90.25,90.25 0,1 1,-180.5 0"
+        android:strokeColor="@drawable/$superpower_process_circle__0"
+        android:strokeWidth="1.5" />
+</vector>

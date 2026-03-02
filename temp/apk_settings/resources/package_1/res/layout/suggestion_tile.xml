@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.google.android.material.card.MaterialCardView android:id="@id/suggestion_card"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="16.0dp"
+                      style="@style/SuggestionCardStyle" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:apps="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@id/card_container"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:minHeight="72.0dp"
+                android:paddingStart="16.0dp"
+                android:paddingEnd="16.0dp">
+    <FrameLayout android:id="@android:id/icon_frame"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content">
+      <ImageView android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/suggestion_icon_background" />
+      <ImageView android:layout_gravity="center"
+                 android:id="@android:id/icon"
+                 android:layout_width="24.0dp"
+                 android:layout_height="24.0dp" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical"
+                  android:id="@id/text_container"
+                  android:layout_width="0.0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"
+                  android:paddingStart="16.0dp"
+                  android:paddingEnd="16.0dp"
+                  android:paddingVertical="@dimen/suggestion_card_text_padding_vertical">
+      <TextView android:textAppearance="@style/TextAppearance.SuggestionCardTitle"
+                android:id="@android:id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+      <TextView android:textAppearance="@style/TextAppearance.SuggestionCardSummary"
+                android:id="@android:id/summary"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center"
+               android:id="@android:id/closeButton"
+               android:background="?android:attr/selectableItemBackground"
+               android:padding="8.0dp"
+               android:visibility="gone"
+               android:layout_width="48.0dp"
+               android:layout_height="48.0dp"
+               android:src="@drawable/ic_suggestion_close_button"
+               android:tint="@color/settingslib_materialColorPrimaryContainer"
+               android:contentDescription="@string/suggestion_button_close" />
+  </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

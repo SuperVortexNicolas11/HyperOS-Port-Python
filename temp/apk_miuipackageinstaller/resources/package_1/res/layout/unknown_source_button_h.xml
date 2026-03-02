@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <CheckBox android:textSize="@dimen/sp_16"
+            android:textColor="@color/black_80"
+            android:id="@id/cb_do_show_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/do_not_show_again"
+            android:paddingStart="@dimen/dp_7"
+            android:paddingEnd="@dimen/dp_7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+  <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_30"
+                        app:layout_constraintTop_toBottomOf="@id/cb_do_show_again">
+    <Button android:textSize="@dimen/sp_17"
+            android:textColor="@color/black_80"
+            android:id="@id/bt_allow"
+            android:background="@drawable/pure_mode_button_normal_bg"
+            android:layout_width="0.0dp"
+            android:layout_height="@dimen/dp_51"
+            android:text="@string/cancel_install"
+            android:layout_weight="1.0"
+            android:fontFamily="mipro-demibold" />
+    <Button android:textSize="@dimen/sp_17"
+            android:textColor="@color/black_80"
+            android:gravity="center"
+            android:id="@id/bt_cancel"
+            android:background="@drawable/pure_mode_button_normal_bg"
+            android:layout_width="0.0dp"
+            android:layout_height="@dimen/dp_51"
+            android:text="@string/external_sources_settings_negative"
+            android:layout_weight="1.0"
+            android:fontFamily="mipro-demibold"
+            android:layout_marginStart="@dimen/dp_14" />
+  </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

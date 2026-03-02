@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/text_font_size_46"
+            android:textColor="?android:attr/textColorPrimary"
+            android:id="@id/tv_igone"
+            android:paddingTop="@dimen/main_padding_50"
+            android:paddingBottom="@dimen/main_padding_50"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text_ignore"
+            android:paddingStart="@dimen/main_padding_70"
+            android:paddingEnd="@dimen/main_padding_70" />
+</FrameLayout>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+  <external-cache-path name="cache"
+                       path="security_share" />
+  <external-cache-path name="eew_share"
+                       path="eew_share" />
+  <root-path name="data_app"
+             path="/data/app/" />
+  <root-path name="product_app"
+             path="/product/data-app/" />
+  <root-path name="data_app_recommend"
+             path="/data/miui/recommend/" />
+  <root-path name="cust_app"
+             path="/cust/app/" />
+  <root-path name="cust_data_app"
+             path="/cust/data-app/" />
+  <root-path name="data_miui_app_recommend"
+             path="/data/miui/app/recommended/" />
+</paths>

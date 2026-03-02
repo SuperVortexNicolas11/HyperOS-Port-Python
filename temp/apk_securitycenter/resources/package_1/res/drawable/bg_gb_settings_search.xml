@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:gravity="bottom"
+        android:height="@dimen/dp_1_5"
+        android:drawable="@drawable/gb_settings_search_bg" />
+</layer-list>

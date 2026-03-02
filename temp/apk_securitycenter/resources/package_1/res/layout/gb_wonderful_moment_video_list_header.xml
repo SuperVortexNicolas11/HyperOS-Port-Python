@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/gb_wonderful_tab_video_header_textsize"
+            android:textColor="@color/gb_wonderful_video_header"
+            android:id="@id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/view_dimen_30"
+            android:fontFamily="sans-serif" />
+  <View android:layout_width="0.0dp"
+        android:layout_height="0.0dp"
+        android:layout_weight="1.0" />
+  <CheckBox android:textSize="@dimen/gb_wonderful_tab_page_item_tag_textsize"
+            android:textColor="@color/gb_wonderful_video_item_no_all_checked"
+            android:gravity="center"
+            android:id="@id/tv_checkall"
+            android:background="@drawable/shape_gb_wonderful_video_check_all_nomal"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/gb_wonderful_main_page_video_checkall_height"
+            android:button="@null"
+            android:minWidth="@dimen/gb_wonderful_main_page_video_checkall_width"
+            android:text="@string/gb_wonderful_video_checkall"
+            android:includeFontPadding="false" />
+</LinearLayout>

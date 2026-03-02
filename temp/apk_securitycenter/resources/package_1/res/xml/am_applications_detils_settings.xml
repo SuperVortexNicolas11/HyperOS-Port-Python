@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <com.miui.appmanager.widget.AppDetailTitlePreference android:key="app_detail_title" />
+    <miuix.preference.TextPreference android:title="@string/app_manager_details_storage_title"
+                          android:key="app_storage_pref" />
+    <miuix.preference.TextPreference android:title="@string/app_manager_details_traffic_title_new"
+                          android:key="app_traffic_pref" />
+    <miuix.preference.TextPreference android:title="@string/app_manager_details_electric_title_new"
+                          android:key="app_power_pref" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/app_manager_card_permission_title"
+                      android:key="app_detail_perm_category">
+    <miuix.preference.TextPreference android:title="@string/app_behavior_door"
+                          android:key="app_behavior_pref"
+                          app:isPreferenceVisible="false" />
+    <miui.security.SeCheckBoxPreference android:title="@string/app_manager_permission_startself_title"
+                          android:key="app_autostart_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.CheckBoxPreference android:title="@string/unused_apps_switch"
+                          android:key="app_hiberanations_pref"
+                          android:summary="@string/unused_apps_switch_summary"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/app_management_measures"
+                          android:key="app_management_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/app_manager_globel_perm_title"
+                          android:key="app_global_perm_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:key="app_perm_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/manage_hybrid_permissions"
+                          android:key="app_hybrid_perm_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/app_info_all_services_label"
+                          android:key="app_all_service_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/app_manager_permission_notify_title"
+                          android:key="app_notify_pref"
+                          app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/app_manager_advanced_setting"
+                      android:key="app_advanced_category">
+    <miuix.preference.DropDownPreference android:key="app_size_compat_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/app_manager_default_open_title"
+                          android:key="app_default_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.TextPreference android:title="@string/app_settings_link"
+                          android:key="app_additional_pref"
+                          app:isPreferenceVisible="false" />
+    <miuix.preference.CheckBoxPreference android:title="@string/app_manager_restricted_settings_title"
+                          android:key="app_restricted_setting_pref"
+                          app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+</PreferenceScreen>

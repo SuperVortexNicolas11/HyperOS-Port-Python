@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:gravity="center_vertical"
+                      android:orientation="horizontal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/dp_56"
+                      android:paddingStart="@dimen/miuix_preference_item_padding_start"
+                      android:paddingEnd="@dimen/miuix_preference_item_padding_end"
+                      app:template="standard_button"
+                      style="@style/Widget.ListView.Item.DoubleLine" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/icon"
+             android:paddingTop="@dimen/dp_15"
+             android:paddingBottom="@dimen/dp_15"
+             android:layout_width="@dimen/dp_40"
+             android:layout_height="@dimen/dp_70"
+             app:area_id="@id/area_head" />
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dp_14"
+                android:paddingBottom="@dimen/dp_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:area_id="@id/area_title">
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+              android:textSize="@dimen/sp_17"
+              android:id="@id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:fontFamily="@string/miuix_font_style_misans_medium_font_family" />
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+              android:id="@id/summary"
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxLines="10"
+              android:layout_below="@id/title"
+              android:fontFamily="@string/miuix_font_style_misans_font_family" />
+  </LinearLayout>
+  <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:area_id="@id/area_end">
+    <ImageView android:id="@id/action"
+               android:layout_width="@dimen/dp_24"
+               android:layout_height="@dimen/dp_24"
+               android:layout_marginEnd="@dimen/dp_13" />
+    <ImageView android:gravity="center"
+               android:layout_gravity="center|end"
+               android:id="@id/app_arrow"
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/miuix_appcompat_arrow_right" />
+    <miuix.slidingwidget.widget.SlidingSwitch android:layout_gravity="center_vertical"
+                          android:id="@id/sliding_button"
+                          android:visibility="gone"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:importantForAccessibility="no" />
+  </LinearLayout>
+</miuix.flexible.view.HyperCellLayout>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge android:layout_width="fill_parent"
+       android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/imag_background"
+             android:visibility="gone"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:scaleType="centerCrop" />
+  <com.miui.applicationlock.widget.PhoneGLSurfaceView android:id="@id/gl_view"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+  <ViewStub android:id="@id/full_screen_split_background"
+            android:layout="@layout/applock_full_screen_split_background"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+  <include layout="@layout/app_lock_control" />
+</merge>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center"
+             android:id="@id/auto_img_bg"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/ic_gb_brightness_btn_bg" />
+  <ImageView android:layout_gravity="center"
+             android:id="@id/auto_img_fore"
+             android:layout_width="@dimen/gb_tile_icon_size"
+             android:layout_height="@dimen/gb_tile_icon_size"
+             android:src="@drawable/ic_gb_brightness_manual" />
+</FrameLayout>

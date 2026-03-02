@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.securityscan.ui.main.MainContentFrameFold android:id="@id/content_frame"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="@dimen/main_contentview_height_fold"
+                      android:layout_marginTop="@dimen/main_content_view_margin_top_fold" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.securityscan.ui.main.MainVideoView android:id="@id/video_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true">
+    <com.miui.common.ui.VlcTextureView android:layout_gravity="center"
+                          android:id="@id/texture_view"
+                          android:layout_width="@dimen/main_contentview_height"
+                          android:layout_height="@dimen/main_contentview_height"
+                          app:resize_mode="zoom" />
+    <ImageView android:layout_gravity="center"
+               android:id="@id/bg_view"
+               android:layout_width="@dimen/main_contentview_height"
+               android:layout_height="@dimen/main_contentview_height"
+               android:src="@drawable/securityscan_first_frame_blue" />
+  </com.miui.securityscan.ui.main.MainVideoView>
+  <include layout="@layout/include_merge_scan_score_fold" />
+</com.miui.securityscan.ui.main.MainContentFrameFold>

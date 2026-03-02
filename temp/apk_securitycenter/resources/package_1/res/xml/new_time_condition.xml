@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <miuix.preference.RadioButtonPreferenceCategory android:key="category">
+      <miuix.preference.RadioSetPreferenceCategory>
+        <miuix.preference.RadioButtonPreference android:title="@string/auto_task_condition_choose_ontime"
+                              android:key="ontime" />
+        <miuix.preference.TextPreference android:title="@string/auto_task_condition_choose_ontime"
+                              android:key="ontime_time"
+                              android:dependency="ontime" />
+      </miuix.preference.RadioSetPreferenceCategory>
+      <miuix.preference.RadioSetPreferenceCategory>
+        <miuix.preference.RadioButtonPreference android:title="@string/auto_task_condition_choose_time_duration"
+                              android:key="time_duration" />
+        <miuix.preference.TextPreference android:title="@string/auto_task_condition_choose_start_time"
+                              android:key="time_start"
+                              android:dependency="time_duration" />
+        <miuix.preference.TextPreference android:title="@string/auto_task_condition_choose_end_time"
+                              android:key="time_end"
+                              android:dependency="time_duration" />
+      </miuix.preference.RadioSetPreferenceCategory>
+    </miuix.preference.RadioButtonPreferenceCategory>
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.powercenter.bootshutdown.RepeatPreference android:key="new_time_condition_repeat"
+                          app:isPreferenceVisible="false" />
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <bool name="config_showBuiltinWirelessChargingAnim">false</bool>
+  <bool name="config_showSysuiShutdown">false</bool>
+  <bool name="config_volume_down_to_enter_silent">true</bool>
+</resources>

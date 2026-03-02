@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.gamebooster.ui.touch.GbAdvTouchSettingsViewV1 android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:id="@id/ll_touch0"
+                android:background="@drawable/preference_item_bg"
+                android:paddingTop="@dimen/gb_advance_settings_preferred_item_padding_top"
+                android:paddingBottom="@dimen/gb_advance_settings_preferred_item_padding_bottom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/list_preferred_item_height">
+    <TextView android:textAppearance="@style/PreferenceList"
+              android:id="@id/tv_touch0"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/gb_advance_settings_follow_up"
+              android:singleLine="true" />
+    <miuix.androidbasewidget.widget.SeekBar android:id="@id/sb_touch0"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:splitTrack="false" />
+  </LinearLayout>
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:id="@id/ll_touch1"
+                android:background="@drawable/preference_item_bg"
+                android:paddingTop="@dimen/gb_advance_settings_preferred_item_padding_top"
+                android:paddingBottom="@dimen/gb_advance_settings_preferred_item_padding_bottom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/list_preferred_item_height">
+    <TextView android:textAppearance="@style/PreferenceList"
+              android:id="@id/tv_touch1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/gb_advance_settings_finger_up"
+              android:singleLine="true" />
+    <miuix.androidbasewidget.widget.SeekBar android:id="@id/sb_touch1"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:splitTrack="false" />
+  </LinearLayout>
+</com.miui.gamebooster.ui.touch.GbAdvTouchSettingsViewV1>

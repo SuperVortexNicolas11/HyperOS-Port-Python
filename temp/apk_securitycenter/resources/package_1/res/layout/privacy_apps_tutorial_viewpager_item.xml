@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="@dimen/dp_28"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/dp_23"
+                        android:paddingEnd="@dimen/dp_23">
+    <ImageView android:id="@id/prompt_imageview"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:scaleType="fitCenter"
+               android:adjustViewBounds="true"
+               android:maxWidth="@dimen/privacy_app_guide_image_width"
+               android:maxHeight="@dimen/privacy_app_guide_image_height"
+               app:layout_constraintBottom_toTopOf="@id/prompt_textview"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintVertical_chainStyle="packed" />
+    <TextView android:textSize="13.3sp"
+              android:textColor="@color/app_privacy_guide_item_text_color"
+              android:layout_gravity="center"
+              android:id="@id/prompt_textview"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="26.6dp"
+              android:fontFamily="mipro-regular"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/prompt_imageview" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

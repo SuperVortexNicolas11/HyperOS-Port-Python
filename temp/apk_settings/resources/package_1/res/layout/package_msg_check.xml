@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollableView="@id/scrollview">
+    <miuix.core.widget.NestedScrollView android:id="@id/scrollview"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent">
+      <LinearLayout android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+        <TextView android:textSize="15.0sp"
+                  android:textStyle="normal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="10.0dp"
+                  android:layout_marginRight="10.0dp"
+                  android:text="@string/package_msg_check_title" />
+        <TextView android:textSize="15.0sp"
+                  android:textStyle="normal"
+                  android:id="@id/package_msg_check_item"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="10.0dp"
+                  android:layout_marginTop="20.0dp"
+                  android:layout_marginRight="10.0dp"
+                  android:text="@string/package_track_item" />
+        <Button android:id="@id/package_msg_search_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dp"
+                android:layout_marginTop="20.0dp"
+                android:layout_marginRight="10.0dp"
+                android:text="@string/package_msg_search_button"
+                style="?android:attr/buttonBarButtonStyle" />
+        <TextView android:textSize="18.0sp"
+                  android:textStyle="normal"
+                  android:gravity="center"
+                  android:id="@id/search_loading"
+                  android:visibility="gone"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="20.0dp"
+                  android:text="@string/package_msg_search_loading" />
+        <LinearLayout android:orientation="vertical"
+                      android:id="@id/package_msg_search_result_layout"
+                      android:visibility="gone"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="10.0dp"
+                      android:layout_marginTop="20.0dp"
+                      android:layout_marginRight="10.0dp">
+          <TextView android:textSize="18.0sp"
+                    android:textStyle="normal"
+                    android:id="@id/package_msg_search_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/package_msg_search_result_title" />
+          <TextView android:textSize="15.0sp"
+                    android:textStyle="normal"
+                    android:id="@id/package_msg_search_item"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+      </LinearLayout>
+    </miuix.core.widget.NestedScrollView>
+  </miuix.springback.view.SpringBackLayout>
+</LinearLayout>

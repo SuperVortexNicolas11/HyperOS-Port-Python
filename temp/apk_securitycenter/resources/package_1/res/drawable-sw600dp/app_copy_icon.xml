@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="76.0dp"
+        android:width="76.0dp"
+        android:viewportWidth="76.0"
+        android:viewportHeight="76.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$app_copy_icon__0"
+        android:pathData="M28.0961,24.9726C39.169,24.9726 48.1454,33.9594 48.1454,45.0452C48.1454,56.131 39.169,65.1178 28.0961,65.1178C17.0232,65.1178 8.0469,56.131 8.0469,45.0452C8.0469,33.9594 17.0232,24.9726 28.0961,24.9726ZM41.9764,11.0762C53.0493,11.0762 62.0257,20.063 62.0257,31.1488C62.0257,38.3392 58.2493,44.6465 52.5739,48.1914C52.7048,47.1609 52.7722,46.1109 52.7722,45.0452C52.7722,31.4012 41.7243,20.3405 28.0961,20.3405C27.0317,20.3405 25.9829,20.4079 24.9539,20.5389C28.4943,14.8569 34.7944,11.0762 41.9764,11.0762Z"
+        android:fillType="evenOdd" />
+</vector>

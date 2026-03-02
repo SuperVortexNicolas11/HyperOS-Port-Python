@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="54.5dp" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView android:id="@id/iv_network_error"
+             android:layout_width="57.09dp"
+             android:layout_height="62.9dp"
+             android:layout_marginBottom="100.0dp"
+             android:src="@drawable/no_tab_resource_banner"
+             android:contentDescription="@null"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+  <TextView android:textSize="14.54dp"
+            android:textColor="@color/no_tab_resource_text_color"
+            android:id="@id/tv_network_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17.0dp"
+            android:text="Please check out other options"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_network_error" />
+</androidx.constraintlayout.widget.ConstraintLayout>

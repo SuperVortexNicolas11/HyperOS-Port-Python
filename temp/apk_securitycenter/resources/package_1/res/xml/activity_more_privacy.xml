@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <miuix.preference.TextPreference android:title="@string/pp_agent_screen_privacy"
+                          app:isPreferenceVisible="false"
+                          app:key="key_manager_ai_privacy">
+      <intent android:targetPackage="com.miui.securitycenter"
+              android:targetClass="com.miui.permcenter.agentctl.AgentPrivacyManageActivity" />
+    </miuix.preference.TextPreference>
+  </PreferenceCategory>
+</PreferenceScreen>

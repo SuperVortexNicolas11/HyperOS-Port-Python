@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="24.0dp"
+        android:width="24.0dp"
+        android:autoMirrored="true"
+        android:viewportWidth="26.0"
+        android:viewportHeight="26.0" xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="#346460"
+        android:pathData="M13,13m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"
+        android:strokeColor="#346460"
+        android:strokeWidth="1.0"
+        android:fillAlpha="0.3" />
+  <path android:fillColor="#509f91"
+        android:pathData="M13.001,13m-7.5,0a7.5,7.5 0,1 1,15 0a7.5,7.5 0,1 1,-15 0"
+        android:strokeColor="#509f91"
+        android:strokeWidth="1.0"
+        android:fillAlpha="0.4" />
+  <path android:fillColor="@drawable/$vtb_theatre_immerse_voice_icon__0"
+        android:pathData="M13,13m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+</vector>

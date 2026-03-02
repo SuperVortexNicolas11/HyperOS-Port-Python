@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:id="@id/miuix_action_end_menu_group">
+    <item android:id="@id/behavior_bug_report"
+          android:title="@string/app_behavior_about_negative" />
+    <item android:id="@id/behavior_disable"
+          android:visible="false"
+          android:title="@string/app_behavior_record_close_title" />
+    <item android:id="@id/behavior_system_app"
+          android:title="@string/app_behavior_record_show_system" />
+    <item android:id="@id/behavior_about"
+          android:title="@string/app_behavior_menu_about" />
+  </group>
+</menu>

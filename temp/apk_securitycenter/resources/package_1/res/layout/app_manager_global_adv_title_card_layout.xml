@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:background="@color/miuix_window_color"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/am_details_category_title_height"
+              android:layout_centerVertical="true"
+              android:paddingStart="@dimen/am_main_item_padding_se"
+              android:paddingEnd="@dimen/am_main_item_padding_se" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/sp_14"
+            android:textColor="@color/app_manager_category_title_color"
+            android:layout_gravity="center_vertical"
+            android:id="@id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/miuix_font_style_misans_medium_font_family"
+            android:textAlignment="viewStart" />
+</LinearLayout>

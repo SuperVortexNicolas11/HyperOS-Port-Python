@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+  <item android:state_selected="true"
+        android:state_hovered="true">
+    <layer-list>
+      <item android:left="@dimen/pointer_fill_style_circle_background_outline_offset"
+            android:top="@dimen/pointer_fill_style_circle_background_outline_offset"
+            android:right="@dimen/pointer_fill_style_circle_background_outline_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_background_outline_offset">
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/pointer_fill_style_circle_background_corner_radius" />
+          <size android:height="@dimen/pointer_fill_style_circle_background_outer_diameter_less_stroke"
+                android:width="@dimen/pointer_fill_style_circle_background_outer_diameter_less_stroke" />
+          <stroke android:width="@dimen/pointer_fill_style_circle_background_selected_outline_stroke"
+                  android:color="@android:color/primary_text_disable_only_material_light" />
+        </shape>
+      </item>
+      <item android:left="@dimen/pointer_fill_style_circle_background_offset"
+            android:top="@dimen/pointer_fill_style_circle_background_offset"
+            android:right="@dimen/pointer_fill_style_circle_background_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_background_offset">
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/pointer_fill_style_circle_background_corner_inner_radius" />
+          <size android:height="@dimen/pointer_fill_style_circle_background_outer_diameter_selected"
+                android:width="@dimen/pointer_fill_style_circle_background_outer_diameter_selected" />
+          <solid android:color="@color/pointer_fill_hovered_color" />
+        </shape>
+      </item>
+      <item android:id="@id/tintableCircleHoveredSelected"
+            android:left="@dimen/pointer_fill_style_circle_offset_selected"
+            android:top="@dimen/pointer_fill_style_circle_offset_selected"
+            android:right="@dimen/pointer_fill_style_circle_offset_selected"
+            android:bottom="@dimen/pointer_fill_style_circle_offset_selected">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_diameter"
+                android:width="@dimen/pointer_fill_style_circle_diameter" />
+          <solid android:color="@android:color/white" />
+        </shape>
+      </item>
+      <item android:left="@dimen/pointer_fill_style_circle_outline_offset_selected"
+            android:top="@dimen/pointer_fill_style_circle_outline_offset_selected"
+            android:right="@dimen/pointer_fill_style_circle_outline_offset_selected"
+            android:bottom="@dimen/pointer_fill_style_circle_outline_offset_selected">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_outline_diameter"
+                android:width="@dimen/pointer_fill_style_circle_outline_diameter" />
+          <stroke android:width="@dimen/pointer_fill_style_circle_outline_stroke"
+                  android:color="@android:color/white" />
+        </shape>
+      </item>
+      <item android:gravity="center"
+            android:height="@dimen/pointer_fill_style_checkmark_size"
+            android:width="@dimen/pointer_fill_style_checkmark_size"
+            android:drawable="@drawable/pointer_fill_check_24dp" />
+    </layer-list>
+  </item>
+  <item android:state_selected="true">
+    <layer-list>
+      <item android:left="@dimen/pointer_fill_style_circle_background_outline_offset"
+            android:top="@dimen/pointer_fill_style_circle_background_outline_offset"
+            android:right="@dimen/pointer_fill_style_circle_background_outline_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_background_outline_offset">
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/pointer_fill_style_circle_background_corner_radius" />
+          <size android:height="@dimen/pointer_fill_style_circle_background_outer_diameter_less_stroke"
+                android:width="@dimen/pointer_fill_style_circle_background_outer_diameter_less_stroke" />
+          <stroke android:width="@dimen/pointer_fill_style_circle_background_selected_outline_stroke"
+                  android:color="@android:color/primary_text_disable_only_material_light" />
+        </shape>
+      </item>
+      <item android:left="@dimen/pointer_fill_style_circle_background_offset"
+            android:top="@dimen/pointer_fill_style_circle_background_offset"
+            android:right="@dimen/pointer_fill_style_circle_background_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_background_offset">
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/pointer_fill_style_circle_background_corner_inner_radius" />
+          <size android:height="@dimen/pointer_fill_style_circle_background_outer_diameter_selected"
+                android:width="@dimen/pointer_fill_style_circle_background_outer_diameter_selected" />
+          <solid android:color="@android:color/primary_text_leanback_formwizard_dark" />
+        </shape>
+      </item>
+      <item android:id="@id/tintableCircleSelected"
+            android:left="@dimen/pointer_fill_style_circle_offset_selected"
+            android:top="@dimen/pointer_fill_style_circle_offset_selected"
+            android:right="@dimen/pointer_fill_style_circle_offset_selected"
+            android:bottom="@dimen/pointer_fill_style_circle_offset_selected">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_diameter"
+                android:width="@dimen/pointer_fill_style_circle_diameter" />
+          <solid android:color="@android:color/white" />
+        </shape>
+      </item>
+      <item android:left="@dimen/pointer_fill_style_circle_outline_offset_selected"
+            android:top="@dimen/pointer_fill_style_circle_outline_offset_selected"
+            android:right="@dimen/pointer_fill_style_circle_outline_offset_selected"
+            android:bottom="@dimen/pointer_fill_style_circle_outline_offset_selected">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_outline_diameter"
+                android:width="@dimen/pointer_fill_style_circle_outline_diameter" />
+          <stroke android:width="@dimen/pointer_fill_style_circle_outline_stroke"
+                  android:color="@android:color/white" />
+        </shape>
+      </item>
+      <item android:gravity="center"
+            android:height="@dimen/pointer_fill_style_checkmark_size"
+            android:width="@dimen/pointer_fill_style_checkmark_size"
+            android:drawable="@drawable/pointer_fill_check_24dp" />
+    </layer-list>
+  </item>
+  <item android:state_hovered="true">
+    <layer-list>
+      <item>
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/pointer_fill_style_circle_background_corner_radius" />
+          <size android:height="@dimen/pointer_fill_style_circle_background_outer_diameter"
+                android:width="@dimen/pointer_fill_style_circle_background_outer_diameter" />
+          <solid android:color="@color/pointer_fill_hovered_color" />
+        </shape>
+      </item>
+      <item android:id="@id/tintableCircleHovered"
+            android:left="@dimen/pointer_fill_style_circle_offset"
+            android:top="@dimen/pointer_fill_style_circle_offset"
+            android:right="@dimen/pointer_fill_style_circle_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_offset">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_diameter"
+                android:width="@dimen/pointer_fill_style_circle_diameter" />
+          <solid android:color="@android:color/white" />
+        </shape>
+      </item>
+      <item android:left="@dimen/pointer_fill_style_circle_outline_offset"
+            android:top="@dimen/pointer_fill_style_circle_outline_offset"
+            android:right="@dimen/pointer_fill_style_circle_outline_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_outline_offset">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_outline_diameter"
+                android:width="@dimen/pointer_fill_style_circle_outline_diameter" />
+          <stroke android:width="@dimen/pointer_fill_style_circle_outline_stroke"
+                  android:color="@android:color/white" />
+        </shape>
+      </item>
+    </layer-list>
+  </item>
+  <item>
+    <layer-list>
+      <item>
+        <shape android:shape="rectangle">
+          <corners android:radius="@dimen/pointer_fill_style_circle_background_corner_radius" />
+          <size android:height="@dimen/pointer_fill_style_circle_background_outer_diameter"
+                android:width="@dimen/pointer_fill_style_circle_background_outer_diameter" />
+          <solid android:color="@android:color/primary_text_leanback_formwizard_dark" />
+        </shape>
+      </item>
+      <item android:id="@id/tintableCircleDefault"
+            android:left="@dimen/pointer_fill_style_circle_offset"
+            android:top="@dimen/pointer_fill_style_circle_offset"
+            android:right="@dimen/pointer_fill_style_circle_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_offset">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_diameter"
+                android:width="@dimen/pointer_fill_style_circle_diameter" />
+          <solid android:color="@android:color/white" />
+        </shape>
+      </item>
+      <item android:left="@dimen/pointer_fill_style_circle_outline_offset"
+            android:top="@dimen/pointer_fill_style_circle_outline_offset"
+            android:right="@dimen/pointer_fill_style_circle_outline_offset"
+            android:bottom="@dimen/pointer_fill_style_circle_outline_offset">
+        <shape android:shape="oval">
+          <size android:height="@dimen/pointer_fill_style_circle_outline_diameter"
+                android:width="@dimen/pointer_fill_style_circle_outline_diameter" />
+          <stroke android:width="@dimen/pointer_fill_style_circle_outline_stroke"
+                  android:color="@android:color/white" />
+        </shape>
+      </item>
+    </layer-list>
+  </item>
+</selector>

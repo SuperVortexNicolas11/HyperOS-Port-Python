@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:background="?attr/preferenceCategoryBackground"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="1.0px" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:layout_gravity="center|start"
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:textAlignment="viewStart"
+            style="@style/Miuix.AppCompat.TextAppearance.PreferenceCategory" />
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/arrow"
+             android:paddingTop="@dimen/right_arrow_padding"
+             android:paddingBottom="@dimen/right_arrow_padding"
+             android:layout_width="wrap_content"
+             android:layout_height="fill_parent"
+             android:src="@drawable/dw_popup_arrow_left"
+             android:importantForAccessibility="no"
+             android:paddingStart="@dimen/right_arrow_padding_left"
+             android:paddingEnd="@dimen/right_arrow_padding" />
+</LinearLayout>

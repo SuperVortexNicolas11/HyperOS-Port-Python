@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:background="@color/pc_battery_item_normal_color"
+             android:descendantFocusability="blocksDescendants"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <View android:background="@color/pc_power_center_scan_result_spearatorbar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/pc_optimize_time_flag_stroke_width"
+        android:layout_marginTop="@dimen/pc_list_separator_bar_margin_top"
+        android:layout_marginBottom="@dimen/pc_list_separator_bar_margin_top"
+        android:layout_marginStart="@dimen/pc_content_container_padding"
+        android:layout_marginEnd="@dimen/pc_content_container_padding" />
+</FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/aon_gesture_double_press_title" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:miuisettings="http://schemas.android.com/apk/miuisettings" xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+  <com.android.settings.aon.gesture.GuidePreference android:enabled="false"
+                        android:layout_marginTop="14.0dp"
+                        android:key="key_guide_image" />
+  <PreferenceCategory android:key="gesture_supported_category">
+    <miuix.preference.CheckBoxPreference android:title="@string/aon_gesture_double_press_diagram_title"
+                          android:key="key_double_press"
+                          android:summary="@string/aon_gesture_double_press_summary" />
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/aon_gesture_learn_double_press_title"
+                          android:key="key_learn_double_press"
+                          settings:showRightArrow="true" />
+  </PreferenceCategory>
+</PreferenceScreen>

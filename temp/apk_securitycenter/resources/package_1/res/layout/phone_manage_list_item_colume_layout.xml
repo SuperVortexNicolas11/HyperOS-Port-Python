@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:id="@id/column"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/dp_74"
+                android:layout_rowWeight="1.0"
+                android:layout_columnWeight="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@id/icon"
+             android:layout_width="@dimen/dp_24"
+             android:layout_height="@dimen/dp_24"
+             android:layout_marginTop="@dimen/dp_12"
+             android:layout_centerHorizontal="true" />
+  <TextView android:gravity="center"
+            android:id="@id/title"
+            android:paddingLeft="@dimen/phone_manage_item_text_margin_lr"
+            android:paddingRight="@dimen/phone_manage_item_text_margin_lr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4.0dp"
+            android:layout_below="@id/icon"
+            android:layout_centerHorizontal="true"
+            style="@style/PhoneManageItemTitleStyle" />
+  <com.miui.securityscan.ui.main.WaveTextView android:id="@id/subscript_text"
+                        android:background="@drawable/phone_manage_subscript_bg"
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/phone_manage_subscript_height"
+                        android:layout_marginTop="@dimen/dp_6"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/view_dimen_negative_37"
+                        android:layout_toEndOf="@id/icon" />
+  <ImageView android:id="@id/iv_edit_add"
+             android:visibility="gone"
+             android:layout_width="@dimen/dp_22"
+             android:layout_height="@dimen/dp_22"
+             android:layout_marginTop="@dimen/commonly_used_func_card_edit_add_margin_top"
+             android:src="@drawable/commonly_used_func_edit_add_icon"
+             android:layout_alignParentTop="true"
+             android:layout_marginStart="@dimen/commonly_used_func_card_edit_add_margin_start"
+             android:layout_toEndOf="@id/icon" />
+</RelativeLayout>

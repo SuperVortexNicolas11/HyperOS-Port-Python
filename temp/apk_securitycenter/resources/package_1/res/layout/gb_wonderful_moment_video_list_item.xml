@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:id="@id/childContainer"
+              android:paddingBottom="@dimen/dp_14"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <include android:id="@id/cell_left"
+           android:visibility="invisible"
+           android:layout_width="fill_parent"
+           android:layout_height="@dimen/dp_160"
+           android:layout_weight="1.0"
+           layout="@layout/gb_wonderful_moment_list_child_item" />
+  <View android:layout_width="@dimen/dp_14"
+        android:layout_height="0.0dp" />
+  <include android:id="@id/cell_center"
+           android:visibility="invisible"
+           android:layout_width="fill_parent"
+           android:layout_height="@dimen/dp_160"
+           android:layout_weight="1.0"
+           layout="@layout/gb_wonderful_moment_list_child_item" />
+  <View android:layout_width="@dimen/dp_14"
+        android:layout_height="0.0dp" />
+  <include android:id="@id/cell_right"
+           android:visibility="invisible"
+           android:layout_width="fill_parent"
+           android:layout_height="@dimen/dp_160"
+           android:layout_weight="1.0"
+           layout="@layout/gb_wonderful_moment_list_child_item" />
+</LinearLayout>

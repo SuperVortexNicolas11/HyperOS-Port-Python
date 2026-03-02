@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/wifi_settings" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <com.android.settings.wifi.LinkablePreference android:key="wifi_status_message" />
+  <PreferenceCategory android:key="dual_wifi_common_category">
+    <com.android.settingslib.miuisettings.preference.CheckBoxPreference android:title="@string/dual_wifi"
+                          android:key="wifi_enable"
+                          android:order="1" />
+    <com.android.settings.wifi.MiuiWifiPrimaryPreference android:selectable="false"
+                          android:key="connected_primary_wifi"
+                          android:order="2"
+                          settings:allowDividerBelow="true" />
+  </PreferenceCategory>
+  <PreferenceCategory android:key="connected_access_point"
+                      android:order="4" />
+  <PreferenceCategory android:title="@string/wifi_saved_access_point"
+                      android:key="saved_access_point"
+                      android:order="5" />
+  <PreferenceCategory android:key="nearby_wifi"
+                      android:order="6" />
+  <PreferenceCategory android:key="access_points"
+                      android:order="7" />
+  <PreferenceCategory android:layout="@layout/preference_category_no_label"
+                      android:title="@string/summary_placeholder"
+                      android:key="provider_model_mobile_network"
+                      settings:controller="com.android.settings.network.NetworkMobileProviderController" />
+  <PreferenceCategory android:layout="@layout/preference_category_no_label"
+                      android:key="first_access_points" />
+  <com.android.settingslib.miuisettings.preference.Preference android:title="@string/wifi_saved_access_points_label"
+                        android:key="saved_networks"
+                        android:fragment="com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2" />
+</PreferenceScreen>

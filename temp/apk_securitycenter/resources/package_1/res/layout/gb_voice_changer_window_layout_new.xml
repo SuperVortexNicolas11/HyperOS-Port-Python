@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:id="@id/view_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@id/leftParent"
+                android:paddingTop="@dimen/view_dimen_35"
+                android:paddingBottom="@dimen/view_dimen_15"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/gt_pannel_second_ml"
+                android:paddingEnd="@dimen/view_dimen_42">
+    <ImageView android:layout_gravity="center_vertical"
+               android:id="@id/back_img"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_gamebox_change_voice_back"
+               android:contentDescription="@string/game_toolbox_btn_back_talkback" />
+    <RadioGroup android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:id="@id/radioGroup"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/gb_voice_changer_window_width_left"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/view_dimen_20">
+      <RadioButton android:textSize="@dimen/game_toolbox_voice_changer_title_text_size"
+                   android:textColor="@color/gb_voice_change_tab_selector"
+                   android:id="@id/radio_recommend"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:button="@null"
+                   android:text="@string/gb_voice_changer_recommend" />
+      <Space android:id="@id/title_space"
+             android:layout_width="@dimen/gt_pannel_second_ml"
+             android:layout_height="wrap_content" />
+      <RadioButton android:textSize="@dimen/game_toolbox_voice_changer_title_text_size"
+                   android:textColor="@color/gb_voice_change_tab_selector"
+                   android:id="@id/radio_free"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:button="@null"
+                   android:text="@string/gb_voice_changer_free" />
+    </RadioGroup>
+    <ImageView android:layout_gravity="center_vertical"
+               android:id="@id/tv_member_settings"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/gb_voice_changer_settings"
+               android:contentDescription="@string/game_toolbox_settings_talkback" />
+  </LinearLayout>
+  <include android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:layout_below="@id/leftParent"
+           layout="@layout/layout_main_content" />
+  <com.miui.gamebooster.voicechanger.SettingsView android:id="@id/gb_voice_changer_settings"
+                        android:background="@drawable/gb_voice_changer_window_bg"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:importantForAccessibility="yes" />
+</RelativeLayout>

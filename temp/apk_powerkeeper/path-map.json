@@ -1,0 +1,18 @@
+[
+  {
+    "name": "res/drawable-hdpi-v4/icon.webp",
+    "alias": "res/drawable-hdpi/icon.webp"
+  },
+  {
+    "name": "res/drawable-xhdpi-v4/icon.webp",
+    "alias": "res/drawable-xhdpi/icon.webp"
+  },
+  {
+    "name": "res/drawable-xxhdpi-v4/icon.webp",
+    "alias": "res/drawable-xxhdpi/icon.webp"
+  },
+  {
+    "name": "res/drawable-xxxhdpi-v4/icon.webp",
+    "alias": "res/drawable-xxxhdpi/icon.webp"
+  }
+]

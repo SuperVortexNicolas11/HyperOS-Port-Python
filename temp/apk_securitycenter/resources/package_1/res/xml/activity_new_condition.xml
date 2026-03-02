@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/new_condition_situation"
+                      android:key="key_situation_condition_category" />
+  <PreferenceCategory android:title="@string/new_condition_setting_item"
+                      android:key="key_setting_item_condition_category" />
+  <PreferenceCategory android:title="@string/new_condition_event"
+                      android:key="key_event_condition_category" />
+  <PreferenceCategory android:title="@string/new_condition_communication"
+                      android:key="key_comminication_condition_category" />
+  <com.miui.permcenter.settings.model.FlexiblePreference app:place_height="@dimen/view_dimen_40" />
+</PreferenceScreen>

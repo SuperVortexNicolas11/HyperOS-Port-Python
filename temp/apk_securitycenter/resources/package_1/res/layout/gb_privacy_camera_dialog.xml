@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:background="@color/gd_black_alpha30"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:gravity="center_horizontal"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:background="@drawable/gb_privacy_dialog_bg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/view_dimen_80"
+                android:paddingEnd="@dimen/view_dimen_80">
+    <ImageView android:layout_width="@dimen/view_dimen_140"
+               android:layout_height="@dimen/view_dimen_140"
+               android:layout_marginTop="@dimen/view_dimen_80"
+               android:src="@drawable/gb_ic_beauty_privacy_icon" />
+    <TextView android:textAppearance="?android:attr/textAppearanceMedium"
+              android:textSize="@dimen/view_dimen_50"
+              android:textColor="@color/gb_beauty_title_black"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_25"
+              android:text="@string/beauty_fun_privacy" />
+    <TextView android:textSize="@dimen/view_dimen_48"
+              android:textColor="@color/gb_beauty_privacy_dialog_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/view_dimen_40"
+              android:layout_marginTop="@dimen/view_dimen_50"
+              android:layout_marginRight="@dimen/view_dimen_40"
+              android:text="@string/beauty_fun_privacy_dialog_message"
+              android:layout_marginHorizontal="@dimen/view_dimen_40" />
+    <FrameLayout android:layout_gravity="center"
+                 android:background="@drawable/gb_ic_beauty_privacy_bg"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/view_dimen_60">
+      <com.airbnb.lottie.LottieAnimationView android:id="@id/lav_settings_privacy"
+                            android:layout_width="@dimen/view_dimen_920"
+                            android:layout_height="@dimen/view_dimen_440"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+    </FrameLayout>
+    <TextView android:textSize="@dimen/view_dimen_36"
+              android:textColor="@color/beauty_button_cancel"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_30"
+              android:layout_marginBottom="@dimen/view_dimen_70"
+              android:text="@string/beauty_fun_privacy_dialog_tips" />
+    <LinearLayout android:gravity="center"
+                  android:id="@id/layout_button"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="@dimen/view_dimen_10">
+      <Button android:textSize="@dimen/view_dimen_48"
+              android:textColor="@color/beauty_button_cancel"
+              android:id="@id/btn_cancel"
+              android:background="@drawable/gb_beauty_privacy_ignore"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/beauty_fun_privacy_ingnore" />
+      <Space android:layout_width="@dimen/view_dimen_40"
+             android:layout_height="wrap_content" />
+      <Button android:textSize="@dimen/view_dimen_48"
+              android:textColor="@color/beauty_button_confirm"
+              android:id="@id/btn_confirm"
+              android:background="@drawable/gb_beauty_privacy_open"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/beauty_fun_privacy_open" />
+    </LinearLayout>
+  </LinearLayout>
+</FrameLayout>

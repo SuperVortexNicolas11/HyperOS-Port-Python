@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.beauty.conversation.ConversationTopPreference android:enabled="false"
+                        android:key="preference_key_conversation_top"
+                        app:layout="@layout/conversation_prefrence_top_layout" />
+  <PreferenceCategory>
+    <CheckBoxPreference android:title="@string/conversation_title"
+                        android:key="preference_key_conversation_switch"
+                        android:summary="@string/conversation_summary_new" />
+    <miuix.preference.TextPreference android:title="@string/cs_voice_print"
+                          android:key="preference_key_cb_voice_print" />
+  </PreferenceCategory>
+</PreferenceScreen>

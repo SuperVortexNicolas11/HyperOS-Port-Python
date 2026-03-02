@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:scrollbars="none"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:overScrollMode="never" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:paddingLeft="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+                android:paddingRight="@dimen/miuix_appcompat_dialog_panel_horizontal_padding"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingStart="@dimen/pc_main_power_save_dialog_padding_horizon"
+                android:paddingEnd="@dimen/pc_main_power_save_dialog_padding_horizon">
+    <com.miui.powercenter.view.CornerImageView android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:src="@drawable/pc_dialog_super_save_pic"
+                          android:scaleType="centerCrop"
+                          app:corner="30.0px" />
+    <TextView android:textSize="16.0dp"
+              android:gravity="center_vertical"
+              android:id="@id/pc_main_dialog_super_save_content"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/pc_main_power_save_dialog_padding_size"
+              android:text="@string/power_dialog_super_save_msg" />
+    <CheckBox android:textSize="16.0dp"
+              android:gravity="center_vertical"
+              android:id="@id/checkbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/pc_main_power_save_dialog_padding_size"
+              android:text="@string/superpower_dialog_button_disable_dialog" />
+  </LinearLayout>
+</ScrollView>

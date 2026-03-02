@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="font_size_36">14.17sp</dimen>
+  <dimen name="view_dimen_110">39.97dp</dimen>
+  <dimen name="view_dimen_45">16.37dp</dimen>
+  <dimen name="view_dimen_80">29.07dp</dimen>
+</resources>

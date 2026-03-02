@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.carsickness.ui.DemoPreference android:layout="@layout/car_sickness_settings_top"
+                        android:key="demo_preference" />
+  <PreferenceCategory android:key="enable_category">
+    <miuix.preference.CheckBoxPreference android:title="@string/car_sickness_title"
+                          android:key="motion_sickness_enable" />
+    <miuix.preference.DropDownPreference android:title="@string/car_sickness_remind_time_title"
+                          android:key="remind_time_setting" />
+  </PreferenceCategory>
+  <com.miui.common.customview.NoClickCommentPreference android:text="@string/car_sickness_relief_comment_text_opened"
+                        android:key="warnning_car_accident_comment" />
+</androidx.preference.PreferenceScreen>

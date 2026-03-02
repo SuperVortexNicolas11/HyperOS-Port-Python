@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.packageInstaller.ui.MarketInstallProgress android:orientation="vertical"
+                      android:id="@id/layout_progressing"
+                      android:paddingBottom="@dimen/dp_28"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/dp_30"
+                      android:paddingEnd="@dimen/dp_30" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.packageInstaller.view.TextProgressBar android:id="@id/textProgressBar"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_51"
+                        style="@android:style/Widget.ProgressBar.Horizontal" />
+  <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/sp_14"
+                        android:textColor="@color/black_50"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@id/cancel_download"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_21"
+                        android:text="@string/miui_failed_market_code_user_canceled" />
+</com.miui.packageInstaller.ui.MarketInstallProgress>

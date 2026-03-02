@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen android:title="@string/date_and_time"
+                  settings:keywords="@string/keywords_date_and_time" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:title="@string/select_time_format_category_title">
+    <com.android.settingslib.miuisettings.preference.SwitchPreference android:title="@string/twenty_four_select_time_format"
+                          android:key="select_time_format" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/date_time_settings" />
+  <PreferenceCategory>
+    <com.android.settings.preference.RestrictedSwitchCompatPreference android:title="@string/date_time_auto"
+                          android:key="auto_time"
+                          android:summary="@string/summary_placeholder"
+                          settings:controller="com.android.settings.datetime.AutoTimePreferenceController"
+                          settings:userRestriction="no_config_date_time" />
+    <com.android.settings.preference.RestrictedCompatPreference android:title="@string/date_time_set_date_title"
+                          android:key="date"
+                          android:summary="@string/summary_placeholder"
+                          settings:controller="com.android.settings.datetime.DatePreferenceController"
+                          settings:showRightArrow="true"
+                          settings:userRestriction="no_config_date_time" />
+    <com.android.settings.preference.RestrictedCompatPreference android:title="@string/date_time_set_time_title"
+                          android:key="time"
+                          android:summary="@string/summary_placeholder"
+                          settings:controller="com.android.settings.datetime.TimePreferenceController"
+                          settings:showRightArrow="true"
+                          settings:userRestriction="no_config_date_time" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/timezone_settings"
+                      android:key="timezone_preference_category" />
+  <PreferenceCategory>
+    <com.android.settings.preference.RestrictedSwitchCompatPreference android:title="@string/zone_auto_title"
+                          android:key="auto_zone"
+                          android:summary="@string/summary_placeholder"
+                          settings:controller="com.android.settings.datetime.AutoTimeZonePreferenceController"
+                          settings:userRestriction="no_config_date_time" />
+    <com.android.settingslib.widget.BannerMessagePreference android:title="@string/location_time_zone_detection_status_title"
+                          android:key="location_time_zone_detection_status"
+                          settings:controller="com.android.settings.datetime.LocationProviderStatusPreferenceController" />
+    <com.android.settings.preference.RestrictedSwitchCompatPreference android:title="@string/location_time_zone_detection_toggle_title"
+                          android:key="location_time_zone_detection"
+                          android:summary="@string/summary_placeholder"
+                          settings:controller="com.android.settings.datetime.LocationTimeZoneDetectionPreferenceController" />
+    <com.android.settingslib.miuisettings.preference.ValuePreference android:title="@string/date_time_set_timezone"
+                          android:key="timezone"
+                          android:fragment="com.android.settings.datetime.timezone.TimeZoneSettings"
+                          settings:controller="com.android.settings.datetime.TimeZonePreferenceController" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/time_notifications_title"
+                      android:key="time_notifications_category"
+                      settings:controller="com.android.settings.datetime.NotificationsPreferenceCategoryController">
+    <com.android.settings.preference.RestrictedSwitchCompatDatePreference android:title="@string/time_zone_change_notifications_toggle_title"
+                          android:key="time_zone_change_notifications"
+                          android:summary="@string/summary_placeholder"
+                          settings:controller="com.android.settings.datetime.TimeZoneNotificationsPreferenceController"
+                          settings:keywords="@string/keywords_time_notification_category" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/time_feedback_category_title"
+                      android:key="time_feedback_preference_category"
+                      settings:controller="com.android.settings.datetime.TimeFeedbackPreferenceCategoryController"
+                      settings:keywords="@string/keywords_time_feedback_category">
+    <com.android.settingslib.miuisettings.preference.Preference android:title="@string/time_feedback_title"
+                          android:key="time_feedback"
+                          settings:controller="com.android.settings.datetime.TimeFeedbackPreferenceController"
+                          settings:keywords="@string/keywords_time_feedback" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/dual_clock"
+                      android:key="dual_clock">
+    <com.android.settingslib.miuisettings.preference.SwitchPreference android:title="@string/auto_dual_clock_title"
+                          android:key="auto_dual_clock"
+                          android:summary="@string/auto_dual_clock_summary" />
+    <com.android.settingslib.miuisettings.preference.ValuePreference android:title="@string/resident_timezone_summary"
+                          android:key="resident_timezone"
+                          settings:showRightArrow="true" />
+  </PreferenceCategory>
+  <com.android.settings.widget.TipWithoutCardPreference android:persistent="false"
+                        android:enabled="false"
+                        android:layout="@layout/preference_textview_secondary"
+                        android:title="@string/dual_clock_hint"
+                        android:selectable="false"
+                        android:key="dual_clock_hint" />
+</PreferenceScreen>

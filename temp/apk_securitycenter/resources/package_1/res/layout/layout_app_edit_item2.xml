@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="@dimen/view_dimen_30"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:importantForAccessibility="yes" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <FrameLayout android:id="@id/fl_icon"
+               android:layout_width="@dimen/dock_view_dimens_58"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/view_dimen_30"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent">
+    <ImageView android:layout_gravity="center"
+               android:id="@id/iv_icon"
+               android:layout_width="@dimen/dock_view_dimens_48"
+               android:layout_height="@dimen/dock_view_dimens_48"
+               android:scaleType="fitXY"
+               android:contentDescription="@null"
+               android:importantForAccessibility="no" />
+  </FrameLayout>
+  <Space android:id="@id/space1"
+         android:layout_width="0.0dp"
+         android:layout_height="0.0dp"
+         android:layout_marginBottom="@dimen/dock_view_dimens_8"
+         android:layout_marginStart="@dimen/dock_view_dimens_8"
+         app:layout_constraintBottom_toTopOf="@id/fl_icon"
+         app:layout_constraintStart_toEndOf="@id/fl_icon" />
+  <View android:id="@id/tips_view"
+        android:background="@drawable/gd_shape_app_add_icon"
+        android:layout_width="@dimen/dock_view_dimens_24"
+        android:layout_height="@dimen/dock_view_dimens_24"
+        app:layout_constraintEnd_toEndOf="@id/space1"
+        app:layout_constraintTop_toTopOf="@id/space1" />
+  <TextView android:textSize="@dimen/sp_13"
+            android:textColor="@color/gd_white_alpha80"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:id="@id/tv_app_label"
+            android:layout_width="@dimen/dock_view_dimens_58"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dock_view_dimens_6"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="@id/fl_icon"
+            app:layout_constraintStart_toStartOf="@id/fl_icon"
+            app:layout_constraintTop_toBottomOf="@id/fl_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:paddingBottom="@dimen/card_layout_line_height_half"
+              android:descendantFocusability="blocksDescendants"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="50.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <RelativeLayout android:id="@id/inner_layout"
+                  android:background="@drawable/shape_result_card_border_down"
+                  android:layout_width="fill_parent"
+                  android:layout_height="50.0dp">
+    <TextView android:textSize="12.0sp"
+              android:id="@id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:alpha="0.8" />
+  </RelativeLayout>
+</LinearLayout>

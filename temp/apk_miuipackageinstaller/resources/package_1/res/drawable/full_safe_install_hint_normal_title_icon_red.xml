@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="19.0dp"
+        android:width="18.0dp"
+        android:viewportWidth="18.0"
+        android:viewportHeight="19.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <group>
+    <clip-path android:pathData="M0,0.5h18v18h-18z" />
+    <path android:fillColor="@color/install_hint_title_red"
+          android:pathData="M9,0.5C10.78,0.5 12.52,1.028 14,2.017C15.48,3.006 16.634,4.411 17.315,6.056C17.996,7.7 18.174,9.51 17.827,11.256C17.48,13.002 16.623,14.605 15.364,15.864C14.105,17.123 12.502,17.98 10.756,18.327C9.01,18.674 7.2,18.496 5.556,17.815C3.911,17.134 2.506,15.98 1.517,14.5C0.528,13.02 0,11.28 0,9.5C0,7.113 0.948,4.824 2.636,3.136C4.324,1.448 6.613,0.5 9,0.5Z" />
+    <path android:fillColor="#ffffff"
+          android:pathData="M8.999,7.525C9.808,7.525 10.464,6.869 10.464,6.06C10.464,5.25 9.808,4.594 8.999,4.594C8.19,4.594 7.534,5.25 7.534,6.06C7.534,6.869 8.19,7.525 8.999,7.525ZM8.976,8.78C8.411,8.78 7.953,9.238 7.953,9.803V13.383C7.953,13.948 8.411,14.406 8.976,14.406H9.023C9.588,14.406 10.046,13.948 10.046,13.383V9.803C10.046,9.238 9.588,8.78 9.023,8.78H8.976Z"
+          android:fillType="evenOdd" />
+  </group>
+</vector>

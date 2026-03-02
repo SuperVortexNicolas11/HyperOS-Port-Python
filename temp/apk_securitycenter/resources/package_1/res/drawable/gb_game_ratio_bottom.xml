@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/dp_25"
+        android:width="@dimen/dp_24"
+        android:viewportWidth="24.0"
+        android:viewportHeight="25.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gb_game_ratio_bottom__0"
+        android:pathData="M2.0001,9.7188H22.0001V22.7188H2.0001V9.7188Z" />
+  <path android:fillColor="@drawable/$gb_game_ratio_bottom__1"
+        android:pathData="M2,9.7188H22V2.7188H2V9.7188Z"
+        android:strokeAlpha="0.4"
+        android:fillAlpha="0.4" />
+  <path android:fillColor="@drawable/$gb_game_ratio_bottom__2"
+        android:pathData="M2,22.7188H22V18.7187H2V22.7188Z"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+</vector>

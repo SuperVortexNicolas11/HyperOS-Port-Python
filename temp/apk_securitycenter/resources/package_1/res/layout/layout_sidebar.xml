@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ImageView android:id="@id/sidebar_line"
+             android:layout_width="@dimen/view_dimen_78"
+             android:layout_height="@dimen/view_dimen_200"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+  <ImageView android:id="@id/sidebar_top_indicator"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="@dimen/view_dimen_90"
+             app:layout_constraintBottom_toTopOf="@id/sidebar_line"
+             app:layout_constraintEnd_toEndOf="@id/sidebar_line"
+             app:layout_constraintStart_toStartOf="@id/sidebar_line" />
+  <ImageView android:id="@id/sidebar_left_indicator"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginEnd="@dimen/view_dimen_84"
+             app:layout_constraintBottom_toBottomOf="@id/sidebar_line"
+             app:layout_constraintEnd_toStartOf="@id/sidebar_line"
+             app:layout_constraintTop_toTopOf="@id/sidebar_line" />
+  <ImageView android:id="@id/sidebar_right_indicator"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/view_dimen_84"
+             app:layout_constraintBottom_toBottomOf="@id/sidebar_line"
+             app:layout_constraintStart_toEndOf="@id/sidebar_line"
+             app:layout_constraintTop_toTopOf="@id/sidebar_line" />
+  <ImageView android:id="@id/sidebar_bottom_indicator"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/view_dimen_90"
+             app:layout_constraintEnd_toEndOf="@id/sidebar_line"
+             app:layout_constraintStart_toStartOf="@id/sidebar_line"
+             app:layout_constraintTop_toBottomOf="@id/sidebar_line" />
+  <androidx.constraintlayout.widget.Group android:id="@id/indicator_group"
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="sidebar_left_indicator, sidebar_top_indicator, sidebar_right_indicator, sidebar_bottom_indicator" />
+</androidx.constraintlayout.widget.ConstraintLayout>

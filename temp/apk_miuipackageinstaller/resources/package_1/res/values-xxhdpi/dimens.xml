@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="ads_install_button_background_corner">133.0dp</dimen>
+  <dimen name="app_install_confirm_question_text_size">13.34sp</dimen>
+  <dimen name="app_install_source_text_size">14.0sp</dimen>
+  <dimen name="app_name_margin_top">10.0dp</dimen>
+  <dimen name="app_name_text_size">14.68sp</dimen>
+  <dimen name="bottom_button_horizontal_margin">6.65dp</dimen>
+  <dimen name="button_text_content_size">16.0sp</dimen>
+  <dimen name="game_center_guide_button_margin_start">26.68dp</dimen>
+  <dimen name="icon_margin_top">81.33dp</dimen>
+  <dimen name="icon_size">62.0dp</dimen>
+  <dimen name="install_vertical_panel_cancel_margin_bottom">26.67dp</dimen>
+  <dimen name="layout_description_padding_start_end">16.67dp</dimen>
+  <dimen name="layout_description_padding_top_bottom">13.67dp</dimen>
+  <dimen name="passport_action_bar_default_height">45.0dp</dimen>
+  <dimen name="passport_alphabet_indexer_text_size">10.0dp</dimen>
+  <dimen name="passport_button_text_size">14.0sp</dimen>
+  <dimen name="passport_normal_text_size">15.0sp</dimen>
+  <dimen name="passport_secondary_text_size">12.0sp</dimen>
+  <dimen name="passport_title_text_size">15.0sp</dimen>
+  <dimen name="preference_bottom_logo_margin_top">33.33dp</dimen>
+  <dimen name="preference_bottom_logo_padding_top_bottom">16.67dp</dimen>
+  <dimen name="shape_desc_bg_radius">16.0dp</dimen>
+  <dimen name="title_layout_height">287.66dp</dimen>
+</resources>

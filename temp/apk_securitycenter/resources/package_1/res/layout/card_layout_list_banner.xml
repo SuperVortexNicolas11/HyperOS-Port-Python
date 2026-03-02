@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:background="@drawable/hp_card_bg_no_shadow_selector"
+              android:paddingTop="@dimen/result_card_margin_top_bottom"
+              android:paddingBottom="@dimen/result_card_margin_top_bottom"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/card_main_left_banner_height"
+              android:paddingStart="@dimen/hp_function_icon_padding_start"
+              android:paddingEnd="@dimen/hp_function_icon_padding_start" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center_vertical"
+             android:id="@id/icon"
+             android:layout_width="@dimen/card_main_list_banner_iv_banner_size"
+             android:layout_height="@dimen/card_main_list_banner_iv_banner_size"
+             android:scaleType="centerCrop" />
+  <LinearLayout android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/dp_16">
+    <TextView android:id="@id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/HpCardTitleTextViewStyle" />
+    <TextView android:id="@id/summary"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/HpCardSummaryTextViewStyle" />
+  </LinearLayout>
+  <ImageView android:layout_gravity="center_vertical"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/miuix_appcompat_arrow_right" />
+</LinearLayout>

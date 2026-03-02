@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape android:shape="rectangle">
+      <solid android:color="@color/card_bg_tb_color" />
+      <padding android:bottom="@dimen/hp_card_layout_line_height_half" />
+    </shape>
+  </item>
+  <item>
+    <shape android:shape="rectangle">
+      <corners android:topLeftRadius="0.0dp"
+               android:topRightRadius="0.0dp"
+               android:bottomLeftRadius="@dimen/hp_card_bg_radius"
+               android:bottomRightRadius="0.0dp" />
+      <solid android:color="@color/card_bg_color" />
+    </shape>
+  </item>
+</layer-list>

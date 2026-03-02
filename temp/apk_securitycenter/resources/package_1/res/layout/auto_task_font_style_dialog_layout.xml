@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/view_dimen_80"
+              android:paddingEnd="@dimen/view_dimen_80" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/text_font_size_48"
+            android:textColor="@color/font_settings_view_big_color"
+            android:gravity="center"
+            android:id="@id/font_show_view"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/view_dimen_180" />
+  <LinearLayout android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <ImageView android:layout_gravity="center_vertical"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_a_small" />
+    <com.miui.autotask.view.FontSizeCustomView android:id="@id/font_size_view"
+                          android:background="@drawable/shape_corner_matrix"
+                          android:layout_width="0.0dp"
+                          android:layout_height="@dimen/view_dimen_70"
+                          android:progressDrawable="@null"
+                          android:thumb="@null"
+                          android:layout_weight="1.0"
+                          android:layout_marginStart="@dimen/view_dimen_25"
+                          android:layout_marginEnd="@dimen/view_dimen_25" />
+    <ImageView android:layout_gravity="center_vertical"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_a_big" />
+  </LinearLayout>
+  <LinearLayout android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_dimen_106">
+    <ImageView android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:id="@id/iv_font_weight_light"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/text_icon_thin" />
+    <com.miui.autotask.view.FontWeightAdjustView android:id="@id/font_weight_view"
+                          android:background="@drawable/shape_corner_matrix"
+                          android:layout_width="0.0dp"
+                          android:layout_height="@dimen/view_dimen_70"
+                          android:progressDrawable="@null"
+                          android:thumb="@null"
+                          android:layout_weight="1.0"
+                          android:layout_marginStart="@dimen/view_dimen_25"
+                          android:layout_marginEnd="@dimen/view_dimen_25" />
+    <ImageView android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:id="@id/iv_font_weight_heavy"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/text_icon_thick" />
+  </LinearLayout>
+</LinearLayout>

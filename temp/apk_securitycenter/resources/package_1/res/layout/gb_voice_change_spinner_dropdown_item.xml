@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.androidbasewidget.widget.CheckedTextView android:textSize="@dimen/view_dimen_40"
+                      android:textColor="@color/gb_voice_changer_setting_subtitle_text_color"
+                      android:ellipsize="marquee"
+                      android:id="@android:id/text1"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:singleLine="true"
+                      android:fontFamily="sans-serif-medium"
+                      style="@style/Widget.DropDownItem.Spinner" xmlns:android="http://schemas.android.com/apk/res/android" />

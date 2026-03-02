@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:minHeight="@dimen/dp_52" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            android:textColor="@color/six_pices_card_item_title_textcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_17"
+            android:layout_marginBottom="@dimen/view_dimen_10"
+            android:text="@string/commonly_used_func_card_title"
+            android:layout_marginStart="@dimen/dp_16" />
+</FrameLayout>

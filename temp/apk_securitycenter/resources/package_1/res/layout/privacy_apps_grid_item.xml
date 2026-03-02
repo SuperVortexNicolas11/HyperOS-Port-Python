@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_gravity="center"
+             android:id="@id/image"
+             android:layout_width="@dimen/view_dimen_168"
+             android:layout_height="@dimen/view_dimen_168" />
+  <TextView android:textSize="@dimen/text_font_size_34"
+            android:textColor="@color/pa_dialog_button_text_color"
+            android:layout_gravity="center"
+            android:id="@id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_px_12"
+            android:singleLine="true" />
+</LinearLayout>

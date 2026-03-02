@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <string name="active_classify">按活跃状态分类</string>
+  <string name="app_name">电量和性能</string>
+  <string name="base_info">基本信息</string>
+  <string name="checking_intranet">内网检测中，请耐心等待</string>
+  <string name="clear_temperature">解除温度</string>
+  <string name="cloud_addr_info">神隐模式云控信息</string>
+  <string name="cloud_allow_change_addr">修改云控自动同步</string>
+  <string name="cloud_china_addr">更新China服务器数据</string>
+  <string name="cloud_international_addr">更新International服务器数据</string>
+  <string name="cloud_russion_addr">更新Russion服务器数据</string>
+  <string name="cloud_staging_addr">更新Staging服务器数据</string>
+  <string name="confirm">确定</string>
+  <string name="connect_intranet_hint">请连接内网</string>
+  <string name="current_allow_sync_is">云控自动同步：</string>
+  <string name="current_cloud_addr_is">当前地址：</string>
+  <string name="delete_data_confirm">是否删除该条数据</string>
+  <string name="disable">已禁用</string>
+  <string name="enable">开启</string>
+  <string name="enable_sleep_mode">启用睡眠模式功能以优化夜间待机</string>
+  <string name="failure">失败</string>
+  <string name="high_temp_benchmark_state">高温提示</string>
+  <string name="high_temp_benchmark_state_message">设备温度过高，请等设备降温后再使用</string>
+  <string name="high_temp_state">高温提示</string>
+  <string name="high_temp_state_message">设备温度过高，开启高温保护，数据、热点、定位、相机等资源将受到限制！</string>
+  <string name="insert_data">插入数据</string>
+  <string name="kill_all_back_pro_toast_message">设备温度过高，开启高温保护，全部后台应用被退出</string>
+  <string name="kill_pkg_toast_message">设备温度过高，开启高温保护，应用被退出</string>
+  <string name="kill_some_back_pro_toast_message">设备温度过高，开启高温保护，部分后台应用被退出</string>
+  <string name="lasttime_applist_cloud">应用列表更新时间：</string>
+  <string name="lasttime_feature_cloud">通用功能更新时间：</string>
+  <string name="modify_data">修改数据</string>
+  <string name="power_consume_abnormal_night">夜间耗电异常</string>
+  <string name="privacy">隐私政策</string>
+  <string name="save_data">保存数据</string>
+  <string name="screen_off_current">灭屏电流</string>
+  <string name="screen_on_current">亮屏电流</string>
+  <string name="search_input_txt_na">&lt;font color='#ff0000'&gt;%s&lt;/font&gt;</string>
+  <string name="search_result_text">未找到任何应用</string>
+  <string name="softbank_high_temp_toast_time_10min">为避免电池温度过高,手电筒已自动关闭</string>
+  <string name="softbank_high_temp_toast_time_4min">为避免电池温度过高,闪光灯已自动关闭</string>
+  <string name="stricter_high_temp_state_message">设备温度过热，除“拨号”和“联系人”外，无法使用其他应用</string>
+  <string name="sucess">成功</string>
+  <string name="thermal_cancel">取消</string>
+  <string name="thermal_confirm">确认</string>
+  <string name="trig_temperature">触发温度</string>
+  <string name="update_profile_failture_not_connect_wifi">更新失败,Wifi没有连接</string>
+  <string name="update_profile_sucess">从服务器上更新成功</string>
+</resources>

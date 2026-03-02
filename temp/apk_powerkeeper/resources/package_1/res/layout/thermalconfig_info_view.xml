@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:baselineAligned="false" xmlns:android="http://schemas.android.com/apk/res/android">
+  <EditText android:id="@id/et_trig"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/trig_temperature"
+            android:ems="10"
+            android:layout_weight="1.0"
+            android:inputType="textPersonName" />
+  <EditText android:id="@id/et_clr"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/clear_temperature"
+            android:ems="10"
+            android:layout_weight="1.0"
+            android:inputType="textPersonName" />
+  <EditText android:id="@id/et_target1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/screen_on_current"
+            android:ems="10"
+            android:layout_weight="1.0"
+            android:inputType="textPersonName" />
+  <EditText android:id="@id/et_target2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/screen_off_current"
+            android:ems="10"
+            android:layout_weight="1.0"
+            android:inputType="textPersonName" />
+  <RelativeLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0">
+    <Button android:id="@id/btn_ins_yes"
+            android:background="@android:color/transparent"
+            android:layout_width="60.0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/thermal_confirm"
+            android:layout_toLeftOf="@id/btn_ins_no" />
+    <Button android:id="@id/btn_ins_no"
+            android:background="@android:color/transparent"
+            android:layout_width="60.0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/thermal_cancel"
+            android:layout_alignParentRight="true" />
+  </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge android:layout_width="fill_parent"
+       android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <ImageView android:id="@id/iv_icon"
+               android:layout_width="@dimen/dp_24"
+               android:layout_height="@dimen/dp_24"
+               android:layout_marginTop="@dimen/dp_12"
+               android:layout_centerHorizontal="true" />
+    <TextView android:gravity="center"
+              android:id="@id/tv_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerHorizontal="true"
+              android:layout_marginStart="@dimen/dp_3"
+              android:layout_marginEnd="@dimen/dp_3"
+              style="@style/PhoneManageItemTitleStyle" />
+  </LinearLayout>
+  <ImageView android:layout_gravity="center|top"
+             android:id="@id/iv_redcot"
+             android:visibility="visible"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/dp_10"
+             android:src="@drawable/grid_six_red_point_bg"
+             android:layout_marginStart="@dimen/nine_pices_red_point_margin_start" />
+</merge>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <miuix.preference.PreferenceCategory>
+    <com.android.settings.subscreen.PhoneCaseFwUpdatePreference android:layout="@layout/p8g_ota_update"
+                          android:title="@string/camera_grip_firmware_title_text"
+                          android:key="firmware_update" />
+  </miuix.preference.PreferenceCategory>
+  <miuix.preference.PreferenceCategory>
+    <com.android.settings.subscreen.PhoneCaseSNPreference android:title="@string/photography_handle_sn"
+                          android:key="preference_device_sn" />
+  </miuix.preference.PreferenceCategory>
+</PreferenceScreen>

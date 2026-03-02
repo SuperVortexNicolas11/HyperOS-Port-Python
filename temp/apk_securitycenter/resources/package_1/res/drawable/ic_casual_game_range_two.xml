@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="16.0dp"
+        android:width="28.0dp"
+        android:viewportWidth="28.0"
+        android:viewportHeight="16.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$ic_casual_game_range_two__0"
+        android:pathData="M0,3.973C0,2.151 1.477,0.674 3.299,0.674L17.664,0.674C20.308,0.674 22.697,2.252 23.734,4.684L27.299,13.046H0V3.973Z" />
+  <group>
+    <clip-path android:pathData="M0,3.973C0,2.151 1.477,0.674 3.299,0.674L17.664,0.674C20.308,0.674 22.697,2.252 23.734,4.684L27.299,13.046H0V3.973Z" />
+    <path android:fillColor="@drawable/$ic_casual_game_range_two__1"
+          android:pathData="M26.183,1.11C27.905,-0.326 30.527,0.337 31.359,2.419L35.607,13.046H11.869L26.183,1.11Z" />
+  </group>
+  <path android:fillColor="#a2a2a2"
+        android:pathData="M0,13.046H3.638L2.022,15.674L0.989,14.283L0,13.046Z" />
+</vector>

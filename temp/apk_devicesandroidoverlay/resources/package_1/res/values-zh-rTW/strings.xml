@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <string name="ext_media_ready_notification_message">點擊彈出可安全斷開裝置</string>
+</resources>

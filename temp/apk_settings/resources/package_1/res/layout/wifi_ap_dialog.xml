@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      app:scrollableView="@id/scrollview" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.core.widget.NestedScrollView android:id="@id/scrollview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+    <LinearLayout android:orientation="vertical"
+                  android:paddingTop="@dimen/screen_padding_top"
+                  android:paddingBottom="@dimen/screen_padding_bottom"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <LinearLayout android:orientation="vertical"
+                    android:id="@id/info"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+      <com.miui.support.cardview.CardView android:layout_gravity="center"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/screen_margin_left"
+                            android:layout_marginRight="@dimen/screen_margin_right"
+                            app:cardBackgroundColor="@color/wifi_detail_fragment_bg_color"
+                            app:cardCornerRadius="@dimen/miuix_preference_high_light_radius"
+                            app:cardElevation="0.0dp">
+        <LinearLayout android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content">
+          <LinearLayout android:id="@id/type"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+            <miuix.androidbasewidget.widget.StateEditText android:id="@id/ssid"
+                                  android:background="@color/transparent"
+                                  android:layout_width="fill_parent"
+                                  android:layout_height="wrap_content"
+                                  android:singleLine="true"
+                                  android:maxLength="32"
+                                  android:inputType="textNoSuggestions"
+                                  android:imeOptions="actionDone"
+                                  android:textAlignment="viewEnd"
+                                  app:miuixAppcompatLabel="@string/wifi_ssid" />
+          </LinearLayout>
+          <LinearLayout android:id="@id/fields"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0.0dp">
+            <LinearLayout android:id="@id/l_password"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content">
+              <miuix.androidbasewidget.widget.StateEditText android:textAppearance="@style/Miuix.AppCompat.TextAppearance.PreferenceList"
+                                    android:ellipsize="end"
+                                    android:id="@id/password"
+                                    android:background="@color/transparent"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/credentials_password_too_short"
+                                    android:singleLine="true"
+                                    android:maxLength="63"
+                                    android:inputType="textPassword"
+                                    android:imeOptions="actionDone"
+                                    android:textAlignment="viewEnd"
+                                    android:layout_marginStart="0.0dp"
+                                    android:layout_marginEnd="0.0dp"
+                                    app:miuixAppcompatLabel="@string/wifi_password"
+                                    app:miuixAppcompatWidgetManager="miuix.androidbasewidget.widget.PasswordWidgetManager" />
+            </LinearLayout>
+          </LinearLayout>
+        </LinearLayout>
+      </com.miui.support.cardview.CardView>
+      <com.miui.support.cardview.CardView android:layout_gravity="center"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/screen_margin_left"
+                            android:layout_marginTop="@dimen/screen_margin_top"
+                            android:layout_marginRight="@dimen/screen_margin_right"
+                            app:cardBackgroundColor="@color/wifi_detail_fragment_bg_color"
+                            app:cardCornerRadius="@dimen/miuix_preference_high_light_radius"
+                            app:cardElevation="0.0dp">
+        <LinearLayout android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content">
+          <miuix.flexible.view.HyperCellLayout android:id="@id/l_security"
+                                android:visibility="gone"
+                                app:template="standard_button"
+                                style="@style/wifi_spinner_large_layout">
+            <TextView android:text="@string/wifi_security"
+                      android:breakStrategy="balanced"
+                      android:hyphenationFrequency="fullFast"
+                      android:lineBreakStyle="normal"
+                      android:lineBreakWordStyle="phrase"
+                      app:area_id="@id/area_title"
+                      style="@style/wifi_spinner_large_title" />
+            <TextView android:id="@id/security_text"
+                      android:visibility="gone"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:area_id="@id/area_text_button"
+                      style="@style/Miuix.AppCompat.TextAppearance.Spinner.Integrated" />
+            <miuix.appcompat.widget.Spinner android:entries="@array/wifi_ap_security"
+                                  android:id="@id/security"
+                                  android:prompt="@string/wifi_security"
+                                  app:area_id="@id/area_end"
+                                  style="@style/wifi_spinner_large" />
+          </miuix.flexible.view.HyperCellLayout>
+          <miuix.flexible.view.HyperCellLayout android:id="@id/identy"
+                                app:template="standard_button"
+                                style="@style/wifi_spinner_large_layout">
+            <TextView android:text="@string/enalbe_identify_iPhone"
+                      android:breakStrategy="balanced"
+                      android:hyphenationFrequency="fullFast"
+                      android:lineBreakStyle="normal"
+                      android:lineBreakWordStyle="phrase"
+                      app:area_id="@id/area_title"
+                      style="@style/wifi_spinner_large_title" />
+            <TextView android:id="@id/identify_text"
+                      android:visibility="gone"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:area_id="@id/area_text_button"
+                      style="@style/Miuix.AppCompat.TextAppearance.Spinner.Integrated" />
+            <miuix.appcompat.widget.Spinner android:entries="@array/ap_identify"
+                                  android:id="@id/enalbe_identify_iPhone"
+                                  android:prompt="@string/enalbe_identify_iPhone"
+                                  app:area_id="@id/area_end"
+                                  style="@style/wifi_spinner_large" />
+          </miuix.flexible.view.HyperCellLayout>
+          <miuix.flexible.view.HyperCellLayout android:id="@id/channel_fields"
+                                app:template="standard_button"
+                                style="@style/wifi_spinner_large_layout">
+            <TextView android:text="@string/wifi_ap_band_config"
+                      android:breakStrategy="balanced"
+                      android:hyphenationFrequency="fullFast"
+                      android:lineBreakStyle="normal"
+                      android:lineBreakWordStyle="phrase"
+                      app:area_id="@id/area_title"
+                      style="@style/wifi_spinner_large_title" />
+            <TextView android:id="@id/choose_text"
+                      android:visibility="gone"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:area_id="@id/area_text_button"
+                      style="@style/Miuix.AppCompat.TextAppearance.Spinner.Integrated" />
+            <miuix.appcompat.widget.Spinner android:id="@id/choose_channel"
+                                  android:prompt="@string/wifi_ap_band_config"
+                                  app:area_id="@id/area_end"
+                                  style="@style/wifi_spinner_large" />
+          </miuix.flexible.view.HyperCellLayout>
+          <miuix.flexible.view.HyperCellLayout android:id="@id/hidden_ssid"
+                                app:template="standard_button"
+                                style="@style/wifi_spinner_large_layout">
+            <TextView android:text="@string/wifi_ap_hidden_ssid"
+                      android:breakStrategy="balanced"
+                      android:hyphenationFrequency="fullFast"
+                      android:lineBreakStyle="normal"
+                      android:lineBreakWordStyle="phrase"
+                      app:area_id="@id/area_title"
+                      style="@style/wifi_spinner_large_title" />
+            <TextView android:id="@id/hidden_text"
+                      android:visibility="gone"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:area_id="@id/area_text_button"
+                      style="@style/Miuix.AppCompat.TextAppearance.Spinner.Integrated" />
+            <miuix.appcompat.widget.Spinner android:entries="@array/wifi_ap_hidden_ssid_config"
+                                  android:id="@id/wifi_ap_hidden_ssid"
+                                  android:prompt="@string/wifi_ap_hidden_ssid"
+                                  app:area_id="@id/area_end"
+                                  style="@style/wifi_spinner_large" />
+          </miuix.flexible.view.HyperCellLayout>
+        </LinearLayout>
+      </com.miui.support.cardview.CardView>
+    </LinearLayout>
+  </miuix.core.widget.NestedScrollView>
+</miuix.springback.view.SpringBackLayout>

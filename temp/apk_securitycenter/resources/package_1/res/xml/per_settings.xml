@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.preference.CommentPreference android:text="@string/settings_share_info"
+                        app:title="" />
+  <miuix.preference.PreferenceCategory app:needDividerLine="false">
+    <CheckBoxPreference android:title="@string/first_settings_default_location_title"
+                        android:key="pref_key_image_location"
+                        android:summary="@string/first_settings_default_location_subtitle" />
+    <CheckBoxPreference android:title="@string/first_settings_default_camera_title"
+                        android:key="pref_key_image_camera"
+                        android:summary="@string/settings_image_camera_summary" />
+  </miuix.preference.PreferenceCategory>
+</PreferenceScreen>

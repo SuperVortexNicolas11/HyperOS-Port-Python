@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:padding="@dimen/dp_16"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.miui.autotask.view.TaskRecyclerView android:id="@id/task_icon_list"
+                        android:scrollbars="none"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:importantForAccessibility="noHideDescendants" />
+  <TextView android:textColor="@color/auto_task_item_title"
+            android:ellipsize="end"
+            android:id="@id/task_title"
+            android:layout_marginTop="@dimen/view_dimen_36"
+            android:maxLines="1"
+            android:layout_below="@id/task_icon_list"
+            android:layout_marginEnd="@dimen/view_dimen_190"
+            style="@style/ListItemTitle" />
+  <TextView android:textColor="@color/auto_task_item_summary"
+            android:ellipsize="end"
+            android:id="@id/task_summary"
+            android:layout_marginTop="@dimen/view_dimen_4"
+            android:maxLines="2"
+            android:layout_below="@id/task_title"
+            android:layout_marginEnd="@dimen/view_dimen_190"
+            style="@style/ListItemSubTitle" />
+  <com.miui.common.ui.HoverSlidingSwitch android:id="@id/task_status"
+                        android:focusable="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/auto_task_switch"
+                        android:layout_alignParentEnd="true" />
+  <CheckBox android:id="@id/task_select"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:visibility="gone"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:importantForAccessibility="no"
+            android:layout_marginEnd="@dimen/view_dimen_2"
+            android:layout_alignParentEnd="true" />
+</RelativeLayout>

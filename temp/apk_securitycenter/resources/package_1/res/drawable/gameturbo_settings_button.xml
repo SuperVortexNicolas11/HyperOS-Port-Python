@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/view_dimen_66"
+        android:width="@dimen/view_dimen_66"
+        android:viewportWidth="66.0"
+        android:viewportHeight="66.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <path android:fillColor="@drawable/$gameturbo_settings_button__0"
+        android:pathData="M54.2132,11.7868L33,3L11.7868,11.7868L3,33L11.7868,54.2132L33,63L54.2132,54.2132L63,33L54.2132,11.7868ZM33,43C38.5228,43 43,38.5228 43,33C43,27.4772 38.5228,23 33,23C27.4772,23 23,27.4772 23,33C23,38.5228 27.4772,43 33,43Z"
+        android:fillType="evenOdd" />
+  <path android:fillColor="@drawable/$gameturbo_settings_button__1"
+        android:pathData="M33,33m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"
+        android:strokeAlpha="0.6"
+        android:fillAlpha="0.6" />
+</vector>

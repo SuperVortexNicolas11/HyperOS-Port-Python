@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.windowmanager.GBTopbarLayout android:id="@id/topview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        app:turboTitleCenter="@string/gb_dialog_record_way_title" />
+  <ScrollView android:scrollbars="none"
+              android:layout_width="fill_parent"
+              android:layout_height="0.0dp"
+              android:layout_weight="1.0"
+              android:overScrollMode="never"
+              android:paddingStart="@dimen/view_dimen_60"
+              android:paddingEnd="@dimen/view_dimen_60">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <com.miui.gamebooster.widget.CheckBoxSettingItemView android:id="@id/aiSettingItem"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            app:gbsiCustomLayout="@layout/gb_checkbox_setting_item_view_in_dialog"
+                            app:gbsiSubtitle="@string/gb_dialog_record_way_ai"
+                            app:gbsiTitle="@string/gs_game_ai_record"
+                            app:hasMinHeight="false" />
+      <com.miui.gamebooster.widget.CheckBoxSettingItemView android:id="@id/manualSettingItem"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            app:gbsiCustomLayout="@layout/gb_checkbox_setting_item_view_in_dialog"
+                            app:gbsiSubtitle="@string/gb_dialog_record_way_manual"
+                            app:gbsiTitle="@string/gs_game_manual_record"
+                            app:hasMinHeight="false" />
+      <View android:background="@color/whitealpha10"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/view_dimen_2"
+            android:layout_marginTop="@dimen/view_dimen_10"
+            android:layout_marginBottom="@dimen/view_dimen_42" />
+      <TextView android:textSize="@dimen/gb_wonderful_record_way_dialog_tips_textsize"
+                android:textColor="@color/gb_record_dialog_subtitle_color"
+                android:layout_gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gb_wonderful_record_way_dialog_tips_margin_top"
+                android:text="@string/gb_dialog_record_way_setting_tips" />
+    </LinearLayout>
+  </ScrollView>
+  <TextView android:textSize="@dimen/gb_wonderful_tab_page_intro_title_textsize"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:id="@id/tv_finish"
+            android:background="@drawable/gb_wonderful_record_way_dialog_button"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/view_dimen_110"
+            android:layout_marginBottom="@dimen/view_dimen_60"
+            android:text="@string/gb_dialog_record_way_finish"
+            android:layout_marginStart="@dimen/view_dimen_60"
+            android:layout_marginEnd="@dimen/view_dimen_60" />
+</LinearLayout>

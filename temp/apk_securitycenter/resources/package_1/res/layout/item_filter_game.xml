@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingBottom="@dimen/dp_10"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/dp_6"
+                      android:paddingEnd="@dimen/dp_6" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.cardview.widget.CardView android:layout_width="0.0dp"
+                        android:layout_height="0.0dp"
+                        app:cardCornerRadius="@dimen/dp_6"
+                        app:layout_constraintDimensionRatio="H,1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+    <ImageView android:id="@id/image"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:src="@drawable/game_filter_loading"
+               android:scaleType="centerCrop" />
+    <com.miui.gamebooster.videobox.view.MarqueeTextView android:textSize="@dimen/dp_12"
+                          android:textColor="@color/whitealpha90"
+                          android:ellipsize="marquee"
+                          android:gravity="center_horizontal"
+                          android:layout_gravity="bottom"
+                          android:id="@id/name_tv"
+                          android:background="@color/blackalpha70"
+                          android:paddingTop="@dimen/dp_4"
+                          android:paddingBottom="@dimen/dp_6"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:singleLine="true"
+                          android:marqueeRepeatLimit="marquee_forever"
+                          android:paddingStart="@dimen/dp_6"
+                          android:paddingEnd="@dimen/dp_6" />
+    <TextView android:id="@id/select_view"
+              android:background="@drawable/game_filter_stroke"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" />
+  </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

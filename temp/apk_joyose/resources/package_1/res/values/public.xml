@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources package="com.xiaomi.joyose" id="0x7f">
+  <public id="0x7f010007" type="drawable" name="ic_launcher_foreground" />
+  <public id="0x7f010000" type="drawable" name="$ic_launcher_foreground__0" />
+  <public id="0x7f010001" type="drawable" name="ic_gunsight_1" />
+  <public id="0x7f010002" type="drawable" name="ic_gunsight_2" />
+  <public id="0x7f010003" type="drawable" name="ic_gunsight_3" />
+  <public id="0x7f010004" type="drawable" name="ic_gunsight_4" />
+  <public id="0x7f010005" type="drawable" name="ic_gunsight_5" />
+  <public id="0x7f010006" type="drawable" name="ic_launcher_background" />
+  <public id="0x7f020001" type="mipmap" name="ic_launcher_round" />
+  <public id="0x7f020000" type="mipmap" name="ic_launcher" />
+  <public id="0x7f030010" type="string" name="resurged_title" />
+  <public id="0x7f030000" type="string" name="action_settings" />
+  <public id="0x7f030001" type="string" name="app_name" />
+  <public id="0x7f030002" type="string" name="end_title" />
+  <public id="0x7f030003" type="string" name="gamebox_filter_name_black_gold" />
+  <public id="0x7f030004" type="string" name="gamebox_filter_name_cyberpunk" />
+  <public id="0x7f030005" type="string" name="gamebox_filter_name_golden_autumn" />
+  <public id="0x7f030006" type="string" name="gamebox_filter_name_klein_blue" />
+  <public id="0x7f030007" type="string" name="gamebox_filter_name_midnight_green" />
+  <public id="0x7f030008" type="string" name="gamebox_filter_name_original" />
+  <public id="0x7f030009" type="string" name="gamebox_filter_name_vintage_brown" />
+  <public id="0x7f03000a" type="string" name="gamebox_filter_name_warn_orange" />
+  <public id="0x7f03000b" type="string" name="gamebox_filter_name_wild_wind" />
+  <public id="0x7f03000c" type="string" name="hello_world" />
+  <public id="0x7f03000d" type="string" name="joyose_name" />
+  <public id="0x7f03000e" type="string" name="not_resurge_title" />
+  <public id="0x7f03000f" type="string" name="resurged_content" />
+  <public id="0x7f040000" type="xml" name="network_security_config" />
+</resources>

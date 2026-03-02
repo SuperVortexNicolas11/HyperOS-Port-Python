@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <androidx.appcompat.widget.AppCompatTextView android:textSize="@dimen/sp_14"
+                        android:textColor="@color/black_80"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@id/second_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/sp_6"
+                        android:drawableStart="@drawable/full_safe_mode_tip_icon" />
+  <CheckBox android:textSize="@dimen/sp_16"
+            android:id="@id/checkbox"
+            android:paddingLeft="@dimen/dp_9.09"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12" />
+  <com.miui.packageInstaller.view.InstallerActionButton android:id="@id/first_button"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMaxTextSize="@dimen/sp_17"
+                        style="@style/Widget.Button" />
+  <com.miui.packageInstaller.view.ScanActionButton android:id="@id/second_button"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMaxTextSize="@dimen/sp_17"
+                        style="@style/Widget.Button" />
+  <com.miui.packageInstaller.view.InstallerActionButton android:id="@id/third_button"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/dp_50"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMaxTextSize="@dimen/sp_17"
+                        style="@style/Widget.Button" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.support.drawable.CardDrawable app:backgroundColor="@color/chip_white"
+                      app:cardRadius="@dimen/chip_manager_card_radius"
+                      app:normalAlpha="0.0"
+                      app:paddingLeft="0.0dp"
+                      app:pressedAlpha="0.2"
+                      app:radiusMode="1" xmlns:app="http://schemas.android.com/apk/res-auto" />

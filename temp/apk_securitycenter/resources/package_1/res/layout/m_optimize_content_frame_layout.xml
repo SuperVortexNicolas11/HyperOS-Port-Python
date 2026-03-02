@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.securityscan.ui.main.ScanContentFramePad android:id="@id/content_frame"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/main_contentview_margin_top" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.securityscan.ui.main.MainVideoView android:id="@id/video_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_video_margin_top"
+                        android:layout_centerHorizontal="true">
+    <com.miui.common.ui.VlcTextureView android:layout_gravity="center"
+                          android:id="@id/texture_view"
+                          android:layout_width="@dimen/main_contentview_height"
+                          android:layout_height="@dimen/main_contentview_height"
+                          app:resize_mode="zoom" />
+    <ImageView android:layout_gravity="center"
+               android:id="@id/bg_view"
+               android:layout_width="@dimen/main_contentview_height"
+               android:layout_height="@dimen/main_contentview_height"
+               android:src="@drawable/securityscan_first_frame_blue" />
+  </com.miui.securityscan.ui.main.MainVideoView>
+  <ViewStub android:id="@id/result_score_content_viewstub"
+            android:layout="@layout/m_viewstub_result_score_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true" />
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/content_main"
+                        android:layout_width="@dimen/hp_content_main_size"
+                        android:layout_height="@dimen/hp_content_main_size"
+                        android:layout_marginTop="@dimen/content_main_margin_top"
+                        android:minWidth="154.0dp"
+                        android:layout_centerHorizontal="true">
+    <com.miui.common.customview.ScoreTextView android:textSize="@dimen/scan_result_score_text_size"
+                          android:textColor="@color/m_activity_main_score"
+                          android:id="@id/score"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:singleLine="true"
+                          android:includeFontPadding="false"
+                          android:layout_centerHorizontal="true"
+                          app:layout_constraintBottom_toTopOf="@id/status_bar"
+                          app:layout_constraintLeft_toLeftOf="parent"
+                          app:layout_constraintRight_toRightOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:layout_constraintVertical_chainStyle="packed" />
+    <TextView android:textSize="@dimen/status_bar_textsize"
+              android:textColor="@color/card_summary_text_color"
+              android:gravity="center"
+              android:id="@id/status_bar"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxWidth="@dimen/status_bar_width"
+              android:singleLine="true"
+              android:layout_below="@id/score"
+              android:layout_centerHorizontal="true"
+              android:paddingStart="@dimen/status_bar_padding_start"
+              android:paddingEnd="@dimen/status_bar_padding_end"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/score" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</com.miui.securityscan.ui.main.ScanContentFramePad>

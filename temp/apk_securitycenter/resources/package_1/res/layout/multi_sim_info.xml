@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="horizontal"
+              android:id="@id/sim_info_layout"
+              android:paddingTop="6.0dp"
+              android:paddingBottom="6.0dp"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="40.0dp"
+              android:paddingVertical="6.0dp" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <ImageView android:id="@id/sim_image_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/sim1" />
+    <TextView android:gravity="center"
+              android:id="@id/sim_text_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="8.0dp"
+              style="@style/Miuix.HyperOs.TextAppearance.Subtitle2" />
+  </LinearLayout>
+</LinearLayout>

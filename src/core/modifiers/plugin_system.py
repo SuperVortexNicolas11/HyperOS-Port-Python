@@ -6,7 +6,9 @@ Plugins can be registered dynamically and executed in a specific order.
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional, Type, Callable
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import logging
+import threading
 
 from src.core.modifiers.transaction import TransactionManager, Transaction
 
@@ -22,14 +24,21 @@ class ModifierPlugin(ABC):
     name: str = ""
     description: str = ""
     version: str = "1.0"
+    min_version: Optional[str] = None  # Minimum ROM version required
+    max_version: Optional[str] = None  # Maximum ROM version supported
     priority: int = 100  # Lower = earlier execution
     dependencies: List[str] = []  # Names of plugins that must run before this one
+    soft_dependencies: List[str] = []  # Optional dependencies
+    timeout: Optional[float] = None  # Timeout in seconds (None = no timeout)
+    parallel_safe: bool = True  # Can run in parallel with same-priority plugins
     
     def __init__(self, context: Any, logger: Optional[logging.Logger] = None):
         self.ctx = context
         self.logger = logger or logging.getLogger(self.name or self.__class__.__name__)
         self.enabled = True
         self._plugin_manager: Optional['PluginManager'] = None
+        self._result: Optional[bool] = None
+        self._error: Optional[Exception] = None
     
     def set_plugin_manager(self, manager: 'PluginManager'):
         """Set the plugin manager for this plugin."""
@@ -80,7 +89,8 @@ class PluginManager:
     """Manages modifier plugins and their execution."""
     
     def __init__(self, context: Any, logger: Optional[logging.Logger] = None, 
-                 backup_dir: Optional[Path] = None, enable_transactions: bool = True):
+                 backup_dir: Optional[Path] = None, enable_transactions: bool = True,
+                 max_workers: int = 4, dry_run: bool = False):
         self.ctx = context
         self.logger = logger or logging.getLogger("PluginManager")
         self._plugins: Dict[str, ModifierPlugin] = {}
@@ -91,6 +101,16 @@ class PluginManager:
         }
         self._enable_transactions = enable_transactions
         self._transaction_manager: Optional[TransactionManager] = None
+        self._max_workers = max_workers
+        self._dry_run = dry_run
+        self._execution_report: Dict[str, Any] = {
+            'total': 0,
+            'succeeded': 0,
+            'failed': 0,
+            'skipped': 0,
+            'dry_run': dry_run,
+            'plugins': []
+        }
         
         if enable_transactions:
             self._transaction_manager = TransactionManager(backup_dir)
@@ -178,8 +198,158 @@ class PluginManager:
         
         return resolved
     
+    def _check_version_compatibility(self, plugin: ModifierPlugin) -> bool:
+        """Check if plugin is compatible with current ROM version.
+        
+        Args:
+            plugin: The plugin to check
+            
+        Returns:
+            bool: True if compatible, False otherwise
+        """
+        rom_version = getattr(self.ctx, 'rom_version', None)
+        if not rom_version:
+            return True
+        
+        if plugin.min_version:
+            if rom_version < plugin.min_version:
+                self.logger.info(
+                    f"Skipping {plugin.name}: ROM version {rom_version} < "
+                    f"minimum required {plugin.min_version}"
+                )
+                return False
+        
+        if plugin.max_version:
+            if rom_version > plugin.max_version:
+                self.logger.info(
+                    f"Skipping {plugin.name}: ROM version {rom_version} > "
+                    f"maximum supported {plugin.max_version}"
+                )
+                return False
+        
+        return True
+    
+    def _group_by_priority(self, plugins: List[ModifierPlugin]) -> Dict[int, List[ModifierPlugin]]:
+        """Group plugins by priority for parallel execution.
+        
+        Returns:
+            Dict mapping priority to list of plugins
+        """
+        groups: Dict[int, List[ModifierPlugin]] = {}
+        for plugin in plugins:
+            if plugin.priority not in groups:
+                groups[plugin.priority] = []
+            groups[plugin.priority].append(plugin)
+        return groups
+    
+    def _execute_single_plugin(self, plugin: ModifierPlugin) -> Optional[bool]:
+        """Execute a single plugin with timeout support.
+        
+        Returns:
+            bool: True if successful, False if failed, None if skipped
+        """
+        # Run pre-modify hooks
+        for hook in self._hooks['pre_modify']:
+            try:
+                hook(plugin)
+            except Exception as e:
+                self.logger.warning(f"Pre-modify hook failed: {e}")
+        
+        # Check prerequisites
+        if not plugin.check_prerequisites():
+            self.logger.info(f"Skipping plugin {plugin.name}: prerequisites not met")
+            return None
+        
+        # Check version compatibility
+        if not self._check_version_compatibility(plugin):
+            return None
+        
+        # Dry-run mode
+        if self._dry_run:
+            self.logger.info(f"[DRY-RUN] Would execute plugin: {plugin.name}")
+            self.logger.info(f"  - Description: {plugin.description}")
+            self.logger.info(f"  - Priority: {plugin.priority}")
+            self.logger.info(f"  - Timeout: {plugin.timeout}s")
+            return True
+        
+        # Execute plugin with optional timeout
+        try:
+            if self._transaction_manager:
+                with self._transaction_manager.transaction(plugin.name) as txn:
+                    timeout = plugin.timeout
+                    if timeout:
+                        success: Optional[bool] = self._execute_with_timeout(plugin, timeout)
+                    else:
+                        success = plugin.modify()
+                    
+                    if success:
+                        self.logger.info(f"Plugin {plugin.name} completed successfully")
+                        self._transaction_manager.commit(plugin.name)
+                    else:
+                        self.logger.warning(f"Plugin {plugin.name} returned failure")
+                    return success
+            else:
+                timeout = plugin.timeout
+                if timeout:
+                    success = self._execute_with_timeout(plugin, timeout)
+                else:
+                    success = plugin.modify()
+                
+                if success:
+                    self.logger.info(f"Plugin {plugin.name} completed successfully")
+                else:
+                    self.logger.warning(f"Plugin {plugin.name} returned failure")
+                return success
+                
+        except Exception as e:
+            self.logger.error(f"Plugin {plugin.name} failed: {e}")
+            
+            # Run error hooks
+            for hook in self._hooks['on_error']:
+                try:
+                    hook(plugin, e)
+                except Exception as hook_e:
+                    self.logger.warning(f"Error hook failed: {hook_e}")
+            
+            return False
+    
+    def _execute_with_timeout(self, plugin: ModifierPlugin, timeout: float) -> bool:
+        """Execute plugin with timeout.
+        
+        Args:
+            plugin: The plugin to execute
+            timeout: Timeout in seconds
+            
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        result: List[Any] = [None]
+        exception: List[Any] = [None]
+        
+        def target():
+            try:
+                result[0] = plugin.modify()
+            except Exception as e:
+                exception[0] = e
+        
+        thread = threading.Thread(target=target)
+        thread.daemon = True
+        thread.start()
+        thread.join(timeout)
+        
+        if thread.is_alive():
+            self.logger.error(f"Plugin {plugin.name} timed out after {timeout}s")
+            return False
+        
+        if exception[0]:
+            raise exception[0]
+        
+        return bool(result[0])
+    
     def execute(self, plugin_names: Optional[List[str]] = None) -> Dict[str, bool]:
         """Execute all or specific plugins.
+        
+        Supports parallel execution of same-priority plugins.
         
         Args:
             plugin_names: Optional list of specific plugins to run
@@ -197,71 +367,67 @@ class PluginManager:
             plugins = self._sort_plugins()
         
         self.logger.info(f"Executing {len(plugins)} plugins...")
+        self._execution_report['total'] = len(plugins)
         
-        for plugin in plugins:
-            if not plugin.enabled:
-                self.logger.debug(f"Skipping disabled plugin: {plugin.name}")
-                results[plugin.name] = None
-                continue
+        # Group by priority
+        priority_groups = self._group_by_priority(plugins)
+        priorities = sorted(priority_groups.keys())
+        
+        for priority in priorities:
+            group = priority_groups[priority]
             
-            self.logger.info(f"Running plugin: {plugin.name}")
+            # Check if any plugin in group is not parallel-safe
+            parallel_safe = all(p.parallel_safe for p in group)
             
-            # Run pre-modify hooks
-            for hook in self._hooks['pre_modify']:
-                try:
-                    hook(plugin)
-                except Exception as e:
-                    self.logger.warning(f"Pre-modify hook failed: {e}")
-            
-            # Check prerequisites
-            if not plugin.check_prerequisites():
-                self.logger.info(f"Skipping plugin {plugin.name}: prerequisites not met")
-                results[plugin.name] = None
-                continue
-            
-            # Execute plugin
-            try:
-                if self._transaction_manager:
-                    with self._transaction_manager.transaction(plugin.name) as txn:
-                        success = plugin.modify()
-                        results[plugin.name] = success
-                        
-                        if success:
-                            self.logger.info(f"Plugin {plugin.name} completed successfully")
-                            self._transaction_manager.commit(plugin.name)
-                        else:
-                            self.logger.warning(f"Plugin {plugin.name} returned failure")
-                else:
-                    success = plugin.modify()
-                    results[plugin.name] = success
+            if parallel_safe and len(group) > 1 and not self._dry_run:
+                # Execute in parallel
+                self.logger.info(
+                    f"Executing {len(group)} plugins in parallel (priority={priority})..."
+                )
+                with ThreadPoolExecutor(max_workers=min(self._max_workers, len(group))) as executor:
+                    futures = {
+                        executor.submit(self._execute_single_plugin, plugin): plugin 
+                        for plugin in group
+                    }
                     
-                    if success:
-                        self.logger.info(f"Plugin {plugin.name} completed successfully")
-                    else:
-                        self.logger.warning(f"Plugin {plugin.name} returned failure")
-                        
-            except Exception as e:
-                self.logger.error(f"Plugin {plugin.name} failed: {e}")
-                results[plugin.name] = False
-                
-                # Run error hooks
-                for hook in self._hooks['on_error']:
-                    try:
-                        hook(plugin, e)
-                    except Exception as hook_e:
-                        self.logger.warning(f"Error hook failed: {hook_e}")
-                
-                # Continue with next plugin unless it's a critical error
-                continue
+                    for future in as_completed(futures):
+                        plugin = futures[future]
+                        try:
+                            results[plugin.name] = future.result()
+                        except Exception as e:
+                            self.logger.error(f"Plugin {plugin.name} execution error: {e}")
+                            results[plugin.name] = False
+            else:
+                # Execute serially
+                for plugin in group:
+                    self.logger.info(f"Running plugin: {plugin.name}")
+                    results[plugin.name] = self._execute_single_plugin(plugin)
             
-            # Run post-modify hooks
-            for hook in self._hooks['post_modify']:
-                try:
-                    hook(plugin, results[plugin.name])
-                except Exception as e:
-                    self.logger.warning(f"Post-modify hook failed: {e}")
+            # Update execution report
+            for plugin in group:
+                result = results.get(plugin.name)
+                self._execution_report['plugins'].append({
+                    'name': plugin.name,
+                    'priority': plugin.priority,
+                    'result': str(result) if result is not None else 'skipped'
+                })
+                
+                if result is True:
+                    self._execution_report['succeeded'] += 1
+                elif result is False:
+                    self._execution_report['failed'] += 1
+                else:
+                    self._execution_report['skipped'] += 1
         
         return results
+    
+    def get_execution_report(self) -> Dict[str, Any]:
+        """Get detailed execution report.
+        
+        Returns:
+            Dict with execution statistics
+        """
+        return self._execution_report.copy()
     
     def add_hook(self, event: str, callback: Callable) -> 'PluginManager':
         """Add a hook callback for an event.
@@ -391,3 +557,102 @@ def create_backup_hook_factory(get_paths_func: Callable[[], List[Path]], action:
             if path.exists():
                 plugin.record_modification(path, action)
     return hook
+
+
+def load_plugins_from_config(config: Dict[str, Any], manager: PluginManager) -> PluginManager:
+    """Load and configure plugins from a JSON config.
+    
+    Config format:
+    {
+        "plugins": [
+            {
+                "name": "PluginName",
+                "enabled": true,
+                "priority": 100,
+                "timeout": 60
+            }
+        ]
+    }
+    
+    Args:
+        config: Configuration dict
+        manager: PluginManager instance
+        
+    Returns:
+        PluginManager for chaining
+    """
+    import json
+    
+    if isinstance(config, str):
+        with open(config, 'r') as f:
+            config = json.load(f)
+    
+    plugins_config = config.get('plugins', [])
+    
+    for plugin_config in plugins_config:
+        name = plugin_config.get('name')
+        enabled = plugin_config.get('enabled', True)
+        priority = plugin_config.get('priority')
+        timeout = plugin_config.get('timeout')
+        
+        plugin = manager.get_plugin(name)
+        if plugin:
+            if not enabled:
+                manager.enable_plugin(name, False)
+            if priority is not None:
+                plugin.priority = priority
+            if timeout is not None:
+                plugin.timeout = timeout
+    
+    return manager
+
+
+class PluginConfig:
+    """Plugin configuration helper for building config dicts."""
+    
+    @staticmethod
+    def system(name: str, enabled: bool = True, priority: int = 100, 
+               timeout: Optional[float] = None, version_range: tuple = (None, None)) -> Dict[str, Any]:
+        """Create system plugin config.
+        
+        Args:
+            name: Plugin name
+            enabled: Whether enabled
+            priority: Execution priority
+            timeout: Optional timeout in seconds
+            version_range: Tuple of (min_version, max_version)
+            
+        Returns:
+            Config dict
+        """
+        return {
+            'type': 'system',
+            'name': name,
+            'enabled': enabled,
+            'priority': priority,
+            'timeout': timeout,
+            'min_version': version_range[0],
+            'max_version': version_range[1]
+        }
+    
+    @staticmethod
+    def apk(apk_name: str, enabled: bool = True, priority: int = 100,
+            timeout: Optional[float] = None) -> Dict[str, Any]:
+        """Create APK plugin config.
+        
+        Args:
+            apk_name: APK/plugin name
+            enabled: Whether enabled
+            priority: Execution priority
+            timeout: Optional timeout in seconds
+            
+        Returns:
+            Config dict
+        """
+        return {
+            'type': 'apk',
+            'name': apk_name,
+            'enabled': enabled,
+            'priority': priority,
+            'timeout': timeout
+        }

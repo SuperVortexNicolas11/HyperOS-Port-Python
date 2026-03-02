@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/view_dimen_25"
+               android:layout_marginBottom="@dimen/view_dimen_25"
+               android:layout_marginStart="@dimen/view_dimen_75">
+    <ImageView android:id="@id/app_icon"
+               android:layout_width="@dimen/view_dimen_120"
+               android:layout_height="@dimen/view_dimen_120" />
+    <TextView android:layout_gravity="center"
+              android:id="@id/icon_shade"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+  </FrameLayout>
+  <TextView android:textSize="@dimen/text_font_size_48"
+            android:textColor="@color/app_predict_app_classification_search_name_text_color"
+            android:ellipsize="end"
+            android:id="@id/app_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:fontFamily="mipro-medium"
+            android:layout_marginStart="@dimen/view_dimen_40"
+            android:layout_marginEnd="@dimen/view_dimen_80" />
+</LinearLayout>

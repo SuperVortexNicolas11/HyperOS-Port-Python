@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.beauty.BeautyDescPreference android:enabled="false"
+                        android:key="preference_key_privacy_top"
+                        app:layout="@layout/conversation_global_privacy_layout" />
+  <CheckBoxPreference android:title="@string/beauty_fun_privacy"
+                      android:key="preference_key_beauty_privacy"
+                      android:summary="@string/beauty_fun_privacy_message" />
+</PreferenceScreen>

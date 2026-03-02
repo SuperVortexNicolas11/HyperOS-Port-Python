@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:layout_width="fill_parent"
+            android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:paddingLeft="@dimen/miuix_appcompat_group_buttons_panel_padding_horizontal"
+                android:paddingRight="@dimen/miuix_appcompat_group_buttons_panel_padding_horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/miuix_appcompat_group_buttons_panel_padding_horizontal">
+    <TextView android:textSize="@dimen/sp_16"
+              android:id="@id/textview_traffic_config_alert_title"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/miuix_appcompat_dialog_title_vertical_margin_bottom"
+              android:fontFamily="sans-serif" />
+    <CheckBox android:id="@id/checkbox_auto_modify"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/traffic_config_alert_auto_modify"
+              android:layout_marginStart="@dimen/miuix_appcompat_dialog_panel_horizontal_padding" />
+  </LinearLayout>
+</ScrollView>

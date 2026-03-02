@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:id="@id/miuix_action_end_menu_group">
+    <item android:id="@id/app_info"
+          android:visible="true"
+          android:title="@string/app_manager_details_title" />
+    <item android:id="@id/app_share"
+          android:visible="false"
+          android:title="@string/app_manager_share_apk" />
+    <item android:id="@id/app_report"
+          android:visible="false"
+          android:title="@string/report" />
+  </group>
+</menu>

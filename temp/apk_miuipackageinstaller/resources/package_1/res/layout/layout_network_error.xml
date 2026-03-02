@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <View android:id="@id/iv_non_network"
+        android:background="@drawable/ic_non_network"
+        android:layout_width="@dimen/dp_58"
+        android:layout_height="@dimen/dp_58"
+        android:layout_marginTop="@dimen/dp_115" />
+  <TextView android:textSize="@dimen/sp_15"
+            android:textColor="@color/black_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_23"
+            android:text="@string/net_work_error_msg" />
+  <Button android:textSize="@dimen/sp_15"
+          android:textColor="@color/black_60"
+          android:id="@id/retry"
+          android:background="@drawable/retry_button_bg"
+          android:layout_width="@dimen/dp_72.6"
+          android:layout_height="@dimen/dp_31"
+          android:layout_marginTop="@dimen/dp_22"
+          android:text="@string/net_work_error_retry" />
+</LinearLayout>

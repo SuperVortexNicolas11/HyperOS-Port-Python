@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="activity_actionbar_height">70.0dp</dimen>
+  <dimen name="activity_actionbar_height_offset">30.0dp</dimen>
+  <dimen name="antivirus_icon_offset">0.0dp</dimen>
+  <dimen name="gb_game_mode_text_margin_top">@dimen/dp_0</dimen>
+  <dimen name="main_contentview_height">@dimen/dp_400</dimen>
+  <dimen name="miuix_appcompat_action_bar_large_font_max_height">300.0dp</dimen>
+  <dimen name="miuix_appcompat_action_bar_max_height">300.0dp</dimen>
+  <dimen name="miuix_appcompat_bottom_menu_height">80.0dp</dimen>
+  <dimen name="miuix_appcompat_bottom_menu_height_in_large_font">94.0dp</dimen>
+  <dimen name="miuix_appcompat_button_content_safe_padding_vertical">8.0sp</dimen>
+  <dimen name="miuix_appcompat_button_inline_content_safe_padding_vertical">8.0sp</dimen>
+  <dimen name="miuix_appcompat_search_edit_text_padding_vertical">2.0dp</dimen>
+  <dimen name="miuix_label_text_size_small">4.5dp</dimen>
+  <dimen name="miuix_sbl_action_indeterminate_distance">105.0dp</dimen>
+  <dimen name="pc_charge_times_margin_bottom">@dimen/dp_16</dimen>
+  <dimen name="pc_enter_exit_power_margin">@dimen/dp_24</dimen>
+  <dimen name="pc_enter_super_power_drawble_padding">-14.0dp</dimen>
+  <dimen name="pc_enter_super_power_margin">@dimen/dp_30</dimen>
+  <dimen name="pc_temp_value_margin_bottom">@dimen/dp_16</dimen>
+</resources>

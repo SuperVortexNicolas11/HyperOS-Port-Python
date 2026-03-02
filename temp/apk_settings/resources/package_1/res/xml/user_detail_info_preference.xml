@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <com.android.settings.widget.AccountAvatarPreference android:title="@string/account_user_avatar"
+                          android:key="pref_account_avatar"
+                          settings:showRightArrow="true" />
+    <com.android.settings.widget.AccountValuePreference android:title="@string/account_user_name"
+                          android:key="pref_account_username"
+                          settings:showRightArrow="true" />
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory android:key="pref_key_package_type_category">
+    <miuix.preference.RadioButtonPreferenceCategory android:key="radio_group">
+      <miuix.preference.RadioSetPreferenceCategory android:title="@string/pref_title_traffic_package_type">
+        <miuix.preference.RadioButtonPreference android:title="@string/daily_card_setting_fragment_month_package"
+                              android:key="preference_dependence_key_month_plan"
+                              android:summary="@string/fixed_package_tips" />
+        <miuix.preference.TextPreference android:title="@string/fixed_traffic_quota"
+                              android:key="pref_key_month_plan"
+                              android:summary="@string/auto_send_correcting_msg"
+                              android:dependency="preference_dependence_key_month_plan" />
+        <miuix.preference.TextPreference android:title="@string/month_reminder_warning_necessary"
+                              android:key="month_data_usage_warning"
+                              android:summary="@string/month_fix_remind_warning_text_tips"
+                              android:dependency="preference_dependence_key_month_plan" />
+        <miuix.preference.DropDownPreference android:title="@string/over_package_reminder_type"
+                              android:key="month_plan_over_package_traffic_reminder_type"
+                              android:dependency="preference_dependence_key_month_plan"
+                              app:entries="@array/over_limit_traffic_waring_style"
+                              app:entryValues="@array/over_limit_traffic_waring_style" />
+      </miuix.preference.RadioSetPreferenceCategory>
+      <miuix.preference.RadioSetPreferenceCategory>
+        <miuix.preference.RadioButtonPreference android:title="@string/unlimited_cellular_data_monthly"
+                              android:key="preference_dependence_key_month_infinite"
+                              android:summary="@string/limit_speed_by_quota" />
+        <miuix.preference.TextPreference android:title="@string/month_reminder_warning_necessary"
+                              android:key="month_infinite_data_usage_warning"
+                              android:summary="@string/infinite_remind_warning_text_tips"
+                              android:dependency="preference_dependence_key_month_infinite" />
+        <miuix.preference.TextPreference android:title="@string/reminder_type"
+                              android:key="month_infinite_traffic_reminder_type"
+                              android:dependency="preference_dependence_key_month_infinite" />
+      </miuix.preference.RadioSetPreferenceCategory>
+      <miuix.preference.RadioSetPreferenceCategory android:key="category_key_brand">
+        <miuix.preference.RadioButtonPreference android:title="@string/pref_category_daily_package_tile"
+                              android:key="preference_dependence_key_day_plan"
+                              android:summary="@string/traffic_calculation" />
+        <miuix.preference.TextPreference android:title="@string/daily_reminder_warning_necessary"
+                              android:key="daily_data_usage_warning"
+                              android:summary="@string/daily_remind_warning_text_tips"
+                              android:dependency="preference_dependence_key_day_plan" />
+        <miuix.preference.DropDownPreference android:title="@string/reminder_type"
+                              android:key="daily_traffic_reminder_type"
+                              android:dependency="preference_dependence_key_day_plan"
+                              app:entries="@array/over_limit_traffic_waring_style"
+                              app:entryValues="@array/over_limit_traffic_waring_style" />
+      </miuix.preference.RadioSetPreferenceCategory>
+    </miuix.preference.RadioButtonPreferenceCategory>
+  </PreferenceCategory>
+</PreferenceScreen>

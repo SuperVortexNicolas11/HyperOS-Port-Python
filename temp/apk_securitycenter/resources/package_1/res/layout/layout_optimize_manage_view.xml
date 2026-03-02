@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.optimizemanage.view.OptimizeMainView android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_centerHorizontal="true" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.common.ui.VlcTextureView android:layout_gravity="center"
+                        android:id="@id/texture_view"
+                        android:layout_width="@dimen/main_contentview_height"
+                        android:layout_height="@dimen/main_contentview_height"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:resize_mode="zoom" />
+  <View android:layout_gravity="center"
+        android:id="@id/bg_view"
+        android:layout_width="0.0dp"
+        android:layout_height="0.0dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</com.miui.optimizemanage.view.OptimizeMainView>

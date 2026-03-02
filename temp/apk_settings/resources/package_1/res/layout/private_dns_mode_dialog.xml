@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<ScrollView android:theme="@style/Theme.AppCompat.DayNight"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <RadioGroup android:id="@id/private_dns_radio_group"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/developer_option_dialog_margin_start">
+      <include android:id="@id/private_dns_mode_off"
+               layout="@layout/preference_widget_dialog_radiobutton" />
+      <include android:id="@id/private_dns_mode_opportunistic"
+               layout="@layout/preference_widget_dialog_radiobutton" />
+      <include android:id="@id/private_dns_mode_provider"
+               layout="@layout/preference_widget_dialog_radiobutton" />
+      <com.google.android.material.textfield.TextInputLayout android:theme="@style/Theme.Settings"
+                            android:id="@id/private_dns_mode_provider_hostname_layout"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/private_dns_title"
+                            app:endIconMode="clear_text"
+                            app:errorEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/private_dns_mode_provider_hostname"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:inputType="textFilter|textMultiLine"
+                              android:imeOptions="actionDone"
+                              android:layout_marginStart="3.0dp"
+                              android:layout_marginEnd="8.0dp" />
+      </com.google.android.material.textfield.TextInputLayout>
+    </RadioGroup>
+    <include android:id="@id/private_dns_help_info"
+             layout="@layout/preference_widget_dialog_summary" />
+  </LinearLayout>
+</ScrollView>

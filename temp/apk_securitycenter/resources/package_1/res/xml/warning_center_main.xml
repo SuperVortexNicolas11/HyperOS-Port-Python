@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory>
+    <com.miui.warningcenter.widget.WarningCenterImagePreference app:imageResource="@drawable/warningcenter_ew"
+                          app:intervalLine="true" />
+    <Preference android:icon="@drawable/warningcenter_icon_ew_new"
+                android:layout="@layout/miuix_preference_app_layout"
+                android:title="@string/ew_app_name"
+                android:key="preference_key_title_ew"
+                android:summary="@string/warningcenter_earthquake_info" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.warningcenter.widget.WarningCenterImagePreference app:imageHeight="@dimen/warningcenter_iamge_preference_image_mijia_height"
+                          app:imageResource="@drawable/warningcenter_disaster"
+                          app:intervalLine="true" />
+    <Preference android:icon="@drawable/warningcenter_icon_disaster"
+                android:layout="@layout/miuix_preference_app_layout"
+                android:title="@string/warningcenter_disaster_title"
+                android:key="preference_key_title_disaster"
+                android:summary="@string/warningcenter_disaster_info" />
+  </PreferenceCategory>
+  <PreferenceCategory>
+    <com.miui.warningcenter.widget.WarningCenterImagePreference app:imageHeight="@dimen/warningcenter_iamge_preference_image_mijia_height"
+                          app:imageResource="@drawable/warningcenter_mijia"
+                          app:intervalLine="true" />
+    <Preference android:icon="@drawable/warningcenter_icon_mijia"
+                android:layout="@layout/miuix_preference_app_layout"
+                android:title="@string/warningcenter_mijia_title"
+                android:key="preference_key_title_mijia"
+                android:summary="@string/warningcenter_mijia_info" />
+  </PreferenceCategory>
+</PreferenceScreen>

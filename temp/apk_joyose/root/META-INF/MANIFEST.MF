@@ -1,0 +1,491 @@
+Manifest-Version: 1.0
+
+Name: AndroidManifest.xml
+SHA-256-Digest: gwTeH8lQAt3DYBvyDGm2FT+Cr3p1QvmjeMkjn4GqrzA=
+
+Name: META-INF/com/android/build/gradle/app-metadata.properties
+SHA-256-Digest: 4ALzn5WcnRvlVBe1h1KD7P3EZTfqh1Q7th+nuiYoOKs=
+
+Name: META-INF/version-control-info.textproto
+SHA-256-Digest: njeYHpa3DRm02qc1nrFJUiWFWItuNoQb3R9ZBNHo4Vk=
+
+Name: assets/21121210C/default_cloud_21121210C.json
+SHA-256-Digest: xZXOSN5IGP9D71FysyZpsi4dC1doCKFJ7G7m8Q4Tqo8=
+
+Name: assets/22011211C/default_cloud_22011211C.json
+SHA-256-Digest: jbJEHSaUQl5olgN4kwaYS6KzaciWfrcopH/ptjw+sus=
+
+Name: assets/2201122C/default_cloud_2201122C.json
+SHA-256-Digest: Ekhc3I+TtGHIRxE8wvl4BlHv5UU6BeDM3Hsi5vklvwI=
+
+Name: assets/2201122G/default_cloud_2201122G.json
+SHA-256-Digest: U14k/iRpqcGG9/pMtvS+lgp2HmT6dBf2jQ9BBygbHVQ=
+
+Name: assets/2201123G/default_cloud_2201123G.json
+SHA-256-Digest: qx2WqPZ2gtXu+5Z4hjECjN+T/qATJrywOlgjH1HnJcE=
+
+Name: assets/22021211RC/default_cloud_22021211RC.json
+SHA-256-Digest: hhj/+dnVe0VlMC3o96PVEk9QQEbkiG3nFq89lkQwTkk=
+
+Name: assets/22021211RG/default_cloud_22021211RG.json
+SHA-256-Digest: U8lSwfofu+F040cDa9lohMirkhCc6D9NZrLnywYcR/Y=
+
+Name: assets/22021211RI/default_cloud_22021211RI.json
+SHA-256-Digest: U8lSwfofu+F040cDa9lohMirkhCc6D9NZrLnywYcR/Y=
+
+Name: assets/2203129G/default_cloud_2203129G.json
+SHA-256-Digest: IRl2gO66M57TPl5iujzArfgSrIVOQWm69GlDUdxR+c0=
+
+Name: assets/22041211AC/default_cloud_22041211AC.json
+SHA-256-Digest: scudiQ3Pj651S39IlIWklepQaioildgC6EM65kOKoUE=
+
+Name: assets/22041216C/default_cloud_22041216C.json
+SHA-256-Digest: IVGx7MWdxEmZXyLYv5JNKyJwm5UY5dnooqgHlES3WiU=
+
+Name: assets/22041216G/default_cloud_22041216G.json
+SHA-256-Digest: uy/dYZD//bGVKOuNM92oPDNcrEK1r3eZeSUHNGfW+iM=
+
+Name: assets/22041216I/default_cloud_22041216I.json
+SHA-256-Digest: uy/dYZD//bGVKOuNM92oPDNcrEK1r3eZeSUHNGfW+iM=
+
+Name: assets/22041216UC/default_cloud_22041216UC.json
+SHA-256-Digest: IVGx7MWdxEmZXyLYv5JNKyJwm5UY5dnooqgHlES3WiU=
+
+Name: assets/22071212AG/default_cloud_22071212AG.json
+SHA-256-Digest: DSgeS/8s1knALz4RuUcrqSFSVGxvagdWY/C8YHHMJYI=
+
+Name: assets/2207122MC/default_cloud_2207122MC.json
+SHA-256-Digest: VCZS2tBnEF4mQrRMnngG8o6M51aFYYD2pvFOhCMARJ4=
+
+Name: assets/22081212R/default_cloud_22081212R.json
+SHA-256-Digest: 139zQ5RQRi5ccPP8O3ynepNTJImxrHNnWPl7DNqVAr4=
+
+Name: assets/22081212UG/default_cloud_22081212UG.json
+SHA-256-Digest: 139zQ5RQRi5ccPP8O3ynepNTJImxrHNnWPl7DNqVAr4=
+
+Name: assets/22081281AC/default_cloud_22081281AC.json
+SHA-256-Digest: GalBYjAqTS2ETIHBhMbjDWZDuohvD1tHoWqXn6D71RM=
+
+Name: assets/2209129SC/default_cloud_2209129SC.json
+SHA-256-Digest: 0ZPh/jmn2tZ955+oqX59hm0BrUV3HFcBcUc9V6NUn+M=
+
+Name: assets/2210129SG/default_cloud_2210129SG.json
+SHA-256-Digest: QnYQIf2t7lHfRy+6XAv6cw6zxa+7JfQXpWCI14U9/HQ=
+
+Name: assets/22101316C/default_cloud_22101316C.json
+SHA-256-Digest: QNxJcvvMiQPgEWZOdopZieSc4ZonL2YH0F5W8ZHt4Jg=
+
+Name: assets/22101316G/default_cloud_22101316G.json
+SHA-256-Digest: mzgddGupdtH8pD5FtyA63gvDQ7hwiz9kdiUsr1iuG3c=
+
+Name: assets/22101316I/default_cloud_22101316I.json
+SHA-256-Digest: mzgddGupdtH8pD5FtyA63gvDQ7hwiz9kdiUsr1iuG3c=
+
+Name: assets/22101316UC/default_cloud_22101316UC.json
+SHA-256-Digest: QNxJcvvMiQPgEWZOdopZieSc4ZonL2YH0F5W8ZHt4Jg=
+
+Name: assets/22101316UCP/default_cloud_22101316UCP.json
+SHA-256-Digest: QNxJcvvMiQPgEWZOdopZieSc4ZonL2YH0F5W8ZHt4Jg=
+
+Name: assets/22101316UG/default_cloud_22101316UG.json
+SHA-256-Digest: mzgddGupdtH8pD5FtyA63gvDQ7hwiz9kdiUsr1iuG3c=
+
+Name: assets/22101316UP/default_cloud_22101316UP.json
+SHA-256-Digest: mzgddGupdtH8pD5FtyA63gvDQ7hwiz9kdiUsr1iuG3c=
+
+Name: assets/22101320C/default_cloud_22101320C.json
+SHA-256-Digest: 9RP1TMGMdbE8P+3s4fD4rBj6EMLxOysb1tn5MDytrjI=
+
+Name: assets/22101320G/default_cloud_22101320G.json
+SHA-256-Digest: wqHJOI7i3Rd/O3GwLWD350JgRhvV8JJrCXsHLPFzUbA=
+
+Name: assets/22101320I/default_cloud_22101320I.json
+SHA-256-Digest: wqHJOI7i3Rd/O3GwLWD350JgRhvV8JJrCXsHLPFzUbA=
+
+Name: assets/22122RK93C/default_cloud_22122RK93C.json
+SHA-256-Digest: /zyw4l6Q42fIU1v0TQHDRzySxoIdzKq3/04b4yLs0SU=
+
+Name: assets/23013PC75G/default_cloud_23013PC75G.json
+SHA-256-Digest: 4s6H9yIKhOd9jZ+2UNOgRrdWwNP48vu5rArCOCANS7o=
+
+Name: assets/23013PC75I/default_cloud_23013PC75I.json
+SHA-256-Digest: 4s6H9yIKhOd9jZ+2UNOgRrdWwNP48vu5rArCOCANS7o=
+
+Name: assets/23043RP34C/default_cloud_23043RP34C.json
+SHA-256-Digest: srPkTdAghSAf8snW7peRU0wVLHzOu8QBiqlPdO7zEns=
+
+Name: assets/23043RP34G/default_cloud_23043RP34G.json
+SHA-256-Digest: 6c+jk4Kaq/sHqRr757qcdlR86Mxwy8SGH/k895Uzt3Q=
+
+Name: assets/23043RP34I/default_cloud_23043RP34I.json
+SHA-256-Digest: 6c+jk4Kaq/sHqRr757qcdlR86Mxwy8SGH/k895Uzt3Q=
+
+Name: assets/23046PNC9C/default_cloud_23046PNC9C.json
+SHA-256-Digest: D2bZQkknrGInYo81YEZygt8xWwZrFUB0vbWuvL2CgGk=
+
+Name: assets/23046RP50C/default_cloud_23046RP50C.json
+SHA-256-Digest: S/5LKPW6oWqXRFkqRXvwV6rEl5q/h7ntc7vOdyVxTi4=
+
+Name: assets/24091RPADC/default_cloud_24091RPADC.json
+SHA-256-Digest: kIj6au0siDL7ljDdcw66t8ELd6Hlsy8t+tLdtbQJDa4=
+
+Name: assets/8635/profiles/com.miHoYo.hkrpg-gpu
+SHA-256-Digest: V6pd9b3kl+zTEHCc+6FwBS6lQaQj7q+pQL4AGG95Cec=
+
+Name: assets/8735/profiles/com.miHoYo.hkrpg-gpu
+SHA-256-Digest: 5UhrCToQHNl4y+wDmJr6GgURctZZ8yuq5YZ8pEUEKdg=
+
+Name: assets/8735/profiles/com.tencent.jkchess-gpu
+SHA-256-Digest: qAd1rnuKHaTBBOQs5zAD+Z3Wd2vFuYUgJn8r/p2lQIA=
+
+Name: assets/8750/profiles/com.alibaba.wireless-gpu
+SHA-256-Digest: pJn+LgPBgnlxUyZDfHefpl7pfvVe1bQb7cHIcVDuLTg=
+
+Name: assets/8750/profiles/com.aligames.kuang.kybc-gpu
+SHA-256-Digest: elwxBdWch3sfZDlucDrkSRykPwXxmJkBn8t1ampkr20=
+
+Name: assets/8750/profiles/com.bilibili.star.bili-gpu
+SHA-256-Digest: T9bpEp2OLLyqdpSzlEC+pKK4vuJhOCelIN/qaRzXOTc=
+
+Name: assets/8750/profiles/com.catdaddy.nba2km-gpu
+SHA-256-Digest: M5F7J/kW8QO5jyo4XNIaxwR29mJpRNH9sEr/mwygJPs=
+
+Name: assets/8750/profiles/com.epicgames.fortnite-gpu
+SHA-256-Digest: RIVO1MQE+K5iZYgV0whzS3l9eoxVkvg1BkSitn2t2/k=
+
+Name: assets/8750/profiles/com.kurogame.mingchao-gpu
+SHA-256-Digest: iY/QsX+fBNB2O4nCWFUHHXDyqND+LFalTZqODBugCkg=
+
+Name: assets/8750/profiles/com.kurogame.mingchao.beta-gpu
+SHA-256-Digest: iY/QsX+fBNB2O4nCWFUHHXDyqND+LFalTZqODBugCkg=
+
+Name: assets/8750/profiles/com.miHoYo.Nap-gpu
+SHA-256-Digest: 3G4sMFFldpi2tEGup+r5PPAC6Kek/0cKSSAGIqN1rTE=
+
+Name: assets/8750/profiles/com.miHoYo.Yuanshen-gpu
+SHA-256-Digest: bX86ZLE15AzNCXdxSQJ5eMplW4D4SqkwUl3eH9l2oD4=
+
+Name: assets/8750/profiles/com.miHoYo.enterprise.NGHSoD-gpu
+SHA-256-Digest: S1U87HcrNrrhHJcnTJsh9BHkfzMRDQDXOrolhPA0lH4=
+
+Name: assets/8750/profiles/com.miHoYo.hkrpg-gpu
+SHA-256-Digest: vWhx2EJojnniMObQPKOh/EYlaagfiNKyta3mALejLvM=
+
+Name: assets/8750/profiles/com.netease.aceracer-gpu
+SHA-256-Digest: S1U87HcrNrrhHJcnTJsh9BHkfzMRDQDXOrolhPA0lH4=
+
+Name: assets/8750/profiles/com.netease.dwrg-gpu
+SHA-256-Digest: BCGO1D/iwsWoCHdhe2Q54mfMLCeoBFR2XevXYLZol4k=
+
+Name: assets/8750/profiles/com.netease.hyxd-gpu
+SHA-256-Digest: oRYDsYaSgJyV8I+Cmkpg9xiFA1Sp3USQ8rA2NF7UsQY=
+
+Name: assets/8750/profiles/com.netease.moba-gpu
+SHA-256-Digest: 9CriQ2lgCfHOT56Yd+yGoL1HXvf39mGjFcfVtzEPchY=
+
+Name: assets/8750/profiles/com.netease.pes-gpu
+SHA-256-Digest: S1U87HcrNrrhHJcnTJsh9BHkfzMRDQDXOrolhPA0lH4=
+
+Name: assets/8750/profiles/com.netease.vlfcn-gpu
+SHA-256-Digest: s/B8TwXHjd6Atv0HAhakM3w4E9URKu/MC+HM43E+K4Y=
+
+Name: assets/8750/profiles/com.protopop.brightridge-gpu
+SHA-256-Digest: HlDEhCtSYtU8loyG2YE0HAojCrKfh7yhBhe56FjpOG8=
+
+Name: assets/8750/profiles/com.pubg.imobile-gpu
+SHA-256-Digest: f9oQ1qWA2t80QPXlN7o/VO8UWMcGTk0kRc9zi7F4ubk=
+
+Name: assets/8750/profiles/com.sina.weibo-gpu
+SHA-256-Digest: INlLjB8+wkXtqknWvALxtWDEQGrDVrLVn9wJKX7B9GM=
+
+Name: assets/8750/profiles/com.smile.gifmaker-gpu
+SHA-256-Digest: nEyjjdnFoFnM0FQvZQZQzefX+4jtLwUebu3P3WgJuWs=
+
+Name: assets/8750/profiles/com.ss.android.ugc.aweme-gpu
+SHA-256-Digest: pJn+LgPBgnlxUyZDfHefpl7pfvVe1bQb7cHIcVDuLTg=
+
+Name: assets/8750/profiles/com.sy.dldlhsdj.gw-gpu
+SHA-256-Digest: CpwqI6ArI2RqKW1uTwrR8P3A4nkxLDcfea6n+o0/IC8=
+
+Name: assets/8750/profiles/com.tencent.fifamobile-gpu
+SHA-256-Digest: lkm30NbHGmvOgr6l0pN5AHqF7tirc9gjd2zQx+1faWE=
+
+Name: assets/8750/profiles/com.tencent.ig-gpu
+SHA-256-Digest: dERFCvQABNmvvfzL+LrHqqrvCdO22e3FnduuYSSq8Rw=
+
+Name: assets/8750/profiles/com.tencent.mf.uam-gpu
+SHA-256-Digest: T9bpEp2OLLyqdpSzlEC+pKK4vuJhOCelIN/qaRzXOTc=
+
+Name: assets/8750/profiles/com.tencent.mm-gpu
+SHA-256-Digest: INlLjB8+wkXtqknWvALxtWDEQGrDVrLVn9wJKX7B9GM=
+
+Name: assets/8750/profiles/com.tencent.tmaoe-gpu
+SHA-256-Digest: zpCoAT0gwdtAkgIS/dUmMb8urNiIsDAcNLXyHSw/L/U=
+
+Name: assets/8750/profiles/com.tencent.tmgp.WePop-gpu
+SHA-256-Digest: IvyXb3n3buHRjgg5Was/fIpvyOtmdJhhX4Quq8v+kx4=
+
+Name: assets/8750/profiles/com.tencent.tmgp.dfm-gpu
+SHA-256-Digest: uQH3LA1uL2WjB/ZkoQ9XXwvWQsGIajddQCU6wIjhcpc=
+
+Name: assets/8750/profiles/com.tencent.tmgp.pubgmhd-gpu
+SHA-256-Digest: PgxTDtYz3Yog165Sf5svLEViI+MhqWL4t4A66ZGJxLo=
+
+Name: assets/8750/profiles/com.tencent.tmgp.sgame-gpu
+SHA-256-Digest: +o2J/o+cxakDnpYCk8iRxOuhY00vHyCeH8YiftNDW6E=
+
+Name: assets/8750/profiles/com.tencent.tmgp.speedmobile-gpu
+SHA-256-Digest: G5dE6bVAslIm4dPcnmcrhuprqCePFaBULahcsIA4EO4=
+
+Name: assets/8750/profiles/com.tencent.tmgp.wuxia-gpu
+SHA-256-Digest: OeBWll582dbVv8+4YC/OSC0s30WLJWLtjUBXq9fLyTA=
+
+Name: assets/8850/profiles/com.kurogame.mingchao-gpu
+SHA-256-Digest: U53Z6Ia8wk2n57XO40GpWXHvUDXHakvIKFmdVYknMfA=
+
+Name: assets/8850/profiles/com.miHoYo.Nap-gpu
+SHA-256-Digest: 8G9Uicpcs/B4fZZD3OZCA9lAbrwzF+M/hheg6FplvsE=
+
+Name: assets/8850/profiles/com.tencent.jkchess-gpu
+SHA-256-Digest: QoNT9Lxel8gUfsZEJ/v2KtgJMnaUPHvoIgBmqA/bhzc=
+
+Name: assets/8850/profiles/com.tencent.tmgp.pubgmhd-gpu
+SHA-256-Digest: EICCOn+RRmTb2/UVApZuBr6LaFu6ju7jwvrJi4lB9B0=
+
+Name: assets/8850/profiles/com.tencent.tmgp.sgame-gpu
+SHA-256-Digest: I9BESDfgBd0bbF2IjsLiuUW2uT9/RCRvS4QK1ZY9VY8=
+
+Name: assets/8850/profiles/com.tencent.tmgp.speedmobile-gpu
+SHA-256-Digest: mOb6PcRaEgW1dffNJLBf9NvAyK4Mg4pyoXuVRIPi41A=
+
+Name: assets/A201XM/default_cloud_A201XM.json
+SHA-256-Digest: 139zQ5RQRi5ccPP8O3ynepNTJImxrHNnWPl7DNqVAr4=
+
+Name: assets/append_support_app_list.json
+SHA-256-Digest: RgpaZ6xHPN9RV6LL1QDCZNfyyfX6aftJzL6SpCtQSHk=
+
+Name: assets/default_cloud.json
+SHA-256-Digest: zVUF+V3CVqcYzb07yPMzQr7DldsOvb6oQH1Q7hhyhAE=
+
+Name: assets/miwlc_model_250311.tflite
+SHA-256-Digest: A6RLsCT/ZA6HuCRxXaX5Uwt/DUXu+ApbJyXZ9G3ND6k=
+
+Name: assets/profiles/8350/com.garena.game.codm-gpu
+SHA-256-Digest: SfvLciqhXn/6VbWAaX9wKJFn4GEgltNj3telmIOsI+Q=
+
+Name: assets/profiles/8350/com.protopop.brightridge-gpu
+SHA-256-Digest: 8CFnaHBA+1RWyA4bYy8dGJrja3yd6nA3MvXVlr4CiWo=
+
+Name: assets/profiles/8350/com.tencent.tmgp.pubgmhd-gpu
+SHA-256-Digest: 2rp5vOqGZx2S3Z+9JVEsrJngZbySrQrlI2UBZWnUkjs=
+
+Name: assets/profiles/8350/com.tencent.tmgp.sgame-gpu
+SHA-256-Digest: Ywo+ILV7fZpQJZwpme8LFQ0XHjUr1T+OcTyMxsK4ltw=
+
+Name: assets/profiles/8450/com.protopop.brightridge-gpu
+SHA-256-Digest: 97riFpR07HpWHzcG8W4Ij8jHeRbHR4Jq0s5dPX92eoM=
+
+Name: assets/profiles/8450/com.sy.dldlhsdj.gw-gpu
+SHA-256-Digest: HI6HOsZmg5SGkXGqnpBTaIgbyo8wXGh4e4bXpR3HENE=
+
+Name: assets/profiles/8450/com.tencent.tmgp.pubgmhd-gpu
+SHA-256-Digest: 1VtAtK1SzkWJEIMhhjLR8OZdxwDgPKCmZF0r89zj0/Q=
+
+Name: assets/profiles/8450/com.tencent.tmgp.sgame-gpu
+SHA-256-Digest: AD3FlCKD7MPg5AG0ZeKAD876ASUcZTUy0ppIx94MWyk=
+
+Name: assets/profiles/8450/com.tencent.tmgp.speedmobile-gpu
+SHA-256-Digest: UXdto9yyxAYlXxz1bYcetdVMi8xVZ46aafLqcSVsMis=
+
+Name: assets/profiles/com.aligames.kuang.kybc-gpu
+SHA-256-Digest: anE0Lc1eNxFd/02Cl3K35dYowrRKPR4kXNqkzjkJA/k=
+
+Name: assets/profiles/com.miHoYo.Yuanshen-gpu
+SHA-256-Digest: sZlrzVUrG3+l9QiVXI8NC9zSqgzZ4o/6Lgry+1SxpNU=
+
+Name: assets/profiles/com.miHoYo.enterprise.NGHSoD-gpu
+SHA-256-Digest: 7M+alzib7cRh0PcYX5Pe8Ss8pWS4BJylt30/ersUdg4=
+
+Name: assets/profiles/com.miHoYo.hkrpg-gpu
+SHA-256-Digest: ZtEB5eyGTj58eokm0rrE1yHOYIIKanz8QBrTdkO2Xv8=
+
+Name: assets/profiles/com.netease.aceracer-gpu
+SHA-256-Digest: 7M+alzib7cRh0PcYX5Pe8Ss8pWS4BJylt30/ersUdg4=
+
+Name: assets/profiles/com.netease.dwrg-gpu
+SHA-256-Digest: rdf+krsvdIqwtcrqBNg5BbeoIarjWUcOWsnsZ7yKqqQ=
+
+Name: assets/profiles/com.netease.hyxd-gpu
+SHA-256-Digest: yoO0losfVaOT2eX9oWpMO2hNgpeA4oU7hi8yQUNl2ho=
+
+Name: assets/profiles/com.netease.moba-gpu
+SHA-256-Digest: D6NTG1z1Y5EernsOfdGK0h3fK9iUrVEzmRf5p+mVTN8=
+
+Name: assets/profiles/com.netease.nshm-gpu
+SHA-256-Digest: CdgzvgQaoW8kAo13CI8hC9nsQkDQJeQr7NcV75sJXdU=
+
+Name: assets/profiles/com.netease.nshm.mi-gpu
+SHA-256-Digest: CdgzvgQaoW8kAo13CI8hC9nsQkDQJeQr7NcV75sJXdU=
+
+Name: assets/profiles/com.netease.pes-gpu
+SHA-256-Digest: 7M+alzib7cRh0PcYX5Pe8Ss8pWS4BJylt30/ersUdg4=
+
+Name: assets/profiles/com.netease.vlfcn-gpu
+SHA-256-Digest: 7M+alzib7cRh0PcYX5Pe8Ss8pWS4BJylt30/ersUdg4=
+
+Name: assets/profiles/com.protopop.brightridge-gpu
+SHA-256-Digest: FREv3h+p+xDgrAgwDQIs5fbpwiuQTdk1a3kKTl8oxeA=
+
+Name: assets/profiles/com.pubg.imobile-gpu
+SHA-256-Digest: de7CPs5dpFpG++gpZqT204HAmZkYa6okj4RTvCzTi/I=
+
+Name: assets/profiles/com.qihoo.camera-gpu
+SHA-256-Digest: KPJqjzGnmQAndplCMWfMIBA/WjacVVkZW/pTyR+tSkQ=
+
+Name: assets/profiles/com.smile.gifmaker-gpu
+SHA-256-Digest: KPJqjzGnmQAndplCMWfMIBA/WjacVVkZW/pTyR+tSkQ=
+
+Name: assets/profiles/com.sy.dldlhsdj.gw-gpu
+SHA-256-Digest: CAJqYaB4WIeRDiLEHRiaK6QfxsHCzPObrEjsCVhbi2Q=
+
+Name: assets/profiles/com.tencent.fifamobile-gpu
+SHA-256-Digest: 0bj+SE1QbOFw59wN0SB0CgZFNNKm8onq50vqfWwNZ5Q=
+
+Name: assets/profiles/com.tencent.ig-gpu
+SHA-256-Digest: eXNu7+nCgP5v6KTyR9lKX3EDbLT8mMSF5U0Wq4+RO7Q=
+
+Name: assets/profiles/com.tencent.tmaoe-gpu
+SHA-256-Digest: vOiOaELxtfoJ0ht7/YqsIQRe8ptL63PnH2fj0ezOJhs=
+
+Name: assets/profiles/com.tencent.tmgp.WePop-gpu
+SHA-256-Digest: gBrWe2r+XdAMqpURQMhy6mRWg+Vx0cmff3DF0gln8yQ=
+
+Name: assets/profiles/com.tencent.tmgp.pubgmhd-gpu
+SHA-256-Digest: /sdjL8A+nKzIuC59udwaIE5hnrBJFTnY22W8E3R5oik=
+
+Name: assets/profiles/com.tencent.tmgp.sgame-gpu
+SHA-256-Digest: fLR4MmwNhQfnVZAif7CwFR/8bliy691pL51OkUIbNBM=
+
+Name: assets/profiles/com.tencent.tmgp.speedmobile-gpu
+SHA-256-Digest: 5j/sLsoyzkipqt95/uhluUDS0uk732VUtbzMz1jRsT8=
+
+Name: assets/profiles/io.wallpaperengine.weclient-gpu
+SHA-256-Digest: KPJqjzGnmQAndplCMWfMIBA/WjacVVkZW/pTyR+tSkQ=
+
+Name: assets/top_game_list.json
+SHA-256-Digest: V/zu/9vdysctt/jREMtTRGKsf2dULzhCtFZOCTQ4ePY=
+
+Name: classes.dex
+SHA-256-Digest: pam0w3DqIUmUhagSwPzr1H3EvuFgi37sBy9FSneVtQA=
+
+Name: google/protobuf/any.proto
+SHA-256-Digest: zGJoj1FidXq0ZfBLwcFgJVOw16eq5WTpYzGhkXZTMIQ=
+
+Name: google/protobuf/api.proto
+SHA-256-Digest: 3AEDegckEOX3zQjFL7ZBWs1nB7Wazi37Tfh4puAW+bg=
+
+Name: google/protobuf/compiler/plugin.proto
+SHA-256-Digest: r27v2jWzsNPAQ2R9Rcn7WI9BdZLc/v3Yp4c2jIpxW+s=
+
+Name: google/protobuf/descriptor.proto
+SHA-256-Digest: dL8eQdfJfNOoFGribLUVoqi/AdwIG7tY6GPvNfWQX/o=
+
+Name: google/protobuf/duration.proto
+SHA-256-Digest: 1/X3Wm3B2YUZcOe/Qo0+XZOASs0i6Pxty8x7ufgaUuA=
+
+Name: google/protobuf/empty.proto
+SHA-256-Digest: sY4M1E4NBUICwUA8SDJxgPOZXQjq0qbU0BLAVRp6NWM=
+
+Name: google/protobuf/field_mask.proto
+SHA-256-Digest: +bTdPtcp954OEZC+6w+Wg3bwIHhgQCOmY3px+QIHDnY=
+
+Name: google/protobuf/source_context.proto
+SHA-256-Digest: ZKwgTUcnBUe96VKhx6IC0K8MlVKSoh9RPvJp9vigx40=
+
+Name: google/protobuf/struct.proto
+SHA-256-Digest: Ey53TIKzyzOKH/WRlQy+Cuzq9tw9hERYY5CmhQ630Q4=
+
+Name: google/protobuf/timestamp.proto
+SHA-256-Digest: esvXq4TBXrzUqzyO0rbpYDuZlbVHQ6fTvWERdmTy5Ps=
+
+Name: google/protobuf/type.proto
+SHA-256-Digest: pl21Lh9lRm3JoFmrNNDJVHM8+Uc86n/lOseo7Io4FAc=
+
+Name: google/protobuf/wrappers.proto
+SHA-256-Digest: UUoA6sjKpnmiJZeo9ZQsLoxiD4fGZJVv6kg6zVnnvZM=
+
+Name: lib/arm64-v8a/libmievent.so
+SHA-256-Digest: d9c8wwSnBMLqTU4X/456BlnCOF7HhmPrU4DHCsN8nh0=
+
+Name: lib/arm64-v8a/libmiwlc_jni_android.so
+SHA-256-Digest: uXytbDmOlB/ILxEge+KprREQgtAm1b7KtLzGQR2sP6Y=
+
+Name: lib/arm64-v8a/libprofilemanager-jni.so
+SHA-256-Digest: m8si/otI/0lpWwzGX+v3Gznse7VFKSN5z7iEDF1+ATg=
+
+Name: res/0K.xml
+SHA-256-Digest: KCb/pgqpfMjDJkTn1hDcDfaawj4JqBei+qZd9RsC7B8=
+
+Name: res/0w.xml
+SHA-256-Digest: Fe0aIKytL82o46On0/X35JCpwdFEtzved1CLS7F7fDQ=
+
+Name: res/2T.xml
+SHA-256-Digest: ModydVnf73EnpEEXY4gSc2qNkTw3JlC2aVQURtUcbSs=
+
+Name: res/8G.xml
+SHA-256-Digest: r2YHeSl6iadV3ynl+2yYBl4am+qMPIKRbHAumAFWvks=
+
+Name: res/8c.png
+SHA-256-Digest: ITBKDJsA2mpyz6MccinJUo/Be25etOaKlpvOCMAaL+4=
+
+Name: res/9w.png
+SHA-256-Digest: 7vIPJfsUd9jJ3xV1fnZIEcxQP7B3fxjQ9/stGReLW/Y=
+
+Name: res/BJ.xml
+SHA-256-Digest: H+m+LFUuYdZL9KmR2aPG/c0yMWMLWxld37MDuZEgGz0=
+
+Name: res/BW.xml
+SHA-256-Digest: KCb/pgqpfMjDJkTn1hDcDfaawj4JqBei+qZd9RsC7B8=
+
+Name: res/FS.png
+SHA-256-Digest: 53xQRb/bb0u+lVs6eTv+07qjac5IEa4qkQPVSAY3z/8=
+
+Name: res/Fz.xml
+SHA-256-Digest: c/OChF3aO9+AYQ6bNpEULKi2t/2v9lQj0gOaXTVym40=
+
+Name: res/Gc.png
+SHA-256-Digest: W6zZehtB5EE8YJLNvYP2URKpEk6CPPqjohnGXidhZHs=
+
+Name: res/Op.xml
+SHA-256-Digest: G7tchv94a6tz0m3Mtd0KLlxtQxfnG+ayjJ65Q6SbQcY=
+
+Name: res/RJ.png
+SHA-256-Digest: 6zo0sTYy4Ms7HA9CcwNYZsvoGxsXtxeM4p0Zx405Sl4=
+
+Name: res/fO.png
+SHA-256-Digest: NjpWm+ty6LAHvwRkVGEhSNTJ94K5ORNSBZ/oMXnxjjA=
+
+Name: res/lv.xml
+SHA-256-Digest: rrppDIVNwOrILbhzOK6yjTDX9810KyN9AxMr6GgmUPA=
+
+Name: res/o-.png
+SHA-256-Digest: hW1SAQO6ltWjQNY8UCwwxtlimpcyLsRero8itdmsmJc=
+
+Name: res/s5.xml
+SHA-256-Digest: VGqvRejf5bE+fGvQcKf/4HiXmG9enhjMXH7AkQ0y5cU=
+
+Name: res/wb.png
+SHA-256-Digest: KEbhpwPlGXkf4i9BvLJDuC+QjRLl68tD8CDd+ZgngLA=
+
+Name: res/xC.xml
+SHA-256-Digest: uU4xYsAgbbiP5u0pleBtcjvK9TBAa46B8giM4eOCNAo=
+
+Name: res/yn.png
+SHA-256-Digest: 3teqv2pWtpTkhuCW79ieLwyQZ9KStjRmOJjjUslJHxA=
+
+Name: res/zR.png
+SHA-256-Digest: Ug0F+XihW6DM8jAGoaVpGgVKAkeMcMr8Xrr6525gDw0=
+
+Name: resources.arsc
+SHA-256-Digest: vCQvIa4g8DtfEavzVe73YXu/B8MWEsT+2TB53yQpeEg=
+

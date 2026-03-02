@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:id="@id/rootView"
+              android:background="@drawable/gb_setting_item_bg_pressed_selector"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginEnd="@dimen/dp_10">
+    <TextView android:textSize="@dimen/dp_13_82"
+              android:textColor="@color/gb_record_dialog_title_color"
+              android:layout_gravity="center_vertical"
+              android:id="@id/title"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              style="@style/GBSettingItemTitle" />
+    <TextView android:textSize="@dimen/dp_10"
+              android:textColor="@color/gb_record_dialog_subtitle_color"
+              android:layout_gravity="center_vertical"
+              android:id="@id/subtitle"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dp_3"
+              android:singleLine="false"
+              style="@style/GBSettingItemSubtitle" />
+  </LinearLayout>
+  <TextView android:textSize="@dimen/dp_11"
+            android:textColor="#99ffffff"
+            android:id="@id/tv_hdr_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dp_5"
+            android:drawableEnd="@drawable/ic_display_style_choose"
+            android:fontFamily="mipro-regular"
+            android:layout_marginEnd="@dimen/dp_2" />
+</LinearLayout>

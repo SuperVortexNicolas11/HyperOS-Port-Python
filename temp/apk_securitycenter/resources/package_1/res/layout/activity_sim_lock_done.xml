@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:id="@id/root_lin"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <View android:layout_width="fill_parent"
+        android:layout_height="@dimen/view_dimen_455" />
+  <ImageView android:layout_gravity="center_horizontal"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/simlock_done_icon" />
+  <TextView android:textSize="@dimen/sp_24"
+            android:layout_gravity="center_horizontal"
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_dimen_60"
+            android:fontFamily="mipro-medium"
+            android:lineHeight="@dimen/view_dimen_95" />
+  <TextView android:textSize="@dimen/dp_15"
+            android:textColor="@color/task_summary_color"
+            android:layout_gravity="center_horizontal"
+            android:id="@id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_dimen_20"
+            android:fontFamily="mipro-regular"
+            android:layout_marginStart="@dimen/view_dimen_80"
+            android:layout_marginEnd="@dimen/view_dimen_80"
+            android:lineHeight="@dimen/view_dimen_60" />
+  <View android:layout_width="fill_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="785.0" />
+  <Button android:id="@id/button_done"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/view_dimen_80"
+          android:text="@string/sim_lock_pin_confirm"
+          android:layout_marginStart="@dimen/view_dimen_80"
+          android:layout_marginEnd="@dimen/view_dimen_80"
+          style="@style/Widget.Button.Primary" />
+</LinearLayout>

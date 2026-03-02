@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<vector android:height="@dimen/game_turbo_game_mode_text_drawable_height"
+        android:width="@dimen/game_turbo_game_mode_text_drawable_width"
+        android:autoMirrored="true"
+        android:viewportWidth="12.0"
+        android:viewportHeight="14.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <path android:fillColor="#47c0ff"
+        android:pathData="M12,7L0,0.0718L0,13.9282L12,7Z" />
+</vector>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:id="@id/item_head_layout_fast_open"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:paddingStart="@dimen/am_main_item_padding_se"
+             android:paddingEnd="@dimen/am_main_item_padding_se" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="14.0sp"
+            android:textColor="@color/lucky_fastopen_type_title_color"
+            android:gravity="start"
+            android:id="@id/header_title"
+            android:background="@color/lucky_fastopen_header_color"
+            android:paddingTop="9.09dp"
+            android:paddingBottom="9.82dp"
+            android:clickable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+</FrameLayout>

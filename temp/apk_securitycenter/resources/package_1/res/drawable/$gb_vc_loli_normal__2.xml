@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<gradient android:angle="0.0"
+          android:type="linear"
+          android:startX="49.8592"
+          android:startY="8.8999"
+          android:endX="49.8592"
+          android:endY="57.0996" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <item android:color="@color/gb_voice_change_icon_sel_start"
+        android:offset="0.0" />
+  <item android:color="@color/gb_voice_change_icon_sel_end"
+        android:offset="1.0" />
+</gradient>

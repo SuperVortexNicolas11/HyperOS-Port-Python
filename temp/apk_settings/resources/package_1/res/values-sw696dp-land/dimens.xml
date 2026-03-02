@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="freeform_vedio_view_height">220.0dp</dimen>
+  <dimen name="freeform_vedio_view_width">350.56dp</dimen>
+  <dimen name="large_screen_keyboard_bg_height_fold">202.0dp</dimen>
+  <dimen name="large_screen_keyboard_icon_height_fold">168.0dp</dimen>
+  <dimen name="large_screen_keyboard_icon_width_fold">149.0dp</dimen>
+  <dimen name="provision_adjust_padding_horizontal">0.0dp</dimen>
+  <dimen name="state_edit_left_right_margin">10.91dp</dimen>
+  <dimen name="visual_border_width">152.0dp</dimen>
+  <dimen name="visual_border_width_big">228.0dp</dimen>
+  <dimen name="visual_text_width">136.0dp</dimen>
+  <dimen name="visual_text_width_big">212.0dp</dimen>
+  <dimen name="wifi_detail_grid_padding">29.09dp</dimen>
+  <dimen name="wifi_direct_connection">20.0dp</dimen>
+  <dimen name="wifi_nearby_padding_start">29.09dp</dimen>
+  <dimen name="wifi_refresh_end_margin">3.27dp</dimen>
+  <dimen name="wifi_saved_preference_margin">15.0px</dimen>
+  <dimen name="wifi_spinner_title_margin">29.09dp</dimen>
+  <dimen name="wifi_spinner_title_margin_constant">29.09dp</dimen>
+  <dimen name="wifi_state_edit_left_right_margin">10.91dp</dimen>
+  <dimen name="wifi_subsettings_margin">51.0dp</dimen>
+  <dimen name="wifi_subsettings_padding">25.0dp</dimen>
+</resources>

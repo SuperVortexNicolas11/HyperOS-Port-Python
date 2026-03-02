@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <Preference android:title="@string/ai_guard_settings_permissions"
+              android:key="permissions" />
+  <Preference android:title="@string/ai_guard_settings_menu_privacy_policy"
+              android:key="privacy_policy" />
+  <Preference android:title="@string/ai_guard_settings_menu_revoke_privacy_policy"
+              android:key="revoke_privacy_policy" />
+  <Preference android:title="@string/ai_guard_settings_menu_bugreport"
+              android:key="bugreport" />
+</androidx.preference.PreferenceScreen>

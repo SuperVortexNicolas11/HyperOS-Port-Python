@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      app:scrollableView="@id/scrollview" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.core.widget.NestedScrollView android:id="@id/scrollview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:fillViewport="true">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+      <com.miui.support.cardview.CardView android:layout_gravity="center"
+                            android:id="@id/link_turbo_cardview"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/screen_margin_left"
+                            android:layout_marginRight="@dimen/screen_margin_right"
+                            android:nestedScrollingEnabled="false"
+                            app:cardBackgroundColor="@color/wifi_detail_fragment_bg_color"
+                            app:cardCornerRadius="@dimen/miuix_preference_high_light_radius"
+                            app:cardElevation="0.0dp">
+        <LinearLayout android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content">
+          <fragment android:id="@id/options"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    class="com.android.settings.wifi.linkturbo.WifiLinkTurboOptions" />
+          <include android:id="@id/link_turbo_app"
+                   layout="@layout/link_turbo_app_list" />
+        </LinearLayout>
+      </com.miui.support.cardview.CardView>
+    </LinearLayout>
+  </miuix.core.widget.NestedScrollView>
+</miuix.springback.view.SpringBackLayout>

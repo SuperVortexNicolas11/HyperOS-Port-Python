@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.securitycenter.ad.view.AdDownloadView android:id="@id/ad_load_106"
+                      android:background="@drawable/shape_ad_default_bg"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <include layout="@layout/layout_ad_head05" />
+  <com.miui.securitycenter.ad.view.RoundResizeFrameLayout android:id="@id/image_layout"
+                        android:layout_width="0.0dp"
+                        android:layout_height="0.0dp"
+                        android:layout_marginTop="@dimen/v_dimens_38"
+                        android:contentDescription="@null"
+                        app:layout_constraintDimensionRatio="336:160"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/flex_layout"
+                        app:roundCornerRadius="@dimen/v_dimens_26">
+    <com.miui.securitycenter.ad.view.AdImageView android:id="@id/iv_img_big"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:scaleType="fitXY" />
+  </com.miui.securitycenter.ad.view.RoundResizeFrameLayout>
+  <TextView android:id="@id/tv_btn"
+            android:layout_width="0.0dp"
+            android:layout_marginTop="@dimen/v_dimens_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_layout"
+            style="@style/AdButtonTextStyle" />
+  <TextView android:id="@id/tv_cancel"
+            app:layout_constraintEnd_toEndOf="@id/tv_btn"
+            app:layout_constraintStart_toStartOf="@id/tv_btn"
+            app:layout_constraintTop_toBottomOf="@id/tv_btn"
+            style="@style/AdCancelButton" />
+</com.miui.securitycenter.ad.view.AdDownloadView>

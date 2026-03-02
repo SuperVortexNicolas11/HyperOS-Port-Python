@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:layout_gravity="center"
+              android:orientation="horizontal"
+              android:id="@id/container"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:weightSum="4.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.globalgame.view.GameItemView android:id="@id/gameItemView00"
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        app:type="gridCell" />
+  <com.miui.gamebooster.globalgame.view.GameItemView android:id="@id/gameItemView01"
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        app:type="gridCell" />
+  <com.miui.gamebooster.globalgame.view.GameItemView android:id="@id/gameItemView02"
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        app:type="gridCell" />
+  <com.miui.gamebooster.globalgame.view.GameItemView android:id="@id/gameItemView03"
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        app:type="gridCell" />
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:orientation="horizontal"
+             android:id="@id/display_topology_pane_holder"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:importantForAccessibility="no"
+             android:layout_marginHorizontal="@dimen/display_topology_pane_margin"
+             android:layout_marginVertical="@dimen/display_topology_pane_vertical_margin" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:src="@drawable/display_topology_background"
+             android:importantForAccessibility="no" />
+  <FrameLayout android:id="@id/display_topology_pane_content"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:clipToOutline="true" />
+  <FrameLayout android:layout_gravity="center|top"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:importantForAccessibility="no"
+               android:paddingVertical="10.0dp">
+    <TextView android:id="@id/topology_hint"
+              android:background="@drawable/display_topology_background"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingHorizontal="5.0dp" />
+  </FrameLayout>
+</FrameLayout>

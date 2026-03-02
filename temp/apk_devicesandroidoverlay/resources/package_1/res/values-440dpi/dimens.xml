@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="rounded_corner_radius">111.0px</dimen>
+  <dimen name="rounded_corner_radius_bottom">111.0px</dimen>
+  <dimen name="rounded_corner_radius_top">120.0px</dimen>
+  <dimen name="status_bar_height_default">106.0px</dimen>
+  <dimen name="status_bar_height_portrait">106.0px</dimen>
+</resources>

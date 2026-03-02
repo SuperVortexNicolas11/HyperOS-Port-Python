@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.springback.view.SpringBackLayout android:id="@id/layout_home_root"
+                      android:background="@color/bh_white_daynight"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      app:scrollOrientation="vertical"
+                      app:scrollableView="@id/v_scroll" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.core.widget.NestedScrollView android:id="@id/v_scroll"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:fillViewport="false">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/layout_has_sim"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          app:layout_constraintStart_toStartOf="parent">
+      <include android:id="@id/v_phone_number"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="29.09dp"
+               android:layout_marginRight="29.09dp"
+               android:layout_marginHorizontal="29.09dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               layout="@layout/bh_view_phone_number" />
+      <LinearLayout android:orientation="vertical"
+                    android:id="@id/layout_has_network"
+                    android:paddingLeft="@dimen/bh_pad_extra_view_padding"
+                    android:paddingRight="@dimen/bh_pad_extra_view_padding"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/bh_pad_extra_view_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/v_phone_number">
+        <LinearLayout android:orientation="vertical"
+                      android:id="@id/rl_traff"
+                      android:visibility="visible"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content">
+          <com.google.android.material.tabs.TabLayout android:theme="@style/Theme.AppCompat"
+                                android:id="@id/tab_layout"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10.13dp"
+                                android:layout_marginTop="27.7dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tabBackground="@color/transparent"
+                                app:tabIndicatorHeight="0.0dp"
+                                app:tabMode="scrollable"
+                                app:tabPaddingBottom="0.0dp"
+                                app:tabPaddingEnd="0.0dp"
+                                app:tabPaddingStart="0.0dp"
+                                app:tabPaddingTop="0.0dp"
+                                app:tabRippleColor="@color/tab_selected_background_color" />
+          <com.miui.networkassistant.ui.view.MyViewPager android:id="@id/introduction_viewpager"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tab_layout" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:id="@id/layout_abnormal_situation"
+                    android:visibility="gone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/v_phone_number">
+        <include layout="@layout/bh_net_error_short" />
+      </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+</miuix.springback.view.SpringBackLayout>

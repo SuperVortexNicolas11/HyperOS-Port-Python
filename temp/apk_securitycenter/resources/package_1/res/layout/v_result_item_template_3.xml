@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:paddingTop="@dimen/card_layout_line_height_half"
+              android:paddingBottom="@dimen/card_layout_line_height_half"
+              android:descendantFocusability="blocksDescendants"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/inner_layout"
+                android:background="@drawable/shape_result_card_border_whole"
+                android:paddingTop="@dimen/dp_18"
+                android:paddingBottom="@dimen/dp_18"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/antivirus_result_card_padding_se"
+                android:paddingEnd="@dimen/antivirus_result_card_padding_se">
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <ImageView android:id="@id/icon"
+                 style="@style/NewResultItemIconStyle" />
+      <LinearLayout android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+        <TextView android:id="@id/title"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  style="@style/CardTitleTextViewStyle" />
+        <TextView android:layout_gravity="center_vertical"
+                  android:id="@id/summary"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  style="@style/CardSummaryTextViewStyle" />
+      </LinearLayout>
+    </LinearLayout>
+    <Button android:layout_gravity="end"
+            android:id="@id/button"
+            android:layout_marginTop="@dimen/dp_14"
+            style="@style/ResultBlueButtonStyle" />
+  </LinearLayout>
+</LinearLayout>

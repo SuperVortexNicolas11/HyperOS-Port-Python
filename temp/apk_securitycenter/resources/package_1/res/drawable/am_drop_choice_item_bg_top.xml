@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <corners android:topLeftRadius="@dimen/am_drop_window_bg_radius"
+           android:topRightRadius="@dimen/am_drop_window_bg_radius"
+           android:bottomLeftRadius="0.0dp"
+           android:bottomRightRadius="0.0dp" />
+  <solid android:color="@color/am_drop_choice_item_bg_color" />
+</shape>

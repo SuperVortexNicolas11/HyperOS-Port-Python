@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:id="@id/pc_consueme_list_root"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="@dimen/view_dimen_254"
+              android:paddingStart="@dimen/miuix_item_padding_start"
+              android:paddingEnd="@dimen/miuix_item_padding_start" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:id="@android:id/icon"
+             android:layout_width="@dimen/view_dimen_118"
+             android:layout_height="@dimen/view_dimen_118"
+             android:layout_marginTop="@dimen/pc_power_consume_list_item_image_margin_top" />
+  <LinearLayout android:orientation="vertical"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginStart="@dimen/view_dimen_40">
+    <TextView android:textSize="@dimen/view_dimen_48"
+              android:textStyle="bold"
+              android:textColor="@color/pc_battery_statics_rank_title_color"
+              android:ellipsize="marquee"
+              android:gravity="center|start"
+              android:id="@android:id/title"
+              android:layout_width="fill_parent"
+              android:layout_height="@dimen/view_dimen_64"
+              android:layout_marginTop="@dimen/pc_result_bottom_card_item_margin_top"
+              android:singleLine="true"
+              android:textAlignment="viewStart" />
+    <TextView android:textSize="@dimen/view_dimen_40"
+              android:textColor="@color/pc_battery_statics_rank_summary_color"
+              android:gravity="center|start"
+              android:id="@android:id/text1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="2.0dp" />
+    <miuix.androidbasewidget.widget.ProgressBar android:id="@android:id/progress"
+                          android:layout_width="fill_parent"
+                          android:layout_height="@dimen/pc_battery_statics_rank_progress_height"
+                          android:layout_marginTop="@dimen/pc_battery_statics_rank_progress_height"
+                          android:max="100"
+                          android:progressDrawable="@drawable/pc_battery_statics_progressbar"
+                          style="?android:attr/progressBarStyleHorizontal" />
+  </LinearLayout>
+  <FrameLayout android:layout_gravity="center_vertical"
+               android:id="@id/right_layout"
+               android:layout_width="@dimen/view_dimen_100"
+               android:layout_height="wrap_content">
+    <ImageView android:layout_gravity="center|end"
+               android:id="@id/arrow_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_arrow_right" />
+  </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical"
+                      android:id="@id/root_layout"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <View android:background="@drawable/gb_bg_performance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_dimen_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+  <com.miui.gamebooster.windowmanager.GBTopbarLayout android:id="@id/topview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:turboTitleCenter="@string/gb_performance_mode" />
+  <RadioGroup android:layout_gravity="center_horizontal"
+              android:orientation="horizontal"
+              android:id="@id/radioGroup"
+              android:background="@drawable/shape_gb_performance_bg"
+              android:paddingLeft="@dimen/gt_pannel_performance_tab_pd"
+              android:paddingRight="@dimen/gt_pannel_performance_tab_pd"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/view_dimen_9"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/topview">
+    <RadioButton android:textSize="@dimen/gt_pannel_performance_tab_fontsize"
+                 android:textColor="@color/gb_performance_balance_selector"
+                 android:gravity="center"
+                 android:id="@id/radio_balance"
+                 android:background="@drawable/gb_performance_balance_selector"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:checked="true"
+                 android:button="@null"
+                 android:text="@string/gb_performance_balance" />
+    <Space android:layout_width="@dimen/gt_pannel_performance_tab_interval"
+           android:layout_height="0.0dp" />
+    <RadioButton android:textSize="@dimen/gt_pannel_performance_tab_fontsize"
+                 android:textColor="@color/gb_performance_high_selector"
+                 android:gravity="center"
+                 android:id="@id/radio_high"
+                 android:background="@drawable/gb_performance_high_selector"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:button="@null"
+                 android:text="@string/game_performance_wild_mode" />
+  </RadioGroup>
+  <ScrollView android:id="@id/sv_performance"
+              android:layout_width="fill_parent"
+              android:layout_height="0.0dp"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/radioGroup">
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical"
+                          android:id="@id/nsv_container"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content">
+      <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal"
+                            android:id="@id/lav_performance"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/dp_115"
+                            android:layout_marginTop="@dimen/dp_40"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/nsv_container"
+                            app:lottie_autoPlay="false"
+                            app:lottie_loop="false" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

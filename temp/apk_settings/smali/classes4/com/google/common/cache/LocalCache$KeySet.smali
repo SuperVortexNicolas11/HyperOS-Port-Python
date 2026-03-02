@@ -1,0 +1,81 @@
+.class final Lcom/google/common/cache/LocalCache$KeySet;
+.super Lcom/google/common/cache/LocalCache$AbstractCacheSet;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/cache/LocalCache;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x10
+    name = "KeySet"
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/google/common/cache/LocalCache;
+
+
+# direct methods
+.method constructor <init>(Lcom/google/common/cache/LocalCache;)V
+    .locals 0
+
+    .line 4441
+    iput-object p1, p0, Lcom/google/common/cache/LocalCache$KeySet;->this$0:Lcom/google/common/cache/LocalCache;
+
+    invoke-direct {p0, p1}, Lcom/google/common/cache/LocalCache$AbstractCacheSet;-><init>(Lcom/google/common/cache/LocalCache;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public contains(Ljava/lang/Object;)Z
+    .locals 0
+
+    .line 4450
+    iget-object p0, p0, Lcom/google/common/cache/LocalCache$KeySet;->this$0:Lcom/google/common/cache/LocalCache;
+
+    invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->containsKey(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public iterator()Ljava/util/Iterator;
+    .locals 1
+
+    .line 4445
+    new-instance v0, Lcom/google/common/cache/LocalCache$KeyIterator;
+
+    iget-object p0, p0, Lcom/google/common/cache/LocalCache$KeySet;->this$0:Lcom/google/common/cache/LocalCache;
+
+    invoke-direct {v0, p0}, Lcom/google/common/cache/LocalCache$KeyIterator;-><init>(Lcom/google/common/cache/LocalCache;)V
+
+    return-object v0
+.end method
+
+.method public remove(Ljava/lang/Object;)Z
+    .locals 0
+
+    .line 4455
+    iget-object p0, p0, Lcom/google/common/cache/LocalCache$KeySet;->this$0:Lcom/google/common/cache/LocalCache;
+
+    invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="horizontal"
+              android:id="@id/root"
+              android:paddingTop="@dimen/view_dimen_43"
+              android:paddingBottom="@dimen/view_dimen_43"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingStart="@dimen/dp_16"
+              android:paddingEnd="@dimen/dp_16" xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="0.0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="7.0">
+    <LinearLayout android:gravity="center_vertical"
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <TextView android:ellipsize="end"
+                android:id="@id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="@dimen/list_item_maxwidth"
+                android:singleLine="true"
+                style="@style/Miuix.AppCompat.TextAppearance.List.Primary" />
+      <TextView android:id="@id/tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:paddingStart="5.0dp"
+                style="@style/Miuix.AppCompat.TextAppearance.List.Secondary" />
+    </LinearLayout>
+    <TextView android:ellipsize="end"
+              android:id="@id/number"
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:maxEms="15"
+              android:singleLine="true"
+              style="@style/Miuix.AppCompat.TextAppearance.List.Secondary" />
+  </LinearLayout>
+  <FrameLayout android:layout_width="0.0px"
+               android:layout_height="fill_parent"
+               android:layout_weight="3.3">
+    <TextView android:gravity="end"
+              android:layout_gravity="center|end"
+              android:id="@id/info"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/Miuix.AppCompat.TextAppearance.List.Secondary" />
+    <CheckBox android:layout_gravity="center|end"
+              android:id="@android:id/checkbox"
+              android:focusable="false"
+              android:visibility="gone"
+              android:clickable="false"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginEnd="5.0dp" />
+  </FrameLayout>
+</LinearLayout>

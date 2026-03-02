@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="?attr/preferenceItemBackgroundColor" />
+  <padding android:left="@dimen/large_screen_keyboard_guide_item_fold_padding_horizontal"
+           android:top="@dimen/large_screen_keyboard_guide_item_fold_padding_vertical"
+           android:right="@dimen/large_screen_keyboard_guide_item_fold_padding_horizontal"
+           android:bottom="@dimen/large_screen_keyboard_guide_item_fold_padding_vertical" />
+</shape>

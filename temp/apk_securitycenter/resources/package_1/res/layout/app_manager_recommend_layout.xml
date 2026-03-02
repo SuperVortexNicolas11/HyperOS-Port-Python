@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:scrollableView="@id/list_view">
+    <miuix.recyclerview.widget.RecyclerView android:id="@id/list_view"
+                          android:paddingBottom="@dimen/view_dimen_40"
+                          android:scrollbars="none"
+                          android:clipToPadding="false"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:overScrollMode="never" />
+  </miuix.springback.view.SpringBackLayout>
+  <LinearLayout android:orientation="vertical"
+                android:id="@id/top_container"
+                android:background="@color/miuix_window_color"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <com.miui.appmanager.widget.AMMessageView android:id="@id/v_updater_view"
+                          android:visibility="gone"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          style="@style/MessageView.Guide" />
+    <com.miui.appmanager.widget.AMMainTopView android:id="@id/top_view"
+                          android:tag="@string/app_manager_tab_app"
+                          android:background="@color/miuix_window_color"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" />
+  </LinearLayout>
+</FrameLayout>

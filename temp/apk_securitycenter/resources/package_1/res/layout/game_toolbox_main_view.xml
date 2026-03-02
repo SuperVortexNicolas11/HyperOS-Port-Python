@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<FrameLayout android:layout_width="fill_parent"
+             android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.core.widget.NestedScrollView android:scrollbars="none"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <com.miui.gamebooster.windowmanager.newbox.PerformancePanelView android:id="@id/performance_panel_view"
+                            android:background="@drawable/performance_panel_balance_bg"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/game_toolbox_content_padding_start"
+                            android:layout_marginTop="@dimen/game_toolbox_performance_panel_margin_top"
+                            android:layout_marginRight="@dimen/game_toolbox_content_padding_start"
+                            android:layout_marginHorizontal="@dimen/game_toolbox_content_padding_start"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+      <miuix.recyclerview.widget.RecyclerView android:id="@id/rv_game_toolbox_function"
+                            android:clipChildren="false"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/performance_panel_view" />
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+</FrameLayout>

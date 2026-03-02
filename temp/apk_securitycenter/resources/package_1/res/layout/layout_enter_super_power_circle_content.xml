@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <TextView android:textSize="@dimen/superpower_text_remainingtime_textsize"
+            android:textColor="@color/superpower_progress_remainingtime_text_color"
+            android:id="@id/tv_progress_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/superpower_text_remainingtime_margin_top"
+            android:text="@string/superpower_progress_title"
+            android:layout_centerHorizontal="true"
+            android:importantForAccessibility="no" />
+  <TextView android:textSize="@dimen/superpower_text_lefttime_textsize"
+            android:textColor="@android:color/white"
+            android:id="@id/tv_left_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/superpower_text_lefttime_margin_top"
+            android:layout_centerHorizontal="true"
+            android:importantForAccessibility="no" />
+  <ScrollView android:layout_width="wrap_content"
+              android:layout_height="@dimen/dp_60"
+              android:layout_marginLeft="@dimen/superpower_text_turnon_margin_start"
+              android:layout_marginTop="@dimen/superpower_text_turnon_margin_top"
+              android:layout_marginRight="@dimen/superpower_text_turnon_margin_start"
+              android:layout_marginHorizontal="@dimen/superpower_text_turnon_margin_start">
+    <TextView android:textSize="@dimen/superpower_text_turnon_textsize"
+              android:textColor="@color/superpower_progress_content_color"
+              android:gravity="center_horizontal"
+              android:id="@id/tv_progress_enter"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/dp_3"
+              android:layout_marginRight="@dimen/dp_3"
+              android:text="@string/superpower_progress_content"
+              android:drawablePadding="3.0dp"
+              android:layout_centerHorizontal="true"
+              android:drawableStart="@drawable/super_power_progress_icon"
+              android:layout_marginHorizontal="@dimen/dp_3" />
+  </ScrollView>
+</RelativeLayout>

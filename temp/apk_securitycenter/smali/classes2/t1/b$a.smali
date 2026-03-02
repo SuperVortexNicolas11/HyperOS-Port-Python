@@ -1,0 +1,92 @@
+.class Lt1/b$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/view/View$OnLongClickListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lt1/b;->onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$B;I)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:I
+
+.field final synthetic b:Lt1/b;
+
+
+# direct methods
+.method constructor <init>(Lt1/b;I)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lt1/b$a;->b:Lt1/b;
+
+    .line 2
+    iput p2, p0, Lt1/b$a;->a:I
+
+    .line 4
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+    .line 9
+.end method
+
+
+# virtual methods
+.method public onLongClick(Landroid/view/View;)Z
+    .locals 3
+
+    .line 1
+    iget-object v0, p0, Lt1/b$a;->b:Lt1/b;
+
+    .line 2
+    iget-boolean v1, v0, Lt1/b;->e:Z
+
+    .line 4
+    const/4 v2, 0x1
+
+    .line 6
+    if-nez v1, :cond_0
+
+    .line 7
+    iput-boolean v2, v0, Lt1/b;->e:Z
+
+    .line 9
+    invoke-virtual {v0}, Lt1/b;->s()Landroid/view/ActionMode$Callback;
+
+    .line 11
+    move-result-object v1
+
+    .line 14
+    invoke-virtual {p1, v1}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+
+    .line 15
+    move-result-object p1
+
+    .line 18
+    invoke-static {v0, p1}, Lt1/b;->p(Lt1/b;Landroid/view/ActionMode;)V
+
+    .line 19
+    iget-object p1, p0, Lt1/b$a;->b:Lt1/b;
+
+    .line 22
+    iget v0, p0, Lt1/b$a;->a:I
+
+    .line 24
+    invoke-virtual {p1, v0, v2, v2}, Lt1/b;->y(IZZ)V
+
+    .line 26
+    :cond_0
+    return v2
+    .line 29
+.end method

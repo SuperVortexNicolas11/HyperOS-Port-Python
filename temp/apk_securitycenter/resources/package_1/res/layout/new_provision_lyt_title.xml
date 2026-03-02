@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:id="@id/provision_lyt_title"
+              android:paddingLeft="@dimen/provision_title_padding_horizontal"
+              android:paddingRight="@dimen/provision_title_padding_horizontal"
+              android:paddingBottom="@dimen/provision_title_padding_bottom"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingHorizontal="@dimen/provision_title_padding_horizontal" xmlns:android="http://schemas.android.com/apk/res/android">
+  <miuix.appcompat.widget.TextView android:gravity="center"
+                        android:id="@id/provision_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="42.0dp"
+                        style="@style/ProvisionPageTitleTextStyle" />
+  <LinearLayout android:id="@id/provision_lyt_subtitle"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/provision_subtitle_lyt_min_height">
+    <miuix.appcompat.widget.TextView android:gravity="center"
+                          android:id="@id/provision_sub_title"
+                          android:visibility="gone"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/provision_subtitle_margin_top"
+                          android:layout_marginBottom="@dimen/provision_subtitle_margin_bottom"
+                          style="@style/ProvisionPageSubTitleTextStyle" />
+  </LinearLayout>
+</LinearLayout>

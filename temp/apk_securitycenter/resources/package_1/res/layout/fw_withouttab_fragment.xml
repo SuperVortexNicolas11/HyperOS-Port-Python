@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.nestedheader.widget.NestedHeaderLayout android:id="@id/nested_header"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:headerView="@id/head_new"
+                        app:scrollableView="@android:id/list">
+    <LinearLayout android:orientation="vertical"
+                  android:id="@id/head_new"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+      <View android:layout_width="fill_parent"
+            android:layout_height="@dimen/view_dimen_20" />
+      <LinearLayout android:orientation="horizontal"
+                    android:id="@id/header"
+                    android:visibility="gone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dp_28">
+        <TextView android:textSize="@dimen/text_font_size_36"
+                  android:textColor="@color/tab_sort_text"
+                  android:gravity="center_vertical"
+                  android:id="@id/spinner"
+                  android:layout_width="wrap_content"
+                  android:layout_height="fill_parent"
+                  android:text="@string/tab_sort_all"
+                  android:drawableEnd="@drawable/antispam_expand_indicator" />
+      </LinearLayout>
+    </LinearLayout>
+    <com.miui.antispam.ui.view.RecyclerViewExt android:id="@android:id/list"
+                          android:paddingBottom="@dimen/view_dimen_40"
+                          android:clipToPadding="false"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:fastScrollEnabled="true" />
+  </miuix.nestedheader.widget.NestedHeaderLayout>
+  <ViewStub android:id="@id/empty_stub_static"
+            android:layout="@layout/anti_spam_empty_view_stub_static"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+  <include android:visibility="gone"
+           layout="@layout/fw_log_list_loading" />
+</LinearLayout>

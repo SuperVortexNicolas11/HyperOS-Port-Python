@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.smooth.SmoothContainerDrawable2 android:radius="@dimen/view_dimen_42" xmlns:android="http://schemas.android.com/apk/res/android">
+  <child>
+    <shape>
+      <solid android:color="@color/bg_new_gameturbo" />
+    </shape>
+  </child>
+</miuix.smooth.SmoothContainerDrawable2>

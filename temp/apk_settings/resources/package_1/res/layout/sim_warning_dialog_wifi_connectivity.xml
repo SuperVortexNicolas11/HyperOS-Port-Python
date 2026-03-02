@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+  <ImageView android:gravity="center"
+             android:paddingTop="16.0dp"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:src="@drawable/ic_warning_24dp"
+             android:tint="?android:attr/textColorSecondary"
+             android:contentDescription="@null" />
+  <TextView android:gravity="center"
+            android:id="@id/title"
+            android:paddingLeft="24.0dp"
+            android:paddingTop="16.0dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="24.0dp"
+            style="?android:attr/textAppearanceLarge" />
+  <TextView android:textAppearance="@style/TextAppearance.DialogMessage"
+            android:gravity="center"
+            android:id="@id/msg"
+            android:paddingTop="16.0dp"
+            android:paddingBottom="32.0dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="24.0dp"
+            android:paddingEnd="24.0dp" />
+</LinearLayout>

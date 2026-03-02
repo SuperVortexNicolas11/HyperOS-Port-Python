@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/left_button_scan_view"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <ProgressBar android:layout_width="@dimen/dp_17.4"
+                 android:layout_height="@dimen/dp_17.4"
+                 android:indeterminate="true"
+                 android:indeterminateDrawable="@drawable/progress_bar_progressing_anim" />
+    <TextView android:textSize="@dimen/miuix_appcompat_button_text_size"
+              android:textColor="?attr/textColorButton"
+              android:id="@id/left_button_scan_text"
+              android:background="@color/transparent"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/virus_scanning"
+              android:fontFamily="sans-serif-medium"
+              android:layout_marginStart="@dimen/dp_7" />
+  </LinearLayout>
+  <LinearLayout android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/left_button_info_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <ProgressBar android:visibility="gone"
+                 android:layout_width="@dimen/dp_17.4"
+                 android:layout_height="@dimen/dp_17.4"
+                 android:indeterminate="true"
+                 android:indeterminateDrawable="@drawable/progress_bar_progressing_anim"
+                 android:layout_marginEnd="@dimen/dp_7" />
+    <TextView android:textSize="@dimen/miuix_appcompat_button_text_size"
+              android:textColor="?attr/textColorButton"
+              android:id="@id/left_button_msg"
+              android:background="@color/transparent"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:fontFamily="sans-serif-medium" />
+    <TextView android:textSize="@dimen/sp_11"
+              android:textColor="#f43b3b"
+              android:id="@id/left_button_warring_msg"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+  </LinearLayout>
+</merge>

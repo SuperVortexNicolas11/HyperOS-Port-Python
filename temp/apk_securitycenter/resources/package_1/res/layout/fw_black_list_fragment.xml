@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<RelativeLayout android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <miuix.springback.view.SpringBackLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="@dimen/dp_10dp"
+                        app:scrollableView="@android:id/list">
+    <com.miui.antispam.ui.view.RecyclerViewExt android:id="@android:id/list"
+                          android:clipToPadding="false"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:fastScrollEnabled="true" />
+  </miuix.springback.view.SpringBackLayout>
+  <include android:id="@android:id/empty"
+           android:visibility="gone"
+           android:layout_centerInParent="true"
+           layout="@layout/fw_log_list_empty" />
+</RelativeLayout>

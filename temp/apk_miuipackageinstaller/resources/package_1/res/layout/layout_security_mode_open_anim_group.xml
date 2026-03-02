@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical"
+                      android:id="@id/anim_group_root_layout"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:paddingHorizontal="@dimen/dp_28" xmlns:android="http://schemas.android.com/apk/res/android">
+  <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical"
+                        android:id="@id/anim_view_group_welcome"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_3.6"
+                        android:alpha="0.0">
+    <TextView android:textColor="@color/black"
+              android:id="@id/anim_welcome_title"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/security_mode_open_title"
+              android:fontFamily="mipro-normal" />
+    <TextView android:textSize="@dimen/sp_15"
+              android:textColor="@color/black_60"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/settings_security_mode_service_list_title_on_msg" />
+  </androidx.appcompat.widget.LinearLayoutCompat>
+  <View android:layout_gravity="center"
+        android:id="@id/logo_place_holder"
+        android:layout_width="@dimen/dp_153.82"
+        android:layout_height="@dimen/dp_140.72"
+        android:layout_marginTop="@dimen/dp_54" />
+  <androidx.recyclerview.widget.RecyclerView android:id="@id/service_list"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="@dimen/dp_48"
+                        android:overScrollMode="never"
+                        android:alpha="0.0" />
+</androidx.appcompat.widget.LinearLayoutCompat>

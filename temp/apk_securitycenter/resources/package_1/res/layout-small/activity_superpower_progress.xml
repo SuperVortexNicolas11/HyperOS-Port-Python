@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout android:gravity="center"
+              android:orientation="vertical"
+              android:background="@android:color/transparent"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+  <FrameLayout android:id="@id/ll_tips_group"
+               android:layout_width="@dimen/dp_216"
+               android:layout_height="@dimen/dp_223"
+               android:layout_marginTop="@dimen/dp_37">
+    <ImageView android:id="@id/iv_cicleview_shadow"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:src="@drawable/superpower_ic_shadow" />
+    <ImageView android:layout_gravity="center"
+               android:id="@id/iv_cicleview"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:src="@drawable/superpower_ic_ring" />
+    <ViewStub android:layout_gravity="center"
+              android:id="@id/view_stub_enter_circle_content"
+              android:layout="@layout/layout_enter_super_power_circle_content"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+    <ViewStub android:layout_gravity="center"
+              android:id="@id/view_stub_exit_circle_content"
+              android:layout="@layout/layout_exit_super_power_circle_content"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+  </FrameLayout>
+  <ViewStub android:id="@id/view_stub_progress_strategy"
+            android:layout="@layout/layout_super_power_enter_progress_strategy"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_marginStart="@dimen/dp_41"
+            android:layout_marginEnd="@dimen/dp_41" />
+</LinearLayout>

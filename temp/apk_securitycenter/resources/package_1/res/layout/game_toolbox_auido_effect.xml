@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:paddingStart="@dimen/dp_20"
+                      android:paddingEnd="@dimen/dp_20" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <com.miui.gamebooster.widget.CheckBoxSettingItemView android:id="@id/item_game_immersion_sound"
+                        android:paddingTop="@dimen/dp_12"
+                        android:paddingBottom="@dimen/dp_12"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/dp_12"
+                        app:gbsiCustomLayout="@layout/gb_checkbox_setting_item_view_smotion"
+                        app:gbsiSubtitle="@string/game_toolbox_immersion_sound_desc"
+                        app:gbsiTitle="@string/game_toolbox_immersion_sound_title"
+                        app:hasMinHeight="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

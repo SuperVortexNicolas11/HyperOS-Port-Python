@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<miuix.flexible.view.HyperCellLayout android:id="@id/perm_op_content"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/dp_56"
+                      android:paddingStart="@dimen/miuix_preference_item_padding_start"
+                      android:paddingEnd="@dimen/miuix_preference_item_padding_end"
+                      app:template="standard_button"
+                      style="@style/Widget.ListView.Item.SingleLine" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  <LinearLayout android:orientation="vertical"
+                android:paddingTop="@dimen/dp_14"
+                android:paddingBottom="@dimen/dp_14"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:area_id="@id/area_title">
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Primary"
+              android:textSize="@dimen/sp_17"
+              android:id="@id/tx_perm_op_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:fontFamily="@string/miuix_font_style_misans_medium_font_family" />
+    <TextView android:textAppearance="@style/Miuix.AppCompat.TextAppearance.List.Secondary"
+              android:textSize="@dimen/sp_14"
+              android:id="@id/tx_perm_op_content"
+              android:layout_width="@dimen/match_parent"
+              android:layout_height="wrap_content"
+              android:fontFamily="@string/miuix_font_style_misans_font_family" />
+  </LinearLayout>
+  <miuix.slidingwidget.widget.SlidingSwitch android:id="@id/perm_op_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:importantForAccessibility="no"
+                        android:layout_alignParentEnd="true"
+                        app:area_id="@id/area_end" />
+</miuix.flexible.view.HyperCellLayout>

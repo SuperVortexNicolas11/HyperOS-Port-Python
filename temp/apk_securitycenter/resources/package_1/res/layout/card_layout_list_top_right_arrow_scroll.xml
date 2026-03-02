@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<com.miui.securityscan.ui.main.HpViewFlipper android:gravity="center_vertical"
+                      android:id="@id/view_flipper"
+                      android:background="@drawable/hp_card_top_bg_no_shadow_normal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="@dimen/card_layout_top_item_min_height"
+                      android:inAnimation="@anim/flipper_up_in"
+                      android:outAnimation="@anim/flipper_up_out"
+                      android:flipInterval="3000" xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <dimen name="behavior_widget_bg_radius">17.71dp</dimen>
+  <dimen name="margin_app_suggest_privacy">@dimen/dp_0</dimen>
+  <dimen name="width_app_suggest_privacy_button">@dimen/dp_160</dimen>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+  <id name="app_list_item_position" />
+  <id name="btn_cloud_change_addr" />
+  <id name="btn_ins_no" />
+  <id name="btn_ins_yes" />
+  <id name="btn_international_addr" />
+  <id name="btn_online_addr" />
+  <id name="btn_russion_addr" />
+  <id name="btn_staging_addr" />
+  <id name="et_clr" />
+  <id name="et_target1" />
+  <id name="et_target2" />
+  <id name="et_trig" />
+  <id name="tv_applist_update_time" />
+  <id name="tv_base_info" />
+  <id name="tv_clr" />
+  <id name="tv_current_allow_sync_status" />
+  <id name="tv_current_cloud_addr" />
+  <id name="tv_feature_update_time" />
+  <id name="tv_target1" />
+  <id name="tv_target2" />
+  <id name="tv_trig" />
+</resources>
