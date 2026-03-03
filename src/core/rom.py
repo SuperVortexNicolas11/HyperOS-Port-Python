@@ -9,35 +9,49 @@ from pathlib import Path
 from src.utils.shell import ShellRunner
 
 ANDROID_LOGICAL_PARTITIONS = [
-    "system", "system_ext", "product", "vendor", "odm", "mi_ext",
-    "system_dlkm", "vendor_dlkm", "odm_dlkm", "product_dlkm"
+    "system",
+    "system_ext",
+    "product",
+    "vendor",
+    "odm",
+    "mi_ext",
+    "system_dlkm",
+    "vendor_dlkm",
+    "odm_dlkm",
+    "product_dlkm",
 ]
+
 
 class RomType(Enum):
     UNKNOWN = auto()
-    PAYLOAD = auto()      # payload.bin
-    BROTLI = auto()       # new.dat.br
-    FASTBOOT = auto()     # super.img or tgz
-    LOCAL_DIR = auto()    # Pre-extracted directory
+    PAYLOAD = auto()  # payload.bin
+    BROTLI = auto()  # new.dat.br
+    FASTBOOT = auto()  # super.img or tgz
+    LOCAL_DIR = auto()  # Pre-extracted directory
+
 
 class RomPackage:
     def __init__(self, file_path: str | Path, work_dir: str | Path, label: str = "Rom"):
-        self.props = {} 
-        self.prop_history = {} # Tracks property history: {key: [(file, value), ...]}
+        self.props = {}
+        self.prop_history = {}  # Tracks property history: {key: [(file, value), ...]}
         self.path = Path(file_path).resolve()
         self.work_dir = Path(work_dir).resolve()
         self.label = label
         self.logger = logging.getLogger(label)
         self.shell = ShellRunner()
-        
+
         # Directory structure definition
-        self.images_dir = self.work_dir / "images"           # Stores .img files
-        self.extracted_dir = self.work_dir / "extracted"     # Stores extracted folders (system, vendor...)
-        self.config_dir = self.work_dir / "extracted"  / "config"           # Stores fs_config and file_contexts
+        self.images_dir = self.work_dir / "images"  # Stores .img files
+        self.extracted_dir = (
+            self.work_dir / "extracted"
+        )  # Stores extracted folders (system, vendor...)
+        self.config_dir = (
+            self.work_dir / "extracted" / "config"
+        )  # Stores fs_config and file_contexts
 
         self.rom_type = RomType.UNKNOWN
-        self.props = {} 
-        
+        self.props = {}
+
         self._detect_type()
 
     def _detect_type(self):
@@ -50,14 +64,14 @@ class RomPackage:
             self.logger.info(f"[{self.label}] Source is a local directory.")
             # If in directory mode, assume it's the working directory
             self.work_dir = self.path
-            self.images_dir = self.path / "images" # Adapting to AOSP structure
-            if not self.images_dir.exists(): 
-                self.images_dir = self.path # Compatible if img is in root
+            self.images_dir = self.path / "images"  # Adapting to AOSP structure
+            if not self.images_dir.exists():
+                self.images_dir = self.path  # Compatible if img is in root
             return
 
         # Simple Zip detection logic
         if zipfile.is_zipfile(self.path):
-            with zipfile.ZipFile(self.path, 'r') as z:
+            with zipfile.ZipFile(self.path, "r") as z:
                 namelist = z.namelist()
                 if "payload.bin" in namelist:
                     self.rom_type = RomType.PAYLOAD
@@ -65,7 +79,7 @@ class RomPackage:
                     self.rom_type = RomType.BROTLI
                 elif "images/super.img" in namelist or "super.img" in namelist:
                     self.rom_type = RomType.FASTBOOT
-        elif self.path.suffix == '.tgz':
+        elif self.path.suffix == ".tgz":
             self.rom_type = RomType.FASTBOOT
 
         self.logger.info(f"[{self.label}] Detected Type: {self.rom_type.name}")
@@ -73,79 +87,91 @@ class RomPackage:
     def extract_images(self, partitions: list[str] = None):
         """
         Level 1 Extraction: Convert Zip/Payload to Img
-        :param partitions: 
+        :param partitions:
             - If None (Base ROM): Extract ALL imgs from payload.bin (including firmware),
               but only automatically extract (Level 2) ANDROID_LOGICAL_PARTITIONS.
             - If list specified (Port ROM): Extract only specific imgs, and extract them.
         """
         if self.rom_type == RomType.LOCAL_DIR:
-            self.logger.info(f"[{self.label}] Local dir mode, skipping payload extraction.")
+            self.logger.info(
+                f"[{self.label}] Local dir mode, skipping payload extraction."
+            )
             # Local mode, try extracting logical partitions
             self._batch_extract_files(partitions or ANDROID_LOGICAL_PARTITIONS)
             return
 
         self.images_dir.mkdir(parents=True, exist_ok=True)
-        
+
         # === Step 1: Payload/Zip -> Images (Extract img) ===
         try:
             if self.rom_type == RomType.PAYLOAD:
                 cmd = ["payload-dumper", "--out", str(self.images_dir)]
-                
+
                 if partitions:
                     # Port ROM mode: Extract specific images (e.g., system, product)
-                    self.logger.info(f"[{self.label}] Extracting specific images: {partitions} ...")
+                    self.logger.info(
+                        f"[{self.label}] Extracting specific images: {partitions} ..."
+                    )
                     cmd.extend(["--partitions", ",".join(partitions)])
                 else:
                     # Base ROM mode: Extract all images (includes firmware like xbl, boot)
-                    self.logger.info(f"[{self.label}] Extracting ALL images (Firmware + Logical) ...")
-                
+                    self.logger.info(
+                        f"[{self.label}] Extracting ALL images (Firmware + Logical) ..."
+                    )
+
                 cmd.append(str(self.path))
-                
+
                 # Simple check: If target images seem to exist, skip payload-dumper
                 # (Note: Hard to verify if all firmware exists, doing a simple check)
                 if not any(self.images_dir.iterdir()):
                     self.shell.run(cmd)
                 else:
-                    self.logger.info(f"[{self.label}] Images directory not empty, assuming extracted.")
+                    self.logger.info(
+                        f"[{self.label}] Images directory not empty, assuming extracted."
+                    )
 
             elif self.rom_type == RomType.BROTLI:
                 # 1. Extract zip content
-                with zipfile.ZipFile(self.path, 'r') as z:
+                with zipfile.ZipFile(self.path, "r") as z:
                     for f in z.namelist():
                         should_extract = False
-                        
+
                         # .img handling
                         if f.endswith(".img"):
                             part_name = Path(f).stem
                             if not partitions or part_name in partitions:
                                 should_extract = True
-                        
+
                         # .br handling
                         elif f.endswith(".new.dat.br") or f.endswith(".transfer.list"):
-                             # Extract partition name from file name (e.g. system.new.dat.br -> system)
-                             part_name = Path(f).name.split('.')[0]
-                             if not partitions or part_name in partitions:
-                                 should_extract = True
-                        
+                            # Extract partition name from file name (e.g. system.new.dat.br -> system)
+                            part_name = Path(f).name.split(".")[0]
+                            if not partitions or part_name in partitions:
+                                should_extract = True
+
                         if should_extract:
-                             self.logger.info(f"Extracting {f}...")
-                             z.extract(f, self.images_dir)
+                            self.logger.info(f"Extracting {f}...")
+                            z.extract(f, self.images_dir)
 
                 # 2. Process .br files
                 # Note: We iterate over extracted files in images_dir
                 for br_file in self.images_dir.glob("*.new.dat.br"):
                     prefix = br_file.name.replace(".new.dat.br", "")
-                    
+
                     new_dat = self.images_dir / f"{prefix}.new.dat"
                     transfer_list = self.images_dir / f"{prefix}.transfer.list"
                     output_img = self.images_dir / f"{prefix}.img"
-                    
+
                     if output_img.exists():
-                        self.logger.info(f"[{self.label}] Image {output_img.name} already exists.")
+                        self.logger.info(
+                            f"[{self.label}] Image {output_img.name} already exists."
+                        )
                         continue
 
                     if not transfer_list.exists():
-                        self.logger.warning(f"Transfer list for {prefix} not found, skipping conversion.")
+                        self.logger.warning(
+                            f"Transfer list for {prefix} not found, skipping conversion."
+                        )
                         continue
 
                     # 3. Brotli Decompress
@@ -156,29 +182,41 @@ class RomPackage:
                         cmd = ["brotli", "-d", "-f", str(br_file), "-o", str(new_dat)]
                         self.shell.run(cmd)
                     except Exception as e:
-                        self.logger.error(f"Brotli decompression failed for {prefix}: {e}")
+                        self.logger.error(
+                            f"Brotli decompression failed for {prefix}: {e}"
+                        )
                         continue
 
                     # 4. sdat2img
-                    self.logger.info(f"[{self.label}] Converting {prefix} to raw image...")
+                    self.logger.info(
+                        f"[{self.label}] Converting {prefix} to raw image..."
+                    )
                     try:
                         # Import here to avoid circular dependencies if any
                         from src.utils.sdat2img import run_sdat2img
+
                         # sdat2img expects string paths
-                        success = run_sdat2img(str(transfer_list), str(new_dat), str(output_img))
-                        
+                        success = run_sdat2img(
+                            str(transfer_list), str(new_dat), str(output_img)
+                        )
+
                         if not success:
                             self.logger.error(f"sdat2img failed for {prefix}")
                         else:
-                            self.logger.info(f"[{self.label}] Generated {output_img.name}")
-                            
+                            self.logger.info(
+                                f"[{self.label}] Generated {output_img.name}"
+                            )
+
                             # Clean up intermediate files only on success
-                            if new_dat.exists(): os.remove(new_dat)
-                            # Keep original br file? Maybe not if space is concern. 
+                            if new_dat.exists():
+                                os.remove(new_dat)
+                            # Keep original br file? Maybe not if space is concern.
                             # But extract_images usually keeps source images.
                             # Let's delete new.dat but keep br? Or delete br too since it's extracted copy.
-                            if br_file.exists(): os.remove(br_file)
-                            if transfer_list.exists(): os.remove(transfer_list)
+                            if br_file.exists():
+                                os.remove(br_file)
+                            if transfer_list.exists():
+                                os.remove(transfer_list)
 
                     except Exception as e:
                         self.logger.error(f"sdat2img execution failed: {e}")
@@ -187,22 +225,23 @@ class RomPackage:
                 # Zip mode logic
                 has_super = False
                 super_path_in_zip = None
-                
-                with zipfile.ZipFile(self.path, 'r') as z:
+
+                with zipfile.ZipFile(self.path, "r") as z:
                     # 1. First pass: Check for super.img and extract other images
                     for f in z.namelist():
                         if f.endswith("super.img") or f.endswith("images/super.img"):
                             has_super = True
                             super_path_in_zip = f
                             continue
-                            
-                        if not f.endswith(".img"): continue
-                        
+
+                        if not f.endswith(".img"):
+                            continue
+
                         part_name = Path(f).stem
                         # Skip if it's likely a logical partition inside super (unless explicit .img exists outside)
                         # Actually standard fastboot zips have boot.img, dtbo.img outside super.
                         # Logical partitions (system, vendor) are inside super.
-                        
+
                         # If partitions specified, extract only those; otherwise extract all
                         if partitions and part_name not in partitions:
                             # If it's a firmware image (not logical), we generally want it for Base ROM
@@ -212,7 +251,7 @@ class RomPackage:
                             # These are likely inside super.img.
                             # So we shouldn't extract boot.img etc if not requested.
                             continue
-                            
+
                         self.logger.info(f"Extracting {f}...")
                         # Flatten structure: Extract file to images_dir directly
                         source = z.open(f)
@@ -226,39 +265,61 @@ class RomPackage:
                     # 2. Handle super.img unpacking
                     super_img = self.images_dir / "super.img"
                     if super_img.exists():
-                        self.logger.info(f"[{self.label}] Found super.img, unpacking logical partitions...")
-                        
+                        self.logger.info(
+                            f"[{self.label}] Found super.img, unpacking logical partitions..."
+                        )
+
                         try:
                             # lpunpack is required
                             unpack_cmd = ["lpunpack"]
-                            
+
                             if partitions:
-                                self.logger.info(f"[{self.label}] Unpacking specific partitions: {partitions}")
-                                
+                                self.logger.info(
+                                    f"[{self.label}] Unpacking specific partitions: {partitions}"
+                                )
+
                                 for part in partitions:
                                     # Try extracting 'part'
-                                    cmd = ["lpunpack", "-p", part, str(super_img), str(self.images_dir)]
+                                    cmd = [
+                                        "lpunpack",
+                                        "-p",
+                                        part,
+                                        str(super_img),
+                                        str(self.images_dir),
+                                    ]
                                     try:
                                         self.shell.run(cmd, check=False)
-                                    except: pass
-                                    
+                                    except:
+                                        pass
+
                                     # Try extracting 'part_a' (V-AB)
-                                    cmd_a = ["lpunpack", "-p", f"{part}_a", str(super_img), str(self.images_dir)]
+                                    cmd_a = [
+                                        "lpunpack",
+                                        "-p",
+                                        f"{part}_a",
+                                        str(super_img),
+                                        str(self.images_dir),
+                                    ]
                                     try:
                                         self.shell.run(cmd_a, check=False)
-                                    except: pass
+                                    except:
+                                        pass
 
                             else:
                                 # Unpack ALL
-                                self.logger.info(f"[{self.label}] Unpacking ALL partitions from super.img...")
-                                self.shell.run(["lpunpack", str(super_img), str(self.images_dir)])
-                                
+                                self.logger.info(
+                                    f"[{self.label}] Unpacking ALL partitions from super.img..."
+                                )
+                                self.shell.run(
+                                    ["lpunpack", str(super_img), str(self.images_dir)]
+                                )
+
                         except Exception as e:
                             self.logger.error(f"Failed to unpack super.img: {e}")
                             raise
                         finally:
-                            # Cleanup super.img to save space? 
-                            # If Base ROM, we might want to keep it? 
+                            # Cleanup super.img to save space?
+                            # If Base ROM, we might want to keep it?
                             # Usually we extract logical partitions and use them. super.img is redundant.
                             if super_img.exists():
                                 os.remove(super_img)
@@ -269,33 +330,58 @@ class RomPackage:
 
         # === Step 2: Images -> Folders (Level 2 Extraction) ===
         # After converting zip/payload to .img files, we extract them to folders
-        # for modification. 
+        # for modification.
         self._batch_extract_files(partitions or ANDROID_LOGICAL_PARTITIONS)
 
     def _process_sparse_images(self):
         """
         Merge/Convert sparse images (super.img.*, cust.img.*) to raw images using simg2img
         """
-        # Define the binary path (assuming Linux x86_64 for now as per env)
-        # In a real scenario, this should be passed from Context or detected properly
-        simg2img_bin = Path("bin/linux/x86_64/simg2img").resolve()
-        if not simg2img_bin.exists():
-            # Fallback to system path
-            simg2img_bin = "simg2img"
+        # Define the binary path - configurable with preference for legacy path as default
+        # Look for simg2img binary in several locations (order of preference):
+        candidate_paths = [
+            Path("bin/linux/x86_64/simg2img").resolve(),  # Former hardcoded default
+            Path("./simg2img"),
+        ]
+
+        # Try the candidate paths until one works (in case multiple are provided)
+        simg2img_bin = "simg2img"  # Default fallback to system PATH
+        for path_candidate in candidate_paths:
+            if (
+                path_candidate
+                and isinstance(path_candidate, Path)
+                and path_candidate.exists()
+            ):
+                simg2img_bin = path_candidate
+                break
+
+        if hasattr(self, "logger"):
+            if isinstance(simg2img_bin, Path) and simg2img_bin.exists():
+                self.logger.info(f"Using simg2img binary: {simg2img_bin}")
+            elif self.logger:
+                self.logger.info(
+                    "Using simg2img from system PATH or user-specified path"
+                )
 
         # 1. Handle super.img
         super_chunks = sorted(list(self.images_dir.glob("super.img.*")))
-        # Filter strictly for numeric suffixes or standard split patterns if needed, 
+        # Filter strictly for numeric suffixes or standard split patterns if needed,
         # but glob "super.img.*" matches the shell script logic.
-        
+
         target_super = self.images_dir / "super.img"
-        
+
         if super_chunks:
-            self.logger.info(f"[{self.label}] Merging sparse super images: {[c.name for c in super_chunks]}...")
+            self.logger.info(
+                f"[{self.label}] Merging sparse super images: {[c.name for c in super_chunks]}..."
+            )
             try:
-                cmd = [str(simg2img_bin)] + [str(c) for c in super_chunks] + [str(target_super)]
+                cmd = (
+                    [str(simg2img_bin)]
+                    + [str(c) for c in super_chunks]
+                    + [str(target_super)]
+                )
                 self.shell.run(cmd)
-                
+
                 # Cleanup chunks
                 for c in super_chunks:
                     os.unlink(c)
@@ -306,23 +392,32 @@ class RomPackage:
         elif target_super.exists():
             # Try converting single sparse to raw (in-place replacement strategy)
             # simg2img input output
-            self.logger.info(f"[{self.label}] converting super.img to raw (if sparse)...")
+            self.logger.info(
+                f"[{self.label}] converting super.img to raw (if sparse)..."
+            )
             temp_raw = self.images_dir / "super.raw.img"
             try:
                 self.shell.run([str(simg2img_bin), str(target_super), str(temp_raw)])
                 shutil.move(temp_raw, target_super)
             except Exception as e:
-                self.logger.warning(f"simg2img conversion skipped/failed (likely already raw): {e}")
-                if temp_raw.exists(): os.unlink(temp_raw)
+                self.logger.warning(
+                    f"simg2img conversion skipped/failed (likely already raw): {e}"
+                )
+                if temp_raw.exists():
+                    os.unlink(temp_raw)
 
         # 2. Handle cust.img
         cust_chunks = sorted(list(self.images_dir.glob("cust.img.*")))
         target_cust = self.images_dir / "cust.img"
-        
+
         if cust_chunks:
             self.logger.info(f"[{self.label}] Merging sparse cust images...")
             try:
-                cmd = [str(simg2img_bin)] + [str(c) for c in cust_chunks] + [str(target_cust)]
+                cmd = (
+                    [str(simg2img_bin)]
+                    + [str(c) for c in cust_chunks]
+                    + [str(target_cust)]
+                )
                 self.shell.run(cmd)
                 for c in cust_chunks:
                     os.unlink(c)
@@ -334,11 +429,13 @@ class RomPackage:
         Batch call extract_partition_to_file (Parallel optimization)
         Automatically checks if img exists, skips if not (e.g., Base ROM might not have mi_ext)
         """
-        self.logger.info(f"[{self.label}] Processing file extraction for logical partitions...")
-        
+        self.logger.info(
+            f"[{self.label}] Processing file extraction for logical partitions..."
+        )
+
         # Use ThreadPoolExecutor for parallel extraction
-        max_workers = 4 # Limit concurrency
-        
+        max_workers = 4  # Limit concurrency
+
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = []
             for part in candidates:
@@ -347,34 +444,40 @@ class RomPackage:
                 if not img_path.exists():
                     # Try _a (V-AB)
                     img_path = self.images_dir / f"{part}_a.img"
-                
+
                 if img_path.exists():
-                    futures.append(executor.submit(self.extract_partition_to_file, part))
+                    futures.append(
+                        executor.submit(self.extract_partition_to_file, part)
+                    )
                 else:
-                    self.logger.debug(f"[{self.label}] Partition image {part} not found, skipping extract.")
-            
+                    self.logger.debug(
+                        f"[{self.label}] Partition image {part} not found, skipping extract."
+                    )
+
             for future in concurrent.futures.as_completed(futures):
                 try:
                     future.result()
                 except Exception as e:
                     self.logger.error(f"Partition extraction failed: {e}")
                     raise
-        
+
     def extract_partition_to_file(self, part_name: str) -> Path:
         """
         Level 2 Extraction: Extract Img to folder, preserving SELinux config
         :return: Path to extracted folder (e.g., build/stock/extracted/)
         """
         target_dir = self.extracted_dir / part_name
-        
+
         # === Modification: Stricter cache check ===
         # Check if dir has content AND fs_config exists to consider it "extracted"
         # Otherwise consider incomplete, re-extract
         config_exists = (self.config_dir / f"{part_name}_fs_config").exists()
         has_content = target_dir.exists() and any(target_dir.iterdir())
-        
+
         if has_content and config_exists:
-            self.logger.info(f"[{self.label}] Partition {part_name} already extracted (verified).")
+            self.logger.info(
+                f"[{self.label}] Partition {part_name} already extracted (verified)."
+            )
             return target_dir
 
         # 2. Check if img exists
@@ -393,15 +496,22 @@ class RomPackage:
         # 3. Call extraction tool (erofs or ext4)
         # Corresponds to functions.sh: extract_partition
         # Assuming unified tool script or direct extract.erofs call
-        
+
         # Simulation: Identify type (Simplified, default to erofs)
-        is_erofs = True # Should strictly check magic number
-        
+        is_erofs = True  # Should strictly check magic number
+
         try:
             if is_erofs:
                 # extract.erofs -i input.img -x (extract) -o output_dir
                 # Note: extract.erofs generates file_contexts in output dir by default
-                cmd = ["extract.erofs", "-x", "-i", str(img_path), "-o", str(self.extracted_dir)]
+                cmd = [
+                    "extract.erofs",
+                    "-x",
+                    "-i",
+                    str(img_path),
+                    "-o",
+                    str(self.extracted_dir),
+                ]
                 self.shell.run(cmd, capture_output=True)
             else:
                 # ext4 handling
@@ -413,13 +523,15 @@ class RomPackage:
         # 4. [Critical] Process config files (fs_config / file_contexts)
         # Move generated config files to self.config_dir for unified management
         # Rename for standardization as tools might generate different names
-        
+
         # Find potentially generated context files
-        possible_contexts = list(target_dir.parent.glob(f"{part_name}*_file_contexts")) + \
-                            list(target_dir.glob("*_file_contexts"))
-        
-        possible_fs_config = list(target_dir.parent.glob(f"{part_name}*_fs_config")) + \
-                             list(target_dir.glob("*_fs_config"))
+        possible_contexts = list(
+            target_dir.parent.glob(f"{part_name}*_file_contexts")
+        ) + list(target_dir.glob("*_file_contexts"))
+
+        possible_fs_config = list(
+            target_dir.parent.glob(f"{part_name}*_fs_config")
+        ) + list(target_dir.glob("*_fs_config"))
 
         if possible_contexts:
             src = possible_contexts[0]
@@ -439,15 +551,17 @@ class RomPackage:
         """Get config file paths for a partition"""
         return (
             self.config_dir / f"{part_name}_fs_config",
-            self.config_dir / f"{part_name}_file_contexts"
+            self.config_dir / f"{part_name}_file_contexts",
         )
-    
+
     def parse_all_props(self):
         """
         [Optimization] Recursively find all build.prop files in extracted dir
         """
         if not self.extracted_dir.exists():
-            self.logger.warning(f"[{self.label}] Extracted dir not found, skipping props parsing.")
+            self.logger.warning(
+                f"[{self.label}] Extracted dir not found, skipping props parsing."
+            )
             return
 
         # [New] Clear history to prevent stacking from multiple calls
@@ -465,19 +579,27 @@ class RomPackage:
         # 2. Sort (System -> Vendor -> Product ...)
         def sort_priority(path):
             p = str(path).lower()
-            if "system" in p: return 0
-            if "vendor" in p: return 1
-            if "product" in p: return 2
-            if "odm" in p: return 3
-            if "mi_ext" in p: return 4
+            if "system" in p:
+                return 0
+            if "vendor" in p:
+                return 1
+            if "product" in p:
+                return 2
+            if "odm" in p:
+                return 3
+            if "mi_ext" in p:
+                return 4
             return 99
+
         prop_files.sort(key=sort_priority)
 
         # 3. Parse one by one
         for prop_file in prop_files:
             self._load_single_prop_file(prop_file)
-            
-        self.logger.info(f"[{self.label}] Loaded {len(self.props)} properties from {len(prop_files)} files.")
+
+        self.logger.info(
+            f"[{self.label}] Loaded {len(self.props)} properties from {len(prop_files)} files."
+        )
 
     def _load_single_prop_file(self, file_path: Path):
         """Helper: Parse single file and update self.props"""
@@ -485,28 +607,28 @@ class RomPackage:
         try:
             rel_path = file_path.relative_to(self.extracted_dir)
         except ValueError:
-            rel_path = file_path.name # Fallback
+            rel_path = file_path.name  # Fallback
 
         self.logger.debug(f"Parsing: {rel_path}")
 
         try:
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 for line in f:
                     line = line.strip()
                     if not line or line.startswith("#") or "=" not in line:
                         continue
-                    
+
                     key, value = line.split("=", 1)
                     key = key.strip()
                     value = value.strip()
-                    
+
                     # [Core Mod] Track history
                     if key not in self.prop_history:
                         self.prop_history[key] = []
-                    
+
                     # Add (source file, value) to history list
                     self.prop_history[key].append((str(rel_path), value))
-                    
+
                     # Update current effective value (Last-win strategy)
                     self.props[key] = value
 
@@ -519,9 +641,9 @@ class RomPackage:
         """
         out_file = Path(output_path)
         out_file.parent.mkdir(parents=True, exist_ok=True)
-        
+
         self.logger.info(f"[{self.label}] Exporting debug props to {out_file} ...")
-        
+
         # Ensure loaded
         if not self.props:
             self.parse_all_props()
@@ -545,14 +667,15 @@ class RomPackage:
                 for source, val in history:
                     content.append(f"#   - {source}: {val}")
                 content.append(f"#   -> Final: {final_val}")
-            
+
             # Write actual key-value pair
             content.append(f"{key}={final_val}")
-        
-        with open(out_file, 'w', encoding='utf-8') as f:
+
+        with open(out_file, "w", encoding="utf-8") as f:
             f.write("\n".join(content))
-        
+
         self.logger.info(f"[{self.label}] Debug props saved.")
+
     def get_prop(self, key: str, default: str = None) -> str:
         """
         Get property value.
