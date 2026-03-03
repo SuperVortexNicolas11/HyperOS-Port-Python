@@ -31,7 +31,7 @@ env.bak/
 venv.bak/
 
 # Android/HyperOS Porting specific
-# otatools/ - Included as dependency
+otatools/
 out/
 devices/**/*.img
 devices/**/*.apk
@@ -43,7 +43,8 @@ tmp/
 test/
 roms/
 # Exception for otatools library
-!otatools/lib64/
+# !otatools/lib64/
+
 
 # Editor specific
 .idea/
