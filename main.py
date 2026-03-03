@@ -15,52 +15,82 @@ from src.core.rom import RomPackage
 from src.core.context import PortingContext
 from src.core.config_loader import load_device_config
 from src.utils.downloader import RomDownloader
+from src.utils.otatools_manager import OtaToolsManager
+
 
 # Set up logging
 def setup_logging(level=logging.INFO):
     logging.basicConfig(
         level=level,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
         handlers=[
             logging.StreamHandler(sys.stdout),
-            logging.FileHandler("porting.log", mode='w')
-        ]
+            logging.FileHandler("porting.log", mode="w"),
+        ],
     )
+
 
 logger = logging.getLogger("main")
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description="HyperOS Porting Tool")
-    parser.add_argument("--stock", required=True, help="Path to Stock ROM (zip/payload/dir)")
-    parser.add_argument("--port", required=True, help="Path to Port ROM (zip/payload/dir)")
-    parser.add_argument("--ksu", action="store_true", help="Inject KernelSU into init_boot/boot. Default: from config or False")
-    parser.add_argument("--work-dir", default="build", help="Working directory (default: build)")
-    parser.add_argument("--clean", action="store_true", help="Clean working directory before starting")
+    parser.add_argument(
+        "--stock", required=True, help="Path to Stock ROM (zip/payload/dir)"
+    )
+    parser.add_argument(
+        "--port", required=True, help="Path to Port ROM (zip/payload/dir)"
+    )
+    parser.add_argument(
+        "--ksu",
+        action="store_true",
+        help="Inject KernelSU into init_boot/boot. Default: from config or False",
+    )
+    parser.add_argument(
+        "--work-dir", default="build", help="Working directory (default: build)"
+    )
+    parser.add_argument(
+        "--clean", action="store_true", help="Clean working directory before starting"
+    )
     parser.add_argument("--debug", action="store_true", help="Enable debug logging")
-    parser.add_argument("--pack-type", choices=["super", "payload"], default=None,
-                        help="Output format: super (Super Image/Fastboot) or payload (OTA Payload/Recovery). Default: from config or 'payload'")
-    parser.add_argument("--fs-type", choices=["erofs", "ext4"], default=None,
-                        help="Filesystem type for repacking. Default: from config or 'erofs'")
+    parser.add_argument(
+        "--pack-type",
+        choices=["super", "payload"],
+        default=None,
+        help="Output format: super (Super Image/Fastboot) or payload (OTA Payload/Recovery). Default: from config or 'payload'",
+    )
+    parser.add_argument(
+        "--fs-type",
+        choices=["erofs", "ext4"],
+        default=None,
+        help="Filesystem type for repacking. Default: from config or 'erofs'",
+    )
     parser.add_argument("--eu-bundle", help="Path/URL to EU Localization Bundle zip")
-    parser.add_argument("--phases", nargs="+", 
-                        help="Specific phases to run: system, apk, framework, firmware, repack (default: all)")
-    
+    parser.add_argument(
+        "--phases",
+        nargs="+",
+        help="Specific phases to run: system, apk, framework, firmware, repack (default: all)",
+    )
+
     args = parser.parse_args()
-    
+
     # Handle comma-separated phases (e.g., "system,apk" -> ["system", "apk"])
     if args.phases:
         expanded_phases = []
         for phase in args.phases:
-            expanded_phases.extend(phase.split(','))
+            expanded_phases.extend(phase.split(","))
         args.phases = [p.strip() for p in expanded_phases if p.strip()]
-        
+
         # Validate phases
         valid_phases = ["system", "apk", "framework", "firmware", "repack"]
         invalid = [p for p in args.phases if p not in valid_phases]
         if invalid:
-            parser.error(f"invalid choice: {', '.join(invalid)} (choose from {', '.join(valid_phases)})")
-    
+            parser.error(
+                f"invalid choice: {', '.join(invalid)} (choose from {', '.join(valid_phases)})"
+            )
+
     return args
+
 
 def clean_work_dir(work_dir: Path):
     if work_dir.exists():
@@ -68,12 +98,13 @@ def clean_work_dir(work_dir: Path):
         shutil.rmtree(work_dir)
     work_dir.mkdir(parents=True, exist_ok=True)
 
+
 def main():
     args = parse_args()
-    
+
     log_level = logging.DEBUG if args.debug else logging.INFO
     setup_logging(log_level)
-    
+
     logger.info("=" * 70)
     logger.info("HyperOS Porting Tool v2.0")
     logger.info("=" * 70)
@@ -85,12 +116,24 @@ def main():
         logger.info(f"Phases:    {', '.join(args.phases)}")
     logger.info("=" * 70)
 
+    # Check and download otatools if needed
+    otatools_manager = OtaToolsManager()
+    if not otatools_manager.ensure_otatools():
+        logger.error("Failed to locate or download otatools. Exiting.")
+        sys.exit(1)
+
+    # Check and download otatools if needed
+    otatools_manager = OtaToolsManager()
+    if not otatools_manager.ensure_otatools():
+        logger.error("Failed to locate or download otatools. Exiting.")
+        sys.exit(1)
+
     # Handle URL Downloads
     downloader = RomDownloader()
     if args.stock.startswith("http"):
         logger.info("Downloading Stock ROM...")
         args.stock = str(downloader.download(args.stock))
-    
+
     if args.port.startswith("http"):
         logger.info("Downloading Port ROM...")
         args.port = str(downloader.download(args.port))
@@ -100,10 +143,10 @@ def main():
         args.eu_bundle = str(downloader.download(args.eu_bundle))
 
     work_dir = Path(args.work_dir).resolve()
-    
+
     if args.clean:
         clean_work_dir(work_dir)
-    
+
     # Define working directories
     stock_work_dir = work_dir / "stockrom"
     port_work_dir = work_dir / "portrom"
@@ -114,7 +157,7 @@ def main():
         logger.info(">>> Phase 1: Extraction")
         stock = RomPackage(args.stock, stock_work_dir, label="Stock")
         port = RomPackage(args.port, port_work_dir, label="Port")
-        
+
         port_partitions = ["system", "product", "system_ext", "mi_ext"]
         stock.extract_images()
         port.extract_images(port_partitions)
@@ -122,29 +165,40 @@ def main():
         # Execute Phase 2: Context Initialization
         logger.info(">>> Phase 2: Initialization")
         ctx = PortingContext(stock, port, target_work_dir)
-        
+
         # Set dynamic attributes
         ctx.eu_bundle = args.eu_bundle  # type: ignore
         ctx.initialize_target()
 
         # Load device configuration
-        stock_device_code = stock.get_prop("ro.product.name_for_attestation") or \
-                           stock.get_prop("ro.product.vendor.device") or "unknown"
+        stock_device_code = (
+            stock.get_prop("ro.product.name_for_attestation")
+            or stock.get_prop("ro.product.vendor.device")
+            or "unknown"
+        )
         device_config = load_device_config(stock_device_code, logger)
-        
+
         # Store device config in context for plugins
         ctx.device_config = device_config  # type: ignore
 
         # Determine settings
         enable_ksu = args.ksu or device_config.get("ksu", {}).get("enable", False)
         ctx.enable_ksu = enable_ksu
-        logger.info(f"KernelSU: {'enabled' if enable_ksu else 'disabled'} (from {'CLI' if args.ksu else 'config'})")
+        logger.info(
+            f"KernelSU: {'enabled' if enable_ksu else 'disabled'} (from {'CLI' if args.ksu else 'config'})"
+        )
 
-        pack_type = args.pack_type or device_config.get("pack", {}).get("type", "payload")
+        pack_type = args.pack_type or device_config.get("pack", {}).get(
+            "type", "payload"
+        )
         fs_type = args.fs_type or device_config.get("pack", {}).get("fs_type", "erofs")
 
-        logger.info(f"Pack Type: {pack_type} (from {'CLI' if args.pack_type else 'config'})")
-        logger.info(f"Filesystem: {fs_type} (from {'CLI' if args.fs_type else 'config'})")
+        logger.info(
+            f"Pack Type: {pack_type} (from {'CLI' if args.pack_type else 'config'})"
+        )
+        logger.info(
+            f"Filesystem: {fs_type} (from {'CLI' if args.fs_type else 'config'})"
+        )
         logger.info(f"Detected Stock ROM Type: {stock.rom_type}")
 
         # Export properties for debug analysis
@@ -159,48 +213,54 @@ def main():
 
         # Execute Phase 3: Modifications
         logger.info(">>> Phase 3: Modifications")
-        
+
         # Use UnifiedModifier for system + APK modifications
-        phases_to_run = args.phases if args.phases else ["system", "apk", "framework", "firmware"]
-        
+        phases_to_run = (
+            args.phases if args.phases else ["system", "apk", "framework", "firmware"]
+        )
+
         if "system" in phases_to_run or "apk" in phases_to_run:
             logger.info("Running Unified Modifier (System + APK)...")
-            unified_modifier = UnifiedModifier(ctx, enable_apk_mods=("apk" in phases_to_run))
-            
+            unified_modifier = UnifiedModifier(
+                ctx, enable_apk_mods=("apk" in phases_to_run)
+            )
+
             # Map phases to unified modifier format
             unified_phases = []
             if "system" in phases_to_run:
                 unified_phases.append("system")
             if "apk" in phases_to_run:
                 unified_phases.append("apk")
-            
+
             if unified_phases:
                 success = unified_modifier.run(phases=unified_phases)
                 if not success:
                     logger.warning("Some modifications failed, continuing...")
-        
+
         # Framework modifications (separate from unified for now)
         if "framework" in phases_to_run:
             logger.info("Running Framework Modifier...")
             framework_modifier = FrameworkModifier(ctx)
             framework_modifier.run()
-        
+
         # Firmware modifications
         if "firmware" in phases_to_run:
             logger.info("Running Firmware Modifier...")
             FirmwareModifier(ctx).run()
-        
+
         # ROM-level modifications (device overlays, etc.)
         RomModifier(ctx).run_all_modifications()
 
         # Execute Phase 4: Image Repacking
         if "repack" in phases_to_run or not args.phases:
             logger.info(">>> Phase 4: Repacking")
-            
+
             packer = Repacker(ctx)
             packer.pack_all(pack_type=fs_type.upper(), is_rw=(fs_type == "ext4"))
 
-            logger.info(f"All images packed successfully! Check {target_work_dir}/*.img")
+            logger.info(
+                f"All images packed successfully! Check {target_work_dir}/*.img"
+            )
 
             # Execute Packing Strategy
             if pack_type == "super":
@@ -213,16 +273,27 @@ def main():
         logger.info("=" * 70)
         logger.info("Porting completed successfully!")
         logger.info("=" * 70)
-        
+
         sys.exit(0)
 
     except KeyboardInterrupt:
         logger.warning("\nOperation cancelled by user")
         sys.exit(130)
-        
+
     except Exception as e:
         logger.error(f"An error occurred during porting: {e}", exc_info=True)
         sys.exit(1)
+
+
+# Check and download otatools if missing before main function
+def ensure_dependencies():
+    """Check and download required dependencies before running main logic."""
+    logger = logging.getLogger(__name__)
+    otatools_manager = OtaToolsManager()
+    if not otatools_manager.ensure_otatools():
+        logger.error("Failed to locate or download otatools. Exiting.")
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
