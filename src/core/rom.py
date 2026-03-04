@@ -133,6 +133,38 @@ class RomPackage:
             self.logger.info(
                 f"[{self.label}] Source file changed, starting re-extraction..."
             )
+            # Clean up old extracted data to avoid stale cache
+            if self.extracted_dir.exists():
+                self.logger.info(
+                    f"[{self.label}] Cleaning up old extracted directory..."
+                )
+                shutil.rmtree(self.extracted_dir)
+            if self.config_dir.exists():
+                shutil.rmtree(self.config_dir)
+            # Clean up old images as well for consistency
+            if any(self.images_dir.iterdir()):
+                self.logger.info(f"[{self.label}] Cleaning up old images directory...")
+                for item in self.images_dir.iterdir():
+                    if item.is_file():
+                        item.unlink()
+                    elif item.is_dir():
+                        shutil.rmtree(item)
+            # Clean up old extracted data to avoid stale cache
+            if self.extracted_dir.exists():
+                self.logger.info(
+                    f"[{self.label}] Cleaning up old extracted directory..."
+                )
+                shutil.rmtree(self.extracted_dir)
+            if self.config_dir.exists():
+                shutil.rmtree(self.config_dir)
+            # Clean up old images as well for consistency
+            if any(self.images_dir.iterdir()):
+                self.logger.info(f"[{self.label}] Cleaning up old images directory...")
+                for item in self.images_dir.iterdir():
+                    if item.is_file():
+                        item.unlink()
+                    elif item.is_dir():
+                        shutil.rmtree(item)
         else:
             self.logger.info(
                 f"[{self.label}] Source file unchanged, checking cached data..."
