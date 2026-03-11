@@ -730,7 +730,7 @@ class Repacker:
             9663676416: ["FUXI", "NUWA", "ISHTAR", "MARBLE", "SOCRATES", "BABYLON"],
             9122611200: ["SUNSTONE"],
             11811160064: ["YUDI"],
-            13411287040: ["PUDDING"],
+            13411287040: ["PUDDING", "NEZHA"],
         }
         for size, devices in size_map.items():
             if device_code in devices:
