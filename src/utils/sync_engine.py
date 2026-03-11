@@ -11,9 +11,9 @@ class ROMSyncEngine:
     def __init__(self, context, logger: logging.Logger):
         self.ctx = context
         self.logger = logger
-        self._stock_rom_cache = {}
-        self._target_rom_cache = {}
-        self._target_package_cache = {}
+        # Directory-specific caches to avoid path confusion
+        self._rom_caches: Dict[str, Dict] = {}
+        self._package_caches: Dict[str, Dict] = {}
         self._cache_lock = threading.Lock()
 
     def _build_cache(self, directory: Path) -> dict:
@@ -198,12 +198,9 @@ class ROMSyncEngine:
 
         self.logger.info(f"Applying intelligent overrides from {override_dir}...")
 
-        # Clear caches to ensure fresh lookup for target_dir
-        self._target_rom_cache = {}
-        self._target_package_cache = {}
-
-        self._target_rom_cache = self._build_cache(target_dir)
-        self._build_package_cache(target_dir)
+        # Get caches for target_dir
+        rom_cache = self._get_rom_cache(target_dir)
+        package_cache = self._get_package_cache(target_dir)
 
         override_count = 0
 
@@ -220,7 +217,7 @@ class ROMSyncEngine:
 
                 if override_pkg_name:
                     # If package name parsed successfully, search cache for old APK location
-                    tgt_matches = self._target_package_cache.get(override_pkg_name, [])
+                    tgt_matches = package_cache.get(override_pkg_name, [])
                     if tgt_matches:
                         self.logger.debug(
                             f"     [!] Found target by Package Name: {override_pkg_name}"
@@ -228,7 +225,7 @@ class ROMSyncEngine:
 
                 # [Fallback] If aapt2 fails or pkg name not found, fallback to filename search
                 if not tgt_matches:
-                    tgt_matches = self._target_rom_cache.get(file_name_lower, [])
+                    tgt_matches = rom_cache.get(file_name_lower, [])
 
                 if tgt_matches:
                     for old_file in tgt_matches:
@@ -289,7 +286,7 @@ class ROMSyncEngine:
                         f"     [!] New APK '{override_file.name}' not found in target. Will inject as new."
                     )
             else:
-                tgt_matches = self._target_rom_cache.get(file_name_lower, [])
+                tgt_matches = rom_cache.get(file_name_lower, [])
                 if tgt_matches:
                     for old_file in tgt_matches:
                         if old_file.exists():
@@ -340,9 +337,11 @@ class ROMSyncEngine:
 
     def _build_package_cache(self, directory: Path):
         """Scan all APKs in directory, extract and cache their Package Name"""
+        dir_key = str(directory.resolve())
+
         with self._cache_lock:
-            # Double check if someone else built it while we were waiting for the lock
-            if self._target_package_cache:
+            # Check if cache already exists for this directory
+            if dir_key in self._package_caches:
                 return
 
             if not directory or not directory.exists():
@@ -351,18 +350,39 @@ class ROMSyncEngine:
             self.logger.info(f"Building APK package name cache for {directory.name}...")
             start_time = time.time()
 
+            package_cache = {}
             apk_count = 0
             # Only scan .apk files, skip .odex, .vdex etc.
             for apk_path in directory.rglob("*.apk"):
                 pkg_name = self._get_apk_package_name(apk_path)
                 if pkg_name:
-                    if pkg_name not in self._target_package_cache:
-                        self._target_package_cache[pkg_name] = []
-                    self._target_package_cache[pkg_name].append(apk_path)
+                    if pkg_name not in package_cache:
+                        package_cache[pkg_name] = []
+                    package_cache[pkg_name].append(apk_path)
                     apk_count += 1
+
+            self._package_caches[dir_key] = package_cache
 
             elapsed = time.time() - start_time
             self.logger.info(f"Package cache built in {elapsed:.2f}s. Indexed {apk_count} APKs.")
+
+    def _get_rom_cache(self, directory: Path) -> Dict:
+        """Get or build ROM cache for specific directory."""
+        dir_key = str(directory.resolve())
+
+        if dir_key not in self._rom_caches:
+            self._rom_caches[dir_key] = self._build_cache(directory)
+
+        return self._rom_caches[dir_key]
+
+    def _get_package_cache(self, directory: Path) -> Dict:
+        """Get or build package cache for specific directory."""
+        dir_key = str(directory.resolve())
+
+        if dir_key not in self._package_caches:
+            self._build_package_cache(directory)
+
+        return self._package_caches.get(dir_key, {})
 
     def find_apk_by_name(self, apk_name: str, target_dir: Path = None) -> Path | None:
         """Find APK by filename.
@@ -377,14 +397,18 @@ class ROMSyncEngine:
         if not apk_name.endswith(".apk"):
             apk_name = apk_name + ".apk"
 
-        # Ensure cache is built
-        if target_dir and not self._target_rom_cache:
-            with self._cache_lock:
-                if not self._target_rom_cache:
-                    self._target_rom_cache = self._build_cache(target_dir)
+        # Get target directory
+        if not target_dir:
+            target_dir = getattr(self.ctx, "target_dir", None)
+
+        if not target_dir:
+            return None
+
+        # Get cache for this specific directory
+        rom_cache = self._get_rom_cache(target_dir)
 
         # Find in cache
-        matches = self._target_rom_cache.get(apk_name.lower(), [])
+        matches = rom_cache.get(apk_name.lower(), [])
         return matches[0] if matches else None
 
     def find_apks_by_package(self, package_name: str, target_dir: Path = None) -> List[Path]:
@@ -397,16 +421,18 @@ class ROMSyncEngine:
         Returns:
             List of Paths to matching APKs
         """
-        # Ensure package cache is built
-        if target_dir and not self._target_package_cache:
-            self._build_package_cache(target_dir)
-        elif not self._target_package_cache:
-            # Fallback to context target_dir if available
-            if hasattr(self.ctx, "target_dir"):
-                self._build_package_cache(self.ctx.target_dir)
+        # Get target directory
+        if not target_dir:
+            target_dir = getattr(self.ctx, "target_dir", None)
 
-        # Find in package cache
-        return self._target_package_cache.get(package_name, [])
+        if not target_dir:
+            return []
+
+        # Get package cache for this specific directory
+        package_cache = self._get_package_cache(target_dir)
+
+        # Find in cache
+        return package_cache.get(package_name, [])
 
     def find_apk_by_package(self, package_name: str, target_dir: Path = None) -> Path | None:
         """Find APK by package name.
@@ -418,12 +444,7 @@ class ROMSyncEngine:
         Returns:
             Path to APK or None if not found
         """
-        # Ensure package cache is built
-        if target_dir and not self._target_package_cache:
-            self._build_package_cache(target_dir)
-
-        # Find in package cache
-        matches = self._target_package_cache.get(package_name, [])
+        matches = self.find_apks_by_package(package_name, target_dir)
         return matches[0] if matches else None
 
     def get_apk_cache_stats(self) -> dict:
@@ -432,4 +453,10 @@ class ROMSyncEngine:
         Returns:
             dict with cache stats
         """
-        return {"files": len(self._target_rom_cache), "packages": len(self._target_package_cache)}
+        total_files = sum(len(cache) for cache in self._rom_caches.values())
+        total_packages = sum(len(cache) for cache in self._package_caches.values())
+        return {
+            "files": total_files,
+            "packages": total_packages,
+            "cached_directories": len(self._rom_caches),
+        }

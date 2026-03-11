@@ -21,7 +21,11 @@ class PortingContext:
     """Context class for managing ROM porting operations."""
 
     def __init__(
-        self, stock_rom: RomPackage, port_rom: RomPackage, target_work_dir: Union[str, Path], is_official_modify: bool = False
+        self,
+        stock_rom: RomPackage,
+        port_rom: RomPackage,
+        target_work_dir: Union[str, Path],
+        is_official_modify: bool = False,
     ) -> None:
         self.stock: RomPackage = stock_rom
         self.port: RomPackage = port_rom
@@ -420,20 +424,14 @@ class PortingContext:
             dict with 'files' and 'packages' counts
         """
         # 1. Build name cache
-        if (
-            force
-            or not hasattr(self.syncer, "_target_rom_cache")
-            or not self.syncer._target_rom_cache
-        ):
+        rom_cache = self.syncer._get_rom_cache(self.target_dir)
+        if force or not rom_cache:
             # Force build by passing target_dir
             self.syncer.find_apk_by_name("dummy.apk", self.target_dir)
 
         # 2. Build package cache
-        if (
-            force
-            or not hasattr(self.syncer, "_target_package_cache")
-            or not self.syncer._target_package_cache
-        ):
+        package_cache = self.syncer._get_package_cache(self.target_dir)
+        if force or not package_cache:
             # Force build by passing target_dir
             self.syncer.find_apk_by_package("dummy.package", self.target_dir)
 
@@ -496,6 +494,6 @@ class PortingContext:
 
     def clear_apk_caches(self) -> None:
         """Clear APK caches to free memory."""
-        self.syncer._target_rom_cache.clear()
-        self.syncer._target_package_cache.clear()
+        self.syncer._rom_caches.clear()
+        self.syncer._package_caches.clear()
         self.logger.debug("APK caches cleared")

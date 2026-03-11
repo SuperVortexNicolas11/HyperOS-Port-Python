@@ -114,10 +114,6 @@ class EULocalizationPlugin(ModifierPlugin):
 
         self.logger.info(f"Extracting {len(apps_list)} item(s) from CN stock...")
 
-        # Clear syncer caches to ensure fresh lookups
-        self.ctx.syncer._target_package_cache = {}
-        self.ctx.syncer._target_rom_cache = {}
-
         # First, remove conflicting apps from target
         self.logger.info("Removing conflicting apps from target before extraction...")
         for item in apps_list:
