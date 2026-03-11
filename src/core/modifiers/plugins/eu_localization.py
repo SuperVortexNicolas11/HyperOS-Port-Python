@@ -203,7 +203,12 @@ class EULocalizationPlugin(ModifierPlugin):
 
             # Copy found sources to target
             for src in found_srcs:
-                rel_to_extracted = src.relative_to(self.ctx.stock.extracted_dir)
+                # Validate src is within stock extracted_dir
+                try:
+                    rel_to_extracted = src.relative_to(self.ctx.stock.extracted_dir)
+                except ValueError:
+                    self.logger.error(f"Path {src} is not in stock extracted dir, skipping")
+                    continue
 
                 # Handle SAR (System-as-Root) double-folder structure
                 path_parts = list(rel_to_extracted.parts)
