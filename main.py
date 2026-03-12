@@ -81,6 +81,11 @@ def parse_args():
         help="Disable cache, force full extraction and modification",
     )
     parser.add_argument(
+        "--no-partition-cache",
+        action="store_true",
+        help="Disable partition-level caching (APK caching still works)",
+    )
+    parser.add_argument(
         "--clear-cache", action="store_true", help="Clear all cache before starting"
     )
     parser.add_argument(
@@ -128,7 +133,12 @@ def main():
     # Initialize cache manager
     cache_manager = None
     if not args.no_cache and not is_official_modify:
-        cache_manager = PortRomCacheManager(args.cache_dir)
+        # Check if partition cache should be disabled
+        cache_partitions = not args.no_partition_cache
+        if not cache_partitions:
+            logger.info("Partition-level caching disabled by CLI argument")
+
+        cache_manager = PortRomCacheManager(args.cache_dir, cache_partitions=cache_partitions)
 
         if args.show_cache_stats:
             import json
