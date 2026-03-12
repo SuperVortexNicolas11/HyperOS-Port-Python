@@ -81,9 +81,9 @@ def parse_args():
         help="Disable cache, force full extraction and modification",
     )
     parser.add_argument(
-        "--no-partition-cache",
+        "--enable-partition-cache",
         action="store_true",
-        help="Disable partition-level caching (APK caching still works)",
+        help="Enable partition-level caching (disabled by default, APK caching still works)",
     )
     parser.add_argument(
         "--clear-cache", action="store_true", help="Clear all cache before starting"
@@ -133,10 +133,10 @@ def main():
     # Initialize cache manager
     cache_manager = None
     if not args.no_cache and not is_official_modify:
-        # Check if partition cache should be disabled
-        cache_partitions = not args.no_partition_cache
-        if not cache_partitions:
-            logger.info("Partition-level caching disabled by CLI argument")
+        # Partition cache is disabled by default, use --enable-partition-cache to enable
+        cache_partitions = args.enable_partition_cache
+        if cache_partitions:
+            logger.info("Partition-level caching enabled by CLI argument")
 
         cache_manager = PortRomCacheManager(args.cache_dir, cache_partitions=cache_partitions)
 
@@ -240,9 +240,10 @@ def main():
         ctx.device_config = device_config  # type: ignore
 
         # Check cache configuration
-        if cache_manager and not device_config.get("cache", {}).get("partitions", True):
-            logger.info("Partition-level caching disabled by device config")
-            cache_manager.cache_partitions = False
+        # Device config can enable partition caching (default is False)
+        if cache_manager and device_config.get("cache", {}).get("partitions", False):
+            logger.info("Partition-level caching enabled by device config")
+            cache_manager.cache_partitions = True
 
         # Determine settings
         enable_ksu = args.ksu or device_config.get("ksu", {}).get("enable", False)

@@ -4,7 +4,7 @@
         "super_size": 13411287040
     },
     "cache": {
-        "_comment": "Set to false to disable partition-level caching (APK caching still works)",
-        "partitions": true
+        "_comment": "Set to true to enable partition-level caching (disabled by default)",
+        "partitions": false
     }
 }
