@@ -13,11 +13,7 @@ This package provides a modular approach to ROM modification:
 # Core modifier classes
 from src.core.modifiers.base_modifier import BaseModifier
 from src.core.modifiers.firmware_modifier import FirmwareModifier
-from src.core.modifiers.framework_modifier import FrameworkModifier
-from src.core.modifiers.rom_modifier import RomModifier
-from src.core.modifiers.smali_args import SmaliArgs
-from src.core.modifiers.system_modifier import SystemModifier
-from src.core.modifiers.unified_modifier import ApkModifier, UnifiedModifier
+from src.core.modifiers.framework import FrameworkModifier
 
 # Plugin system
 from src.core.modifiers.plugin_system import (
@@ -28,14 +24,6 @@ from src.core.modifiers.plugin_system import (
     create_backup_hook,
     create_backup_hook_factory,
     load_plugins_from_config,
-)
-
-# Transaction system
-from src.core.modifiers.transaction import (
-    ModificationRecord,
-    RollbackContext,
-    Transaction,
-    TransactionManager,
 )
 
 # Built-in system plugins
@@ -58,6 +46,18 @@ from src.core.modifiers.plugins.apk import (
     SecurityCenterModifier,
     SettingsModifier,
 )
+from src.core.modifiers.rom_modifier import RomModifier
+from src.core.modifiers.smali_args import SmaliArgs
+from src.core.modifiers.system_modifier import SystemModifier
+
+# Transaction system
+from src.core.modifiers.transaction import (
+    ModificationRecord,
+    RollbackContext,
+    Transaction,
+    TransactionManager,
+)
+from src.core.modifiers.unified_modifier import ApkModifier, UnifiedModifier
 
 __all__ = [
     # Core modifiers

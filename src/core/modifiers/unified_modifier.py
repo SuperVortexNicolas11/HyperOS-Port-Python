@@ -1,25 +1,28 @@
-"""Unified modifier system integrating all plugin types.
+"""Unified modifier system integrating all plugin types."""
 
-This module provides a unified interface for all ROM modifications,
-including system-level plugins and APK-level plugins.
-"""
-
-from pathlib import Path
 from typing import List, Optional
 
+from src.core.config_loader import load_device_config
 from src.core.modifiers.base_modifier import BaseModifier
-from src.core.modifiers.plugin_system import PluginManager
-from src.core.modifiers.plugin_system import PluginManager, ModifierPlugin
+from src.core.modifiers.plugin_system import ModifierPlugin, PluginManager
 from src.core.modifiers.plugins import (
-    WildBoostPlugin,
     EULocalizationPlugin,
     FeatureUnlockPlugin,
-    VNDKFixPlugin,
     FileReplacementPlugin,
+    VNDKFixPlugin,
+    WildBoostPlugin,
 )
+from src.core.modifiers.plugins.apk import ApkModifierRegistry
 from src.core.props import PropertyModifier
-from src.core.modifiers.plugins.apk import ApkModifierPlugin, ApkModifierRegistry
-from src.core.config_loader import load_device_config
+
+BUILTIN_SYSTEM_PLUGINS = (
+    FileReplacementPlugin,
+    PropertyModifier,
+    WildBoostPlugin,
+    FeatureUnlockPlugin,
+    VNDKFixPlugin,
+    EULocalizationPlugin,
+)
 
 
 class UnifiedModifier(BaseModifier):
@@ -53,7 +56,6 @@ class UnifiedModifier(BaseModifier):
             else None
         )
 
-        self._dry_run = dry_run
         self._register_plugins()
 
     def _register_plugins(self):
@@ -77,6 +79,7 @@ class UnifiedModifier(BaseModifier):
         """Dynamically discover and register system-level plugins."""
         import importlib
         import pkgutil
+
         from src.core.modifiers.plugins import __path__ as plugins_path
 
         # Get the package name
@@ -108,33 +111,16 @@ class UnifiedModifier(BaseModifier):
             except ImportError as e:
                 self.logger.debug(f"Could not import plugin module {name}: {e}")
 
-        # Also explicitly register plugins that may not be detected properly
-        plugins_to_register = [
-            FileReplacementPlugin,
-            PropertyModifier,
-            WildBoostPlugin,
-            FeatureUnlockPlugin,
-            VNDKFixPlugin,
-            EULocalizationPlugin,
-        ]
-
-        for plugin_cls in plugins_to_register:
+        # Explicit defaults are still registered as a safety net, but only when
+        # auto-discovery did not already find them.
+        for plugin_cls in BUILTIN_SYSTEM_PLUGINS:
             try:
-                # Check if already registered to avoid duplication
                 plugin_name = getattr(
                     plugin_cls,
                     "name",
                     plugin_cls.__name__.lower().replace("plugin", ""),
                 )
-                if (
-                    plugin_name
-                    not in [
-                        reg.name
-                        if hasattr(reg, "name")
-                        else reg.name  # Fixed: plugin already has .name attribute from list_plugins()
-                        for reg in self.system_manager._plugins.values()  # Fixed: changed from ._plugins to ._plugins.values()
-                    ]
-                ):
+                if not self.system_manager.has_plugin(plugin_name):
                     self.system_manager.register(plugin_cls)
             except Exception as e:
                 self.logger.debug(

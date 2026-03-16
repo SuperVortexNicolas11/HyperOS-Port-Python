@@ -1,3 +1,4 @@
+from collections import Counter
 from pathlib import Path
 
 from src.core.modifiers import (
@@ -49,6 +50,26 @@ def test_unified_modifier_lists_system_and_apk_plugins():
         "eu_localization",
     }.issubset({plugin.name for plugin in plugins["system"]})
     assert len(plugins["apk"]) >= 6
+
+
+def test_unified_modifier_registers_builtin_system_plugins_once():
+    class MockContext:
+        target_dir = Path("/tmp/mock_target")
+        stock_rom_code = "mock_device"
+        device_config = {}
+
+    modifier = UnifiedModifier(MockContext())
+    counts = Counter(plugin.name for plugin in modifier.list_plugins()["system"])
+
+    for name in (
+        "file_replacement",
+        "property_modifier",
+        "wild_boost",
+        "feature_unlock",
+        "vndk_fix",
+        "eu_localization",
+    ):
+        assert counts[name] == 1
 
 
 def test_plugin_metadata_matches_expected_contract():

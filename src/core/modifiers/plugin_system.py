@@ -4,18 +4,16 @@ This module provides a flexible plugin architecture for ROM modifications.
 Plugins can be registered dynamically and executed in a specific order.
 """
 
-from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional, Type, Callable
-from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import logging
-import threading
-
-from src.core.modifiers.transaction import TransactionManager, Transaction
-
-
 import io
+import logging
 import subprocess
+import threading
+from abc import ABC, abstractmethod
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional, Type
+
+from src.core.modifiers.transaction import TransactionManager
 
 logger = logging.getLogger(__name__)
 
@@ -267,6 +265,14 @@ class PluginManager:
         """Get a registered plugin by name."""
         return self._plugins.get(name)
 
+    def has_plugin(self, name: str) -> bool:
+        """Return whether a plugin with the given name is registered."""
+        return name in self._plugins
+
+    def list_plugin_names(self) -> List[str]:
+        """Return registered plugin names in registration order."""
+        return list(self._plugins)
+
     def list_plugins(self) -> List[ModifierPlugin]:
         """Get list of all registered plugins."""
         return list(self._plugins.values())
@@ -401,7 +407,7 @@ class PluginManager:
             # Execute plugin with optional timeout
             try:
                 if self._transaction_manager:
-                    with self._transaction_manager.transaction(plugin.name) as txn:
+                    with self._transaction_manager.transaction(plugin.name):
                         timeout = plugin.timeout
                         if timeout:
                             success: Optional[bool] = self._execute_with_timeout(plugin, timeout)
@@ -521,7 +527,6 @@ class PluginManager:
                 # Collect buffered logs and results
                 plugin_logs: Dict[str, str] = {}
                 plugin_errors: Dict[str, Exception] = {}
-                plugin_results: Dict[str, Any] = {}
 
                 def execute_with_log_capture(plugin):
                     """Execute plugin with full checks and capture logs."""
