@@ -8,5 +8,5 @@
         "support_dolby_vision": true,
         "support_fod": true
     },
-    "enable_eu_localization": false
+    "enable_eu_localization": true
 }
