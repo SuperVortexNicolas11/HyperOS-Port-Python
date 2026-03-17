@@ -35,6 +35,7 @@ jobs:
             main.py \
             tests \
             src/app \
+            src/core/cache_manager.py \
             src/core/context.py \
             src/core/props.py \
             src/core/config_loader.py \

@@ -37,12 +37,10 @@ import json
 import logging
 import shutil
 import time
-from dataclasses import dataclass, asdict, field
+from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Dict, List, Any, Union
-import threading
-
+from typing import Any, Dict, List, Optional, Union
 
 # Cache format version
 CACHE_VERSION = "1.0"
@@ -107,14 +105,16 @@ class FileLock:
                 fcntl.flock(self._lock_fd.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
                 self._logger.debug(f"Lock acquired: {self.lock_file}")
                 return True
-            except (IOError, OSError) as e:
+            except (IOError, OSError) as err:
                 if self._lock_fd:
                     self._lock_fd.close()
                     self._lock_fd = None
 
                 if time.time() - start_time > self.timeout:
                     self._logger.warning(f"Lock timeout after {self.timeout}s")
-                    raise TimeoutError(f"Could not acquire lock: {self.lock_file}")
+                    raise TimeoutError(
+                        f"Could not acquire lock: {self.lock_file}"
+                    ) from err
 
                 time.sleep(0.1)
 
@@ -458,7 +458,7 @@ class PortRomCacheManager:
         Returns:
             Dictionary with cache statistics
         """
-        info = {
+        info: Dict[str, Any] = {
             "version": CACHE_VERSION,
             "cache_root": str(self.cache_root),
             "total_size_bytes": 0,
@@ -473,7 +473,7 @@ class PortRomCacheManager:
                 if rom_dir.name in ["metadata.json", ".lock"]:
                     continue
 
-                rom_info = {
+                rom_info: Dict[str, Any] = {
                     "hash": rom_dir.name,
                     "partitions": [],
                     "total_size_bytes": 0,
@@ -507,7 +507,10 @@ class PortRomCacheManager:
 
     def list_cached_roms(self) -> List[Dict[str, Any]]:
         """List all cached ROMs."""
-        return self.get_cache_info().get("cached_roms", [])
+        cached_roms = self.get_cache_info().get("cached_roms")
+        if isinstance(cached_roms, list):
+            return cached_roms
+        return []
 
     def clear_partition(self, rom_path: Union[str, Path], partition: str) -> bool:
         """
@@ -601,7 +604,7 @@ class PortRomCacheManager:
         Returns:
             Verification results dictionary
         """
-        results = {
+        results: Dict[str, List[Dict[str, Any]]] = {
             "valid": [],
             "invalid": [],
             "errors": [],
