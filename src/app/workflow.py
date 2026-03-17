@@ -6,6 +6,9 @@ import logging
 from pathlib import Path
 
 from src.app.bootstrap import clean_work_dir, initialize_cache_manager
+from src.app.diff_report import collect_artifact_state, generate_diff_report, save_diff_report
+from src.app.preflight import run_preflight, save_preflight_report
+from src.app.snapshots import StageSnapshotManager
 from src.core.config_loader import load_device_config
 from src.core.context import PortingContext
 from src.core.modifiers import FirmwareModifier, FrameworkModifier, RomModifier, UnifiedModifier
@@ -126,6 +129,40 @@ def run_repacking(
         packer.pack_ota_payload()
 
 
+def log_diff_report_summary(diff_report: dict[str, object], logger: logging.Logger) -> None:
+    """Log a compact summary for generated artifact diff reports."""
+    summary = diff_report.get("summary", {})
+    if not isinstance(summary, dict):
+        summary = {}
+
+    logger.info(
+        "Artifact diff summary: +%s -%s ~%s props=%s apks=%s risks=%s",
+        summary.get("files_added", 0),
+        summary.get("files_removed", 0),
+        summary.get("files_modified", 0),
+        summary.get("prop_changes", 0),
+        summary.get("apk_changes", 0),
+        summary.get("risk_flags", 0),
+    )
+
+    highlights = diff_report.get("highlights", {})
+    if not isinstance(highlights, dict):
+        return
+    risk_flags = highlights.get("risk_flags", [])
+    if not isinstance(risk_flags, list) or not risk_flags:
+        return
+
+    codes: list[str] = []
+    for flag in risk_flags:
+        if not isinstance(flag, dict):
+            continue
+        code = flag.get("code")
+        if isinstance(code, str):
+            codes.append(code)
+    if codes:
+        logger.warning("Artifact diff risk flags: %s", ", ".join(codes))
+
+
 def execute_porting(args, logger: logging.Logger) -> int:
     """Execute the end-to-end porting workflow and return a process exit code."""
     is_official_modify = args.port is None
@@ -146,7 +183,43 @@ def execute_porting(args, logger: logging.Logger) -> int:
         return 1
 
     resolve_remote_inputs(args, is_official_modify, logger)
+
     work_dir, stock_work_dir, port_work_dir, target_work_dir = resolve_work_paths(args.work_dir)
+    snapshot_manager = (
+        StageSnapshotManager(args.snapshot_dir or (work_dir / "snapshots"), logger)
+        if args.enable_snapshots or args.rollback_to_snapshot
+        else None
+    )
+
+    if args.rollback_to_snapshot:
+        if not snapshot_manager:
+            logger.error("Snapshot manager is not available.")
+            return 1
+        try:
+            snapshot_manager.restore(args.rollback_to_snapshot, target_work_dir)
+            logger.info(f"Rollback completed from snapshot: {args.rollback_to_snapshot}")
+            return 0
+        except FileNotFoundError as exc:
+            logger.error(str(exc))
+            available = snapshot_manager.list_snapshot_names()
+            if available:
+                logger.info(f"Available snapshots: {', '.join(available)}")
+            return 2
+
+    if not args.skip_preflight:
+        preflight_report = run_preflight(args, is_official_modify, logger)
+        report_path = save_preflight_report(preflight_report, args.preflight_report)
+        logger.info(f"Preflight report saved to: {report_path}")
+        if preflight_report.has_failures(strict=args.preflight_strict):
+            mode = "strict mode (blockers + risks)" if args.preflight_strict else "blockers"
+            logger.error(f"Preflight checks failed ({mode}). Aborting.")
+            return 2
+        if args.preflight_only:
+            logger.info("Preflight completed with no blockers. Exiting by request.")
+            return 0
+    elif args.preflight_only:
+        logger.warning("Ignoring --preflight-only because --skip-preflight is set.")
+        return 0
 
     if args.clean:
         clean_work_dir(work_dir, logger)
@@ -166,6 +239,8 @@ def execute_porting(args, logger: logging.Logger) -> int:
     ctx.cache_manager = cache_manager
     ctx.eu_bundle = args.eu_bundle
     ctx.initialize_target(clean_existing=True)
+    if snapshot_manager:
+        snapshot_manager.capture("phase2_initialized", target_work_dir)
 
     stock_device_code = (
         stock.get_prop("ro.product.name_for_attestation")
@@ -187,8 +262,22 @@ def execute_porting(args, logger: logging.Logger) -> int:
     logger.info(f"Port Device:  {port.get_prop('ro.product.name_for_attestation')}")
 
     phases_to_run = args.phases if args.phases else list(DEFAULT_PHASES)
+    baseline_artifact_state = (
+        collect_artifact_state(target_work_dir, logger) if args.enable_diff_report else None
+    )
     run_modification_phases(ctx, phases_to_run, logger)
+    if snapshot_manager:
+        snapshot_manager.capture("phase3_modified", target_work_dir)
+
     run_repacking(ctx, phases_to_run, pack_type, fs_type, target_work_dir, logger)
+    if snapshot_manager and ("repack" in phases_to_run or phases_to_run == DEFAULT_PHASES):
+        snapshot_manager.capture("phase4_repacked", target_work_dir)
+    if args.enable_diff_report and baseline_artifact_state is not None:
+        final_artifact_state = collect_artifact_state(target_work_dir, logger)
+        diff_report = generate_diff_report(baseline_artifact_state, final_artifact_state)
+        report_path = save_diff_report(diff_report, args.diff_report)
+        logger.info(f"Artifact diff report saved to: {report_path}")
+        log_diff_report_summary(diff_report, logger)
 
     logger.info("=" * 70)
     logger.info("Porting completed successfully!")

@@ -12,3 +12,53 @@ def test_parse_args_expands_comma_separated_phases():
 def test_parse_args_rejects_invalid_phase():
     with pytest.raises(SystemExit):
         parse_args(["--stock", "stock.zip", "--phases", "system,invalid"])
+
+
+def test_parse_args_accepts_preflight_flags():
+    args = parse_args(
+        [
+            "--stock",
+            "stock.zip",
+            "--preflight-only",
+            "--preflight-report",
+            "out/preflight.json",
+        ]
+    )
+
+    assert args.preflight_only is True
+    assert args.skip_preflight is False
+    assert args.preflight_strict is False
+    assert args.preflight_report == "out/preflight.json"
+
+
+def test_parse_args_accepts_snapshot_flags():
+    args = parse_args(
+        [
+            "--stock",
+            "stock.zip",
+            "--enable-snapshots",
+            "--snapshot-dir",
+            "build/snapshots",
+            "--rollback-to-snapshot",
+            "phase3_modified",
+        ]
+    )
+
+    assert args.enable_snapshots is True
+    assert args.snapshot_dir == "build/snapshots"
+    assert args.rollback_to_snapshot == "phase3_modified"
+
+
+def test_parse_args_accepts_diff_report_flags():
+    args = parse_args(
+        [
+            "--stock",
+            "stock.zip",
+            "--enable-diff-report",
+            "--diff-report",
+            "out/diff-report.json",
+        ]
+    )
+
+    assert args.enable_diff_report is True
+    assert args.diff_report == "out/diff-report.json"

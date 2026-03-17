@@ -1,3 +1,4 @@
+import logging
 from collections import Counter
 from pathlib import Path
 
@@ -6,6 +7,8 @@ from src.core.modifiers import (
     EULocalizationPlugin,
     FileReplacementPlugin,
     InstallerModifier,
+    ModifierPlugin,
+    PluginManager,
     PowerKeeperModifier,
     SettingsModifier,
     UnifiedModifier,
@@ -95,3 +98,23 @@ def test_monitoring_integration_records_metric():
     assert plugin.modify() is True
 
     monitor.stop()
+
+
+def test_plugin_manager_reports_prerequisite_skip_reason(caplog):
+    class SkipReasonPlugin(ModifierPlugin):
+        name = "skip_reason_plugin"
+
+        def modify(self) -> bool:
+            return True
+
+        def check_prerequisites_with_reason(self) -> tuple[bool, str]:
+            return False, "missing required source artifact"
+
+    manager = PluginManager(context=object(), enable_transactions=False)
+    manager.register(SkipReasonPlugin)
+
+    with caplog.at_level(logging.INFO):
+        results = manager.execute()
+
+    assert results["skip_reason_plugin"] is None
+    assert "missing required source artifact" in caplog.text

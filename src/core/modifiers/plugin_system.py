@@ -113,6 +113,20 @@ class ModifierPlugin(ABC):
         """
         return True
 
+    def check_prerequisites_with_reason(self) -> tuple[bool, str]:
+        """Check prerequisites and return a human-readable reason.
+
+        Returns:
+            Tuple of (passed, reason).
+        """
+        try:
+            passed = bool(self.check_prerequisites())
+        except Exception as exc:  # pragma: no cover - defensive wrapper
+            return False, f"check_prerequisites raised: {exc}"
+        if passed:
+            return True, "ok"
+        return False, "check_prerequisites returned False"
+
     def get_config(self, key: str, default: Any = None) -> Any:
         """Get configuration value from device config."""
         if hasattr(self.ctx, "device_config") and self.ctx.device_config:
@@ -388,8 +402,11 @@ class PluginManager:
                     self.logger.warning(f"Pre-modify hook failed: {e}")
 
             # Check prerequisites
-            if not plugin.check_prerequisites():
-                self.logger.info(f"Skipping plugin {plugin.name}: prerequisites not met")
+            prerequisites_ok, prereq_reason = plugin.check_prerequisites_with_reason()
+            if not prerequisites_ok:
+                self.logger.info(
+                    f"Skipping plugin {plugin.name}: prerequisites not met ({prereq_reason})"
+                )
                 return None
 
             # Check version compatibility
@@ -538,8 +555,9 @@ class PluginManager:
 
                     try:
                         # Run prerequisite checks
-                        if not plugin.check_prerequisites():
-                            return (None, buffer_handler, "prerequisites")
+                        prerequisites_ok, prereq_reason = plugin.check_prerequisites_with_reason()
+                        if not prerequisites_ok:
+                            return (None, buffer_handler, f"prerequisites:{prereq_reason}")
 
                         # Version compatibility check
                         if not self._check_version_compatibility(plugin):
@@ -568,9 +586,10 @@ class PluginManager:
                         try:
                             result, buffer_handler, skip_reason = future.result()
 
-                            if skip_reason == "prerequisites":
+                            if skip_reason and skip_reason.startswith("prerequisites:"):
+                                reason = skip_reason.split(":", 1)[1]
                                 self.logger.info(
-                                    f"Plugin {plugin.name}: prerequisites not met, skipped"
+                                    f"Plugin {plugin.name}: prerequisites not met ({reason}), skipped"
                                 )
                                 results[plugin.name] = None
                             elif skip_reason == "version":

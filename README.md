@@ -151,6 +151,15 @@ sudo python3 main.py --stock <底包路径> --port <移植包路径> --pack-type
 | `--clean` | 开始前清理工作目录 | `false` |
 | `--debug` | 开启调试日志 | `false` |
 | `--eu-bundle` | EU 本地化资源包 (ZIP) 的路径或 URL | 无 |
+| `--preflight-only` | 仅执行预检并输出报告，然后退出 | `false` |
+| `--skip-preflight` | 跳过预检阶段（不建议） | `false` |
+| `--preflight-strict` | 将风险项也视为失败项（用于严格阻断） | `false` |
+| `--preflight-report` | 预检 JSON 报告输出路径 | `build/preflight-report.json` |
+| `--enable-snapshots` | 在关键阶段保存工作目录快照 | `false` |
+| `--snapshot-dir` | 快照目录（未设置时使用 `<work-dir>/snapshots`） | `null` |
+| `--rollback-to-snapshot` | 从指定快照恢复目标工作目录并退出 | `null` |
+| `--enable-diff-report` | 生成产物差异报告（前后文件/属性/APK变化） | `false` |
+| `--diff-report` | 差异报告 JSON 输出路径 | `build/diff-report.json` |
 
 ---
 

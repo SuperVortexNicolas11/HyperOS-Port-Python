@@ -42,6 +42,51 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--eu-bundle", help="Path/URL to EU Localization Bundle zip")
     parser.add_argument(
+        "--preflight-only",
+        action="store_true",
+        help="Run input preflight checks only, then exit",
+    )
+    parser.add_argument(
+        "--skip-preflight",
+        action="store_true",
+        help="Skip preflight checks before porting workflow",
+    )
+    parser.add_argument(
+        "--preflight-strict",
+        action="store_true",
+        help="Treat risk findings as failures in preflight checks",
+    )
+    parser.add_argument(
+        "--preflight-report",
+        default="build/preflight-report.json",
+        help="Path to write preflight JSON report (default: build/preflight-report.json)",
+    )
+    parser.add_argument(
+        "--enable-snapshots",
+        action="store_true",
+        help="Capture workflow snapshots at key stages",
+    )
+    parser.add_argument(
+        "--snapshot-dir",
+        default=None,
+        help="Snapshot directory (default: <work-dir>/snapshots)",
+    )
+    parser.add_argument(
+        "--rollback-to-snapshot",
+        default=None,
+        help="Restore target workspace from the named snapshot and exit",
+    )
+    parser.add_argument(
+        "--enable-diff-report",
+        action="store_true",
+        help="Generate before/after artifact diff report",
+    )
+    parser.add_argument(
+        "--diff-report",
+        default="build/diff-report.json",
+        help="Output path for artifact diff report (default: build/diff-report.json)",
+    )
+    parser.add_argument(
         "--phases",
         nargs="+",
         help="Specific phases to run: system, apk, framework, firmware, repack (default: all)",
