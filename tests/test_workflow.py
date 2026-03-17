@@ -29,6 +29,8 @@ def make_args(**overrides):
         "enable_snapshots": False,
         "snapshot_dir": None,
         "rollback_to_snapshot": None,
+        "enable_diff_report": False,
+        "diff_report": "build/diff-report.json",
     }
     base.update(overrides)
     return Namespace(**base)
@@ -249,3 +251,48 @@ def test_execute_porting_captures_snapshots_when_enabled():
         "phase3_modified",
         "phase4_repacked",
     ]
+
+
+def test_execute_porting_generates_diff_report_when_enabled():
+    logger = MagicMock()
+    args = make_args(enable_diff_report=True)
+
+    with (
+        patch("src.app.workflow.initialize_cache_manager") as bootstrap,
+        patch("src.app.workflow.log_run_configuration"),
+        patch("src.app.workflow.OtaToolsManager") as otatools_manager_cls,
+        patch("src.app.workflow.resolve_remote_inputs"),
+        patch("src.app.workflow.run_preflight") as run_preflight_mock,
+        patch("src.app.workflow.save_preflight_report"),
+        patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
+        patch("src.app.workflow.RomPackage") as rom_package_cls,
+        patch("src.app.workflow.PortingContext") as porting_context_cls,
+        patch("src.app.workflow.load_device_config", return_value={}),
+        patch("src.app.workflow.determine_pack_settings", return_value=("payload", "erofs")),
+        patch("src.app.workflow.run_modification_phases"),
+        patch("src.app.workflow.run_repacking"),
+        patch("src.app.workflow.collect_artifact_state") as collect_artifact_state_mock,
+        patch("src.app.workflow.generate_diff_report", return_value={"summary": {}}) as generate_mock,
+        patch("src.app.workflow.save_diff_report") as save_diff_report_mock,
+    ):
+        bootstrap.return_value.exit_code = None
+        bootstrap.return_value.cache_manager = None
+        otatools_manager_cls.return_value.ensure_otatools.return_value = True
+        run_preflight_mock.return_value.has_failures.return_value = False
+        resolve_work_paths.return_value = (
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+        )
+        stock = rom_package_cls.return_value
+        porting_context = porting_context_cls.return_value
+        porting_context.stock = stock
+        porting_context.device_config = {}
+        collect_artifact_state_mock.side_effect = [{"files": {}}, {"files": {"a": {}}}]
+
+        assert execute_porting(args, logger) == 0
+
+    assert collect_artifact_state_mock.call_count == 2
+    generate_mock.assert_called_once()
+    save_diff_report_mock.assert_called_once()

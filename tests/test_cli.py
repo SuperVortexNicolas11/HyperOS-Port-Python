@@ -47,3 +47,18 @@ def test_parse_args_accepts_snapshot_flags():
     assert args.enable_snapshots is True
     assert args.snapshot_dir == "build/snapshots"
     assert args.rollback_to_snapshot == "phase3_modified"
+
+
+def test_parse_args_accepts_diff_report_flags():
+    args = parse_args(
+        [
+            "--stock",
+            "stock.zip",
+            "--enable-diff-report",
+            "--diff-report",
+            "out/diff-report.json",
+        ]
+    )
+
+    assert args.enable_diff_report is True
+    assert args.diff_report == "out/diff-report.json"

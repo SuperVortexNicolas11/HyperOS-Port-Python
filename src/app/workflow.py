@@ -6,6 +6,7 @@ import logging
 from pathlib import Path
 
 from src.app.bootstrap import clean_work_dir, initialize_cache_manager
+from src.app.diff_report import collect_artifact_state, generate_diff_report, save_diff_report
 from src.app.preflight import run_preflight, save_preflight_report
 from src.app.snapshots import StageSnapshotManager
 from src.core.config_loader import load_device_config
@@ -227,6 +228,9 @@ def execute_porting(args, logger: logging.Logger) -> int:
     logger.info(f"Port Device:  {port.get_prop('ro.product.name_for_attestation')}")
 
     phases_to_run = args.phases if args.phases else list(DEFAULT_PHASES)
+    baseline_artifact_state = (
+        collect_artifact_state(target_work_dir, logger) if args.enable_diff_report else None
+    )
     run_modification_phases(ctx, phases_to_run, logger)
     if snapshot_manager:
         snapshot_manager.capture("phase3_modified", target_work_dir)
@@ -234,6 +238,11 @@ def execute_porting(args, logger: logging.Logger) -> int:
     run_repacking(ctx, phases_to_run, pack_type, fs_type, target_work_dir, logger)
     if snapshot_manager and ("repack" in phases_to_run or phases_to_run == DEFAULT_PHASES):
         snapshot_manager.capture("phase4_repacked", target_work_dir)
+    if args.enable_diff_report and baseline_artifact_state is not None:
+        final_artifact_state = collect_artifact_state(target_work_dir, logger)
+        diff_report = generate_diff_report(baseline_artifact_state, final_artifact_state)
+        report_path = save_diff_report(diff_report, args.diff_report)
+        logger.info(f"Artifact diff report saved to: {report_path}")
 
     logger.info("=" * 70)
     logger.info("Porting completed successfully!")

@@ -77,6 +77,16 @@ def build_parser() -> argparse.ArgumentParser:
         help="Restore target workspace from the named snapshot and exit",
     )
     parser.add_argument(
+        "--enable-diff-report",
+        action="store_true",
+        help="Generate before/after artifact diff report",
+    )
+    parser.add_argument(
+        "--diff-report",
+        default="build/diff-report.json",
+        help="Output path for artifact diff report (default: build/diff-report.json)",
+    )
+    parser.add_argument(
         "--phases",
         nargs="+",
         help="Specific phases to run: system, apk, framework, firmware, repack (default: all)",

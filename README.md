@@ -158,6 +158,8 @@ sudo python3 main.py --stock <底包路径> --port <移植包路径> --pack-type
 | `--enable-snapshots` | 在关键阶段保存工作目录快照 | `false` |
 | `--snapshot-dir` | 快照目录（未设置时使用 `<work-dir>/snapshots`） | `null` |
 | `--rollback-to-snapshot` | 从指定快照恢复目标工作目录并退出 | `null` |
+| `--enable-diff-report` | 生成产物差异报告（前后文件/属性/APK变化） | `false` |
+| `--diff-report` | 差异报告 JSON 输出路径 | `build/diff-report.json` |
 
 ---
 
