@@ -1,6 +1,4 @@
-
-{
-  "description": "CPU Core Affinity and Scheduler Configuration",
+ "description": "CPU Core Affinity and Scheduler Configuration",
   "sm8550": {
     "persist.sys.miui_animator_sched.bigcores": "3-6",
     "persist.sys.miui_animator_sched.sched_threads": "2",
@@ -56,4 +54,3 @@
     "persist.sys.minfree_8g": "73728,92160,110592,387072,1105920,1451520",
     "persist.vendor.display.miui.composer_boost": "4-7"
   }
-}
