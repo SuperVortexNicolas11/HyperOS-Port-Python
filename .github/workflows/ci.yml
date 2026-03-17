@@ -51,7 +51,9 @@ jobs:
             src/core/tooling.py \
             src/core/workspace.py \
             src/core/modifiers/__init__.py \
+            src/core/modifiers/base_modifier.py \
             src/core/modifiers/plugin_system.py \
+            src/core/modifiers/smali_args.py \
             src/core/modifiers/transaction.py \
             src/core/modifiers/unified_modifier.py
 
