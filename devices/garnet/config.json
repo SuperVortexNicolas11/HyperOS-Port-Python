@@ -1,0 +1,15 @@
+{
+    "wild_boost": {
+        "enable": false
+    },
+    "pack": {
+        "type": "payload",
+        "fs_type": "erofs"
+    },
+    "ksu": {
+        "enable": false
+    },
+    "overrides": {
+        "skip_common_on_official": true
+    }
+}

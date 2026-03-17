@@ -1,0 +1,20 @@
+[
+    {
+        "description": "Garnet Device Overlays",
+        "type": "file",
+        "search_path": "product",
+        "files": ["DevicesOverlay.apk"]
+    },
+    {
+        "description": "Garnet AOSP Framework Overlay",
+        "type": "file",
+        "search_path": "product",
+        "files": ["AospFrameworkResOverlay.apk"]
+    },
+    {
+        "description": "Garnet Android Overlay",
+        "type": "file",
+        "search_path": "product",
+        "files": ["DevicesAndroidOverlay.apk"]
+    }
+]
