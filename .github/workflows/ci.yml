@@ -56,7 +56,9 @@ jobs:
             src/core/modifiers/base_modifier.py \
             src/core/modifiers/framework/base.py \
             src/core/modifiers/framework/modifier.py \
+            src/core/modifiers/framework/tasks.py \
             src/core/modifiers/plugin_system.py \
+            src/core/modifiers/plugins/feature_unlock.py \
             src/core/modifiers/smali_args.py \
             src/core/modifiers/transaction.py \
             src/core/modifiers/unified_modifier.py
