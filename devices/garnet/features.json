@@ -10,3 +10,12 @@
     },
     "enable_eu_localization": true
 }
+"build_props": {
+        "product": {
+            "ro.product.spoofed.name": "garnet",
+            "ro.spoofed.device": "garnet",
+            "persist.prophook.com.xiaomi.joyose": "DEVICE:garnet,PRODUCT:garnet,MODEL:2312DRA50G",
+            "persist.prophook.com.miui.powerkeeper": "DEVICE:garnet,PRODUCT:garnet,MODEL:2312DRA50G",
+            "persist.sys.miui.unfairMemory.enable": "false"
+        }
+    }
