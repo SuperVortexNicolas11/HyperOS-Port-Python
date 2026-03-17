@@ -13,7 +13,6 @@
         "ro.product.brand": "Redmi",
         "ro.product.device": "garnet",
         "ro.product.mod_device": "garnet_global",
-        "ro.miui.cust_erofs": "1"
     },
     "mi_ext": {
         "ro.product.mod_device": "garnet_global",
