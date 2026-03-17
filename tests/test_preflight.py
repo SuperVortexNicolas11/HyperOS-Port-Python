@@ -1,6 +1,7 @@
 import logging
 from argparse import Namespace
 from pathlib import Path
+from unittest.mock import patch
 
 from src.app.preflight import run_preflight
 
@@ -47,3 +48,18 @@ def test_preflight_report_strict_mode_and_action_fields(tmp_path: Path):
     assert report.has_failures(strict=False) is True
     assert report.has_failures(strict=True) is True
     assert any(f.action for f in report.findings)
+
+
+def test_run_preflight_reports_missing_required_host_tools(tmp_path: Path):
+    args = _make_args(tmp_path)
+
+    with patch("src.app.preflight.shutil.which", return_value=None), patch(
+        "src.app.preflight.RomPackage"
+    ) as rom_pkg_cls:
+        rom_pkg_cls.return_value.rom_type.name = "PAYLOAD"
+        report = run_preflight(args, is_official_modify=True, logger=logging.getLogger("test"))
+
+    assert any(
+        f.code == "HOST_TOOL_MISSING" and f.details.get("tool") == "payload-dumper"
+        for f in report.findings
+    )

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import shutil
 import zipfile
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -228,6 +229,24 @@ def run_preflight(args, is_official_modify: bool, logger: logging.Logger) -> Pre
                 target=label,
                 action="Check archive integrity and supported ROM structure.",
                 details={"error": str(exc)},
+            )
+
+    # Host tool readiness checks based on detected input formats
+    required_tools: set[str] = set()
+    if "PAYLOAD" in detected_types.values():
+        required_tools.add("payload-dumper")
+    if "BROTLI" in detected_types.values():
+        required_tools.add("brotli")
+
+    for tool in sorted(required_tools):
+        if shutil.which(tool) is None:
+            report.add(
+                severity="risk",
+                code="HOST_TOOL_MISSING",
+                message=f"Required host tool is not available in PATH: {tool}",
+                target="host",
+                action=f"Install '{tool}' or provide it in PATH before extraction.",
+                details={"tool": tool, "detected_rom_types": detected_types},
             )
 
     if stock_path and port_path and stock_path == port_path and not is_official_modify:
