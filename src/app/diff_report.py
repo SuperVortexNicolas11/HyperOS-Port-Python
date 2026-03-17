@@ -10,6 +10,30 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
+PARTITION_KEYS = {
+    "system",
+    "product",
+    "system_ext",
+    "vendor",
+    "odm",
+    "mi_ext",
+    "vendor_dlkm",
+    "vendor_boot",
+    "boot",
+}
+
+CRITICAL_PATH_MARKERS = (
+    "/etc/selinux/",
+    "/sepolicy/",
+    "build.prop",
+    "file_contexts",
+    "fs_config",
+    "/etc/init/",
+    "init.rc",
+    "/framework/",
+    "/priv-app/",
+)
+
 
 def _sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -126,6 +150,102 @@ def _diff_map(before: dict[str, Any], after: dict[str, Any]) -> dict[str, list[s
     }
 
 
+def _partition_for_path(path: str) -> str:
+    first = path.split("/", 1)[0]
+    if first in PARTITION_KEYS:
+        return first
+    return "_root"
+
+
+def _group_paths_by_partition(paths: list[str]) -> dict[str, list[str]]:
+    grouped: dict[str, list[str]] = {}
+    for path in paths:
+        partition = _partition_for_path(path)
+        grouped.setdefault(partition, []).append(path)
+    for partition, entries in grouped.items():
+        grouped[partition] = sorted(entries)
+    return dict(sorted(grouped.items(), key=lambda item: item[0]))
+
+
+def _collect_critical_path_changes(
+    file_changes: dict[str, list[str]], apk_changes: list[dict[str, Any]]
+) -> list[str]:
+    candidates = file_changes["added"] + file_changes["removed"] + file_changes["modified"]
+    candidates.extend(change["path"] for change in apk_changes)
+    critical = []
+    for path in candidates:
+        if any(marker in path for marker in CRITICAL_PATH_MARKERS):
+            critical.append(path)
+    return sorted(set(critical))
+
+
+def _build_risk_flags(
+    file_changes: dict[str, list[str]],
+    prop_changes: list[dict[str, Any]],
+    apk_changes: list[dict[str, Any]],
+    critical_paths: list[str],
+) -> list[dict[str, Any]]:
+    flags: list[dict[str, Any]] = []
+
+    if critical_paths:
+        flags.append(
+            {
+                "code": "HIGH_IMPACT_PATH_CHANGED",
+                "message": "Critical system/security paths changed.",
+                "paths": critical_paths,
+            }
+        )
+
+    identity_prop_paths = sorted(
+        {
+            item["path"]
+            for item in prop_changes
+            if item["key"].startswith("ro.product.")
+            or item["key"].startswith("ro.build.fingerprint")
+        }
+    )
+    if identity_prop_paths:
+        flags.append(
+            {
+                "code": "IDENTITY_PROP_CHANGED",
+                "message": "Device identity properties changed.",
+                "paths": identity_prop_paths,
+            }
+        )
+
+    priv_app_paths = sorted(
+        {
+            change["path"]
+            for change in apk_changes
+            if "/priv-app/" in change["path"] or change["path"].startswith("priv-app/")
+        }
+    )
+    if priv_app_paths:
+        flags.append(
+            {
+                "code": "PRIV_APP_CHANGED",
+                "message": "Privileged APK content changed.",
+                "paths": priv_app_paths,
+            }
+        )
+
+    init_related = sorted(
+        path
+        for path in (file_changes["added"] + file_changes["removed"] + file_changes["modified"])
+        if "/etc/init/" in path or path.endswith("init.rc")
+    )
+    if init_related:
+        flags.append(
+            {
+                "code": "INIT_SCRIPT_CHANGED",
+                "message": "Init scripts changed and may affect boot.",
+                "paths": init_related,
+            }
+        )
+
+    return flags
+
+
 def generate_diff_report(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
     """Generate a structured artifact diff report."""
     file_scope = _diff_map(before.get("files", {}), after.get("files", {}))
@@ -169,6 +289,14 @@ def generate_diff_report(before: dict[str, Any], after: dict[str, Any]) -> dict[
                 }
             )
 
+    file_changes = {
+        "added": file_scope["added"],
+        "removed": file_scope["removed"],
+        "modified": modified_files,
+    }
+    critical_paths = _collect_critical_path_changes(file_changes, apk_changes)
+    risk_flags = _build_risk_flags(file_changes, prop_changes, apk_changes, critical_paths)
+
     return {
         "summary": {
             "files_added": len(file_scope["added"]),
@@ -176,18 +304,24 @@ def generate_diff_report(before: dict[str, Any], after: dict[str, Any]) -> dict[
             "files_modified": len(modified_files),
             "prop_changes": len(prop_changes),
             "apk_changes": len(apk_changes),
+            "risk_flags": len(risk_flags),
         },
-        "files": {
-            "added": file_scope["added"],
-            "removed": file_scope["removed"],
-            "modified": modified_files,
-        },
+        "files": file_changes,
         "build_props": {
             "added_files": prop_scope["added"],
             "removed_files": prop_scope["removed"],
             "changes": prop_changes,
         },
         "apks": apk_changes,
+        "partition_groups": {
+            "added": _group_paths_by_partition(file_scope["added"]),
+            "removed": _group_paths_by_partition(file_scope["removed"]),
+            "modified": _group_paths_by_partition(modified_files),
+        },
+        "highlights": {
+            "critical_path_changes": critical_paths,
+            "risk_flags": risk_flags,
+        },
     }
 
 

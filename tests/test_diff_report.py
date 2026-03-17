@@ -29,3 +29,9 @@ def test_generate_diff_report_tracks_file_and_prop_changes(tmp_path: Path):
         and item["after"] == "device_b"
         for item in report["build_props"]["changes"]
     )
+    assert "system/new.conf" in report["partition_groups"]["added"]["system"]
+    assert "system/build.prop" in report["highlights"]["critical_path_changes"]
+    assert any(
+        flag["code"] == "IDENTITY_PROP_CHANGED"
+        for flag in report["highlights"]["risk_flags"]
+    )
