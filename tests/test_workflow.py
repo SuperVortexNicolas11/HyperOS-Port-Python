@@ -26,6 +26,9 @@ def make_args(**overrides):
         "skip_preflight": False,
         "preflight_strict": False,
         "preflight_report": "build/preflight-report.json",
+        "enable_snapshots": False,
+        "snapshot_dir": None,
+        "rollback_to_snapshot": None,
     }
     base.update(overrides)
     return Namespace(**base)
@@ -174,3 +177,75 @@ def test_execute_porting_strict_preflight_treats_risks_as_failures():
 
         assert execute_porting(args, logger) == 2
         run_preflight_mock.return_value.has_failures.assert_called_once_with(strict=True)
+
+
+def test_execute_porting_restores_snapshot_and_exits():
+    logger = MagicMock()
+    args = make_args(rollback_to_snapshot="phase3_modified")
+
+    with (
+        patch("src.app.workflow.initialize_cache_manager") as bootstrap,
+        patch("src.app.workflow.log_run_configuration"),
+        patch("src.app.workflow.OtaToolsManager") as otatools_manager_cls,
+        patch("src.app.workflow.resolve_remote_inputs"),
+        patch("src.app.workflow.StageSnapshotManager") as snapshot_manager_cls,
+        patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
+    ):
+        bootstrap.return_value.exit_code = None
+        bootstrap.return_value.cache_manager = None
+        otatools_manager_cls.return_value.ensure_otatools.return_value = True
+        resolve_work_paths.return_value = (
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+        )
+
+        assert execute_porting(args, logger) == 0
+
+    snapshot_manager_cls.return_value.restore.assert_called_once()
+
+
+def test_execute_porting_captures_snapshots_when_enabled():
+    logger = MagicMock()
+    args = make_args(enable_snapshots=True)
+
+    with (
+        patch("src.app.workflow.initialize_cache_manager") as bootstrap,
+        patch("src.app.workflow.log_run_configuration"),
+        patch("src.app.workflow.OtaToolsManager") as otatools_manager_cls,
+        patch("src.app.workflow.resolve_remote_inputs"),
+        patch("src.app.workflow.run_preflight") as run_preflight_mock,
+        patch("src.app.workflow.save_preflight_report"),
+        patch("src.app.workflow.StageSnapshotManager") as snapshot_manager_cls,
+        patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
+        patch("src.app.workflow.RomPackage") as rom_package_cls,
+        patch("src.app.workflow.PortingContext") as porting_context_cls,
+        patch("src.app.workflow.load_device_config", return_value={}),
+        patch("src.app.workflow.determine_pack_settings", return_value=("payload", "erofs")),
+        patch("src.app.workflow.run_modification_phases"),
+        patch("src.app.workflow.run_repacking"),
+    ):
+        bootstrap.return_value.exit_code = None
+        bootstrap.return_value.cache_manager = None
+        otatools_manager_cls.return_value.ensure_otatools.return_value = True
+        run_preflight_mock.return_value.has_failures.return_value = False
+        resolve_work_paths.return_value = (
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+        )
+        stock = rom_package_cls.return_value
+        porting_context = porting_context_cls.return_value
+        porting_context.stock = stock
+        porting_context.device_config = {}
+
+        assert execute_porting(args, logger) == 0
+
+    capture_calls = snapshot_manager_cls.return_value.capture.call_args_list
+    assert [call.args[0] for call in capture_calls] == [
+        "phase2_initialized",
+        "phase3_modified",
+        "phase4_repacked",
+    ]

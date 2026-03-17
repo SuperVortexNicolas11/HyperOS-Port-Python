@@ -157,6 +157,9 @@ sudo python3 main.py --stock <path_to_stock_zip> --port <path_to_port_zip> --pac
 | `--skip-preflight` | Skip the preflight phase (not recommended) | `false` |
 | `--preflight-strict` | Treat risk findings as failures (strict gating) | `false` |
 | `--preflight-report` | Output path for preflight JSON report | `build/preflight-report.json` |
+| `--enable-snapshots` | Capture workspace snapshots at key workflow stages | `false` |
+| `--snapshot-dir` | Snapshot directory (defaults to `<work-dir>/snapshots`) | `null` |
+| `--rollback-to-snapshot` | Restore target workspace from a named snapshot and exit | `null` |
 
 ---
 

@@ -29,3 +29,21 @@ def test_parse_args_accepts_preflight_flags():
     assert args.skip_preflight is False
     assert args.preflight_strict is False
     assert args.preflight_report == "out/preflight.json"
+
+
+def test_parse_args_accepts_snapshot_flags():
+    args = parse_args(
+        [
+            "--stock",
+            "stock.zip",
+            "--enable-snapshots",
+            "--snapshot-dir",
+            "build/snapshots",
+            "--rollback-to-snapshot",
+            "phase3_modified",
+        ]
+    )
+
+    assert args.enable_snapshots is True
+    assert args.snapshot_dir == "build/snapshots"
+    assert args.rollback_to_snapshot == "phase3_modified"

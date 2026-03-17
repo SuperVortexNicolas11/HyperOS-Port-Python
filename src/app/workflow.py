@@ -7,6 +7,7 @@ from pathlib import Path
 
 from src.app.bootstrap import clean_work_dir, initialize_cache_manager
 from src.app.preflight import run_preflight, save_preflight_report
+from src.app.snapshots import StageSnapshotManager
 from src.core.config_loader import load_device_config
 from src.core.context import PortingContext
 from src.core.modifiers import FirmwareModifier, FrameworkModifier, RomModifier, UnifiedModifier
@@ -148,6 +149,28 @@ def execute_porting(args, logger: logging.Logger) -> int:
 
     resolve_remote_inputs(args, is_official_modify, logger)
 
+    work_dir, stock_work_dir, port_work_dir, target_work_dir = resolve_work_paths(args.work_dir)
+    snapshot_manager = (
+        StageSnapshotManager(args.snapshot_dir or (work_dir / "snapshots"), logger)
+        if args.enable_snapshots or args.rollback_to_snapshot
+        else None
+    )
+
+    if args.rollback_to_snapshot:
+        if not snapshot_manager:
+            logger.error("Snapshot manager is not available.")
+            return 1
+        try:
+            snapshot_manager.restore(args.rollback_to_snapshot, target_work_dir)
+            logger.info(f"Rollback completed from snapshot: {args.rollback_to_snapshot}")
+            return 0
+        except FileNotFoundError as exc:
+            logger.error(str(exc))
+            available = snapshot_manager.list_snapshot_names()
+            if available:
+                logger.info(f"Available snapshots: {', '.join(available)}")
+            return 2
+
     if not args.skip_preflight:
         preflight_report = run_preflight(args, is_official_modify, logger)
         report_path = save_preflight_report(preflight_report, args.preflight_report)
@@ -162,8 +185,6 @@ def execute_porting(args, logger: logging.Logger) -> int:
     elif args.preflight_only:
         logger.warning("Ignoring --preflight-only because --skip-preflight is set.")
         return 0
-
-    work_dir, stock_work_dir, port_work_dir, target_work_dir = resolve_work_paths(args.work_dir)
 
     if args.clean:
         clean_work_dir(work_dir, logger)
@@ -183,6 +204,8 @@ def execute_porting(args, logger: logging.Logger) -> int:
     ctx.cache_manager = cache_manager
     ctx.eu_bundle = args.eu_bundle
     ctx.initialize_target(clean_existing=True)
+    if snapshot_manager:
+        snapshot_manager.capture("phase2_initialized", target_work_dir)
 
     stock_device_code = (
         stock.get_prop("ro.product.name_for_attestation")
@@ -205,7 +228,12 @@ def execute_porting(args, logger: logging.Logger) -> int:
 
     phases_to_run = args.phases if args.phases else list(DEFAULT_PHASES)
     run_modification_phases(ctx, phases_to_run, logger)
+    if snapshot_manager:
+        snapshot_manager.capture("phase3_modified", target_work_dir)
+
     run_repacking(ctx, phases_to_run, pack_type, fs_type, target_work_dir, logger)
+    if snapshot_manager and ("repack" in phases_to_run or phases_to_run == DEFAULT_PHASES):
+        snapshot_manager.capture("phase4_repacked", target_work_dir)
 
     logger.info("=" * 70)
     logger.info("Porting completed successfully!")
