@@ -1,0 +1,21 @@
+{
+    "xml_features": {
+        "support_wild_boost": false,
+        "support_NFC": true,
+        "support_infrared": true,
+        "support_AI_display": false,
+        "support_dolby_atmos": true,
+        "support_dolby_vision": true,
+        "support_fod": true
+    },
+    "enable_eu_localization": false,
+    "build_props": {
+        "product": {
+            "ro.product.spoofed.name": "garnetp",
+            "ro.spoofed.device": "garnetp",
+            "persist.prophook.com.xiaomi.joyose": "DEVICE:garnet,PRODUCT:garnetp,MODEL:23122PCD1G",
+            "persist.prophook.com.miui.powerkeeper": "DEVICE:garnet,PRODUCT:garnetp,MODEL:23122PCD1G",
+            "persist.sys.miui.unfairMemory.enable": "false"
+        }
+    }
+}

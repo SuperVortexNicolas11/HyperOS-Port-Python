@@ -1,0 +1,63 @@
+[
+    {
+        "id": "garnet_device_overlays",
+        "description": "Garnet Device Overlays",
+        "type": "file",
+        "search_path": "product/overlay",
+        "match_mode": "exact",
+        "ensure_exists": true,
+        "files": ["DevicesOverlay.apk"]
+    },
+    {
+        "id": "garnet_aosp_framework_overlay",
+        "description": "Garnet AOSP Framework Overlay",
+        "type": "file",
+        "search_path": "product/overlay",
+        "match_mode": "exact",
+        "ensure_exists": true,
+        "files": ["AospFrameworkResOverlay.apk"]
+    },
+    {
+        "id": "garnet_android_overlay",
+        "description": "Garnet Android Overlay",
+        "type": "file",
+        "search_path": "product/overlay",
+        "match_mode": "exact",
+        "ensure_exists": true,
+        "files": ["DevicesAndroidOverlay.apk"]
+    },
+    {
+        "id": "garnet_odm_vintf",
+        "description": "Garnet ODM VINTF Sync (Hardware Interface)",
+        "type": "file",
+        "search_path": "odm/etc/vintf",
+        "match_mode": "glob",
+        "ensure_exists": true,
+        "files": ["manifest_*.xml"]
+    },
+    {
+        "id": "garnet_camera_tuning",
+        "description": "Garnet Camera Tuning and Sensor Module Data",
+        "type": "file",
+        "search_path": "vendor/lib/camera",
+        "match_mode": "glob",
+        "ensure_exists": true,
+        "files": [
+            "com.qti.tuned.garnet_*.bin",
+            "com.qti.sensormodule.garnet_*.bin",
+            "com.qti.flash.lm3644.so"
+        ]
+    },
+    {
+        "id": "garnet_camera_libs",
+        "description": "Garnet Camera Algorithm Libs and Components",
+        "type": "file",
+        "search_path": "vendor/lib64/camera",
+        "match_mode": "glob",
+        "ensure_exists": true,
+        "files": [
+            "*garnet*.so",
+            "*garnet*.bin"
+        ]
+    }
+]
