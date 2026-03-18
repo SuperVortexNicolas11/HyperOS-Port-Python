@@ -7,6 +7,7 @@ import zipfile
 from pathlib import Path
 from typing import TYPE_CHECKING, Dict, List, Optional, Tuple, Union
 
+from src.utils.payload_dumper import PayloadDumperOutput
 from src.utils.shell import ShellRunner
 
 from .constants import ANDROID_LOGICAL_PARTITIONS, RomType
@@ -35,9 +36,7 @@ class RomPackage:
             cache_manager: Optional cache manager for Port ROM caching.
         """
         self.props: Dict[str, str] = {}
-        self.prop_history: Dict[
-            str, List[Tuple[str, str]]
-        ] = {}  # Tracks property history: {key: [(file, value), ...]}
+        self.prop_history: Dict[str, List[Tuple[str, str]]] = {}
         self.path: Path = Path(file_path).resolve()
         self.work_dir: Path = Path(work_dir).resolve()
         self.label: str = label
@@ -45,14 +44,13 @@ class RomPackage:
         self.shell: ShellRunner = ShellRunner()
         self.cache_manager: Optional["PortRomCacheManager"] = cache_manager
 
+        # Payload metadata extracted from --json output
+        self.payload_info: Optional[PayloadDumperOutput] = None
+
         # Directory structure definition
-        self.images_dir: Path = self.work_dir / "images"  # Stores .img files
-        self.extracted_dir: Path = (
-            self.work_dir / "extracted"
-        )  # Stores extracted folders (system, vendor...)
-        self.config_dir: Path = (
-            self.work_dir / "extracted" / "config"
-        )  # Stores fs_config and file_contexts
+        self.images_dir: Path = self.work_dir / "images"
+        self.extracted_dir: Path = self.work_dir / "extracted"
+        self.config_dir: Path = self.work_dir / "extracted" / "config"
 
         self.rom_type: RomType = RomType.UNKNOWN
         self._detect_type()
@@ -199,7 +197,9 @@ class RomPackage:
 
         try:
             if self.rom_type == RomType.PAYLOAD:
-                extract_payload(self, partitions)
+                # Extract with metadata for Stock ROM to enable auto-configuration
+                extract_metadata = self.label == "Stock"
+                self.payload_info = extract_payload(self, partitions, extract_metadata)
             elif self.rom_type == RomType.BROTLI:
                 extract_brotli(self, partitions)
             elif self.rom_type == RomType.FASTBOOT:

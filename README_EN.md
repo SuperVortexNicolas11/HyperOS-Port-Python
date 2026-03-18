@@ -169,7 +169,31 @@ sudo python3 main.py --stock <path_to_stock_zip> --port <path_to_port_zip> --pac
 
 The tool uses a modular JSON-based configuration system.
 
-### 1. Device Configuration (`config.json`)
+### 1. Auto-Configuration
+The tool supports automatic device configuration extraction from the Stock ROM.
+
+- **Trigger**: Automatically triggered when `devices/<device_code>/` directory does not exist
+- **Data Source**: Extracts partition info and metadata via `payload-dumper --json`
+- **Generated Files**:
+  - `config.json` - Device base configuration
+  - `features.json` - Feature toggles and properties
+  - `replacements.json` - Resource replacement rules
+  - `partition_info.json` - Partition layout (dynamic partitions, firmware partitions, super size)
+
+**Example generated partition_info.json**:
+```json
+{
+    "device_code": "myron",
+    "super_size": 14485028864,
+    "dynamic_partitions": [
+        "odm", "product", "system", "system_dlkm",
+        "system_ext", "vendor", "vendor_dlkm", "mi_ext"
+    ],
+    "firmware_partitions": ["abl", "aop", "boot", ...]
+}
+```
+
+### 2. Device Configuration (`config.json`)
 Control device-specific settings including wild_boost, pack type, and KSU.
 - **Location**: `devices/<device_code>/config.json`
 - **Priority**: CLI args > `config.json` > defaults
@@ -195,7 +219,7 @@ Control device-specific settings including wild_boost, pack type, and KSU.
 sudo python3 main.py --stock stock.zip --port port.zip --pack-type super --fs-type ext4
 ```
 
-### 2. Wild Boost Support
+### 3. Wild Boost Support
 Automatically installs performance boost modules based on kernel version.
 
 **Features:**
@@ -211,7 +235,7 @@ Automatically installs performance boost modules based on kernel version.
 - Xiaomi 12S (mayfly) - Kernel 5.10
 - Xiaomi 13 (fuxi) - Kernel 5.15
 
-### 3. Feature Toggles (`features.json`)
+### 4. Feature Toggles (`features.json`)
 Manage system features and properties per device.
 - **Location**: `devices/<device_code>/features.json`
 
@@ -227,7 +251,7 @@ Manage system features and properties per device.
 }
 ```
 
-### 4. Resource Overlays (`replacements.json`)
+### 5. Resource Overlays (`replacements.json`)
 Automate file/directory replacements (e.g., overlays, audio configs).
 ```json
 [

@@ -167,7 +167,31 @@ sudo python3 main.py --stock <底包路径> --port <移植包路径> --pack-type
 
 本项目采用模块化的 JSON 配置系统。
 
-### 1. 设备配置 (`config.json`)
+### 1. 自动设备配置 (Auto-Configuration)
+工具支持从底包 (Stock ROM) 自动提取设备信息并创建设备配置。
+
+- **触发条件**: 当 `devices/<机型代码>/` 目录不存在时自动触发
+- **数据来源**: 通过 `payload-dumper --json` 提取分区信息和元数据
+- **生成文件**:
+  - `config.json` - 设备基本配置
+  - `features.json` - 功能开关和属性
+  - `replacements.json` - 资源替换规则
+  - `partition_info.json` - 分区布局信息（动态分区列表、固件分区列表、super 大小）
+
+**示例生成的 partition_info.json**:
+```json
+{
+    "device_code": "myron",
+    "super_size": 14485028864,
+    "dynamic_partitions": [
+        "odm", "product", "system", "system_dlkm",
+        "system_ext", "vendor", "vendor_dlkm", "mi_ext"
+    ],
+    "firmware_partitions": ["abl", "aop", "boot", ...]
+}
+```
+
+### 2. 设备配置 (`config.json`)
 控制设备特定的设置，包括 wild_boost、打包类型和 KSU。
 - **位置**: `devices/<机型代码>/config.json`
 - **优先级**: CLI 参数 > `config.json` > 默认值
@@ -193,7 +217,7 @@ sudo python3 main.py --stock <底包路径> --port <移植包路径> --pack-type
 sudo python3 main.py --stock stock.zip --port port.zip --pack-type super --fs-type ext4
 ```
 
-### 2. 狂暴引擎支持
+### 3. 狂暴引擎支持
 根据内核版本自动安装性能增强模块。
 
 **功能特性:**
@@ -209,7 +233,7 @@ sudo python3 main.py --stock stock.zip --port port.zip --pack-type super --fs-ty
 - 小米 12S (mayfly) - 内核 5.10
 - 小米 13 (fuxi) - 内核 5.15
 
-### 3. 特性开关 (`features.json`)
+### 4. 特性开关 (`features.json`)
 管理每个设备的系统特性和属性。
 - **位置**: `devices/<机型代码>/features.json`
 
@@ -225,7 +249,7 @@ sudo python3 main.py --stock stock.zip --port port.zip --pack-type super --fs-ty
 }
 ```
 
-### 4. 资源 overlays (`replacements.json`)
+### 5. 资源 overlays (`replacements.json`)
 自动化文件/目录替换（如 overlays、音频配置等）。
 ```json
 [
