@@ -532,7 +532,7 @@ class PropertyModifier(ModifierPlugin):
         if platform in config:
             target_props = config[platform]
         elif platform == "unknown" and android_ver == "16" and "android_16" in config:
-            target_props = config["android_15"]
+            target_props = config["android_16"]
         else:
             target_props = config.get("default", {})
 
