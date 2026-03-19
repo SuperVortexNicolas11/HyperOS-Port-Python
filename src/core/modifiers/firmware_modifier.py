@@ -21,9 +21,7 @@ class FirmwareModifier(BaseModifier):
         self.bin_dir = Path("bin").resolve()
 
         if not self.ctx.tools.magiskboot.exists():
-            self.logger.error(
-                f"magiskboot binary not found at {self.ctx.tools.magiskboot}"
-            )
+            self.logger.error(f"magiskboot binary not found at {self.ctx.tools.magiskboot}")
             return
 
         self.assets_dir = self.bin_dir.parent / "assets"
@@ -39,9 +37,7 @@ class FirmwareModifier(BaseModifier):
 
         # Make these values configurable via device config
         if hasattr(self.ctx, "device_config") and self.ctx.device_config:
-            self.repo_owner = self.ctx.device_config.get(
-                "ksu_repo_owner", self.repo_owner
-            )
+            self.repo_owner = self.ctx.device_config.get("ksu_repo_owner", self.repo_owner)
             self.repo_name = self.ctx.device_config.get("ksu_repo_name", self.repo_name)
             self.ksu_config_url_template = self.ctx.device_config.get(
                 "ksu_gh_api_url_template",
@@ -62,15 +58,8 @@ class FirmwareModifier(BaseModifier):
         kmi_version = self._get_kmi_version()
         if kmi_version:
             self.logger.info(f"Detected KMI Version: {kmi_version}")
-            if kmi_version == "android16-6.12":
-                self.logger.info(
-                    "KMI android16-6.12 detected. Skipping vbmeta patching and modifying vendor_boot fstab instead."
-                )
-                self._patch_vendor_boot_fstab()
-            else:
-                self._patch_vbmeta()
-        else:
-            self._patch_vbmeta()
+
+        self._patch_vbmeta()
 
         if getattr(self.ctx, "enable_ksu", False):
             self._patch_ksu(kmi_version)
@@ -94,195 +83,33 @@ class FirmwareModifier(BaseModifier):
 
         return self._analyze_kmi(analysis_target)
 
-    def _patch_vendor_boot_fstab(self):
-        """Modify fstab in vendor_boot to disable AVB for KMI 6.12."""
-        self.logger.info("Patching vendor_boot fstab...")
-        vendor_boot = self.ctx.repack_images_dir / "vendor_boot.img"
-        if not vendor_boot.exists():
-            self.logger.warning("vendor_boot.img not found, skipping fstab patch.")
-            return
-
-        with tempfile.TemporaryDirectory(prefix="vendor_boot_patch_") as tmp:
-            tmp_path = Path(tmp)
-            shutil.copy(vendor_boot, tmp_path / "vendor_boot.img")
-
-            try:
-                self.shell.run(
-                    [str(self.ctx.tools.magiskboot), "unpack", "vendor_boot.img"],
-                    cwd=tmp_path,
-                )
-            except Exception as e:
-                self.logger.error(f"Failed to unpack vendor_boot.img: {e}")
-                return
-
-            ramdisk = tmp_path / "ramdisk.cpio"
-            if not ramdisk.exists():
-                self.logger.error("ramdisk.cpio not found in vendor_boot")
-                return
-
-            # Attempt to decompress the ramdisk explicitly, as 'raw' format in v4 images
-            # might still be compressed in a way magiskboot cpio doesn't auto-detect.
-            try:
-                self.shell.run(
-                    [
-                        str(self.ctx.tools.magiskboot),
-                        "decompress",
-                        "ramdisk.cpio",
-                        "ramdisk.cpio.dec",
-                    ],
-                    cwd=tmp_path,
-                )
-                if (tmp_path / "ramdisk.cpio.dec").exists():
-                    shutil.move(tmp_path / "ramdisk.cpio.dec", ramdisk)
-                    self.logger.info("Successfully decompressed vendor_boot ramdisk.")
-            except Exception:
-                # If decompression fails, it might actually be raw, so we continue
-                pass
-
-            # Extract all files to find fstab using system cpio if magiskboot fails
-            extract_dir = tmp_path / "extracted_ramdisk"
-            extract_dir.mkdir(parents=True, exist_ok=True)
-            try:
-                # Try system cpio first as it is often more robust for extraction
-                self.shell.run(
-                    f"cpio -id < {ramdisk}",
-                    cwd=extract_dir,
-                    shell=True
-                )
-            except Exception as e:
-                self.logger.warning(f"System cpio failed, trying magiskboot cpio: {e}")
-                try:
-                    self.shell.run(
-                        [str(self.ctx.tools.magiskboot), "cpio", "ramdisk.cpio", "extract"],
-                        cwd=extract_dir,
-                    )
-                except Exception as e2:
-                    self.logger.error(f"Both cpio methods failed: {e2}")
-                    return
-
-            fstab_files = list(extract_dir.rglob("fstab.*"))
-            if not fstab_files:
-                self.logger.info("No fstab files found in vendor_boot ramdisk.")
-
-            patched = False
-            for fstab_path in fstab_files:
-                # Use relative path for entry name in cpio
-                fstab_entry_name = str(fstab_path.relative_to(extract_dir))
-                self.logger.info(f"Checking {fstab_entry_name} in vendor_boot ramdisk...")
-                
-                with open(fstab_path, "r") as f:
-                    content = f.read()
-
-                new_content = self._disable_avb_verify(content)
-
-                if new_content != content:
-                    with open(fstab_path, "w") as f:
-                        f.write(new_content)
-
-                    # Add back to ramdisk
-                    # magiskboot cpio <cpio> 'add MODE ENTRY INFILE'
-                    self.shell.run(
-                        [
-                            str(self.ctx.tools.magiskboot),
-                            "cpio",
-                            "ramdisk.cpio",
-                            f"add 0644 {fstab_entry_name} {fstab_path}",
-                        ],
-                        cwd=tmp_path,
-                    )
-                    patched = True
-                    self.logger.info(f"Successfully patched {fstab_entry_name} in vendor_boot.")
-
-            # Also patch DTB if it exists
-            dtb_file = tmp_path / "dtb"
-            if dtb_file.exists():
-                self.logger.info("Found DTB in vendor_boot, attempting optional fstab patch...")
-                # Note: magiskboot dtb patch might fail if it doesn't find fstab nodes,
-                # we set check=False to avoid error logs in ShellRunner.
-                try:
-                    res = self.shell.run(
-                        [str(self.ctx.tools.magiskboot), "dtb", "dtb", "patch"],
-                        cwd=tmp_path,
-                        check=False,
-                        capture_output=True
-                    )
-                    if res.returncode == 0:
-                        patched = True
-                        self.logger.info("DTB fstab nodes patched successfully.")
-                    else:
-                        self.logger.info("No patchable fstab nodes found in DTB, skipping.")
-                except Exception as e:
-                    self.logger.debug(f"Optional DTB patch failed: {e}")
-
-            if patched:
-                self.logger.info("Repacking vendor_boot.img...")
-                # magiskboot repack will automatically compress ramdisk.cpio 
-                # based on the format detected in the original vendor_boot.img
-                try:
-                    self.shell.run(
-                        [str(self.ctx.tools.magiskboot), "repack", "vendor_boot.img"],
-                        cwd=tmp_path,
-                    )
-                    new_img = tmp_path / "new-boot.img"
-                    if new_img.exists():
-                        shutil.move(new_img, vendor_boot)
-                        self.logger.info("vendor_boot.img repacked with patched fstab.")
-                    else:
-                        self.logger.error("Failed to repack vendor_boot.img: new-boot.img not found")
-                except Exception as e:
-                    self.logger.error(f"Failed to repack vendor_boot.img: {e}")
-
-    def _disable_avb_verify(self, content: str) -> str:
-        """Port of the shell function disable_avb_verify.
-        
-        Original logic:
-        sed -i "s/,avb_keys=.*avbpubkey//g" $fstab
-        sed -i "s/,avb=vbmeta_system//g" $fstab
-        sed -i "s/,avb=vbmeta_vendor//g" $fstab
-        sed -i "s/,avb=vbmeta//g" $fstab
-        sed -i "s/,avb//g" $fstab
-        """
-        # Remove avb_keys pattern
-        content = re.sub(r",avb_keys=[^, \n]*avbpubkey", "", content)
-        # Remove specific avb flags
-        content = re.sub(r",avb=vbmeta_system", "", content)
-        # Handle some variations that might exist
-        content = re.sub(r",avb=vbmeta_vendor", "", content)
-        content = re.sub(r",avb=vbmeta", "", content)
-        content = re.sub(r",avb", "", content)
-        
-        return content
-
     def _patch_vbmeta(self):
-        """Patch vbmeta images to disable AVB."""
-        self.logger.info("Patching vbmeta images (Disabling AVB)...")
+        """Patch vbmeta.img to disable AVB."""
+        self.logger.info("Patching vbmeta.img (Disabling AVB)...")
 
-        vbmeta_images = list(self.ctx.target_dir.rglob("vbmeta*.img"))
+        vbmeta_img = self.ctx.target_dir / "repack_images" / "vbmeta.img"
 
-        if not vbmeta_images:
-            self.logger.warning("No vbmeta images found in target directory.")
+        if not vbmeta_img.exists():
+            self.logger.warning("vbmeta.img not found in repack_images directory.")
             return
 
         AVB_MAGIC = b"AVB0"
         FLAGS_OFFSET = 123
         FLAGS_TO_SET = b"\x03"
 
-        for img_path in vbmeta_images:
-            try:
-                with open(img_path, "r+b") as f:
-                    magic = f.read(4)
-                    if magic != AVB_MAGIC:
-                        self.logger.warning(
-                            f"Skipping {img_path.name}: Invalid AVB Magic"
-                        )
-                        continue
+        try:
+            with open(vbmeta_img, "r+b") as f:
+                magic = f.read(4)
+                if magic != AVB_MAGIC:
+                    self.logger.warning(f"Skipping {vbmeta_img.name}: Invalid AVB Magic")
+                    return
 
-                    f.seek(FLAGS_OFFSET)
-                    f.write(FLAGS_TO_SET)
-                    self.logger.info(f"Successfully patched: {img_path.name}")
+                f.seek(FLAGS_OFFSET)
+                f.write(FLAGS_TO_SET)
+                self.logger.info(f"Successfully patched: {vbmeta_img.name}")
 
-            except Exception as e:
-                self.logger.error(f"Failed to patch {img_path.name}: {e}")
+        except Exception as e:
+            self.logger.error(f"Failed to patch {vbmeta_img.name}: {e}")
 
     def _patch_ksu(self, kmi_version: Optional[str] = None):
         """Patch KernelSU into boot image."""
@@ -298,9 +125,7 @@ class FirmwareModifier(BaseModifier):
             patch_target = target_boot
 
         if not patch_target:
-            self.logger.warning(
-                "Neither init_boot.img nor boot.img found, skipping KSU patch."
-            )
+            self.logger.warning("Neither init_boot.img nor boot.img found, skipping KSU patch.")
             return
 
         if not self.ctx.tools.magiskboot.exists():
@@ -308,9 +133,7 @@ class FirmwareModifier(BaseModifier):
             return
 
         if not kmi_version:
-            kmi_version = self._analyze_kmi(
-                target_boot if target_boot.exists() else patch_target
-            )
+            kmi_version = self._analyze_kmi(target_boot if target_boot.exists() else patch_target)
 
         if not kmi_version:
             self.logger.error("Failed to determine KMI version.")
@@ -331,9 +154,7 @@ class FirmwareModifier(BaseModifier):
             shutil.copy(boot_img, tmp_path / "boot.img")
 
             try:
-                self.shell.run(
-                    [str(self.ctx.tools.magiskboot), "unpack", "boot.img"], cwd=tmp_path
-                )
+                self.shell.run([str(self.ctx.tools.magiskboot), "unpack", "boot.img"], cwd=tmp_path)
             except Exception as e:
                 self.logger.debug(f"Magiskboot unpack failed: {e}")
                 return None
@@ -378,15 +199,11 @@ class FirmwareModifier(BaseModifier):
             ko_file_expected = self.ctx.device_config.get(
                 "ksu_module_filename", f"{kmi_version}_kernelsu.ko"
             )
-            init_file_expected = self.ctx.device_config.get(
-                "ksu_init_filename", "ksuinit"
-            )
+            init_file_expected = self.ctx.device_config.get("ksu_init_filename", "ksuinit")
             ko_asset_name_pattern = self.ctx.device_config.get(
                 "ksu_module_asset_pattern", f"{kmi_version}_kernelsu.ko"
             )
-            init_asset_name = self.ctx.device_config.get(
-                "ksu_init_asset_name", "ksuinit"
-            )
+            init_asset_name = self.ctx.device_config.get("ksu_init_asset_name", "ksuinit")
         else:
             ko_file_expected = f"{kmi_version}_kernelsu.ko"
             init_file_expected = "ksuinit"
@@ -451,9 +268,7 @@ class FirmwareModifier(BaseModifier):
             tmp_path = Path(tmp)
             shutil.copy(target_img, tmp_path / "boot.img")
 
-            self.shell.run(
-                [str(self.ctx.tools.magiskboot), "unpack", "boot.img"], cwd=tmp_path
-            )
+            self.shell.run([str(self.ctx.tools.magiskboot), "unpack", "boot.img"], cwd=tmp_path)
 
             ramdisk = tmp_path / "ramdisk.cpio"
             if not ramdisk.exists():
@@ -492,15 +307,11 @@ class FirmwareModifier(BaseModifier):
                 cwd=tmp_path,
             )
 
-            self.shell.run(
-                [str(self.ctx.tools.magiskboot), "repack", "boot.img"], cwd=tmp_path
-            )
+            self.shell.run([str(self.ctx.tools.magiskboot), "repack", "boot.img"], cwd=tmp_path)
 
             new_img = tmp_path / "new-boot.img"
             if new_img.exists():
                 shutil.move(new_img, target_img)
-                self.logger.info(
-                    f"KernelSU injected successfully into {target_img.name}."
-                )
+                self.logger.info(f"KernelSU injected successfully into {target_img.name}.")
             else:
                 self.logger.error(f"Failed to repack {target_img.name}")

@@ -14,7 +14,7 @@ A HyperOS ROM porting tool for Xiaomi/Redmi devices. It covers the common workfl
 - 🛠️ **Workflow Automation**: From stock/port ZIPs to flashable output in one pipeline.
 - 💉 **System Patching**: Rule-based modifications for firmware, system, framework, and ROM properties.
 - 🧬 **GKI Support**: KernelSU injection support for GKI 2.0 (5.10+) and standard GKI devices.
-- 🔓 **Android 16 Ready**: Specialized `vendor_boot` fstab patching for KMI 6.12 to prevent fastboot bootloops.
+- 🔓 **AVB Disabling**: Disables Android Verified Boot (AVB) by directly patching `vbmeta.img`, avoiding DSU compatibility issues caused by fstab modifications.
 - 🚀 **Wild Boost (Rage Engine)**: Ports the Redmi-specific rage engine to Xiaomi targets; requires matching kernel versions. Currently validated on Xiaomi 12S and Xiaomi 13.
 - 🧩 **Modular Configuration**: Toggle features (AOD, AI Engine, etc.) via simple JSON files.
 - 🌏 **EU Localization**: Restore China-exclusive features (NFC, XiaoAi) to Global/EU bases.
