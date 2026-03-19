@@ -499,6 +499,8 @@ class PropertyModifier(ModifierPlugin):
                         return "sm8450"
                     if "sm8250" in content:
                         return "sm8250"
+                    if "sm7435" in content: 
+                        return "sm7435"
                 except (IOError, OSError):
                     pass  # Ignore file access errors when detecting platform
             return "unknown"
@@ -529,7 +531,7 @@ class PropertyModifier(ModifierPlugin):
 
         if platform in config:
             target_props = config[platform]
-        elif platform == "unknown" and android_ver == "15" and "android_15" in config:
+        elif platform == "unknown" and android_ver == "16" and "android_16" in config:
             target_props = config["android_15"]
         else:
             target_props = config.get("default", {})
