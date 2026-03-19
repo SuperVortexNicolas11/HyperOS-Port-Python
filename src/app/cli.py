@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 from typing import Sequence
 
 VALID_PHASES = ("system", "apk", "framework", "firmware", "repack")
@@ -124,6 +125,26 @@ def normalize_phases(phases: Sequence[str] | None) -> list[str] | None:
     return expanded
 
 
+def _is_remote_input(value: str | None) -> bool:
+    """Return whether an input path is a remote URL."""
+    if not value:
+        return False
+    lowered = value.lower()
+    return lowered.startswith("http://") or lowered.startswith("https://")
+
+
+def _validate_local_input_path(
+    parser: argparse.ArgumentParser, *, value: str | None, label: str
+) -> None:
+    """Validate local input paths at CLI parse stage for faster failure."""
+    if not value or _is_remote_input(value):
+        return
+
+    resolved = Path(value).expanduser().resolve()
+    if not resolved.exists():
+        parser.error(f"--{label} path does not exist: {resolved}")
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = build_parser()
@@ -136,5 +157,9 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
             parser.error(
                 f"invalid choice: {', '.join(invalid)} (choose from {', '.join(VALID_PHASES)})"
             )
+
+    _validate_local_input_path(parser, value=args.stock, label="stock")
+    _validate_local_input_path(parser, value=args.port, label="port")
+    _validate_local_input_path(parser, value=args.eu_bundle, label="eu-bundle")
 
     return args

@@ -3,22 +3,43 @@ import pytest
 from src.app.cli import parse_args
 
 
-def test_parse_args_expands_comma_separated_phases():
-    args = parse_args(["--stock", "stock.zip", "--phases", "system,apk", "framework"])
+def test_parse_args_rejects_missing_local_port_path(tmp_path):
+    stock = tmp_path / "stock.zip"
+    stock.write_bytes(b"stub")
+
+    with pytest.raises(SystemExit):
+        parse_args(["--stock", str(stock), "--port", str(tmp_path / "missing-port.zip")])
+
+
+def test_parse_args_allows_remote_port_path():
+    args = parse_args(["--stock", "https://example.com/stock.zip", "--port", "https://example.com/port.zip"])
+
+    assert args.stock == "https://example.com/stock.zip"
+    assert args.port == "https://example.com/port.zip"
+
+
+def test_parse_args_expands_comma_separated_phases(tmp_path):
+    stock = tmp_path / "stock.zip"
+    stock.write_bytes(b"stub")
+    args = parse_args(["--stock", str(stock), "--phases", "system,apk", "framework"])
 
     assert args.phases == ["system", "apk", "framework"]
 
 
-def test_parse_args_rejects_invalid_phase():
+def test_parse_args_rejects_invalid_phase(tmp_path):
+    stock = tmp_path / "stock.zip"
+    stock.write_bytes(b"stub")
     with pytest.raises(SystemExit):
-        parse_args(["--stock", "stock.zip", "--phases", "system,invalid"])
+        parse_args(["--stock", str(stock), "--phases", "system,invalid"])
 
 
-def test_parse_args_accepts_preflight_flags():
+def test_parse_args_accepts_preflight_flags(tmp_path):
+    stock = tmp_path / "stock.zip"
+    stock.write_bytes(b"stub")
     args = parse_args(
         [
             "--stock",
-            "stock.zip",
+            str(stock),
             "--preflight-only",
             "--preflight-report",
             "out/preflight.json",
@@ -31,11 +52,13 @@ def test_parse_args_accepts_preflight_flags():
     assert args.preflight_report == "out/preflight.json"
 
 
-def test_parse_args_accepts_snapshot_flags():
+def test_parse_args_accepts_snapshot_flags(tmp_path):
+    stock = tmp_path / "stock.zip"
+    stock.write_bytes(b"stub")
     args = parse_args(
         [
             "--stock",
-            "stock.zip",
+            str(stock),
             "--enable-snapshots",
             "--snapshot-dir",
             "build/snapshots",
@@ -49,11 +72,13 @@ def test_parse_args_accepts_snapshot_flags():
     assert args.rollback_to_snapshot == "phase3_modified"
 
 
-def test_parse_args_accepts_diff_report_flags():
+def test_parse_args_accepts_diff_report_flags(tmp_path):
+    stock = tmp_path / "stock.zip"
+    stock.write_bytes(b"stub")
     args = parse_args(
         [
             "--stock",
-            "stock.zip",
+            str(stock),
             "--enable-diff-report",
             "--diff-report",
             "out/diff-report.json",

@@ -95,7 +95,8 @@ class FirmwareModifier(BaseModifier):
 
         AVB_MAGIC = b"AVB0"
         FLAGS_OFFSET = 123
-        FLAGS_TO_SET = b"\x03"
+        # Use AVB flag 0x01 to avoid fastboot bootloop issues on Android 16 base builds.
+        FLAGS_TO_SET = b"\x01"
 
         try:
             with open(vbmeta_img, "r+b") as f:
