@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import os
-import sys
-import re
 import argparse
 import logging
+import os
+import re
+import sys
 
 
 class SmaliArgs:
@@ -25,6 +25,7 @@ class SmaliArgs:
         self.insert_line = None
         self.recursive = False
         self.return_type = None
+        self.append_method = None
 
         # Override default values with passed keyword arguments
         self.__dict__.update(kwargs)
@@ -45,6 +46,7 @@ class SmaliKit:
         self.args = args
         self.target_method = args.method
         self.seek_keyword = args.seek_keyword
+        self.append_method = getattr(args, "append_method", None)
         self.logger = logger or logging.getLogger("SmaliKit")
 
         # 1. If -m is specified, method name match must be satisfied first
@@ -61,17 +63,46 @@ class SmaliKit:
         elif self.seek_keyword:
             method_name_pattern = r".*?"
 
+        # 3. Allow file-level append without method targeting
+        elif self.append_method:
+            method_name_pattern = None
+
         else:
             self.logger.error("You must provide either -m (Method Name) or -seek (Keyword search)")
             sys.exit(1)
 
         # Compile regex
-        self.method_pattern = re.compile(
-            r"(?P<header>^\s*\.method[^\n\r]*?\s%s[^\n\r]*)"
-            r"(?P<body>.*?)"
-            r"(?P<footer>^\s*\.end method)" % method_name_pattern,
-            re.DOTALL | re.MULTILINE,
-        )
+        if method_name_pattern is None:
+            self.method_pattern = None
+        else:
+            self.method_pattern = re.compile(
+                r"(?P<header>^\s*\.method[^\n\r]*?\s%s[^\n\r]*)"
+                r"(?P<body>.*?)"
+                r"(?P<footer>^\s*\.end method)" % method_name_pattern,
+                re.DOTALL | re.MULTILINE,
+            )
+
+    def _apply_append_method(self, content):
+        append_spec = self.append_method
+        if not append_spec:
+            return content, False
+
+        if not isinstance(append_spec, (tuple, list)) or len(append_spec) != 2:
+            self.log("[ERROR] append_method must be a (signature, method_block) pair", Colors.FAIL)
+            return content, False
+
+        method_signature, method_block = append_spec
+        if not method_signature or not method_block:
+            self.log("[ERROR] append_method signature/method_block cannot be empty", Colors.FAIL)
+            return content, False
+
+        if method_signature in content:
+            return content, False
+
+        normalized_block = method_block.replace("\\n", "\n").strip("\n")
+        new_content = f"{content.rstrip()}\n\n{normalized_block}\n"
+        self.log(f"  -> [SUCCESS] Appended method: {method_signature}", Colors.OKGREEN)
+        return new_content, True
 
     def log(self, message, color=Colors.ENDC):
         # Log to the logger, stripping color codes if it's going to a file (optional)
@@ -159,10 +190,7 @@ class SmaliKit:
         return new_body, is_modified
 
     def process_content(self, content, file_path):
-        matches = list(self.method_pattern.finditer(content))
-
-        if not matches:
-            return content, False
+        matches = list(self.method_pattern.finditer(content)) if self.method_pattern else []
 
         file_modified = False
         replacements = []
@@ -188,7 +216,7 @@ class SmaliKit:
             )
 
             if self.args.delete_method:
-                self.log(f"  -> Applying -dm (Delete Method)...", Colors.FAIL)
+                self.log("  -> Applying -dm (Delete Method)...", Colors.FAIL)
                 replacements.append((full_block, ""))
                 file_modified = True
                 continue
@@ -205,7 +233,8 @@ class SmaliKit:
         for old, new in replacements:
             new_content = new_content.replace(old, new, 1)
 
-        return new_content, file_modified
+        new_content, appended = self._apply_append_method(new_content)
+        return new_content, file_modified or appended
 
     def walk_and_patch(self, start_path):
         if os.path.isfile(start_path):
@@ -280,6 +309,13 @@ def main():
     parser.add_argument("-recursive", dest="recursive", action="store_true")
     parser.add_argument(
         "-ret", dest="return_type", help="Filter by Smali return type (e.g. Z, V, I)"
+    )
+    parser.add_argument(
+        "-am",
+        dest="append_method",
+        nargs=2,
+        metavar=("METHOD_SIGNATURE", "METHOD_BODY"),
+        help="Append method if METHOD_SIGNATURE does not exist",
     )
 
     args, unknown = parser.parse_known_args()

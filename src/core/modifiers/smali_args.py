@@ -20,5 +20,6 @@ class SmaliArgs:
         self.insert_line = None
         self.recursive = False
         self.return_type = None
+        self.append_method = None
         
         self.__dict__.update(kwargs)

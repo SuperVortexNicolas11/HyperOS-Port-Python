@@ -1,8 +1,6 @@
 """HTMLViewer modification plugin for EU ROMs."""
 
-import re
 from pathlib import Path
-from typing import Optional
 
 from src.core.modifiers.plugins.apk.base import ApkModifierPlugin, ApkModifierRegistry
 
@@ -35,7 +33,7 @@ class HTMLViewerModifier(ApkModifierPlugin):
         self._patch_device_info_utils(work_dir)
 
     def _patch_device_info_utils(self, work_dir: Path):
-        smali_file = self._find_smali_file(work_dir, "MiuiDeviceInfoUtils$AsyncTask.smali")
+        smali_file = self._find_file(work_dir, "MiuiDeviceInfoUtils$AsyncTask.smali")
 
         if not smali_file:
             self.logger.warning("MiuiDeviceInfoUtils$AsyncTask.smali not found")
@@ -49,8 +47,7 @@ class HTMLViewerModifier(ApkModifierPlugin):
 
         self.logger.info("Patching MiuiDeviceInfoUtils$AsyncTask.smali...")
 
-        new_method = """.method protected varargs doInBackground([Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 16
+        do_in_background_remake = """.locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -265,7 +262,6 @@ class HTMLViewerModifier(ApkModifierPlugin):
     move-object/from16 v5, p0
     :goto_a
     return-object v4
-.end method
 """
 
         helper_method = """.method private getLocalizedValue(Ljava/lang/Object;)Ljava/lang/String;
@@ -314,20 +310,18 @@ class HTMLViewerModifier(ApkModifierPlugin):
 .end method
 """
 
-        old_method_pattern = (
-            r"\.method protected varargs doInBackground\(\[Landroid/util/Pair;\)Ljava/lang/Object;.*?"
-            r"\.end method"
+        helper_signature = "getLocalizedValue(Ljava/lang/Object;)Ljava/lang/String;"
+        self.smali_patch(
+            work_dir,
+            file_path=str(smali_file),
+            method="doInBackground",
+            return_type="Ljava/lang/Object;",
+            remake=do_in_background_remake,
+        )
+        self.smali_patch(
+            work_dir,
+            file_path=str(smali_file),
+            append_method=(helper_signature, helper_method),
         )
 
-        replacement = f"{new_method}{helper_method}"
-
-        content = re.sub(old_method_pattern, replacement, content, flags=re.DOTALL)
-
-        smali_file.write_text(content, encoding="utf-8")
         self.logger.info("Patched MiuiDeviceInfoUtils$AsyncTask.smali successfully")
-
-    def _find_smali_file(self, work_dir: Path, filename: str) -> Optional[Path]:
-        for smali_dir in work_dir.glob("smali*"):
-            for f in smali_dir.rglob(filename):
-                return f
-        return None
