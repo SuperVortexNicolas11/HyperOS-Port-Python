@@ -3,7 +3,7 @@
     "hwc": "CN",
     "basic": {
       "cpu": {
-        "zh": "骁龙 8 至尊版 Gen 5",
+        "zh": "第五代骁龙®8至尊版移动平台",
         "en": "Snapdragon 8 Elite Gen 5"
       },
       "battery": "7000mAh",
@@ -26,7 +26,7 @@
     "hwc": ["GL", "IN"],
     "basic": {
       "cpu": {
-        "zh": "骁龙 8 至尊版 Gen 5",
+        "zh": "第五代骁龙®8至尊版移动平台",
         "en": "Snapdragon 8 Elite Gen 5"
       },
       "battery": "6330mAh",
