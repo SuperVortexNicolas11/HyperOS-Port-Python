@@ -11,14 +11,16 @@ from src.core.modifiers.plugins.apk.settings import SettingsModifier
 from src.core.modifiers.plugins.apk.joyose import JoyoseModifier
 from src.core.modifiers.plugins.apk.powerkeeper import PowerKeeperModifier
 from src.core.modifiers.plugins.apk.devices_overlay import DevicesOverlayModifier
+from src.core.modifiers.plugins.apk.htmlviewer import HTMLViewerModifier
 
 __all__ = [
-    'ApkModifierPlugin',
-    'ApkModifierRegistry',
-    'InstallerModifier',
-    'SecurityCenterModifier',
-    'SettingsModifier',
-    'JoyoseModifier',
-    'PowerKeeperModifier',
-    'DevicesOverlayModifier',
+    "ApkModifierPlugin",
+    "ApkModifierRegistry",
+    "InstallerModifier",
+    "SecurityCenterModifier",
+    "SettingsModifier",
+    "JoyoseModifier",
+    "PowerKeeperModifier",
+    "DevicesOverlayModifier",
+    "HTMLViewerModifier",
 ]
