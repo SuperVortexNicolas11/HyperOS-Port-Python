@@ -226,7 +226,7 @@ class HTMLViewerModifier(ApkModifierPlugin):
     :catch_0
     :try_start_4
     const-string v2, "false"
-    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v3, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
     :catch_1
     :cond_c
     :goto_8
@@ -276,14 +276,14 @@ class HTMLViewerModifier(ApkModifierPlugin):
     if-eqz v0, :cond_3
     check-cast p1, Lorg/json/JSONObject;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-    move-result-object v0
-    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    move-result-object v3
+    invoke-virtual {v3}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
     move-result-object v0
     const-string v1, "zh"
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     move-result v1
     if-eqz v1, :cond_0
-    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
     move-result-object v1
     const-string v2, "TW"
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
