@@ -2,7 +2,13 @@ from argparse import Namespace
 from unittest.mock import MagicMock, patch
 
 from src.app.bootstrap import initialize_cache_manager
-from src.app.workflow import DEFAULT_PHASES, execute_porting, run_modification_phases
+from src.app.workflow import (
+    DEFAULT_PHASES,
+    build_super_size_check,
+    execute_porting,
+    inject_super_size_check_into_diff_report,
+    run_modification_phases,
+)
 
 
 def make_args(**overrides):
@@ -134,7 +140,7 @@ def test_execute_porting_uses_default_phase_list():
         patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
         patch("src.app.workflow.RomPackage") as rom_package_cls,
         patch("src.app.workflow.PortingContext") as porting_context_cls,
-        patch("src.app.workflow.load_device_config", return_value={}),
+        patch("src.app.workflow.get_or_create_device_config", return_value={}),
         patch("src.app.workflow.determine_pack_settings", return_value=("payload", "erofs")),
         patch("src.app.workflow.run_modification_phases") as run_modification_phases_mock,
         patch("src.app.workflow.run_repacking"),
@@ -223,7 +229,7 @@ def test_execute_porting_captures_snapshots_when_enabled():
         patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
         patch("src.app.workflow.RomPackage") as rom_package_cls,
         patch("src.app.workflow.PortingContext") as porting_context_cls,
-        patch("src.app.workflow.load_device_config", return_value={}),
+        patch("src.app.workflow.get_or_create_device_config", return_value={}),
         patch("src.app.workflow.determine_pack_settings", return_value=("payload", "erofs")),
         patch("src.app.workflow.run_modification_phases"),
         patch("src.app.workflow.run_repacking"),
@@ -267,7 +273,7 @@ def test_execute_porting_generates_diff_report_when_enabled():
         patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
         patch("src.app.workflow.RomPackage") as rom_package_cls,
         patch("src.app.workflow.PortingContext") as porting_context_cls,
-        patch("src.app.workflow.load_device_config", return_value={}),
+        patch("src.app.workflow.get_or_create_device_config", return_value={}),
         patch("src.app.workflow.determine_pack_settings", return_value=("payload", "erofs")),
         patch("src.app.workflow.run_modification_phases"),
         patch("src.app.workflow.run_repacking"),
@@ -323,3 +329,112 @@ def test_execute_porting_generates_diff_report_when_enabled():
     logger.warning.assert_any_call(
         "Artifact diff risk flags: %s", "HIGH_IMPACT_PATH_CHANGED"
     )
+
+
+def test_execute_porting_persists_super_size_mismatch_in_diff_report(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    logger = MagicMock()
+    args = make_args(enable_diff_report=True)
+    device_code = "fuxi"
+    info_dir = tmp_path / "devices" / device_code
+    info_dir.mkdir(parents=True, exist_ok=True)
+    (info_dir / "partition_info.json").write_text(
+        '{"device_code":"fuxi","super_size":12345}',
+        encoding="utf-8",
+    )
+
+    with (
+        patch("src.app.workflow.initialize_cache_manager") as bootstrap,
+        patch("src.app.workflow.log_run_configuration"),
+        patch("src.app.workflow.OtaToolsManager") as otatools_manager_cls,
+        patch("src.app.workflow.resolve_remote_inputs"),
+        patch("src.app.workflow.run_preflight") as run_preflight_mock,
+        patch("src.app.workflow.save_preflight_report"),
+        patch("src.app.workflow.resolve_work_paths") as resolve_work_paths,
+        patch("src.app.workflow.RomPackage") as rom_package_cls,
+        patch("src.app.workflow.PortingContext") as porting_context_cls,
+        patch(
+            "src.app.workflow.get_or_create_device_config",
+            return_value={"pack": {"super_size": 54321}},
+        ),
+        patch("src.app.workflow.determine_pack_settings", return_value=("payload", "erofs")),
+        patch("src.app.workflow.run_modification_phases"),
+        patch("src.app.workflow.run_repacking"),
+        patch("src.app.workflow.collect_artifact_state") as collect_artifact_state_mock,
+        patch(
+            "src.app.workflow.generate_diff_report",
+            return_value={
+                "summary": {"risk_flags": 0},
+                "highlights": {"risk_flags": []},
+            },
+        ),
+        patch("src.app.workflow.save_diff_report") as save_diff_report_mock,
+    ):
+        bootstrap.return_value.exit_code = None
+        bootstrap.return_value.cache_manager = None
+        otatools_manager_cls.return_value.ensure_otatools.return_value = True
+        run_preflight_mock.return_value.has_failures.return_value = False
+        resolve_work_paths.return_value = (
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+            MagicMock(),
+        )
+
+        stock = rom_package_cls.return_value
+        stock.rom_type.name = "PAYLOAD"
+        stock.payload_info = MagicMock()
+        stock.props = {}
+        stock.get_prop.return_value = device_code
+
+        porting_context = porting_context_cls.return_value
+        porting_context.stock = stock
+        porting_context.device_config = {}
+        collect_artifact_state_mock.side_effect = [{"files": {}}, {"files": {"a": {}}}]
+
+        assert execute_porting(args, logger) == 0
+
+    saved_report = save_diff_report_mock.call_args.args[0]
+    super_check = saved_report["checks"]["super_size"]
+    assert super_check["mismatch"] is True
+    risk_flags = saved_report["highlights"]["risk_flags"]
+    assert any(flag.get("code") == "SUPER_SIZE_MISMATCH" for flag in risk_flags)
+
+
+def test_build_super_size_check_detects_mismatch(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    device_code = "fuxi"
+    info_dir = tmp_path / "devices" / device_code
+    info_dir.mkdir(parents=True, exist_ok=True)
+    (info_dir / "partition_info.json").write_text(
+        '{"device_code":"fuxi","super_size":12345}',
+        encoding="utf-8",
+    )
+
+    check = build_super_size_check(device_code, {"pack": {"super_size": 54321}})
+
+    assert check["partition_info_exists"] is True
+    assert check["partition_info_super_size"] == 12345
+    assert check["device_config_super_size"] == 54321
+    assert check["mismatch"] is True
+
+
+def test_inject_super_size_check_into_diff_report_adds_risk_flag_on_mismatch():
+    diff_report = {
+        "summary": {"risk_flags": 0},
+        "highlights": {"risk_flags": []},
+    }
+    check = {
+        "partition_info_exists": True,
+        "device_config_super_size": 54321,
+        "partition_info_super_size": 12345,
+        "mismatch": True,
+    }
+
+    inject_super_size_check_into_diff_report(diff_report, check)
+
+    assert "checks" in diff_report
+    assert diff_report["checks"]["super_size"]["mismatch"] is True
+    risk_flags = diff_report["highlights"]["risk_flags"]
+    assert any(flag.get("code") == "SUPER_SIZE_MISMATCH" for flag in risk_flags)
+    assert diff_report["summary"]["risk_flags"] == len(risk_flags)

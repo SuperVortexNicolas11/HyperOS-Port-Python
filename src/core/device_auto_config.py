@@ -274,6 +274,14 @@ class DeviceAutoConfig:
         """
         if self.config_exists():
             logger.info(f"Device config already exists for {self.device_code}")
+            partition_info_path = self.config_dir / "partition_info.json"
+            if not partition_info_path.exists():
+                logger.info(
+                    "partition_info.json missing for %s, generating it now.",
+                    self.device_code,
+                )
+                self.create_partition_info()
+
             merger = ConfigMerger(logger)
             return merger.load_device_config(self.device_code)
 
@@ -374,6 +382,20 @@ def get_or_create_device_config(
     if config_dir.exists() and any(config_dir.iterdir()):
         if logger:
             logger.info(f"Loading existing config for {device_code}")
+        partition_info_path = config_dir / "partition_info.json"
+        if not partition_info_path.exists():
+            if logger:
+                logger.info(
+                    "partition_info.json missing for %s, auto-generating...",
+                    device_code,
+                )
+            auto_config = DeviceAutoConfig(
+                device_code,
+                payload_info or PayloadDumperOutput(),
+                stock_props,
+            )
+            auto_config.create_config_directory()
+            auto_config.create_partition_info()
         merger = ConfigMerger(logger)
         return merger.load_device_config(device_code)
 

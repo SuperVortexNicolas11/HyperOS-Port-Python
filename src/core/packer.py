@@ -662,6 +662,7 @@ class Repacker:
         if hasattr(self.ctx, "device_config"):
             super_size = self.ctx.device_config.get("pack", {}).get("super_size")
             if super_size:
+                self.logger.info(f"Using super_size from device config: {super_size}")
                 return int(super_size)
 
         # 2. Check from partition_info.json
@@ -689,8 +690,13 @@ class Repacker:
         }
         for size, devices in size_map.items():
             if device_code in devices:
+                self.logger.info(f"Using super_size from built-in map for {device_code}: {size}")
                 return size
-        return 9126805504
+        default_size = 9126805504
+        self.logger.info(
+            f"Using default super_size fallback for {device_code}: {default_size}"
+        )
+        return default_size
 
     def pack_ota_payload(self) -> None:
         """Pack AOSP OTA payload"""
@@ -745,6 +751,11 @@ class Repacker:
                 f.write(f"{p}\n")
 
         super_size: int = self._get_super_size()
+        self.logger.info(
+            "Current packing super_size: %d bytes (%.2f GiB)",
+            super_size,
+            super_size / (1024**3),
+        )
         group_size: int = super_size - 1048576
         super_parts: List[str] = [
             p

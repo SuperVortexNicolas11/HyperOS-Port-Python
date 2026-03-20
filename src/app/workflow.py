@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import logging
 from pathlib import Path
 
@@ -166,6 +167,85 @@ def log_diff_report_summary(diff_report: dict[str, object], logger: logging.Logg
         logger.warning("Artifact diff risk flags: %s", ", ".join(codes))
 
 
+def _to_int(value: object) -> int | None:
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def build_super_size_check(
+    stock_device_code: str,
+    device_config: dict[str, object],
+) -> dict[str, object]:
+    partition_info_path = Path("devices") / stock_device_code / "partition_info.json"
+    pack_cfg = device_config.get("pack") if isinstance(device_config, dict) else None
+    config_super_size = _to_int(pack_cfg.get("super_size")) if isinstance(pack_cfg, dict) else None
+
+    partition_info_super_size: int | None = None
+    if partition_info_path.exists():
+        try:
+            payload = json.loads(partition_info_path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict):
+                partition_info_super_size = _to_int(payload.get("super_size"))
+        except (OSError, json.JSONDecodeError):
+            partition_info_super_size = None
+
+    mismatch = (
+        config_super_size is not None
+        and partition_info_super_size is not None
+        and config_super_size != partition_info_super_size
+    )
+    return {
+        "partition_info_path": str(partition_info_path),
+        "partition_info_exists": partition_info_path.exists(),
+        "device_config_super_size": config_super_size,
+        "partition_info_super_size": partition_info_super_size,
+        "mismatch": mismatch,
+    }
+
+
+def inject_super_size_check_into_diff_report(
+    diff_report: dict[str, object],
+    super_size_check: dict[str, object],
+) -> None:
+    checks = diff_report.get("checks")
+    if not isinstance(checks, dict):
+        checks = {}
+        diff_report["checks"] = checks
+    checks["super_size"] = super_size_check
+
+    if not super_size_check.get("mismatch"):
+        return
+
+    highlights = diff_report.get("highlights")
+    if not isinstance(highlights, dict):
+        highlights = {}
+        diff_report["highlights"] = highlights
+
+    risk_flags = highlights.get("risk_flags")
+    if not isinstance(risk_flags, list):
+        risk_flags = []
+        highlights["risk_flags"] = risk_flags
+
+    risk_flags.append(
+        {
+            "code": "SUPER_SIZE_MISMATCH",
+            "message": "Device config super_size differs from partition_info.json super_size.",
+            "details": {
+                "device_config_super_size": super_size_check.get("device_config_super_size"),
+                "partition_info_super_size": super_size_check.get("partition_info_super_size"),
+            },
+        }
+    )
+
+    summary = diff_report.get("summary")
+    if isinstance(summary, dict):
+        summary["risk_flags"] = len(risk_flags)
+
+
 def execute_porting(args, logger: logging.Logger) -> int:
     """Execute the end-to-end porting workflow and return a process exit code."""
     is_official_modify = args.port is None
@@ -252,26 +332,36 @@ def execute_porting(args, logger: logging.Logger) -> int:
         or "unknown"
     )
 
-    # Check if device config exists, if not try auto-configuration from payload metadata
     device_config_dir = Path("devices") / stock_device_code
     if not device_config_dir.exists():
         logger.info(
             f"No device config found for {stock_device_code}, attempting auto-configuration..."
         )
-        try:
-            ctx.device_config = get_or_create_device_config(
-                device_code=stock_device_code,
-                payload_path=Path(args.stock) if stock.rom_type.name == "PAYLOAD" else None,
-                stock_props=stock.props,
-                logger=logger,
-                payload_info=stock.payload_info,
-            )
-        except Exception as e:
-            logger.warning(f"Auto-configuration failed: {e}")
-            logger.info("Falling back to common config")
-            ctx.device_config = load_device_config(stock_device_code, logger)
     else:
+        logger.info(
+            "Detected existing device config for %s, ensuring partition_info.json is present.",
+            stock_device_code,
+        )
+    try:
+        ctx.device_config = get_or_create_device_config(
+            device_code=stock_device_code,
+            payload_path=Path(args.stock) if stock.rom_type.name == "PAYLOAD" else None,
+            stock_props=stock.props,
+            logger=logger,
+            payload_info=stock.payload_info,
+        )
+    except Exception as e:
+        logger.warning(f"Device config initialization failed: {e}")
+        logger.info("Falling back to common config")
         ctx.device_config = load_device_config(stock_device_code, logger)
+
+    super_size_check = build_super_size_check(stock_device_code, ctx.device_config)
+    if super_size_check.get("mismatch"):
+        logger.warning(
+            "Detected super_size mismatch: config=%s, partition_info=%s",
+            super_size_check.get("device_config_super_size"),
+            super_size_check.get("partition_info_super_size"),
+        )
 
     if cache_manager and ctx.device_config.get("cache", {}).get("partitions", False):
         logger.info("Partition-level caching enabled by device config")
@@ -299,6 +389,7 @@ def execute_porting(args, logger: logging.Logger) -> int:
     if args.enable_diff_report and baseline_artifact_state is not None:
         final_artifact_state = collect_artifact_state(target_work_dir, logger)
         diff_report = generate_diff_report(baseline_artifact_state, final_artifact_state)
+        inject_super_size_check_into_diff_report(diff_report, super_size_check)
         report_path = save_diff_report(diff_report, args.diff_report)
         logger.info(f"Artifact diff report saved to: {report_path}")
         log_diff_report_summary(diff_report, logger)
