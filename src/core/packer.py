@@ -14,6 +14,32 @@ from src.utils.fspatch import patch_fs_config
 from src.utils.shell import ShellRunner
 
 
+def build_rom_filename_prefix(ctx: Any) -> str:
+    """Build output filename prefix based on ROM type."""
+    if getattr(ctx, "is_port_eu_rom", False):
+        return "xiaomi.eu_"
+    return ""
+
+
+def build_rom_filename_device_tag(ctx: Any) -> str:
+    """Build the device segment used in output filenames."""
+    device = str(getattr(ctx, "stock_rom_code", "") or "").strip()
+    if not device:
+        return "unknown"
+
+    if getattr(ctx, "is_port_eu_rom", False):
+        return device
+
+    region = str(getattr(ctx, "port_global_region", "") or "").lower().strip()
+    if region and region != "global":
+        return f"{device}_{region}_global"
+
+    if getattr(ctx, "is_port_global_rom", False):
+        return f"{device}_global"
+
+    return device
+
+
 class Repacker:
     def __init__(self, context: Any):
         """
@@ -447,8 +473,9 @@ class Repacker:
                         zf.write(file_path, arcname)
 
         md5: str = hashlib.md5(open(final_zip_path, "rb").read()).hexdigest()[:10]
-        prefix = "xiaomi.eu_" if getattr(self.ctx, "is_port_eu_rom", False) else ""
-        renamed_zip_name: str = f"{prefix}{self.ctx.stock_rom_code}_Hybrid_{self.ctx.target_rom_version}_{self.ctx.security_patch}_{md5}_{timestamp}.zip"
+        prefix = build_rom_filename_prefix(self.ctx)
+        device_tag = build_rom_filename_device_tag(self.ctx)
+        renamed_zip_name: str = f"{prefix}{device_tag}_Hybrid_{self.ctx.target_rom_version}_{self.ctx.security_patch}_{md5}_{timestamp}.zip"
         renamed_zip_path: Path = self.out_dir / renamed_zip_name
         final_zip_path.rename(renamed_zip_path)
         self.logger.info(f"Hybrid ROM generated: {renamed_zip_path}")
@@ -791,10 +818,11 @@ class Repacker:
                 env=env,
             )
             md5: str = hashlib.md5(open(output_zip, "rb").read()).hexdigest()[:10]
-            prefix = "xiaomi.eu_" if getattr(self.ctx, "is_port_eu_rom", False) else ""
+            prefix = build_rom_filename_prefix(self.ctx)
+            device_tag = build_rom_filename_device_tag(self.ctx)
             final_path: Path = (
                 self.out_dir
-                / f"{prefix}{self.ctx.stock_rom_code}-ota_full-{self.ctx.target_rom_version}-{self.ctx.security_patch}-{timestamp}-{md5}-{self.ctx.port_android_version}.zip"
+                / f"{prefix}{device_tag}-ota_full-{self.ctx.target_rom_version}-{self.ctx.security_patch}-{timestamp}-{md5}-{self.ctx.port_android_version}.zip"
             )
             output_zip.rename(final_path)
             self.logger.info(f"Final OTA Package: {final_path}")
