@@ -15,6 +15,7 @@ class PropertyModifier(ModifierPlugin):
     name = "property_modifier"
     description = "Apply build.prop modifications and optimizations"
     priority = 25  # Run after file replacements but before feature unlocks
+    default_product_prop_sync_skip_keys = {"ro.build.version.incremental"}
 
     def __init__(self, context, **kwargs):
         super().__init__(context, **kwargs)
@@ -31,6 +32,9 @@ class PropertyModifier(ModifierPlugin):
         try:
             # 1. Global codename and model replacement
             self._global_codename_replacement()
+
+            # 1.5 Sync product build.prop values from stock (update-only)
+            self._sync_product_build_prop_from_stock()
 
             # 2. Global replacement from config (time, code, fingerprint, etc.)
             self._update_general_info()
@@ -61,6 +65,102 @@ class PropertyModifier(ModifierPlugin):
     def run(self):
         """Backward compatibility for direct calls."""
         return self.modify()
+
+    def _parse_prop_map(self, file_path: Path) -> dict[str, str]:
+        """Parse key/value pairs from a build.prop file (last key wins)."""
+        props: dict[str, str] = {}
+        if not file_path.exists():
+            return props
+
+        content = file_path.read_text(encoding="utf-8", errors="ignore")
+        for raw_line in content.splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            if not key:
+                continue
+            props[key] = value.strip()
+        return props
+
+    def _load_product_prop_sync_skip_keys(self) -> set[str]:
+        """Load skip-keys for product build.prop sync from layered config."""
+        paths = [
+            Path("devices/common"),
+            Path(f"devices/{getattr(self.ctx, 'base_chipset_family', 'unknown')}"),
+            Path(f"devices/{getattr(self.ctx, 'stock_rom_code', 'unknown')}"),
+        ]
+        valid_paths = [p for p in paths if p.exists()]
+
+        skip_keys = set(self.default_product_prop_sync_skip_keys)
+        if not valid_paths:
+            return skip_keys
+
+        config, report = self.merger.load_and_merge(valid_paths, "props_sync.json")
+        if config and isinstance(config, dict):
+            sync_cfg = config.get("product_build_prop_sync", {})
+            if isinstance(sync_cfg, dict):
+                configured_skip = sync_cfg.get("skip_keys", [])
+                if isinstance(configured_skip, list):
+                    skip_keys.update(
+                        str(key).strip() for key in configured_skip if str(key).strip()
+                    )
+
+        if getattr(report, "loaded_files", None):
+            self.logger.debug(
+                "Loaded product prop sync config from: %s", ", ".join(report.loaded_files)
+            )
+        return skip_keys
+
+    def _sync_product_build_prop_from_stock(self):
+        """Sync differing keys from stock product build.prop into target product build.prop.
+
+        Strategy:
+        - Update target keys when values differ.
+        - Append stock-only keys that do not exist in target.
+        - Keep target-only keys untouched.
+        - Skip protected keys (e.g. version/fingerprint fields managed later).
+        """
+        stock_prop = self.ctx.stock.extracted_dir / "product" / "etc" / "build.prop"
+        target_prop = self.ctx.target_dir / "product" / "etc" / "build.prop"
+
+        if not stock_prop.exists():
+            self.logger.debug("Stock product/etc/build.prop not found, skipping product sync.")
+            return
+        if not target_prop.exists():
+            self.logger.debug("Target product/etc/build.prop not found, skipping product sync.")
+            return
+
+        stock_props = self._parse_prop_map(stock_prop)
+        target_props = self._parse_prop_map(target_prop)
+        if not stock_props or not target_props:
+            self.logger.debug("No parsable properties for product sync, skipping.")
+            return
+
+        skip_keys = self._load_product_prop_sync_skip_keys()
+        updates = 0
+        appends = 0
+        skipped_protected = 0
+
+        for key, stock_value in stock_props.items():
+            if key in skip_keys:
+                skipped_protected += 1
+                continue
+            if key not in target_props:
+                self._update_or_append_prop(target_prop, key, stock_value)
+                appends += 1
+                continue
+            if target_props[key] != stock_value:
+                self._update_or_append_prop(target_prop, key, stock_value)
+                updates += 1
+
+        self.logger.info(
+            "Synced product build.prop from stock: updated=%s appended=%s skipped_protected=%s",
+            updates,
+            appends,
+            skipped_protected,
+        )
 
     def _apply_custom_props(self):
         """
