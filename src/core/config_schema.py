@@ -4,9 +4,8 @@ Provides schema validation for replacements.json, features.json, and other confi
 """
 
 import json
-from typing import Any, Dict, List, Optional, Tuple
 from pathlib import Path
-
+from typing import Any, Dict, List, Optional, Tuple
 
 # Schema for replacements.json
 REPLACEMENTS_SCHEMA: Dict[str, Any] = {

@@ -13,11 +13,11 @@ Example:
 import warnings
 
 from src.core.modifiers import (
+    FirmwareModifier,
+    FrameworkModifier,
+    RomModifier,
     SmaliArgs,
     SystemModifier,
-    FrameworkModifier,
-    FirmwareModifier,
-    RomModifier,
 )
 
 # Emit deprecation warning

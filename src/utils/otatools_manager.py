@@ -1,8 +1,5 @@
-import os
-import shutil
-import zipfile
 import logging
-import urllib.request
+import zipfile
 from pathlib import Path
 from typing import Optional
 

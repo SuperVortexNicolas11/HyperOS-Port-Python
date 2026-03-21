@@ -1,10 +1,10 @@
-import os
-from re import sub
-from difflib import SequenceMatcher
 import logging
+import os
+from difflib import SequenceMatcher
 from pathlib import Path
-
+from re import sub
 from typing import Generator
+
 
 class ContextPatcher:
     def __init__(self):

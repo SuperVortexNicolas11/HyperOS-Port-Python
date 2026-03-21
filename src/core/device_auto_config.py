@@ -275,6 +275,14 @@ class DeviceAutoConfig:
         """
         if self.config_exists():
             logger.info(f"Device config already exists for {self.device_code}")
+            partition_info_path = self.config_dir / "partition_info.json"
+            if not partition_info_path.exists():
+                logger.info(
+                    "partition_info.json missing for %s, generating it now.",
+                    self.device_code,
+                )
+                self.create_partition_info()
+
             merger = ConfigMerger(logger)
             return merger.load_device_config(self.device_code)
 
@@ -340,7 +348,7 @@ def auto_configure_device(
                 device_code = fallback_device_code
                 payload_info = PayloadDumperOutput()
             else:
-                raise RuntimeError(f"Could not determine device code: {e}")
+                raise RuntimeError(f"Could not determine device code: {e}") from e
 
     auto_config = DeviceAutoConfig(device_code, payload_info, stock_props)
     return auto_config.setup_device()
@@ -375,6 +383,20 @@ def get_or_create_device_config(
     if config_dir.exists() and any(config_dir.iterdir()):
         if logger:
             logger.info(f"Loading existing config for {device_code}")
+        partition_info_path = config_dir / "partition_info.json"
+        if not partition_info_path.exists():
+            if logger:
+                logger.info(
+                    "partition_info.json missing for %s, auto-generating...",
+                    device_code,
+                )
+            auto_config = DeviceAutoConfig(
+                device_code,
+                payload_info or PayloadDumperOutput(),
+                stock_props,
+            )
+            auto_config.create_config_directory()
+            auto_config.create_partition_info()
         merger = ConfigMerger(logger)
         return merger.load_device_config(device_code)
 

@@ -1,7 +1,8 @@
-import os
 import logging
 from pathlib import Path
+
 from .file_downloader import download_file
+
 
 class AssetDownloader:
     def __init__(self, repo="toraidl/HyperOS-Port-Python", tag="assets"):

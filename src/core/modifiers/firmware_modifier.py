@@ -4,12 +4,12 @@ import json
 import re
 import shutil
 import tempfile
+import urllib.request
 from pathlib import Path
 from typing import Optional
-import urllib.request
 
-from src.utils.shell import ShellRunner
 from src.core.modifiers.base_modifier import BaseModifier
+from src.utils.shell import ShellRunner
 
 
 class FirmwareModifier(BaseModifier):
@@ -41,14 +41,14 @@ class FirmwareModifier(BaseModifier):
             self.repo_name = self.ctx.device_config.get("ksu_repo_name", self.repo_name)
             self.ksu_config_url_template = self.ctx.device_config.get(
                 "ksu_gh_api_url_template",
-                f"https://api.github.com/repos/{{owner}}/{{repo}}/releases/latest",
+                "https://api.github.com/repos/{owner}/{repo}/releases/latest",
             )
         else:
             # Use config directly from ctx if available
             self.ksu_config_url_template = getattr(
                 self.ctx,
                 "ksu_gh_api_url_template",
-                f"https://api.github.com/repos/{{owner}}/{{repo}}/releases/latest",
+                "https://api.github.com/repos/{owner}/{repo}/releases/latest",
             )
 
     def run(self):

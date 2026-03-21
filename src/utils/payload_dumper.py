@@ -401,7 +401,7 @@ def extract_device_info(
             logger.info(f"Using fallback device code: {fallback_device_code}")
             # Return empty output with fallback code
             return fallback_device_code, PayloadDumperOutput()
-        raise RuntimeError(f"Failed to extract device info and no fallback provided: {e}")
+        raise RuntimeError(f"Failed to extract device info and no fallback provided: {e}") from e
 
 
 def get_partition_list_from_payload(payload_path: Path) -> List[str]:

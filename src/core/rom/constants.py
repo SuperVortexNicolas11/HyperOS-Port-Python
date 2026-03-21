@@ -3,7 +3,6 @@ from __future__ import annotations
 from enum import Enum, auto
 from typing import List
 
-
 ANDROID_LOGICAL_PARTITIONS: List[str] = [
     "system",
     "system_ext",

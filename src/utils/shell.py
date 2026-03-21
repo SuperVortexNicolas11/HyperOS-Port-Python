@@ -1,9 +1,10 @@
-import subprocess
-import platform
-import os
 import logging
+import os
+import platform
+import subprocess
 from pathlib import Path
-from typing import List, Union, Optional, Callable
+from typing import Callable, List, Optional, Union
+
 
 class ShellRunner:
     def __init__(self):

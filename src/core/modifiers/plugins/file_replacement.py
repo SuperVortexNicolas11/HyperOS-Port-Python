@@ -22,8 +22,8 @@ class FileReplacementPlugin(ModifierPlugin):
 
     def __init__(self, context, **kwargs):
         super().__init__(context, **kwargs)
-        from src.core.config_merger import ConfigMerger
         from src.core.conditions import ConditionEvaluator
+        from src.core.config_merger import ConfigMerger
         from src.utils.shell import ShellRunner
 
         self.merger = ConfigMerger(self.logger)

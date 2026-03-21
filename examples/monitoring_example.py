@@ -8,10 +8,8 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.core.monitoring import Monitor, get_monitor, monitored
+from src.core.monitoring import Monitor, get_monitor
 from src.core.monitoring.console_ui import ConsoleReporter
-from src.core.modifiers import SystemModifier, PluginManager
-from src.core.modifiers.plugin_system import ModifierPlugin
 
 
 def example_basic_monitoring():
@@ -110,7 +108,7 @@ def example_tracing():
     
     # Print trace
     trace = monitor.report.execution_tracer.to_dict()
-    print(f"\nExecution Trace:")
+    print("\nExecution Trace:")
     print(f"  Total operations: {trace['summary']['total_operations']}")
     print(f"  Successful: {trace['summary']['successful_operations']}")
     print(f"  Total duration: {trace['summary']['total_duration']:.2f}s")

@@ -9,7 +9,7 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from string import Template
-from typing import IO, Dict, List, TypeVar, cast, BinaryIO
+from typing import IO, BinaryIO, Dict, List, TypeVar, cast
 
 SPARSE_HEADER_MAGIC = 0xED26FF3A
 SPARSE_HEADER_SIZE = 28
@@ -533,8 +533,7 @@ class Metadata:
             }
         except Exception:
             pass
-        finally:
-            return result
+        return result
 
     def to_json(self) -> str:
         data = self._get_info()
@@ -797,8 +796,8 @@ class LpUnpack(object):
             super_device: LpMetadataBlockDevice = cast(LpMetadataBlockDevice, iter(metadata.block_devices).__next__())
             if metadata.metadata_region > super_device.first_logical_sector * LP_SECTOR_SIZE:
                 raise LpUnpackError('Logical partition metadata overlaps with logical partition contents.')
-        except StopIteration:
-            raise LpUnpackError('Metadata does not specify a super device.')
+        except StopIteration as err:
+            raise LpUnpackError('Metadata does not specify a super device.') from err
 
         return metadata
 
@@ -834,7 +833,7 @@ class LpUnpack(object):
 
             if self._partition_name:
                 filter_partition = []
-                for index, partition in enumerate(metadata.partitions):
+                for _index, partition in enumerate(metadata.partitions):
                     if partition.name in self._partition_name:
                         filter_partition.append(partition)
 
@@ -855,7 +854,7 @@ class LpUnpack(object):
                         print(f"{metadata.to_json()}\n")
 
             if not self._show_info and self._out_dir is None:
-                raise LpUnpackError(message=f'Not specified directory for extraction')
+                raise LpUnpackError(message='Not specified directory for extraction')
 
             if self._out_dir:
                 for partition in metadata.partitions:

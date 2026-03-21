@@ -1,10 +1,10 @@
-import shutil
-import time
-import subprocess
 import logging
+import shutil
+import subprocess
 import threading
+import time
 from pathlib import Path
-from typing import List, Dict, Optional, Union, Any
+from typing import Dict, List
 
 
 class ROMSyncEngine:
@@ -263,7 +263,7 @@ class ROMSyncEngine:
 
                             if get_hash(override_file) == get_hash(old_file):
                                 self.logger.debug(
-                                    f"     [=] Source and target APKs are identical, skipping erasure."
+                                    "     [=] Source and target APKs are identical, skipping erasure."
                                 )
                                 continue
 

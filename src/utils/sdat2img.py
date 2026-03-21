@@ -5,7 +5,8 @@
 #       AUTHORS: xpirt - luxi78 - howellzhu
 # ====================================================
 
-import sys, os, logging
+import logging
+import sys
 
 
 def run_sdat2img(transfer_list_file, new_dat_file, output_image_file):
@@ -18,7 +19,7 @@ def run_sdat2img(transfer_list_file, new_dat_file, output_image_file):
             return False
         version = int(version_line)
 
-        new_blocks = int(trans_list.readline())
+        _new_blocks = int(trans_list.readline())
 
         if version >= 2:
             trans_list.readline()  # Stash entries

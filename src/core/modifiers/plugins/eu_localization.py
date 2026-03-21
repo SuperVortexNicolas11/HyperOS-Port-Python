@@ -7,13 +7,13 @@ Supports two modes:
 """
 
 import json
+import re
 import shutil
+import subprocess
 import tempfile
 import zipfile
-import subprocess
-import re
 from pathlib import Path
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List
 
 from src.core.modifiers.plugin_system import ModifierPlugin, ModifierRegistry
 

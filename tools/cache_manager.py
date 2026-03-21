@@ -142,7 +142,6 @@ Examples:
                 sys.exit(1)
         elif args.rom_hash:
             # Create a dummy path to use with clear_rom
-            from src.core.cache_manager import compute_file_hash
 
             class DummyPath:
                 def __init__(self, hash_val):

@@ -1,13 +1,14 @@
-import shutil
-import platform
 import logging
-import zipfile
-import tarfile
 import os
-import re
+import platform
+import shutil
+import tarfile
+import zipfile
 from pathlib import Path
-from src.utils.shell import ShellRunner
+
 from src.utils.file_downloader import download_file
+from src.utils.shell import ShellRunner
+
 
 class Aria2Manager:
     def __init__(self):

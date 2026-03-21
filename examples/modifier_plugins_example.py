@@ -3,10 +3,11 @@
 This example shows how to extend the ROM modification system with custom plugins.
 """
 from pathlib import Path
+
 from src.core.modifiers import (
-    SystemModifier,
     ModifierPlugin,
     ModifierRegistry,
+    SystemModifier,
 )
 
 
@@ -21,9 +22,6 @@ class CustomThemePlugin(ModifierPlugin):
     def modify(self) -> bool:
         """Apply custom theme."""
         self.logger.info("Applying custom theme...")
-        
-        # Access target directory
-        target_dir = self.ctx.target_dir
         
         # Example: Copy theme files
         theme_dir = Path("themes/my_custom_theme")
@@ -77,7 +75,6 @@ class AutoRegisterPlugin(ModifierPlugin):
 # Usage examples
 def example_basic_usage(ctx):
     """Basic plugin usage."""
-    from src.core.modifiers import SystemModifier
     
     # Create system modifier (auto-registers default plugins)
     modifier = SystemModifier(ctx)
@@ -91,7 +88,6 @@ def example_basic_usage(ctx):
 
 def example_plugin_management(ctx):
     """Advanced plugin management."""
-    from src.core.modifiers import SystemModifier, PluginManager
     
     modifier = SystemModifier(ctx)
     

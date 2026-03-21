@@ -223,9 +223,7 @@ class InstallerModifier(ApkModifierPlugin):
     def _remove_network_error_ui(self, work_dir: Path):
         """Remove Network Error UI."""
         self.logger.info("Removing Network Error UI...")
-        
-        res_dir = work_dir / "res"
-        
+
         # Find Layout IDs and disable their usage
         layout_ids = [
             "layout_network_error",

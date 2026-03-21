@@ -1,8 +1,8 @@
-import os
-import re
 import logging
+import re
 from pathlib import Path
-from typing import Optional, List, Any
+from typing import List, Optional
+
 
 class XmlUtils:
     def __init__(self):

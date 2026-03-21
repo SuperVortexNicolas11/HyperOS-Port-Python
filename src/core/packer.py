@@ -14,6 +14,32 @@ from src.utils.fspatch import patch_fs_config
 from src.utils.shell import ShellRunner
 
 
+def build_rom_filename_prefix(ctx: Any) -> str:
+    """Build output filename prefix based on ROM type."""
+    if getattr(ctx, "is_port_eu_rom", False):
+        return "xiaomi.eu_"
+    return ""
+
+
+def build_rom_filename_device_tag(ctx: Any) -> str:
+    """Build the device segment used in output filenames."""
+    device = str(getattr(ctx, "stock_rom_code", "") or "").strip()
+    if not device:
+        return "unknown"
+
+    if getattr(ctx, "is_port_eu_rom", False):
+        return device
+
+    region = str(getattr(ctx, "port_global_region", "") or "").lower().strip()
+    if region and region != "global":
+        return f"{device}_{region}_global"
+
+    if getattr(ctx, "is_port_global_rom", False):
+        return f"{device}_global"
+
+    return device
+
+
 class Repacker:
     def __init__(self, context: Any):
         """
@@ -447,8 +473,9 @@ class Repacker:
                         zf.write(file_path, arcname)
 
         md5: str = hashlib.md5(open(final_zip_path, "rb").read()).hexdigest()[:10]
-        prefix = "xiaomi.eu_" if getattr(self.ctx, "is_port_eu_rom", False) else ""
-        renamed_zip_name: str = f"{prefix}{self.ctx.stock_rom_code}_Hybrid_{self.ctx.target_rom_version}_{self.ctx.security_patch}_{md5}_{timestamp}.zip"
+        prefix = build_rom_filename_prefix(self.ctx)
+        device_tag = build_rom_filename_device_tag(self.ctx)
+        renamed_zip_name: str = f"{prefix}{device_tag}_Hybrid_{self.ctx.target_rom_version}_{self.ctx.security_patch}_{md5}_{timestamp}.zip"
         renamed_zip_path: Path = self.out_dir / renamed_zip_name
         final_zip_path.rename(renamed_zip_path)
         self.logger.info(f"Hybrid ROM generated: {renamed_zip_path}")
@@ -635,6 +662,7 @@ class Repacker:
         if hasattr(self.ctx, "device_config"):
             super_size = self.ctx.device_config.get("pack", {}).get("super_size")
             if super_size:
+                self.logger.info(f"Using super_size from device config: {super_size}")
                 return int(super_size)
 
         # 2. Check from partition_info.json
@@ -662,8 +690,13 @@ class Repacker:
         }
         for size, devices in size_map.items():
             if device_code in devices:
+                self.logger.info(f"Using super_size from built-in map for {device_code}: {size}")
                 return size
-        return 9126805504
+        default_size = 9126805504
+        self.logger.info(
+            f"Using default super_size fallback for {device_code}: {default_size}"
+        )
+        return default_size
 
     def pack_ota_payload(self) -> None:
         """Pack AOSP OTA payload"""
@@ -718,6 +751,11 @@ class Repacker:
                 f.write(f"{p}\n")
 
         super_size: int = self._get_super_size()
+        self.logger.info(
+            "Current packing super_size: %d bytes (%.2f GiB)",
+            super_size,
+            super_size / (1024**3),
+        )
         group_size: int = super_size - 1048576
         super_parts: List[str] = [
             p
@@ -791,10 +829,11 @@ class Repacker:
                 env=env,
             )
             md5: str = hashlib.md5(open(output_zip, "rb").read()).hexdigest()[:10]
-            prefix = "xiaomi.eu_" if getattr(self.ctx, "is_port_eu_rom", False) else ""
+            prefix = build_rom_filename_prefix(self.ctx)
+            device_tag = build_rom_filename_device_tag(self.ctx)
             final_path: Path = (
                 self.out_dir
-                / f"{prefix}{self.ctx.stock_rom_code}-ota_full-{self.ctx.target_rom_version}-{self.ctx.security_patch}-{timestamp}-{md5}-{self.ctx.port_android_version}.zip"
+                / f"{prefix}{device_tag}-ota_full-{self.ctx.target_rom_version}-{self.ctx.security_patch}-{timestamp}-{md5}-{self.ctx.port_android_version}.zip"
             )
             output_zip.rename(final_path)
             self.logger.info(f"Final OTA Package: {final_path}")

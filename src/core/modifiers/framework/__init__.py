@@ -12,17 +12,17 @@ Example:
 
 from __future__ import annotations
 
-from src.core.modifiers.framework.modifier import FrameworkModifier
 from src.core.modifiers.framework.base import FrameworkModifierBase
-from src.core.modifiers.framework.tasks import FrameworkTasks
+from src.core.modifiers.framework.modifier import FrameworkModifier
 from src.core.modifiers.framework.patches import (
-    RETRUN_TRUE,
-    RETRUN_FALSE,
-    REMAKE_VOID,
     INVOKE_TRUE,
-    PRELOADS_SHAREDUIDS,
     MY_PLATFORM_KEY,
+    PRELOADS_SHAREDUIDS,
+    REMAKE_VOID,
+    RETRUN_FALSE,
+    RETRUN_TRUE,
 )
+from src.core.modifiers.framework.tasks import FrameworkTasks
 
 __all__ = [
     "FrameworkModifier",

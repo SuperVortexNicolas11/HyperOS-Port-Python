@@ -2,8 +2,8 @@ import argparse
 import json
 import logging
 import shutil
-import zipfile
 import sys
+import zipfile
 from pathlib import Path
 
 # Add project root to sys.path to allow imports
@@ -11,7 +11,7 @@ project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
 from src.core.rom import RomPackage
-from src.utils.shell import ShellRunner
+
 
 def setup_logging():
     logging.basicConfig(

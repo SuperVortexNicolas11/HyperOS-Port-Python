@@ -5,13 +5,13 @@ Each plugin handles one APK and applies specific patches.
 """
 
 from src.core.modifiers.plugins.apk.base import ApkModifierPlugin, ApkModifierRegistry
-from src.core.modifiers.plugins.apk.installer import InstallerModifier
-from src.core.modifiers.plugins.apk.securitycenter import SecurityCenterModifier
-from src.core.modifiers.plugins.apk.settings import SettingsModifier
-from src.core.modifiers.plugins.apk.joyose import JoyoseModifier
-from src.core.modifiers.plugins.apk.powerkeeper import PowerKeeperModifier
 from src.core.modifiers.plugins.apk.devices_overlay import DevicesOverlayModifier
 from src.core.modifiers.plugins.apk.htmlviewer import HTMLViewerModifier
+from src.core.modifiers.plugins.apk.installer import InstallerModifier
+from src.core.modifiers.plugins.apk.joyose import JoyoseModifier
+from src.core.modifiers.plugins.apk.powerkeeper import PowerKeeperModifier
+from src.core.modifiers.plugins.apk.securitycenter import SecurityCenterModifier
+from src.core.modifiers.plugins.apk.settings import SettingsModifier
 
 __all__ = [
     "ApkModifierPlugin",

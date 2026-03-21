@@ -1,8 +1,9 @@
+import logging
 import sys
 import urllib.request
-import logging
 from pathlib import Path
 from typing import Optional
+
 
 def download_file(url: str, target_path: Path, logger: Optional[logging.Logger] = None) -> bool:
     """
