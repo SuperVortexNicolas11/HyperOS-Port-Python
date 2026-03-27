@@ -1,17 +1,137 @@
 import concurrent.futures
 import hashlib
+import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 import zipfile
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, cast
+from typing import Any, Dict, List, Optional, Tuple, cast
 
 from src.utils.contextpatch import ContextPatcher
 from src.utils.fspatch import patch_fs_config
 from src.utils.shell import ShellRunner
+
+AVB_DEFAULT_ALGORITHM = "SHA256_RSA4096"
+AOSP_AVB_PARTITIONS = {
+    "boot",
+    "init_boot",
+    "dtbo",
+    "odm",
+    "product",
+    "pvmfw",
+    "recovery",
+    "system",
+    "system_ext",
+    "vendor",
+    "vendor_boot",
+    "vendor_kernel_boot",
+    "vendor_dlkm",
+    "odm_dlkm",
+    "system_dlkm",
+}
+
+
+def _append_unique(items: List[str], value: str) -> None:
+    if value and value not in items:
+        items.append(value)
+
+
+def parse_avbtool_info_output(output: str) -> Dict[str, Any]:
+    """Parse `avbtool info_image` output into a structured dictionary."""
+    result: Dict[str, Any] = {
+        "image_size": None,
+        "original_image_size": None,
+        "algorithm": None,
+        "rollback_index": None,
+        "flags": None,
+        "chain_partitions": [],
+        "hash_partitions": [],
+        "hashtree_partitions": [],
+    }
+    current_desc: Optional[str] = None
+    chain_name: Optional[str] = None
+    chain_loc: Optional[int] = None
+    rollback_re = re.compile(r"^Rollback Index:\s+(\d+)$")
+    flags_re = re.compile(r"^Flags:\s+(\d+)$")
+    alg_re = re.compile(r"^Algorithm:\s+(.+)$")
+    image_size_re = re.compile(r"^Image size:\s+(\d+)\s+bytes$")
+    original_image_size_re = re.compile(r"^Original image size:\s+(\d+)\s+bytes$")
+    part_re = re.compile(r"^Partition Name:\s+(.+)$")
+    chain_loc_re = re.compile(r"^Rollback Index Location:\s+(\d+)$")
+
+    for raw in output.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+
+        alg_match = alg_re.match(line)
+        if alg_match:
+            result["algorithm"] = alg_match.group(1).strip()
+            continue
+        image_size_match = image_size_re.match(line)
+        if image_size_match:
+            result["image_size"] = int(image_size_match.group(1))
+            continue
+        original_image_size_match = original_image_size_re.match(line)
+        if original_image_size_match:
+            result["original_image_size"] = int(original_image_size_match.group(1))
+            continue
+
+        rollback_match = rollback_re.match(line)
+        if rollback_match:
+            result["rollback_index"] = int(rollback_match.group(1))
+            continue
+
+        flags_match = flags_re.match(line)
+        if flags_match:
+            result["flags"] = int(flags_match.group(1))
+            continue
+
+        if line == "Chain Partition descriptor:":
+            current_desc = "chain"
+            chain_name = None
+            chain_loc = None
+            continue
+        if line == "Hash descriptor:":
+            current_desc = "hash"
+            continue
+        if line == "Hashtree descriptor:":
+            current_desc = "hashtree"
+            continue
+
+        part_match = part_re.match(line)
+        if part_match:
+            part_name = part_match.group(1).strip()
+            if current_desc == "chain":
+                chain_name = part_name
+                if chain_loc is not None:
+                    cast(List[Tuple[str, int]], result["chain_partitions"]).append(
+                        (chain_name, chain_loc)
+                    )
+                    chain_name = None
+                    chain_loc = None
+            elif current_desc == "hash":
+                _append_unique(cast(List[str], result["hash_partitions"]), part_name)
+            elif current_desc == "hashtree":
+                _append_unique(cast(List[str], result["hashtree_partitions"]), part_name)
+            continue
+
+        if current_desc == "chain":
+            chain_loc_match = chain_loc_re.match(line)
+            if chain_loc_match:
+                chain_loc = int(chain_loc_match.group(1))
+                if chain_name is not None:
+                    cast(List[Tuple[str, int]], result["chain_partitions"]).append(
+                        (chain_name, chain_loc)
+                    )
+                    chain_name = None
+                    chain_loc = None
+
+    return result
 
 
 def build_rom_filename_prefix(ctx: Any) -> str:
@@ -57,6 +177,133 @@ class Repacker:
         self.images_out: Path = self.product_out / "IMAGES"
         self.meta_out: Path = self.product_out / "META"
         self.ota_tools_dir: Path = Path("otatools").resolve()
+        self._avb_partition_size: Dict[str, int] = {}
+        self._build_prop_cache: Dict[str, Dict[str, str]] = {}
+
+    def _avb_env(self) -> Dict[str, str]:
+        env = os.environ.copy()
+        ota_bin = str(self.ota_tools_dir / "bin")
+        env["PATH"] = f"{ota_bin}:{env.get('PATH', '')}"
+        return env
+
+    def _detect_rsa_key_bits(self, key_path: Path) -> Optional[int]:
+        try:
+            output = subprocess.check_output(
+                ["openssl", "pkey", "-in", str(key_path), "-text", "-noout"],
+                text=True,
+                stderr=subprocess.STDOUT,
+            )
+        except (subprocess.SubprocessError, FileNotFoundError):
+            return None
+        match = re.search(r"Private-Key:\s*\((\d+)\s+bit", output)
+        if not match:
+            return None
+        return int(match.group(1))
+
+    def _algorithm_for_key(self, preferred: str, key_path: Optional[Path]) -> str:
+        if not key_path:
+            return preferred
+        bits = self._detect_rsa_key_bits(key_path)
+        if bits is None:
+            return preferred
+        if bits >= 4096:
+            return "SHA256_RSA4096"
+        if bits >= 2048:
+            return "SHA256_RSA2048"
+        return preferred
+
+    def _read_build_prop(self, path: Path) -> Dict[str, str]:
+        props: Dict[str, str] = {}
+        if not path.exists():
+            return props
+        try:
+            for raw in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+                line = raw.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                props[k.strip()] = v.strip()
+        except OSError:
+            return {}
+        return props
+
+    def _get_partition_build_props(self, part: str) -> Dict[str, str]:
+        if part in self._build_prop_cache:
+            return self._build_prop_cache[part]
+
+        path: Optional[Path] = None
+        getter = getattr(self.ctx, "get_target_prop_file", None)
+        if callable(getter):
+            try:
+                candidate = getter(part)
+                if isinstance(candidate, Path):
+                    path = candidate
+            except Exception:
+                path = None
+
+        if path is None:
+            target_dir = getattr(self.ctx, "target_dir", None)
+            if isinstance(target_dir, Path):
+                part_dir = target_dir / part
+                candidates = [
+                    part_dir / "build.prop",
+                    part_dir / "system" / "build.prop",
+                    part_dir / "etc" / "build.prop",
+                ]
+                for c in candidates:
+                    if c.exists():
+                        path = c
+                        break
+
+        props = self._read_build_prop(path) if path else {}
+        self._build_prop_cache[part] = props
+        return props
+
+    def _get_prop_value(self, part: str, kind: str) -> Optional[str]:
+        props = self._get_partition_build_props(part)
+        system_props = self._get_partition_build_props("system")
+        keys: List[str]
+        if kind == "fingerprint":
+            keys = [
+                f"ro.{part}.build.fingerprint",
+                "ro.build.fingerprint",
+            ]
+        elif kind == "os_version":
+            keys = [
+                f"ro.{part}.build.version.release",
+                "ro.build.version.release",
+                "ro.build.version.release_or_codename",
+            ]
+        else:  # security_patch
+            keys = [
+                f"ro.{part}.build.version.security_patch",
+                f"ro.{part}.build.security_patch",
+                "ro.build.version.security_patch",
+            ]
+
+        for key in keys:
+            if key in props and props[key]:
+                return props[key]
+        for key in keys:
+            if key in system_props and system_props[key]:
+                return system_props[key]
+        return None
+
+    def _build_footer_props_args(self, part: str, include_hash_algorithm: bool) -> List[str]:
+        args: List[str] = []
+        if include_hash_algorithm:
+            args.extend(["--hash_algorithm", "sha256"])
+        prop_prefix = f"com.android.build.{part}"
+        os_version = self._get_prop_value(part, "os_version")
+        if os_version:
+            args.extend(["--prop", f"{prop_prefix}.os_version:{os_version}"])
+        fingerprint = self._get_prop_value(part, "fingerprint")
+        if fingerprint:
+            args.extend(["--prop", f"{prop_prefix}.fingerprint:{fingerprint}"])
+        security_patch = self._get_prop_value(part, "security_patch")
+        if security_patch:
+            args.extend(["--prop", f"{prop_prefix}.security_patch:{security_patch}"])
+        return args
 
     def pack_all(self, pack_type: str = "EROFS", is_rw: bool = False) -> None:
         """
@@ -736,13 +983,616 @@ class Repacker:
             if init_boot.exists():
                 shutil.copy2(init_boot, self.images_out / "init_boot.img")
 
+        # Keep custom partition AVB footer behavior aligned with stock vbmeta.
+        current_partitions = [img.stem for img in self.images_out.glob("*.img") if img.stem != "cust"]
+        if getattr(self.ctx, "enable_custom_avb_chain", False):
+            profile = self._collect_stock_avb_profile()
+            self._sync_partition_info_from_stock_avb(profile)
+            self._apply_avb_to_custom_images(current_partitions)
+            self._rebuild_vbmeta_images(current_partitions)
+
         self._generate_meta_info()
         self._copy_build_props()
+        if getattr(self.ctx, "enable_custom_avb_chain", False):
+            self._verify_avb_images()
         self._run_ota_tool()
+
+    def _run_avbtool_info_image(self, avbtool: Path, image: Path) -> Optional[Dict[str, Any]]:
+        if not image.exists():
+            return None
+        try:
+            output = subprocess.check_output(
+                [str(avbtool), "info_image", "--image", str(image)],
+                text=True,
+                stderr=subprocess.STDOUT,
+            )
+        except (subprocess.SubprocessError, FileNotFoundError) as e:
+            self.logger.debug("Failed to inspect %s via avbtool: %s", image.name, e)
+            return None
+        return parse_avbtool_info_output(output)
+
+    def _get_avb_testkey_path(self) -> Optional[Path]:
+        candidates = [
+            self.ota_tools_dir / "build/make/target/product/security/testkey.pem",
+            self.ota_tools_dir / "security/testkey.pem",
+        ]
+        for candidate in candidates:
+            if candidate.exists():
+                return candidate
+        return None
+
+    def _collect_stock_avb_profile(self) -> Dict[str, Any]:
+        """Collect AVB descriptor profile from stock vbmeta images."""
+        avbtool = self.ota_tools_dir / "bin" / "avbtool"
+        stock_images_dir = Path("build/stockrom/images")
+        if not avbtool.exists() or not stock_images_dir.exists():
+            return {}
+
+        vbmeta_info = self._run_avbtool_info_image(avbtool, stock_images_dir / "vbmeta.img")
+        if not vbmeta_info:
+            return {}
+
+        vbmeta_system_info = self._run_avbtool_info_image(
+            avbtool, stock_images_dir / "vbmeta_system.img"
+        )
+        hash_parts = set(cast(List[str], vbmeta_info.get("hash_partitions", [])))
+        hashtree_parts = set(cast(List[str], vbmeta_info.get("hashtree_partitions", [])))
+        if vbmeta_system_info:
+            hashtree_parts.update(cast(List[str], vbmeta_system_info.get("hashtree_partitions", [])))
+
+        return {
+            "vbmeta": vbmeta_info,
+            "vbmeta_system": vbmeta_system_info,
+            "hash_parts": hash_parts,
+            "hashtree_parts": hashtree_parts,
+            "chain_parts": cast(List[Tuple[str, int]], vbmeta_info.get("chain_partitions", [])),
+        }
+
+    def _get_partition_info_path(self) -> Path:
+        return Path(f"devices/{self.ctx.stock_rom_code}/partition_info.json")
+
+    def _sync_partition_info_from_stock_avb(self, profile: Dict[str, Any]) -> None:
+        """Update devices/<code>/partition_info.json with AVB-related stock data."""
+        if not profile:
+            return
+
+        partition_info_path = self._get_partition_info_path()
+        partition_info_path.parent.mkdir(parents=True, exist_ok=True)
+        payload: Dict[str, Any] = {}
+        if partition_info_path.exists():
+            try:
+                payload = cast(
+                    Dict[str, Any], json.loads(partition_info_path.read_text(encoding="utf-8"))
+                )
+            except (json.JSONDecodeError, OSError):
+                payload = {}
+
+        payload.setdefault("device_code", self.ctx.stock_rom_code)
+        payload.setdefault("super_size", self._get_super_size())
+        dynamic_partitions = cast(List[str], payload.get("dynamic_partitions", self._get_partition_list()))
+        payload["dynamic_partitions"] = dynamic_partitions
+
+        hash_parts = set(cast(set[str], profile.get("hash_parts", set())))
+        hashtree_parts = set(cast(set[str], profile.get("hashtree_parts", set())))
+        chain_parts = cast(List[Tuple[str, int]], profile.get("chain_parts", []))
+        chain_part_names = {name for name, _loc in chain_parts if name in {"boot", "recovery"}}
+        strict_parts = sorted(((hash_parts | hashtree_parts) - set(dynamic_partitions)) | chain_part_names)
+
+        avbtool = self.ota_tools_dir / "bin" / "avbtool"
+        stock_images_dir = Path("build/stockrom/images")
+        physical_partition_sizes = cast(Dict[str, int], payload.get("physical_partition_sizes", {}))
+        for part in strict_parts:
+            image = stock_images_dir / f"{part}.img"
+            if not image.exists():
+                continue
+            info = self._run_avbtool_info_image(avbtool, image) or {}
+            image_size = cast(Optional[int], info.get("image_size"))
+            physical_partition_sizes[part] = int(image_size or image.stat().st_size)
+
+        payload["physical_partition_sizes"] = dict(sorted(physical_partition_sizes.items()))
+        payload["avb_hash_partitions"] = sorted(hash_parts)
+        payload["avb_hashtree_partitions"] = sorted(hashtree_parts)
+        payload["avb_chain_partitions"] = [
+            {"name": name, "rollback_index_location": loc} for name, loc in chain_parts
+        ]
+        payload["avb_strict_partitions"] = strict_parts
+
+        partition_info_path.write_text(
+            json.dumps(payload, indent=4, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        self.logger.info("Updated %s with stock AVB partition data.", partition_info_path)
+
+    def _calc_avb_max_image_size(self, avbtool: Path, footer_cmd: str, partition_size: int) -> int:
+        output = subprocess.check_output(
+            [
+                str(avbtool),
+                footer_cmd,
+                "--partition_size",
+                str(partition_size),
+                "--calc_max_image_size",
+            ],
+            text=True,
+            stderr=subprocess.STDOUT,
+            env=self._avb_env(),
+        ).strip()
+        return int(output)
+
+    def _try_calc_avb_max_image_size(
+        self, avbtool: Path, footer_cmd: str, partition_size: int
+    ) -> Optional[int]:
+        try:
+            return self._calc_avb_max_image_size(avbtool, footer_cmd, partition_size)
+        except (subprocess.SubprocessError, ValueError, TypeError):
+            return None
+
+    def _calculate_min_partition_size_for_image(
+        self, avbtool: Path, footer_cmd: str, image_size: int
+    ) -> int:
+        """Binary-search minimum partition_size so AVB can hold the current image."""
+        block = 4096
+        lo = max(block, ((image_size + block - 1) // block) * block)
+        hi = lo
+
+        max_size = self._try_calc_avb_max_image_size(avbtool, footer_cmd, hi)
+        attempts = 0
+        max_attempts = 32
+        while max_size is None or max_size < image_size:
+            hi *= 2
+            max_size = self._try_calc_avb_max_image_size(avbtool, footer_cmd, hi)
+            attempts += 1
+            if attempts > max_attempts:
+                raise RuntimeError(
+                    "Failed to find valid partition_size for "
+                    f"{footer_cmd} image_size={image_size}, last_try={hi}"
+                )
+
+        while lo < hi:
+            mid = ((lo + hi) // (2 * block)) * block
+            if mid <= 0:
+                mid = block
+            max_size = self._try_calc_avb_max_image_size(avbtool, footer_cmd, mid)
+            if max_size is not None and max_size >= image_size:
+                hi = mid
+            else:
+                lo = mid + block
+
+        return hi
+
+    def _apply_avb_to_custom_images(self, partition_list: List[str]) -> None:
+        """Add AVB footer for all partitions described by stock AVB profile."""
+        profile = self._collect_stock_avb_profile()
+        if not profile:
+            return
+
+        avbtool = self.ota_tools_dir / "bin" / "avbtool"
+        stock_images_dir = Path("build/stockrom/images")
+        known_parts = set(partition_list)
+        dynamic_partitions = set(self._get_partition_list())
+        hash_parts = cast(set[str], profile["hash_parts"])
+        hashtree_parts = cast(set[str], profile["hashtree_parts"])
+        target_hash_parts = sorted(hash_parts & known_parts)
+        target_hashtree_parts = sorted(hashtree_parts & known_parts)
+        chain_parts = cast(List[Tuple[str, int]], profile.get("chain_parts", []))
+        chain_part_names = [name for name, _loc in chain_parts if name in {"boot", "recovery"}]
+        strict_physical_caps = ((hash_parts | hashtree_parts) - dynamic_partitions) | set(
+            chain_part_names
+        )
+        key_path = self._get_avb_testkey_path()
+
+        def trim_trailing_zero_padding(image: Path, max_size: int) -> int:
+            current_size = image.stat().st_size
+            if current_size <= max_size:
+                return current_size
+            with open(image, "rb+") as fp:
+                fp.seek(max_size)
+                tail = fp.read()
+                if any(byte != 0 for byte in tail):
+                    raise RuntimeError(
+                        f"{image.name} ({current_size}) exceeds max AVB payload size {max_size} "
+                        "and tail is not zero padding; refusing to truncate."
+                    )
+                fp.truncate(max_size)
+            self.logger.info(
+                "Trimmed zero padding for %s: %d -> %d bytes before AVB footer.",
+                image.name,
+                current_size,
+                max_size,
+            )
+            return max_size
+
+        def resolve_partition_size(part: str, footer_cmd: str, image_size: int) -> int:
+            min_partition_size = self._calculate_min_partition_size_for_image(
+                avbtool, footer_cmd, image_size
+            )
+            stock_image = stock_images_dir / f"{part}.img"
+            stock_partition_size = stock_image.stat().st_size if stock_image.exists() else 0
+            return max(min_partition_size, stock_partition_size)
+
+        def sign_partition(
+            part: str,
+            footer_cmd: str,
+            *,
+            with_key: bool = False,
+            rollback_index: Optional[int] = None,
+        ) -> None:
+            image = self.images_out / f"{part}.img"
+            if not image.exists():
+                return
+            image_size = image.stat().st_size
+            stock_image = stock_images_dir / f"{part}.img"
+            stock_partition_size = stock_image.stat().st_size if stock_image.exists() else 0
+            if part in strict_physical_caps:
+                # Remove any existing AVB footer first so old larger footer sizing
+                # doesn't force this image over the strict physical partition limit.
+                try:
+                    self.shell.run(
+                        [str(avbtool), "erase_footer", "--image", str(image)],
+                        env=self._avb_env(),
+                    )
+                    image_size = image.stat().st_size
+                except subprocess.CalledProcessError:
+                    pass
+            # For critical physical partitions, cap to stock size.
+            partition_size = (
+                stock_partition_size
+                if part in strict_physical_caps and stock_partition_size > 0
+                else resolve_partition_size(part, footer_cmd, image_size)
+            )
+
+            def build_cmd(part_size: int) -> List[str]:
+                cmd = [
+                    str(avbtool),
+                    footer_cmd,
+                    "--image",
+                    str(image),
+                    "--partition_name",
+                    part,
+                    "--partition_size",
+                    str(part_size),
+                ]
+                cmd.extend(
+                    self._build_footer_props_args(
+                        part,
+                        include_hash_algorithm=(footer_cmd == "add_hashtree_footer"),
+                    )
+                )
+                if with_key and key_path:
+                    algo = self._algorithm_for_key(AVB_DEFAULT_ALGORITHM, key_path)
+                    cmd.extend(["--key", str(key_path), "--algorithm", algo])
+                if rollback_index is not None:
+                    cmd.extend(["--rollback_index", str(rollback_index)])
+                return cmd
+
+            cmd = build_cmd(partition_size)
+            try:
+                self.shell.run(cmd, env=self._avb_env())
+                self._avb_partition_size[part] = partition_size
+                self.logger.info(
+                    "Applied %s footer for AVB partition %s (image=%d, partition=%d)",
+                    footer_cmd,
+                    part,
+                    image_size,
+                    partition_size,
+                )
+            except subprocess.CalledProcessError as e:
+                # Retry once for strict partitions by trimming zero padding.
+                if part in strict_physical_caps and stock_partition_size > 0:
+                    try:
+                        max_payload_size = self._calc_avb_max_image_size(
+                            avbtool, footer_cmd, partition_size
+                        )
+                        image_size = trim_trailing_zero_padding(image, max_payload_size)
+                        cmd = build_cmd(partition_size)
+                        self.shell.run(cmd, env=self._avb_env())
+                        self._avb_partition_size[part] = partition_size
+                        self.logger.info(
+                            "Applied %s footer for AVB partition %s after trim (image=%d, partition=%d)",
+                            footer_cmd,
+                            part,
+                            image_size,
+                            partition_size,
+                        )
+                        return
+                    except (subprocess.CalledProcessError, RuntimeError) as retry_err:
+                        raise RuntimeError(
+                            f"Failed to apply AVB {footer_cmd} for strict partition {part}: {retry_err}"
+                        ) from retry_err
+                raise RuntimeError(
+                    f"Failed to apply AVB {footer_cmd} for custom partition {part}: {e}"
+                ) from e
+
+        for part in target_hash_parts:
+            sign_partition(part, "add_hash_footer")
+        for part in target_hashtree_parts:
+            sign_partition(part, "add_hashtree_footer")
+
+        if key_path:
+            stock_boot_info = self._run_avbtool_info_image(avbtool, stock_images_dir / "boot.img") or {}
+            stock_recovery_info = (
+                self._run_avbtool_info_image(avbtool, stock_images_dir / "recovery.img") or {}
+            )
+            rollback_map = {
+                "boot": stock_boot_info.get("rollback_index"),
+                "recovery": stock_recovery_info.get("rollback_index"),
+            }
+            for part in chain_part_names:
+                sign_partition(
+                    part,
+                    "add_hash_footer",
+                    with_key=True,
+                    rollback_index=cast(Optional[int], rollback_map.get(part)),
+                )
+
+    def _extract_avb_public_key(self, avbtool: Path, key_path: Path) -> Path:
+        pubkey_path = self.meta_out / "avb_testkey.avbpubkey"
+        subprocess.check_output(
+            [
+                str(avbtool),
+                "extract_public_key",
+                "--key",
+                str(key_path),
+                "--output",
+                str(pubkey_path),
+            ],
+            text=True,
+            stderr=subprocess.STDOUT,
+            env=self._avb_env(),
+        )
+        return pubkey_path
+
+    def _rebuild_vbmeta_images(self, partition_list: List[str]) -> None:
+        """Rebuild vbmeta images so the AVB chain matches repacked images."""
+        profile = self._collect_stock_avb_profile()
+        if not profile:
+            self.logger.info("Skipping vbmeta rebuild: stock AVB profile unavailable.")
+            return
+
+        avbtool = self.ota_tools_dir / "bin" / "avbtool"
+        key_path = self._get_avb_testkey_path()
+        if not avbtool.exists() or not key_path:
+            self.logger.info("Skipping vbmeta rebuild: avbtool or signing key unavailable.")
+            return
+
+        known_parts = set(partition_list)
+        vbmeta_info = cast(Dict[str, Any], profile["vbmeta"])
+        vbmeta_system_info = cast(Optional[Dict[str, Any]], profile.get("vbmeta_system"))
+        hash_parts = cast(set[str], profile["hash_parts"])
+        hashtree_parts = cast(set[str], profile["hashtree_parts"])
+        chain_parts = cast(List[Tuple[str, int]], profile["chain_parts"])
+
+        vbmeta_system_parts: List[str] = []
+        if vbmeta_system_info:
+            vbmeta_system_parts = [
+                p
+                for p in cast(List[str], vbmeta_system_info.get("hashtree_partitions", []))
+                if p in known_parts and (self.images_out / f"{p}.img").exists()
+            ]
+
+        if vbmeta_system_parts:
+            vbmeta_system_algo = self._algorithm_for_key(
+                str((vbmeta_system_info or {}).get("algorithm") or AVB_DEFAULT_ALGORITHM),
+                key_path,
+            )
+            vbmeta_system_img = self.images_out / "vbmeta_system.img"
+            cmd = [
+                str(avbtool),
+                "make_vbmeta_image",
+                "--output",
+                str(vbmeta_system_img),
+                "--key",
+                str(key_path),
+                "--algorithm",
+                vbmeta_system_algo,
+            ]
+            rollback_index = (vbmeta_system_info or {}).get("rollback_index")
+            if rollback_index is not None:
+                cmd.extend(["--rollback_index", str(rollback_index)])
+            flags = (vbmeta_system_info or {}).get("flags")
+            if flags is not None:
+                cmd.extend(["--flags", str(flags)])
+            for part in vbmeta_system_parts:
+                cmd.extend(
+                    [
+                        "--include_descriptors_from_image",
+                        str(self.images_out / f"{part}.img"),
+                    ]
+                )
+            self.shell.run(cmd, env=self._avb_env())
+            self.logger.info(
+                "Rebuilt vbmeta_system.img with partitions: %s",
+                ", ".join(vbmeta_system_parts),
+            )
+
+        include_parts = sorted((hash_parts | hashtree_parts) & known_parts)
+        if vbmeta_system_parts:
+            include_parts = [p for p in include_parts if p not in vbmeta_system_parts]
+
+        pubkey_path = self._extract_avb_public_key(avbtool, key_path)
+        chain_entries: List[Tuple[str, int]] = []
+        for name, loc in chain_parts:
+            if name == "vbmeta_system":
+                if not (self.images_out / "vbmeta_system.img").exists():
+                    continue
+            elif not (self.images_out / f"{name}.img").exists():
+                continue
+            chain_entries.append((name, loc))
+
+        vbmeta_algo = self._algorithm_for_key(
+            str(vbmeta_info.get("algorithm") or AVB_DEFAULT_ALGORITHM),
+            key_path,
+        )
+        vbmeta_img = self.images_out / "vbmeta.img"
+        cmd = [
+            str(avbtool),
+            "make_vbmeta_image",
+            "--output",
+            str(vbmeta_img),
+            "--key",
+            str(key_path),
+            "--algorithm",
+            vbmeta_algo,
+        ]
+        rollback_index = vbmeta_info.get("rollback_index")
+        if rollback_index is not None:
+            cmd.extend(["--rollback_index", str(rollback_index)])
+        flags = vbmeta_info.get("flags")
+        if flags is not None:
+            cmd.extend(["--flags", str(flags)])
+        for part in include_parts:
+            cmd.extend(
+                [
+                    "--include_descriptors_from_image",
+                    str(self.images_out / f"{part}.img"),
+                ]
+            )
+        for name, loc in chain_entries:
+            cmd.extend(["--chain_partition", f"{name}:{loc}:{pubkey_path}"])
+        self.shell.run(cmd, env=self._avb_env())
+        self.logger.info(
+            "Rebuilt vbmeta.img with include=%s chain=%s",
+            ",".join(include_parts),
+            ",".join(f"{name}:{loc}" for name, loc in chain_entries),
+        )
+
+    def _verify_avb_images(self) -> None:
+        """Verify top-level vbmeta and chained partitions before OTA packaging."""
+        vbmeta_img = self.images_out / "vbmeta.img"
+        if not vbmeta_img.exists():
+            self.logger.info("Skipping AVB verification: vbmeta.img not found in IMAGES.")
+            return
+
+        avbtool = self.ota_tools_dir / "bin" / "avbtool"
+        if not avbtool.exists():
+            raise RuntimeError(f"avbtool not found at {avbtool}, cannot verify AVB chain.")
+
+        cmd = [
+            str(avbtool),
+            "verify_image",
+            "--image",
+            str(vbmeta_img),
+            "--follow_chain_partitions",
+        ]
+        self.shell.run(cmd, env=self._avb_env())
+        self.logger.info("AVB verification succeeded for vbmeta chain.")
+
+    def _build_avb_misc_lines_from_stock(self, partition_list: List[str]) -> List[str]:
+        """Infer AVB-related misc_info lines from stock images."""
+        profile = self._collect_stock_avb_profile()
+        if not profile:
+            return []
+        vbmeta_info = cast(Dict[str, Any], profile["vbmeta"])
+
+        stock_images_dir = Path("build/stockrom/images")
+        vbmeta_system_info = self._run_avbtool_info_image(
+            self.ota_tools_dir / "bin" / "avbtool", stock_images_dir / "vbmeta_system.img"
+        )
+        boot_info = self._run_avbtool_info_image(
+            self.ota_tools_dir / "bin" / "avbtool", stock_images_dir / "boot.img"
+        )
+        recovery_info = self._run_avbtool_info_image(
+            self.ota_tools_dir / "bin" / "avbtool", stock_images_dir / "recovery.img"
+        )
+        testkey = self._get_avb_testkey_path()
+        if not testkey:
+            self.logger.warning("AVB testkey not found under otatools; skipping AVB misc_info hints.")
+            return []
+        key_algo = self._algorithm_for_key(AVB_DEFAULT_ALGORITHM, testkey)
+
+        known_parts = set(partition_list)
+        lines: List[str] = [
+            "avb_enable=true",
+            "avb_building_vbmeta_image=true",
+            "avb_avbtool=avbtool",
+            f"avb_vbmeta_key_path={testkey}",
+            f"avb_vbmeta_algorithm={key_algo}",
+        ]
+
+        chain_parts = cast(List[Tuple[str, int]], vbmeta_info.get("chain_partitions", []))
+        chain_loc_by_name = {name: loc for name, loc in chain_parts}
+
+        if vbmeta_system_info:
+            vbmeta_system_hashtree_parts = cast(
+                List[str], vbmeta_system_info.get("hashtree_partitions", [])
+            )
+            vbmeta_system_parts = [p for p in vbmeta_system_hashtree_parts if p in known_parts]
+            if vbmeta_system_parts:
+                lines.append(f"avb_vbmeta_system={' '.join(vbmeta_system_parts)}")
+                lines.append(f"avb_vbmeta_system_key_path={testkey}")
+                lines.append(
+                    "avb_vbmeta_system_algorithm="
+                    f"{key_algo}"
+                )
+                if vbmeta_system_info.get("rollback_index") is not None:
+                    lines.append(
+                        f"avb_vbmeta_system_rollback_index={vbmeta_system_info['rollback_index']}"
+                    )
+            if "vbmeta_system" in chain_loc_by_name:
+                lines.append(
+                    "avb_vbmeta_system_rollback_index_location="
+                    f"{chain_loc_by_name['vbmeta_system']}"
+                )
+
+        for part, part_info in (("boot", boot_info), ("recovery", recovery_info)):
+            if part not in known_parts:
+                continue
+            if part_info:
+                lines.append(f"avb_{part}_algorithm={key_algo}")
+                if part_info.get("rollback_index") is not None:
+                    lines.append(f"avb_{part}_rollback_index={part_info['rollback_index']}")
+            else:
+                lines.append(f"avb_{part}_algorithm={key_algo}")
+            lines.append(f"avb_{part}_key_path={testkey}")
+            if part in chain_loc_by_name:
+                lines.append(f"avb_{part}_rollback_index_location={chain_loc_by_name[part]}")
+            add_hash_args = self._build_footer_props_args(part, include_hash_algorithm=False)
+            if part_info and part_info.get("rollback_index") is not None:
+                add_hash_args.extend(["--rollback_index", str(part_info["rollback_index"])])
+            if add_hash_args:
+                lines.append(f"avb_{part}_add_hash_footer_args={' '.join(add_hash_args)}")
+
+        hash_parts = set(cast(List[str], profile.get("hash_parts", [])))
+        hashtree_parts = set(cast(List[str], profile.get("hashtree_parts", [])))
+        if vbmeta_system_info:
+            hashtree_parts.update(
+                cast(List[str], vbmeta_system_info.get("hashtree_partitions", []))
+            )
+
+        custom_parts = sorted(((hash_parts | hashtree_parts) - AOSP_AVB_PARTITIONS) & known_parts)
+        if custom_parts:
+            lines.append(f"avb_custom_images_partition_list={' '.join(custom_parts)}")
+            for part in custom_parts:
+                lines.append(f"avb_{part}_image_list={part}.img")
+
+        for part in sorted(hash_parts & known_parts):
+            lines.append(f"avb_{part}_hash_enable=true")
+            image = self.images_out / f"{part}.img"
+            if part in self._avb_partition_size:
+                lines.append(f"avb_{part}_partition_size={self._avb_partition_size[part]}")
+            elif image.exists():
+                lines.append(f"avb_{part}_partition_size={image.stat().st_size}")
+            add_hash_args = self._build_footer_props_args(part, include_hash_algorithm=False)
+            if add_hash_args:
+                lines.append(f"avb_{part}_add_hash_footer_args={' '.join(add_hash_args)}")
+
+        for part in sorted(hashtree_parts & known_parts):
+            lines.append(f"avb_{part}_hashtree_enable=true")
+            image = self.images_out / f"{part}.img"
+            if part in self._avb_partition_size:
+                lines.append(f"avb_{part}_partition_size={self._avb_partition_size[part]}")
+            elif image.exists():
+                lines.append(f"avb_{part}_partition_size={image.stat().st_size}")
+            add_hashtree_args = self._build_footer_props_args(part, include_hash_algorithm=True)
+            if add_hashtree_args:
+                lines.append(
+                    f"avb_{part}_add_hashtree_footer_args={' '.join(add_hashtree_args)}"
+                )
+
+        return lines
 
     def _generate_meta_info(self) -> None:
         """Generate ab_partitions.txt, dynamic_partitions_info.txt, misc_info.txt"""
         self.logger.info("Generating META info...")
+        self.meta_out.mkdir(parents=True, exist_ok=True)
         partition_list: List[str] = [
             img.stem for img in self.images_out.glob("*.img") if img.stem != "cust"
         ]
@@ -779,8 +1629,14 @@ class Repacker:
                 f"super_partition_size={super_size}\nsuper_partition_groups=qti_dynamic_partitions\nsuper_qti_dynamic_partitions_group_size={group_size}\nsuper_qti_dynamic_partitions_partition_list={' '.join(super_parts)}\nvirtual_ab=true\nvirtual_ab_compression=true\n"
             )
 
+        misc_lines = [
+            "recovery_api_version=3",
+            "fstab_version=2",
+            "ab_update=true",
+        ]
+        misc_lines.extend(self._build_avb_misc_lines_from_stock(partition_list))
         with open(self.meta_out / "misc_info.txt", "w") as f:
-            f.write("recovery_api_version=3\nfstab_version=2\nab_update=true\n")
+            f.write("\n".join(dict.fromkeys(misc_lines)) + "\n")
         with open(self.meta_out / "update_engine_config.txt", "w") as f:
             f.write("PAYLOAD_MAJOR_VERSION=2\nPAYLOAD_MINOR_VERSION=8\n")
 
