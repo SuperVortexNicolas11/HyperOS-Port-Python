@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import MagicMock
@@ -204,7 +205,9 @@ def test_apply_avb_to_custom_images_signs_non_aosp_partitions(monkeypatch, tmp_p
     assert any("com.android.build.mi_ext.fingerprint:test/fp" in cmd for cmd in cmds)
 
 
-def test_apply_avb_to_custom_images_chain_partitions_use_stock_size(monkeypatch, tmp_path: Path) -> None:
+def test_apply_avb_to_custom_images_chain_partitions_use_stock_size(
+    monkeypatch, tmp_path: Path
+) -> None:
     monkeypatch.chdir(tmp_path)
     images_out = tmp_path / "out/target/product/pudding/IMAGES"
     images_out.mkdir(parents=True)
@@ -421,7 +424,9 @@ def test_rebuild_vbmeta_images_follows_stock_structure(monkeypatch, tmp_path: Pa
 
     monkeypatch.setattr("src.core.packer.subprocess.check_output", fake_check_output)
 
-    repacker._rebuild_vbmeta_images(["boot", "recovery", "vbmeta_system", "system", "system_ext", "product", "dtbo"])
+    repacker._rebuild_vbmeta_images(
+        ["boot", "recovery", "vbmeta_system", "system", "system_ext", "product", "dtbo"]
+    )
 
     all_cmds = [call.args[0] for call in repacker.shell.run.call_args_list]
     assert any("make_vbmeta_image" in cmd for cmd in all_cmds)
@@ -521,3 +526,151 @@ def test_build_footer_props_args_from_target_props(monkeypatch, tmp_path: Path) 
     assert "com.android.build.vendor.fingerprint:foo/vendor" in joined
     assert "com.android.build.vendor.os_version:16" in joined
     assert "com.android.build.vendor.security_patch:2026-01-01" in joined
+
+
+def test_virtual_ab_compression_method_added_when_enabled(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.chdir(tmp_path)
+    images_out = tmp_path / "out/target/product/pudding/IMAGES"
+    images_out.mkdir(parents=True)
+    (images_out / "system.img").write_bytes(b"x")
+
+    target_dir = tmp_path / "target"
+    (target_dir / "vendor").mkdir(parents=True)
+    (target_dir / "vendor" / "build.prop").write_text(
+        "ro.virtual_ab.compression.enabled=true\n",
+        encoding="utf-8",
+    )
+
+    def get_target_prop_file(part: str):  # type: ignore[no-untyped-def]
+        p = target_dir / part / "build.prop"
+        return p if p.exists() else None
+
+    ctx = SimpleNamespace(
+        stock_rom_code="pudding",
+        device_config={"pack": {"super_size": 13411287040}},
+        target_dir=target_dir,
+        get_target_prop_file=get_target_prop_file,
+    )
+    repacker = Repacker(ctx)
+
+    monkeypatch.setattr(
+        repacker,
+        "_build_avb_misc_lines_from_stock",
+        lambda _parts: ["avb_enable=true"],
+    )
+
+    repacker._generate_meta_info()
+
+    misc_info = (tmp_path / "out/target/product/pudding/META/misc_info.txt").read_text(
+        encoding="utf-8"
+    )
+    assert "virtual_ab_compression=true" in misc_info
+    assert "virtual_ab_compression_method=lz4" in misc_info
+    assert "virtual_ab_cow_version=3" in misc_info
+    assert "virtual_ab_compression_factor=65536" in misc_info
+
+
+def test_virtual_ab_compression_method_not_added_when_disabled(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.chdir(tmp_path)
+    images_out = tmp_path / "out/target/product/pudding/IMAGES"
+    images_out.mkdir(parents=True)
+    (images_out / "system.img").write_bytes(b"x")
+
+    target_dir = tmp_path / "target"
+    (target_dir / "vendor").mkdir(parents=True)
+    (target_dir / "vendor" / "build.prop").write_text(
+        "ro.virtual_ab.compression.enabled=false\n",
+        encoding="utf-8",
+    )
+
+    def get_target_prop_file(part: str):  # type: ignore[no-untyped-def]
+        p = target_dir / part / "build.prop"
+        return p if p.exists() else None
+
+    ctx = SimpleNamespace(
+        stock_rom_code="pudding",
+        device_config={"pack": {"super_size": 13411287040}},
+        target_dir=target_dir,
+        get_target_prop_file=get_target_prop_file,
+    )
+    repacker = Repacker(ctx)
+
+    monkeypatch.setattr(
+        repacker,
+        "_build_avb_misc_lines_from_stock",
+        lambda _parts: ["avb_enable=true"],
+    )
+
+    repacker._generate_meta_info()
+
+    misc_info = (tmp_path / "out/target/product/pudding/META/misc_info.txt").read_text(
+        encoding="utf-8"
+    )
+    assert "virtual_ab_compression=true" not in misc_info
+    assert "virtual_ab_compression_method=lz4" not in misc_info
+    assert "virtual_ab_cow_version=3" not in misc_info
+    assert "virtual_ab_compression_factor=65536" not in misc_info
+
+
+def test_virtual_ab_uses_metadata_from_partition_info(monkeypatch, tmp_path: Path) -> None:
+    """Test that VABC settings are read from partition_info.json when available."""
+    monkeypatch.chdir(tmp_path)
+    images_out = tmp_path / "out/target/product/pudding/IMAGES"
+    images_out.mkdir(parents=True)
+    (images_out / "system.img").write_bytes(b"x")
+
+    target_dir = tmp_path / "target"
+    (target_dir / "vendor").mkdir(parents=True)
+    (target_dir / "vendor" / "build.prop").write_text(
+        "ro.virtual_ab.compression.enabled=false\n",
+        encoding="utf-8",
+    )
+
+    devices_dir = tmp_path / "devices" / "pudding"
+    devices_dir.mkdir(parents=True)
+    partition_info_path = devices_dir / "partition_info.json"
+    partition_info_path.write_text(
+        json.dumps(
+            {
+                "device_code": "pudding",
+                "super_size": 13411287040,
+                "dynamic_partitions": ["system", "vendor"],
+                "dynamic_partition_metadata": {
+                    "cow_version": 3,
+                    "compression_factor": 32768,
+                    "snapshot_enabled": True,
+                    "vabc_enabled": True,
+                    "vabc_compression_param": "gz",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    def get_target_prop_file(part: str):
+        p = target_dir / part / "build.prop"
+        return p if p.exists() else None
+
+    ctx = SimpleNamespace(
+        stock_rom_code="pudding",
+        device_config={"pack": {"super_size": 13411287040}},
+        target_dir=target_dir,
+        get_target_prop_file=get_target_prop_file,
+    )
+    repacker = Repacker(ctx)
+
+    monkeypatch.setattr(
+        repacker,
+        "_build_avb_misc_lines_from_stock",
+        lambda _parts: ["avb_enable=true"],
+    )
+
+    repacker._generate_meta_info()
+
+    misc_info = (tmp_path / "out/target/product/pudding/META/misc_info.txt").read_text(
+        encoding="utf-8"
+    )
+    assert "virtual_ab_compression=true" in misc_info
+    assert "virtual_ab_compression_method=gz" in misc_info
+    assert "virtual_ab_cow_version=3" in misc_info
+    assert "virtual_ab_compression_factor=32768" in misc_info
