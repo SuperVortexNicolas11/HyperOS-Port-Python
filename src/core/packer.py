@@ -1038,6 +1038,11 @@ class Repacker:
         return parse_avbtool_info_output(output)
 
     def _get_avb_testkey_path(self) -> Optional[Path]:
+        custom_key: Optional[Path] = getattr(self.ctx, "avb_key_path", None)
+        if custom_key and custom_key.exists():
+            self.logger.info(f"Using custom AVB key: {custom_key}")
+            return custom_key
+
         candidates = [
             self.ota_tools_dir / "build/make/target/product/security/testkey.pem",
             self.ota_tools_dir / "security/testkey.pem",
@@ -1045,6 +1050,22 @@ class Repacker:
         for candidate in candidates:
             if candidate.exists():
                 return candidate
+
+        pk8_path = self.ota_tools_dir / "build/make/target/product/security/testkey.pk8"
+        pem_path = self.ota_tools_dir / "build/make/target/product/security/testkey.pem"
+        if pk8_path.exists() and not pem_path.exists():
+            try:
+                import subprocess
+                subprocess.run(
+                    ["openssl", "pkcs8", "-in", str(pk8_path), "-inform", "DER",
+                     "-out", str(pem_path), "-nocrypt"],
+                    check=True, capture_output=True
+                )
+                self.logger.info(f"Generated AVB signing key from {pk8_path.name}")
+                return pem_path
+            except Exception as e:
+                self.logger.warning(f"Failed to generate key from {pk8_path}: {e}")
+
         return None
 
     def _collect_stock_avb_profile(self) -> Dict[str, Any]:
@@ -1655,10 +1676,33 @@ class Repacker:
                 "product_dlkm",
             ]
         ]
-        with open(self.meta_out / "dynamic_partitions_info.txt", "w") as f:
-            f.write(
-                f"super_partition_size={super_size}\nsuper_partition_groups=qti_dynamic_partitions\nsuper_qti_dynamic_partitions_group_size={group_size}\nsuper_qti_dynamic_partitions_partition_list={' '.join(super_parts)}\nvirtual_ab=true\nvirtual_ab_compression=true\n"
+
+        dp_lines = [
+            f"super_partition_size={super_size}",
+            "super_partition_groups=qti_dynamic_partitions",
+            f"super_qti_dynamic_partitions_group_size={group_size}",
+            f"super_qti_dynamic_partitions_partition_list={' '.join(super_parts)}",
+            "virtual_ab=true",
+        ]
+
+        if self._is_virtual_ab_compression_enabled():
+            dp_lines.append("virtual_ab_compression=true")
+            metadata = self._get_dynamic_partition_metadata()
+            compression_method = (
+                metadata.get("vabc_compression_param", "lz4") if metadata else "lz4"
             )
+            cow_version = metadata.get("cow_version", 3) if metadata else 3
+            compression_factor = metadata.get("compression_factor", 65536) if metadata else 65536
+            dp_lines.append(f"virtual_ab_compression_method={compression_method}")
+            dp_lines.append(f"virtual_ab_cow_version={cow_version}")
+            dp_lines.append(f"virtual_ab_compression_factor={compression_factor}")
+            self.logger.info(
+                f"Virtual A/B compression enabled: method={compression_method}, "
+                f"cow_version={cow_version}, factor={compression_factor}"
+            )
+
+        with open(self.meta_out / "dynamic_partitions_info.txt", "w") as f:
+            f.write("\n".join(dp_lines) + "\n")
 
         misc_lines = [
             "recovery_api_version=3",
@@ -1667,6 +1711,7 @@ class Repacker:
         ]
         misc_lines.extend(self._build_avb_misc_lines_from_stock(partition_list))
 
+        # Also write VABC parameters to misc_info.txt for ota_from_target_files
         if self._is_virtual_ab_compression_enabled():
             misc_lines.append("virtual_ab_compression=true")
             metadata = self._get_dynamic_partition_metadata()
@@ -1678,10 +1723,6 @@ class Repacker:
             misc_lines.append(f"virtual_ab_compression_method={compression_method}")
             misc_lines.append(f"virtual_ab_cow_version={cow_version}")
             misc_lines.append(f"virtual_ab_compression_factor={compression_factor}")
-            self.logger.info(
-                f"Virtual A/B compression enabled: method={compression_method}, "
-                f"cow_version={cow_version}, factor={compression_factor}"
-            )
 
         with open(self.meta_out / "misc_info.txt", "w") as f:
             f.write("\n".join(dict.fromkeys(misc_lines)) + "\n")
